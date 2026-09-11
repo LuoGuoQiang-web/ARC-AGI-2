@@ -270,15 +270,26 @@
 |---|---|
 | `ARC_PRIZE_2026_MASTER_BRIEF.md` | **本文件**，唯一权威来源 |
 | `arc_prize_v1/arc_prize_v1.py` | **v1 引擎**（ARC-AGI-2 求解器 + 运行/备份/续跑/自评外壳，纯标准库、离线、CPU） |
-| `arc_prize_v1/KAGGLE_CELLS.md` | Kaggle Notebook 逐格复制粘贴手册 + 提交前检查清单 |
+| `arc_prize_v1/ARC_PRIZE_2026_v1.ipynb` | **开箱即用的 Kaggle Notebook**（引擎内嵌，上传即用；由 `tools/build_notebook.py` 生成） |
+| `arc_prize_v1/BASELINE_V1.md` | **真实基线报告**（评估集 0.00%、训练集 3.16% + 失败诊断） |
+| `arc_prize_v1/LOO_PROBE.md` | 留一法探针：采纳精度 64.19%，证明瓶颈是表达力而非验证 |
+| `arc_prize_v1/KAGGLE_CELLS.md` | Kaggle 操作手册（上传法 + 手动粘贴法 + 速查 + 故障排查） |
 | `arc_prize_v1/README.md` | v1 设计说明、测试证据、局限与 v2 方向 |
-| `arc_prize_v1/tests/` | 合成 fixture、端到端自测（31 项）、真实规模性能探针 |
+| `arc_prize_v1/tests/` | `selftest`(36 项) / `eval_local`(真实测量) / `loo_probe`(留一法) / `make_fixture` / `perf_probe` / `run_notebook_dryrun` |
+| `arc_prize_v1/tools/build_notebook.py` | 从引擎生成 Notebook，并校验内嵌源码逐字节一致（`--check` 检测过期） |
+| `arc_prize_v1/evidence/` | **结论依据**：评估集 167 行 / 训练集 1076 行逐题诊断 CSV + 列说明 |
+| `AGENTS.md` | 仓库级 agent 指引 + MattSkills 的 `## Agent skills` 配置块 |
+| `docs/agents/` | MattSkills 初始化产物：`issue-tracker.md` / `triage-labels.md` / `domain.md` |
+| `.gitignore` | 排除凭据、第三方数据、运行产物（**`kaggle.json` 在其中，绝不可入库**） |
 | `NOTE.md` | Paper Track 数据页原文（证实「无数据集」，代码须落在 ARC-AGI-2） |
 | `arc_prize_2026_8week_plan.md` | 历史版本（v2），已被本文件取代 |
 | `kaggle_winning_odds_2026-09.md` | 全赛道「拿下把握」评估 |
 | `kaggle_materials_competitions.md` | 材料/铝合金竞赛调研（背景资料） |
 | `rsna_efficiency_lb.csv` | RSNA 效率榜原始数据（3,278 行，佐证判断） |
-| `kaggle.json` | Kaggle 凭据（**不得外泄、不得提交到仓库**） |
+| `kaggle.json` | Kaggle 凭据（**不得外泄、不得提交到仓库**；本机存在但被 git 忽略） |
+| `ARC-AGI-2-main/` | 官方数据克隆（第三方，被 git 忽略；换机器用 `git clone --depth 1` 重建） |
+
+**远端**：`https://github.com/LuoGuoQiang-web/ARC-AGI-2`（私有）｜仓库 28 个文件｜换机器流程见 §16
 
 ---
 
@@ -298,6 +309,34 @@
 
 1. 读 §0 当前状态，核对当前日期与 §2.3 的硬截止。
 2. 读 §2 全部事实——**不要重新联网查证已核实项**，只在发现矛盾时复查。
-3. 确认阻塞项（§0）是否解除；未解除则只推进不依赖 GPU 的工作（规则核实、文献调研、方案设计）。
+3. 确认阻塞项（§0）是否解除；未解除则只推进不依赖 GPU 的工作（规则验证、文献调研、方案设计、本地测量）。
 4. 按 §11 执行当前周任务，完成后更新 §0 与对应周的状态。
 5. 每次会话结束前更新：当前阶段、已花预算、下一个动作、阻塞项。
+
+---
+
+## 16. 换机器 / 新环境启动流程（2026-09-11 实测）
+
+代码 100% 可移植：仓库已跟踪文件里**零处** `dsh-tools` 依赖，引擎路径全是环境探测
+（`/kaggle/working` 存在则用它，否则相对路径 `./arcprize_runtime`；数据根为相对 `./data`、`.`）。
+
+**跟着 Git 走**：引擎、Notebook、6 个测试、工具、全部文档、2 份证据 CSV、`AGENTS.md`、MattSkills 配置。
+**跟着账号走（云端）**：GitHub 仓库、Kaggle Notebook 及其已保存版本。
+**必须在新机器重建**：
+
+```powershell
+npm install -g @deepseek-ai/dsh                       # 1. harness 本体
+#    2. 装 git + GitHub CLI，然后 gh auth login
+#       （winget 的 github.com/releases 源可能被墙；本次实测用清华镜像装 git、
+#        用 api.github.com 资产通道装 gh，见 §0 已解决栏）
+git clone https://github.com/LuoGuoQiang-web/ARC-AGI-2.git Kaggle   # 3. 代码
+cd Kaggle
+git clone --depth 1 https://github.com/arcprize/ARC-AGI-2.git ARC-AGI-2-main  # 4. 官方数据（被 git 忽略）
+python arc_prize_v1/tests/selftest.py                 # 5. 应输出 36/36
+python arc_prize_v1/tests/eval_local.py               # 6. 应复现 0.00%（评估集）
+python arc_prize_v1/tests/eval_local.py --dataset training   #    应复现 3.16%（训练集）
+```
+
+**不需要迁移**：本机 `kaggle.json`（凭据，靠 Kaggle 账号重下）、运行历史 `arcprize_runtime/`
+（全量重跑评估集 6 秒、训练集 31 秒）、本次对话上下文（§0 就是为此写的）。
+DSH 历史会话存在 `C:\Users\LRDC07\.dsh`，理论上可整目录拷贝到新机同路径，**跨机恢复未实测**，不要依赖。
