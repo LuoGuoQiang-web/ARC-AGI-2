@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.selftest_tmp/
+arcprize_runtime/
+*_runtime/
+fixture_data/
