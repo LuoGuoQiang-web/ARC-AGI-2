@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Users\LRDC07\Desktop\Kaggle\_extract.py", line 9, in <module>
-    print(f'[{p.style.name}] {p.text}')
-              ^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'name'
