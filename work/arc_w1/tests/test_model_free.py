@@ -351,6 +351,23 @@ def main() -> int:
     finally:
         S.torch = real_torch
 
+    # ---- T12: the search-width knobs are reachable from the CLI ----------------------
+    # Without these the pool-recall experiment is impossible, and pool recall is the
+    # binding constraint (selection_headroom was 0.0 on the first eval probe).
+    d = S.parse_args(["--dfs-prob-threshold", "0.1", "--dfs-max-branches", "4",
+                      "--dfs-max-nodes", "12000"])
+    check("T12a CLI exposes the search width",
+          (d.dfs_prob_threshold, d.dfs_max_branches, d.dfs_max_nodes) == (0.1, 4, 12000),
+          f"{d.dfs_prob_threshold}/{d.dfs_max_branches}/{d.dfs_max_nodes}")
+    d0 = S.parse_args([])
+    check("T12b shipped defaults unchanged",
+          (d0.dfs_prob_threshold, d0.dfs_max_branches, d0.dfs_max_nodes) == (0.2, 3, 6000),
+          f"{d0.dfs_prob_threshold}/{d0.dfs_max_branches}/{d0.dfs_max_nodes}")
+    import math as _math
+    check("T12c probability maps to the log threshold the DFS compares against",
+          abs(_math.log(d0.dfs_prob_threshold) - S.DFS_TOKEN_LOGPROB_THRESHOLD) < 1e-9,
+          f"{S.DFS_TOKEN_LOGPROB_THRESHOLD}")
+
     # ---- report ---------------------------------------------------------------------
     print()
     for name in sorted(COUNTS):

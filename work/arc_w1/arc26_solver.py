@@ -2166,6 +2166,16 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                         help="TTT / prompt truncation length")
     parser.add_argument("--cache-budget-gb", type=float, default=DFS_DEFAULT_CACHE_BUDGET_GB,
                         help="KV-cache budget for live DFS beams, in GiB")
+    # Search width. These are the only levers that can raise pool recall, which is the
+    # binding constraint: on the 2026-09-14 eval probe `selection_headroom` was 0.0, i.e.
+    # the truth was never generated, so no reranking change could have helped.
+    parser.add_argument("--dfs-prob-threshold", type=float, default=DFS_TOKEN_PROB_THRESHOLD,
+                        help="prune DFS branches whose token probability is below this "
+                             "(default 0.2; lower = wider search = more coverage, slower)")
+    parser.add_argument("--dfs-max-branches", type=int, default=DFS_MAX_BRANCHES_PER_BEAM,
+                        help="child cap per beam (default 3; memory guard)")
+    parser.add_argument("--dfs-max-nodes", type=int, default=DFS_MAX_NODES,
+                        help="global node budget per DFS call (default 6000)")
     parser.add_argument("--seed", type=int, default=0, help="random seed")
     return parser.parse_args(argv)
 
@@ -2527,6 +2537,14 @@ def run_cascade(ctx: RunContext) -> None:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """Run the solver. Returns an exit code; never raises out of the notebook cell."""
     args = parse_args(argv)
+    # `turbo_dfs` / `constrained_generate` read these as module globals at call time, so
+    # assigning here is what actually changes the search width for this run.
+    global DFS_TOKEN_PROB_THRESHOLD, DFS_TOKEN_LOGPROB_THRESHOLD
+    global DFS_MAX_BRANCHES_PER_BEAM, DFS_MAX_NODES
+    DFS_TOKEN_PROB_THRESHOLD = float(args.dfs_prob_threshold)
+    DFS_TOKEN_LOGPROB_THRESHOLD = math.log(max(1e-6, min(1.0, DFS_TOKEN_PROB_THRESHOLD)))
+    DFS_MAX_BRANCHES_PER_BEAM = max(1, int(args.dfs_max_branches))
+    DFS_MAX_NODES = max(100, int(args.dfs_max_nodes))
     rng = random.Random(args.seed)
     np.random.seed(args.seed)
 
@@ -2549,6 +2567,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                   if torch is not None else "unavailable"),
         "peak_mem_gb": 0.0,
         "args": vars(args),
+        "dfs": {"prob_threshold": DFS_TOKEN_PROB_THRESHOLD,
+                "max_branches": DFS_MAX_BRANCHES_PER_BEAM,
+                "max_nodes": DFS_MAX_NODES},
         "model_dir": args.model_dir,
         "model_load_seconds": None,
         "model_error": None,
