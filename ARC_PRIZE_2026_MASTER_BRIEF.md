@@ -82,13 +82,24 @@
 - **ARC-AGI-2 计分**：每个测试输入需预测**恰好 2 个输出**，任一完全匹配即该题得 1 分，最终取平均。
 - **时间线**：2026-03-25 开赛 → **11-02 代码提交** → **11-08 论文（Kaggle 页面显示 11-09T23:59Z）** → 12-04 公布结果。
 
-### 2.4 Kaggle 免费 GPU 事实
+### 2.4 Kaggle 免费 GPU 事实（**2026-09-14 全面修订**）
 
-- **手机验证是开启 GPU/TPU/Internet 的前置条件**（`kaggle.com/settings` → Phone Verification）。
-- 加速器：**GPU T4 x2**（2×16 GB，**仅 fp16，不支持 bf16**）；**P100 于 2026-09-15 下线**；TPU VM v3-8。
-- 额度：GPU ≈ **30 小时/周**、TPU ≈ 20 小时/周，按周重置；**单会话上限 12 小时**；空闲约 20 分钟断开。
-- **额度无法通过 API 读取**（我们实测 `KernelsService` 下 12 个候选端点全部 404），只能在 Notebook 的 **Session options → Accelerator** 面板查看。
-- 目录：`/kaggle/input` 只读；`/kaggle/working` 可写、随版本保存（约 20 GB）；`/kaggle/temp` 临时。
+- **手机验证是开启 GPU/TPU/Internet 的前置条件**（`kaggle.com/settings` → Phone Verification）。✅ 本账号已通过。
+- 加速器：**必须显式指定 `machine_shape`**。只设 `enable_gpu=true` 会得到通用 `Gpu` 形状，实测被分到
+  **Tesla P100（sm_60）**，而 torch 2.10+cu128 只支持 sm_70+ → **每个 CUDA 算子都失败、每题异常被
+  吞掉、报告 `errors` 为空、静默产出 100% 兜底提交**。正确值：**`machine_shape = "NvidiaTeslaT4"`**。
+- 额度（`api.quota_view()` 实测，**取代此前所有记录**）：
+  - **GPU `totalTimeAllowed = 21,600s` = 6.0 小时/周期**（不是 30 小时！`isPayToScaleEnabled=false`）
+  - 已用 `timeUsed ≈ 84,916s` = **23.59 小时 = 额度的 3.9 倍**；刷新时间 **2026-09-19T00:00Z**（约每周）
+  - TPU `totalTimeAllowed = 72,000s` = 20 小时，**完全未使用**
+  - 记账精确到秒且**实时**（两次冒烟使计数 +618s 已核对）
+- **额度可以通过 API 读取**（此前记为"读不到"，已推翻）：`KaggleApi().quota_view()`，亦见 CLI `kaggle quota`。
+- 实测成本：**完整 240 题提交 = 37,963s（10.5h）**，其中 Stage A 30,600s、Stage B 7,266s；
+  模型加载 84–140s/run。→ **完整提交超过单个 6h 周期，必须分片跨周期 + 合并**。
+  分配方案与真实成本表见 `work/arc_w1/QUOTA_PLAN.md`。
+- 单会话上限 12 小时；空闲约 20 分钟断开。
+- 目录：`/kaggle/input` 只读（竞赛数据实际挂在 `/kaggle/input/competitions/<slug>/`，引擎会自动定位）；
+  `/kaggle/working` 可写、随版本保存；`/kaggle/temp` 临时。
 - 离线：竞赛环境无网 → 模型权重/数据需上传为 Kaggle Dataset 后挂载；无网装不了 pip 包，只能用镜像预装的或挂载 wheel。
 - 用户账号现状：`luoguoqiang`，已有 3 个 Notebook，**全部 `enableGpu=False`、`enableInternet=False`**（从未启用过加速器）。
 
