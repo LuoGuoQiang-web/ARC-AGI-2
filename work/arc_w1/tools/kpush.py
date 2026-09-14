@@ -121,7 +121,15 @@ def build_notebook(solver_text: str, argv: str) -> dict:
 
 
 def build_metadata(slug: str, title: str, gpu: bool, private: bool, internet: bool,
-                   competition: str | None, model: str | None) -> dict:
+                   competition: str | None, model: str | None,
+                   machine_shape: str = "NvidiaTeslaT4") -> dict:
+    # Kaggle derives the *actual* kernel slug from the title, so a title that does not
+    # slugify back to `slug` silently creates a different ref (observed: title
+    # "arc26 diag smoke (pool recall)" produced slug "arc26-diag-smoke-pool-recall",
+    # and every later lookup by the intended slug failed). Keep them consistent by
+    # deriving the title from the slug unless the caller gives an exact match.
+    if not title or _slugify(title) != slug:
+        title = slug.replace("-", " ")
     return {
         "id": f"{OWNER}/{slug}",
         "title": title,
@@ -131,12 +139,29 @@ def build_metadata(slug: str, title: str, gpu: bool, private: bool, internet: bo
         "is_private": bool(private),
         "enable_gpu": bool(gpu),
         "enable_tpu": False,
+        # Load-bearing: with only enable_gpu=true Kaggle assigns the generic "Gpu" shape
+        # and may hand out a Tesla P100 (sm_60), which torch 2.10+cu128 cannot execute at
+        # all -- every task then fails, is caught per-task, and the run silently emits an
+        # all-fallback submission with an empty `errors` list. The author's working kernels
+        # all pinned NvidiaTeslaT4; do the same by default.
+        "machine_shape": machine_shape,
         "enable_internet": bool(internet),
         "dataset_sources": [],
         "competition_sources": [competition] if competition else [],
         "kernel_sources": [],
         "model_sources": [model] if model else [],
     }
+
+
+def _slugify(text: str) -> str:
+    """Approximate Kaggle's slug rules: lowercase, non-alphanumerics -> single dash."""
+    out = []
+    for ch in text.lower():
+        if ch.isalnum():
+            out.append(ch)
+        elif out and out[-1] != "-":
+            out.append("-")
+    return "".join(out).strip("-")
 
 
 def get_api():
@@ -158,6 +183,8 @@ def main() -> int:
     ap.add_argument("--argv", default="--split evaluation --limit 3 --time-budget-seconds 1800",
                     help="arguments to pin inside the notebook")
     ap.add_argument("--no-gpu", action="store_true", help="disable the GPU accelerator")
+    ap.add_argument("--machine-shape", default="NvidiaTeslaT4",
+                    help="accelerator shape (default NvidiaTeslaT4; never leave it generic)")
     ap.add_argument("--public", action="store_true", help="make the kernel public (default: private)")
     ap.add_argument("--internet", action="store_true", help="enable internet (must stay OFF for scored runs)")
     ap.add_argument("--no-competition", action="store_true", help="do not attach the competition data")
@@ -212,7 +239,7 @@ def main() -> int:
     nb = build_notebook(solver_text, args.argv)
     meta = build_metadata(args.slug, args.title or args.slug, not args.no_gpu, not args.public,
                           args.internet, None if args.no_competition else COMPETITION,
-                          None if args.no_model else MODEL_SOURCE)
+                          None if args.no_model else MODEL_SOURCE, args.machine_shape)
 
     build = BUILD_DIR / args.slug
     if build.exists():

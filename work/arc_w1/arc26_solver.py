@@ -676,6 +676,46 @@ def describe_gpu() -> str:
         return f"error: {exc}"
 
 
+def assert_gpu_compatible() -> str:
+    """Abort loudly when the assigned GPU cannot execute this PyTorch build.
+
+    Kaggle assigns a machine shape per run. With the generic ``Gpu`` shape it handed us a
+    Tesla P100 (compute capability 6.0 / sm_60) while the shipped torch 2.10+cu128 only
+    carries sm_70..sm_120. Every CUDA op then fails with ``cudaErrorNoKernelImageForDevice``;
+    because each task is wrapped in a per-task handler, the run still "succeeds" and
+    silently emits an all-fallback submission with an **empty** ``errors`` list -- a wasted
+    submission slot that is invisible in the report. Observed 2026-09-14 on
+    ``arc26-diag-smoke`` (0/2, every attempt a fallback).
+
+    Request ``machine_shape = NvidiaTeslaT4`` (``tools/kpush.py`` does this by default) and
+    keep this guard as the seatbelt. Returns the device description for logging.
+    """
+    if torch is None:
+        raise RuntimeError("torch is not importable in this environment")
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA is not available: this solver needs a GPU "
+                           "(a 3.63B bf16 model has no CPU fallback inside the budget)")
+    described = []
+    try:
+        supported = list(torch.cuda.get_arch_list())
+    except Exception:
+        supported = []
+    for i in range(torch.cuda.device_count()):
+        major, minor = torch.cuda.get_device_capability(i)
+        name = torch.cuda.get_device_name(i)
+        sm = f"sm_{major}{minor}"
+        described.append(f"{name} ({sm})")
+        if supported and sm not in supported:
+            raise RuntimeError(
+                f"GPU {i} = {name} is {sm}, but this PyTorch build only supports "
+                f"{', '.join(supported)}. Every CUDA op would fail with "
+                f"'no kernel image is available for execution on the device' and the run "
+                f"would silently emit an all-fallback submission. "
+                f"Rerun with machine_shape=NvidiaTeslaT4 (tools/kpush.py sets it by default)."
+            )
+    return "; ".join(described)
+
+
 def _import_ml():
     """Lazy import of ``transformers`` so the pure helpers stay testable.
 
@@ -697,6 +737,8 @@ def load_model_and_tokenizer(model_dir: str, attn_impl: Optional[str] = None):
     """Load the 3.63B bf16 Qwen3ForCausalLM on GPU 0 plus its 16-token tokenizer."""
     if torch is None:
         raise RuntimeError("torch is not importable in this environment")
+    # Fail fast on an incompatible accelerator *before* spending a model load on it.
+    assert_gpu_compatible()
     _import_ml()
     from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: WPS433
 

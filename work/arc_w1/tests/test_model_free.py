@@ -296,6 +296,61 @@ def main() -> int:
         check("T10b truth injected is detected", rec2["n_in_pool"] == 1 and rec2["n_top1"] == 1, 1,
               [str(rec2)])
 
+    # ---- T11: GPU compatibility guard (fake torch -- no GPU needed) ------------------
+    class _FakeCuda:
+        def __init__(self, names, caps, archs, available=True):
+            self._n, self._c, self._a, self._av = names, caps, archs, available
+
+        def is_available(self):
+            return self._av
+
+        def device_count(self):
+            return len(self._n)
+
+        def get_device_name(self, i):
+            return self._n[i]
+
+        def get_device_capability(self, i):
+            return self._c[i]
+
+        def get_arch_list(self):
+            return list(self._a)
+
+    class _FakeTorch:
+        def __init__(self, cuda):
+            self.cuda = cuda
+
+    real_torch = S.torch
+    try:
+        # exactly the failure that broke the 2026-09-14 smoke run: P100 (sm_60) vs torch's sm_70+
+        S.torch = _FakeTorch(_FakeCuda(["Tesla P100-PCIE-16GB"], [(6, 0)],
+                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]))
+        try:
+            S.assert_gpu_compatible()
+            check("T11a rejects the P100 that broke the smoke run", False, 1,
+                  ["no exception raised -> run would emit an all-fallback submission"])
+        except RuntimeError as exc:
+            check("T11a rejects the P100 that broke the smoke run",
+                  "NvidiaTeslaT4" in str(exc) and "sm_60" in str(exc), 1, [str(exc)[:140]])
+
+        S.torch = _FakeTorch(_FakeCuda(["Tesla T4", "Tesla T4"], [(7, 5), (7, 5)],
+                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]))
+        try:
+            desc = S.assert_gpu_compatible()
+            check("T11b accepts T4", "Tesla T4" in desc, 1, [desc])
+        except Exception as exc:
+            check("T11b accepts T4", False, 1, [repr(exc)[:140]])
+
+        S.torch = _FakeTorch(_FakeCuda([], [], [], available=False))
+        try:
+            S.assert_gpu_compatible()
+            check("T11c refuses a CPU-only runtime", False, 1, ["no exception"])
+        except RuntimeError as exc:
+            check("T11c refuses a CPU-only runtime", "CUDA is not available" in str(exc), 1,
+                  [str(exc)[:120]])
+    finally:
+        S.torch = real_torch
+
     # ---- report ---------------------------------------------------------------------
     print()
     for name in sorted(COUNTS):
