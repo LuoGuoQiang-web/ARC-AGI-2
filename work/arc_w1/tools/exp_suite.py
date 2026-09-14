@@ -61,10 +61,12 @@ PRESETS: dict[str, str] = {
 }
 
 
-def build_and_push(name: str, argv: str, dry_run: bool) -> str:
+def build_and_push(name: str, argv: str, dry_run: bool,
+                   extras: list[tuple[str, str]] | None = None) -> str:
     slug = f"arc26-exp-{name}"
     solver_text = (ARC_W1 / "arc26_solver.py").read_text(encoding="utf-8")
-    nb = K.build_notebook(solver_text, argv)
+    extras = extras or []
+    nb = K.build_notebook(solver_text, argv, extras)
     meta = K.build_metadata(slug, slug.replace("-", " "), True, True, False,
                             K.COMPETITION, K.MODEL_SOURCE, "NvidiaTeslaT4")
     build = BUILD_ROOT / slug
@@ -72,6 +74,8 @@ def build_and_push(name: str, argv: str, dry_run: bool) -> str:
     (build / f"{slug}.ipynb").write_text(json.dumps(nb, ensure_ascii=False), encoding="utf-8")
     (build / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     print(f"  built {slug}: {argv}")
+    if extras:
+        print(f"    + {len(extras)} extra file cell(s): {[r for r, _ in extras]}")
     if not dry_run:
         K.get_api().kernels_push(str(build))
         print(f"  pushed {K.OWNER}/{slug}")
@@ -122,6 +126,8 @@ def metrics(slug: str, rep_path: Path) -> dict:
         "elapsed_s": round(rep.get("elapsed_seconds") or 0.0, 0),
         "peak_gb": rep.get("peak_mem_gb"),
         "engine": (rep.get("engine") or {}).get("status"),
+        "eng_valid": (rep.get("engine") or {}).get("n_tasks_validated"),
+        "eng_prior": (rep.get("engine") or {}).get("n_tasks_prior_only"),
     }
 
 
@@ -132,20 +138,22 @@ def pct(x) -> str:
 def print_table(rows: list[dict]) -> None:
     cols = [("config", 10), ("dfs p/b/n", 12), ("scored", 7), ("solved", 7), ("acc", 7),
             ("recall", 8), ("in_pool", 8), ("headroom", 9), ("A s/task", 9),
-            ("B tasks", 8), ("ttt steps", 10), ("elapsed", 8), ("peak GB", 8)]
+            ("B tasks", 8), ("ttt steps", 10), ("engine", 14), ("elapsed", 8), ("peak GB", 8)]
     head = "".join(f"{c:<{w}}" for c, w in cols)
     print()
     print("=" * len(head))
     print(head)
     print("-" * len(head))
     for r in rows:
+        eng = f"{r['engine']}/v{r['eng_valid']}" if r.get("eng_valid") is not None else str(r["engine"])
         print(f"{r['config']:<10}{r['dfs']:<12}{r['scored']:<7}{r['solved']:<7}"
               f"{pct(r['acc']):<7}{pct(r['recall']):<8}{str(r['in_pool'] if r['in_pool'] is not None else '-'):<8}"
               f"{pct(r['headroom']):<9}{r['A_s']:<9}{str(r['B_tasks']):<8}{r['ttt_steps']:<10}"
-              f"{r['elapsed_s']:<8}{str(r['peak_gb']):<8}")
+              f"{eng:<14}{r['elapsed_s']:<8}{str(r['peak_gb']):<8}")
     print("=" * len(head))
     print("read `recall` against `acc`: that gap IS the addressable loss. If recall stays 0,")
     print("no selection change can help and the lever is the DFS row (p/b/n).")
+    print("`engine` shows status/validated-count: v0 means the DSL validated nothing here.")
 
 
 def main() -> int:
@@ -157,7 +165,22 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--collect-only", action="store_true")
     ap.add_argument("--timeout", type=float, default=3600.0, help="max wait per config (s)")
+    ap.add_argument("--engine", default="",
+                    help="also ship this symbolic engine and pass --engine to every config "
+                         "(constant across configs, so the comparison stays fair; the engine "
+                         "costs ~32 ms/task so it rides along for free)")
     args = ap.parse_args()
+
+    extras: list[tuple[str, str]] = []
+    engine_arg = ""
+    if args.engine:
+        ep = Path(args.engine)
+        if not ep.exists():
+            print(f"--engine not found: {ep}")
+            return 2
+        remote = f"/kaggle/working/{ep.name}"
+        extras.append((remote, ep.read_text(encoding="utf-8")))
+        engine_arg = f"--engine {remote}"
 
     names = [n.strip() for n in args.configs.split(",") if n.strip()]
     unknown = [n for n in names if n not in PRESETS]
@@ -173,7 +196,8 @@ def main() -> int:
     for name in names:
         slug = f"arc26-exp-{name}"
         argv = (BASE.format(limit=args.limit, budget=args.budget)
-                + (" " + PRESETS[name] if PRESETS[name] else ""))
+                + (" " + PRESETS[name] if PRESETS[name] else "")
+                + (" " + engine_arg if engine_arg else ""))
         if args.collect_only:
             rep = OUT_ROOT / slug / "report.json"
             if rep.exists():
@@ -181,7 +205,7 @@ def main() -> int:
             else:
                 print(f"  {slug}: no downloaded report")
             continue
-        build_and_push(name, argv, args.dry_run)
+        build_and_push(name, argv, args.dry_run, extras)
         if args.dry_run:
             continue
         rep = wait_for_report(slug, args.timeout)
