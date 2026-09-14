@@ -642,6 +642,13 @@ class TaskResult:
     best_nll: float = float("inf")
     best_key: float = float("inf")
     has_symbolic: bool = False
+    # --- pool-recall diagnostics (are we losing to generation or to selection?) ------
+    n_truth_in_pool: int = 0
+    n_truth_top1: int = 0
+    truth_ranks: List[int] = field(default_factory=list)
+    # --- confidence components, recorded so the formula can be tuned from data ------
+    conf_agree: float = 0.0
+    conf_coverage: float = 0.0
     stage: str = ""
     engine_source: str = ""      # "search" = a program validated, "prior" = none did
     engine_program: str = ""
@@ -1581,6 +1588,49 @@ def pool_stats(pools: Sequence[Sequence[Candidate]]) -> Tuple[int, int, float, f
     return n_total, len(counts), best_key, agree
 
 
+def truth_rank_in_pool(pool: Sequence[Candidate], want: np.ndarray) -> Optional[int]:
+    """0-based rank of the truth inside one test input's pool, or ``None`` if absent.
+
+    This separates the two failure modes that look identical from the outside:
+    truth present but not selected  -> the loss is in *selection* (a better reranker helps);
+    truth absent from the pool      -> the loss is in *generation* and no selector can help.
+    """
+    ranked = sorted(pool, key=lambda c: (c.sort_key, SOURCE_PRIORITY.get(c.source, 9)))
+    for rank, cand in enumerate(ranked):
+        if np.array_equal(cand.grid, want):
+            return rank
+    return None
+
+
+def score_pool_recall(pools: Sequence[Sequence[Candidate]],
+                      solutions: Optional[Dict[str, list]],
+                      task_id: str) -> Dict[str, Any]:
+    """Pool-level recall: how often the ground truth is in the candidate pool at all.
+
+    ``n_in_pool`` is the ceiling that any reranking/selection change could reach;
+    ``n_top1`` is what the current ranking already gets right; the gap between
+    ``n_in_pool`` and the selected attempts is the *addressable* selection loss.
+    """
+    out: Dict[str, Any] = {"n_with_truth": 0, "n_in_pool": 0, "n_top1": 0, "ranks": []}
+    if not solutions or task_id not in solutions:
+        return out
+    truth = solutions[task_id]
+    for i, pool in enumerate(pools):
+        if i >= len(truth):
+            break
+        want = validate_grid(truth[i])
+        if want is None:
+            continue
+        out["n_with_truth"] += 1
+        rank = truth_rank_in_pool(pool, want)
+        if rank is not None:
+            out["n_in_pool"] += 1
+            out["ranks"].append(int(rank))
+            if rank == 0:
+                out["n_top1"] += 1
+    return out
+
+
 def select_attempts(pool: Sequence[Candidate], fallback: Tuple[np.ndarray, np.ndarray]
                     ) -> Tuple[np.ndarray, np.ndarray, str, str]:
     """Best two *distinct* grids from the unified pool (rank ascending).
@@ -1917,13 +1967,27 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
     result.agree_max = agree
     result.has_symbolic = any(c.source == "symbolic" for p in pools for c in p)
     base = 0.0
+    agree_frac = 0.0
+    coverage = 0.0
     if n_total > 0:
         # Agreement is measured *across augmentations*: a single augmentation cannot
-        # corroborate itself, so it contributes no agreement credit.
-        agree_frac = max(0, agree - 1) / max(1, result.n_aug_used - 1)
-        base = 0.5 * agree_frac + 0.5 * min(1.0, n_total / 4.0)
+        # corroborate itself. The shipped cascade runs used --aug-infer 1, which made this
+        # term a silent constant 0, leaving `confidence` = 0.5 * coverage -- a candidate-count
+        # proxy that ties every task with >= 4 candidates at exactly 0.50. That made Stage B's
+        # "run TTT on the weakest tasks" ordering arbitrary (observed: B_ttt_no_gain on 84 of
+        # 102 tasks). With a single augmentation, fall back to within-pool beam convergence,
+        # which is a real signal at any augmentation count; the components are recorded in the
+        # report so the formula can be tuned from data instead of guesswork.
+        if result.n_aug_used >= 2:
+            agree_frac = max(0, agree - 1) / max(1, result.n_aug_used - 1)
+        else:
+            agree_frac = max(0, agree - 1) / max(1, n_total - 1)
+        coverage = min(1.0, n_total / 4.0)
+        base = 0.5 * agree_frac + 0.5 * coverage
     if result.has_symbolic:
         base = max(base, SYMBOLIC_CONFIDENCE)
+    result.conf_agree = float(agree_frac)
+    result.conf_coverage = float(coverage)
     result.confidence = float(min(1.0, base))
     result.pools = pools
     result.seconds = time.time() - t0
@@ -2114,11 +2178,47 @@ class RunContext:
 
         ok1, ok2, n_truth = score_attempts(tid, res.attempts, self.solutions)
         res.n_correct_1, res.n_correct_2, res.n_with_truth = ok1, ok2, n_truth
+        entry["conf_agree"] = round(res.conf_agree, 4)
+        entry["conf_coverage"] = round(res.conf_coverage, 4)
         if n_truth:
             entry["solved"] = bool(ok1 or ok2)
             entry["attempt_1_correct"] = ok1
             entry["attempt_2_correct"] = ok2
             entry["n_with_truth"] = n_truth
+            # Pool recall is the ceiling any selection change could ever reach, and the
+            # per-input solved count is where we actually are. The gap between them is the
+            # addressable *selection* loss; whatever recall leaves on the table is
+            # *generation* loss. Without this split the two are indistinguishable from a run.
+            rec = score_pool_recall(res.pools, self.solutions, tid)
+            res.n_truth_in_pool = int(rec["n_in_pool"])
+            res.n_truth_top1 = int(rec["n_top1"])
+            res.truth_ranks = list(rec["ranks"])
+            entry["truth_in_pool"] = res.n_truth_in_pool
+            entry["truth_top1"] = res.n_truth_top1
+            entry["truth_ranks"] = res.truth_ranks
+            n_sel = 0
+            truth = self.solutions[tid]
+            for i, att in enumerate(res.attempts):
+                if i >= len(truth):
+                    break
+                want = validate_grid(truth[i])
+                if want is None:
+                    continue
+                if (np.array_equal(att["attempt_1"], want)
+                        or np.array_equal(att["attempt_2"], want)):
+                    n_sel += 1
+            agg = self.report.setdefault("pool_recall", {
+                "n_with_truth": 0, "n_in_pool": 0, "n_top1": 0, "n_solved_inputs": 0})
+            agg["n_with_truth"] += int(rec["n_with_truth"])
+            agg["n_in_pool"] += res.n_truth_in_pool
+            agg["n_top1"] += res.n_truth_top1
+            agg["n_solved_inputs"] += n_sel
+            if agg["n_with_truth"]:
+                agg["pool_recall"] = round(agg["n_in_pool"] / agg["n_with_truth"], 4)
+                agg["top1_rate"] = round(agg["n_top1"] / agg["n_with_truth"], 4)
+                agg["selected_rate"] = round(agg["n_solved_inputs"] / agg["n_with_truth"], 4)
+                agg["selection_headroom"] = round(
+                    (agg["n_in_pool"] - agg["n_solved_inputs"]) / agg["n_with_truth"], 4)
         return entry
 
     def update_submission(self, tid: str, res: TaskResult) -> None:
