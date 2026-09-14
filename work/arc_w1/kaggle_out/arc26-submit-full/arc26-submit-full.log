@@ -1,0 +1,1317 @@
+[{"stream_name":"stderr","time":7.077948543,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.078007007,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.078013609,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.078017617,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.744033291,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.744058555,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.744063304,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.74406704,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.684733078,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":13.944463793,"data":"[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_test_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2\n"}
+,{"stream_name":"stdout","time":13.999291827,"data":"[data] split=test n_tasks=240 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json solutions=None\n"}
+,{"stream_name":"stdout","time":14.093502112,"data":"[engine] status=skipped no --engine path given\n"}
+,{"stream_name":"stdout","time":111.080735757,"data":"[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 96.99s\n"}
+,{"stream_name":"stdout","time":111.081672876,"data":"[schedule] cascade budget=39000s calibrate=4 aug_train=2 aug_infer=1\n"}
+,{"stream_name":"stdout","time":111.082599728,"data":"[stage A 1/240] 00576224 slice=90s remaining=38903s\n"}
+,{"stream_name":"stdout","time":114.558428944,"data":"  [00576224] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":115.457499709,"data":"  -\u003e 4.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":115.458289492,"data":"[stage A 2/240] 007bbfb7 slice=90s remaining=38898s\n"}
+,{"stream_name":"stdout","time":122.367845031,"data":"  [007bbfb7] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":124.792067478,"data":"  -\u003e 9.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":124.79282391,"data":"[stage A 3/240] 009d5c81 slice=90s remaining=38889s\n"}
+,{"stream_name":"stdout","time":205.431070954,"data":"  [009d5c81] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":231.439775033,"data":"  -\u003e 106.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":231.440474012,"data":"[stage A 4/240] 00d62c1b slice=90s remaining=38782s\n"}
+,{"stream_name":"stdout","time":322.355682839,"data":"  [00d62c1b] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":410.17150276,"data":"  -\u003e 178.7s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":410.172462746,"data":"[stage A 5/240] 00dbd492 slice=150s remaining=38603s\n"}
+,{"stream_name":"stdout","time":560.652503458,"data":"  [00dbd492] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":634.39111336,"data":"  -\u003e 224.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":634.392044507,"data":"[stage A 6/240] 017c7c7b slice=150s remaining=38379s\n"}
+,{"stream_name":"stdout","time":645.874739167,"data":"  [017c7c7b] aug 1/1 [0, False, False, None] -\u003e pool sizes [15]\n"}
+,{"stream_name":"stdout","time":662.403287078,"data":"  -\u003e 28.0s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":662.404042959,"data":"[stage A 7/240] 025d127b slice=150s remaining=38351s\n"}
+,{"stream_name":"stdout","time":671.225137644,"data":"  [025d127b] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":674.407709565,"data":"  -\u003e 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":674.408468857,"data":"[stage A 8/240] 03560426 slice=150s remaining=38339s\n"}
+,{"stream_name":"stdout","time":695.418936173,"data":"  [03560426] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":728.085516766,"data":"  -\u003e 53.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":728.086378366,"data":"[stage A 9/240] 045e512c slice=150s remaining=38286s\n"}
+,{"stream_name":"stdout","time":878.518272419,"data":"  [045e512c] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":878.904485788,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 716.81 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.58 GiB is allocated by PyTorch, and 156.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":879.180413789,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 716.81 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.58 GiB is allocated by PyTorch, and 156.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":899.755550865,"data":"  -\u003e 171.7s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":899.756379555,"data":"[stage A 10/240] 0520fde7 slice=150s remaining=38114s\n"}
+,{"stream_name":"stdout","time":903.711049819,"data":"  [0520fde7] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":909.219996553,"data":"  -\u003e 9.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":909.297316324,"data":"  [flush] submission.json written (10 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":909.298117857,"data":"[stage A 11/240] 05269061 slice=150s remaining=38104s\n"}
+,{"stream_name":"stdout","time":929.519562537,"data":"  [05269061] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":945.695896842,"data":"  -\u003e 36.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":945.696715186,"data":"[stage A 12/240] 05a7bcf2 slice=150s remaining=38068s\n"}
+,{"stream_name":"stdout","time":946.051548194,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":946.052404818,"data":"  [05a7bcf2] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":946.055155714,"data":"  -\u003e 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":946.055927111,"data":"[stage A 13/240] 05f2a901 slice=150s remaining=38068s\n"}
+,{"stream_name":"stdout","time":997.447455743,"data":"  [05f2a901] aug 1/1 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":1050.612282138,"data":"  -\u003e 104.6s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1050.613138592,"data":"[stage A 14/240] 0607ce86 slice=150s remaining=37963s\n"}
+,{"stream_name":"stdout","time":1147.029003622,"data":"  [0607ce86] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":1197.216593807,"data":"  -\u003e 146.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1197.217496778,"data":"[stage A 15/240] 0692e18c slice=150s remaining=37816s\n"}
+,{"stream_name":"stdout","time":1203.588556646,"data":"  [0692e18c] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":1205.621985499,"data":"  -\u003e 8.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1205.62283048,"data":"[stage A 16/240] 06df4c85 slice=150s remaining=37808s\n"}
+,{"stream_name":"stdout","time":1328.895295521,"data":"  [06df4c85] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":1356.709312997,"data":"  -\u003e 151.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1356.710099148,"data":"[stage A 17/240] 070dd51e slice=150s remaining=37657s\n"}
+,{"stream_name":"stdout","time":1507.579104489,"data":"  [070dd51e] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":1594.066172866,"data":"  -\u003e 237.4s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1594.067024533,"data":"[stage A 18/240] 08ed6ac7 slice=150s remaining=37420s\n"}
+,{"stream_name":"stdout","time":1620.914127935,"data":"  [08ed6ac7] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":1640.400313092,"data":"  -\u003e 46.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1640.401141153,"data":"[stage A 19/240] 09629e4f slice=150s remaining=37373s\n"}
+,{"stream_name":"stdout","time":1678.924998535,"data":"  [09629e4f] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":1717.229966806,"data":"  -\u003e 76.8s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1717.231047111,"data":"[stage A 20/240] 0962bcdd slice=150s remaining=37296s\n"}
+,{"stream_name":"stdout","time":1730.713122631,"data":"  [0962bcdd] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":1735.173045881,"data":"  -\u003e 18.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1735.246642058,"data":"  [flush] submission.json written (20 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":1735.247365495,"data":"[stage A 21/240] 09c534e7 slice=150s remaining=37278s\n"}
+,{"stream_name":"stdout","time":1886.091191444,"data":"  [09c534e7] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":1971.701008628,"data":"  -\u003e 236.4s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1971.701857501,"data":"[stage A 22/240] 0a1d4ef5 slice=150s remaining=37042s\n"}
+,{"stream_name":"stdout","time":1996.327368118,"data":"  [0a1d4ef5] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":1996.630009496,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.41 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.35 GiB is free. Including non-PyTorch memory, this process has 11.21 GiB memory in use. Of the allocated memory 10.92 GiB is allocated by PyTorch, and 174.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":1996.995035911,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.41 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.35 GiB is free. Including non-PyTorch memory, this process has 11.21 GiB memory in use. Of the allocated memory 7.74 GiB is allocated by PyTorch, and 3.35 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":1997.010020318,"data":"  -\u003e 25.3s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":1997.010950108,"data":"[stage A 23/240] 0a2355a6 slice=150s remaining=37017s\n"}
+,{"stream_name":"stdout","time":2087.600166438,"data":"  [0a2355a6] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":2107.72940071,"data":"  -\u003e 110.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2107.730207791,"data":"[stage A 24/240] 0a938d79 slice=150s remaining=36906s\n"}
+,{"stream_name":"stdout","time":2258.338097615,"data":"  [0a938d79] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":2332.499545458,"data":"  -\u003e 224.8s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2332.500411867,"data":"[stage A 25/240] 0b148d64 slice=150s remaining=36681s\n"}
+,{"stream_name":"stdout","time":2483.13481613,"data":"  [0b148d64] aug 1/1 [0, False, False, None] -\u003e pool sizes [22]\n"}
+,{"stream_name":"stdout","time":2687.590403118,"data":"  -\u003e 355.1s candidates=22 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2687.591615845,"data":"[stage A 26/240] 0b17323b slice=150s remaining=36326s\n"}
+,{"stream_name":"stdout","time":2787.889267948,"data":"  [0b17323b] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":2843.668414113,"data":"  -\u003e 156.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2843.669314556,"data":"[stage A 27/240] 0bb8deee slice=150s remaining=36170s\n"}
+,{"stream_name":"stdout","time":2864.977292379,"data":"  [0bb8deee] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":2900.740484724,"data":"  -\u003e 57.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2900.741350854,"data":"[stage A 28/240] 0becf7df slice=150s remaining=36113s\n"}
+,{"stream_name":"stdout","time":2930.219855333,"data":"  [0becf7df] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":2938.454808512,"data":"  -\u003e 37.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2938.455624323,"data":"[stage A 29/240] 0c786b71 slice=150s remaining=36075s\n"}
+,{"stream_name":"stdout","time":2942.378446944,"data":"  [0c786b71] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":2943.845879381,"data":"  -\u003e 5.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":2943.847046756,"data":"[stage A 30/240] 0c9aba6e slice=150s remaining=36070s\n"}
+,{"stream_name":"stdout","time":2968.097506168,"data":"  [0c9aba6e] aug 1/1 [0, False, False, None] -\u003e pool sizes [15]\n"}
+,{"stream_name":"stdout","time":3003.675183766,"data":"  -\u003e 59.8s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3003.74491636,"data":"  [flush] submission.json written (30 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":3003.745803463,"data":"[stage A 31/240] 0ca9ddb6 slice=150s remaining=36010s\n"}
+,{"stream_name":"stdout","time":3029.92138829,"data":"  [0ca9ddb6] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":3056.25411281,"data":"  -\u003e 52.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3056.255073982,"data":"[stage A 32/240] 0d3d703e slice=150s remaining=35957s\n"}
+,{"stream_name":"stdout","time":3057.487263593,"data":"  [0d3d703e] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":3058.396770288,"data":"  -\u003e 2.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3058.397497027,"data":"[stage A 33/240] 0d87d2a6 slice=150s remaining=35955s\n"}
+,{"stream_name":"stdout","time":3209.175004822,"data":"  [0d87d2a6] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":3275.785930335,"data":"  -\u003e 217.4s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3275.786106398,"data":"[stage A 34/240] 0e206a2e slice=150s remaining=35738s\n"}
+,{"stream_name":"stdout","time":3426.499200479,"data":"  [0e206a2e] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":3506.535870259,"data":"  -\u003e 230.8s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3506.53665961,"data":"[stage A 35/240] 0e671a1a slice=150s remaining=35507s\n"}
+,{"stream_name":"stdout","time":3591.111343274,"data":"  [0e671a1a] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":3663.617195842,"data":"  -\u003e 157.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3663.618256436,"data":"[stage A 36/240] 0f63c0b9 slice=150s remaining=35350s\n"}
+,{"stream_name":"stdout","time":3697.537039659,"data":"  [0f63c0b9] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":3710.258124076,"data":"  -\u003e 46.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3710.258870812,"data":"[stage A 37/240] 103eff5b slice=150s remaining=35303s\n"}
+,{"stream_name":"stdout","time":3861.179527191,"data":"  [103eff5b] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":3943.885934281,"data":"  -\u003e 233.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":3943.887089498,"data":"[stage A 38/240] 10fcaaa3 slice=150s remaining=35070s\n"}
+,{"stream_name":"stdout","time":3997.271387141,"data":"  [10fcaaa3] aug 1/1 [0, False, False, None] -\u003e pool sizes [62]\n"}
+,{"stream_name":"stdout","time":4061.201068604,"data":"  -\u003e 117.3s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4061.201897977,"data":"[stage A 39/240] 11852cab slice=150s remaining=34952s\n"}
+,{"stream_name":"stdout","time":4071.731265459,"data":"  [11852cab] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":4075.894287569,"data":"  -\u003e 14.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4075.895060624,"data":"[stage A 40/240] 1190bc91 slice=150s remaining=34938s\n"}
+,{"stream_name":"stdout","time":4103.495687712,"data":"  [1190bc91] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":4126.234085765,"data":"  -\u003e 50.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4126.302865365,"data":"  [flush] submission.json written (40 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":4126.303636295,"data":"[stage A 41/240] 1190e5a7 slice=150s remaining=34887s\n"}
+,{"stream_name":"stdout","time":4276.769674812,"data":"  [1190e5a7] aug 1/1 [0, False, False, None] -\u003e pool sizes [33]\n"}
+,{"stream_name":"stdout","time":4570.440327771,"data":"  -\u003e 444.1s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4570.441239595,"data":"[stage A 42/240] 11dc524f slice=150s remaining=34443s\n"}
+,{"stream_name":"stdout","time":4589.961976252,"data":"  [11dc524f] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":4597.033669138,"data":"  -\u003e 26.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4597.034548147,"data":"[stage A 43/240] 11e1fe23 slice=150s remaining=34417s\n"}
+,{"stream_name":"stdout","time":4716.384273787,"data":"  [11e1fe23] aug 1/1 [0, False, False, None] -\u003e pool sizes [26]\n"}
+,{"stream_name":"stdout","time":4845.205910719,"data":"  -\u003e 248.2s candidates=26 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":4845.206696614,"data":"[stage A 44/240] 12422b43 slice=150s remaining=34168s\n"}
+,{"stream_name":"stdout","time":4943.005390094,"data":"  [12422b43] aug 1/1 [0, False, False, None] -\u003e pool sizes [127]\n"}
+,{"stream_name":"stdout","time":5066.882806145,"data":"  -\u003e 221.7s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5066.883576852,"data":"[stage A 45/240] 12997ef3 slice=150s remaining=33947s\n"}
+,{"stream_name":"stdout","time":5217.261312285,"data":"  [12997ef3] aug 1/1 [0, False, False, None] -\u003e pool sizes [8, 11]\n"}
+,{"stream_name":"stdout","time":5302.269854365,"data":"  -\u003e 235.4s candidates=19 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5302.270663564,"data":"[stage A 46/240] 12eac192 slice=150s remaining=33711s\n"}
+,{"stream_name":"stdout","time":5308.529400819,"data":"  [12eac192] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":5311.165084572,"data":"  -\u003e 8.9s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5311.166013981,"data":"[stage A 47/240] 13713586 slice=150s remaining=33702s\n"}
+,{"stream_name":"stdout","time":5462.092130413,"data":"  [13713586] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":5547.135231122,"data":"  -\u003e 236.0s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5547.13613648,"data":"[stage A 48/240] 137eaa0f slice=150s remaining=33467s\n"}
+,{"stream_name":"stdout","time":5557.512891574,"data":"  [137eaa0f] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":5561.005837868,"data":"  -\u003e 13.9s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5561.006592716,"data":"[stage A 49/240] 137f0df0 slice=150s remaining=33453s\n"}
+,{"stream_name":"stdout","time":5600.74766156,"data":"  [137f0df0] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":5621.123337773,"data":"  -\u003e 60.1s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5621.124136834,"data":"[stage A 50/240] 13f06aa5 slice=150s remaining=33393s\n"}
+,{"stream_name":"stdout","time":5771.599936765,"data":"  [13f06aa5] aug 1/1 [0, False, False, None] -\u003e pool sizes [13]\n"}
+,{"stream_name":"stdout","time":5874.846891877,"data":"  -\u003e 253.7s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5874.913218587,"data":"  [flush] submission.json written (50 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":5874.914000897,"data":"[stage A 51/240] 140c817e slice=150s remaining=33139s\n"}
+,{"stream_name":"stdout","time":5943.331580126,"data":"  [140c817e] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":5961.163862217,"data":"  -\u003e 86.2s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":5961.163903073,"data":"[stage A 52/240] 14754a24 slice=150s remaining=33052s\n"}
+,{"stream_name":"stdout","time":6112.108394081,"data":"  [14754a24] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":6204.554417301,"data":"  -\u003e 243.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":6204.555498771,"data":"[stage A 53/240] 1478ab18 slice=150s remaining=32809s\n"}
+,{"stream_name":"stdout","time":6231.749485462,"data":"  [1478ab18] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":6252.816063003,"data":"  -\u003e 48.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":6252.81734404,"data":"[stage A 54/240] 14b8e18c slice=150s remaining=32761s\n"}
+,{"stream_name":"stdout","time":6291.778128521,"data":"  [14b8e18c] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":6324.436343513,"data":"  -\u003e 71.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":6324.437215178,"data":"[stage A 55/240] 150deff5 slice=150s remaining=32689s\n"}
+,{"stream_name":"stdout","time":6475.003272039,"data":"  [150deff5] aug 1/1 [0, False, False, None] -\u003e pool sizes [26]\n"}
+,{"stream_name":"stdout","time":6579.875865513,"data":"  -\u003e 255.4s candidates=25 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":6579.876752447,"data":"[stage A 56/240] 15113be4 slice=150s remaining=32434s\n"}
+,{"stream_name":"stdout","time":6730.796135436,"data":"  [15113be4] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":6731.119893056,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.74 GiB is free. Including non-PyTorch memory, this process has 11.82 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 169.74 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":6731.269525652,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.74 GiB is free. Including non-PyTorch memory, this process has 11.82 GiB memory in use. Of the allocated memory 7.82 GiB is allocated by PyTorch, and 3.87 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":6731.502252061,"data":"  -\u003e 151.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":6731.503008752,"data":"[stage A 57/240] 15660dd6 slice=150s remaining=32282s\n"}
+,{"stream_name":"stdout","time":6882.417206163,"data":"  [15660dd6] aug 1/1 [0, False, False, None] -\u003e pool sizes [13]\n"}
+,{"stream_name":"stdout","time":7028.473295208,"data":"  -\u003e 297.0s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7028.474243484,"data":"[stage A 58/240] 15663ba9 slice=150s remaining=31985s\n"}
+,{"stream_name":"stdout","time":7055.897854721,"data":"  [15663ba9] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":7064.717083402,"data":"  -\u003e 36.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7064.71785319,"data":"[stage A 59/240] 15696249 slice=150s remaining=31949s\n"}
+,{"stream_name":"stdout","time":7095.187615673,"data":"  [15696249] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":7114.044963031,"data":"  -\u003e 49.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7114.045716024,"data":"[stage A 60/240] 17829a00 slice=150s remaining=31900s\n"}
+,{"stream_name":"stdout","time":7257.231855514,"data":"  [17829a00] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":7321.157324648,"data":"  -\u003e 207.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7321.227754395,"data":"  [flush] submission.json written (60 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":7321.228541109,"data":"[stage A 61/240] 178fcbfb slice=150s remaining=31692s\n"}
+,{"stream_name":"stdout","time":7427.091004753,"data":"  [178fcbfb] aug 1/1 [0, False, False, None] -\u003e pool sizes [20]\n"}
+,{"stream_name":"stdout","time":7522.52788827,"data":"  -\u003e 201.3s candidates=20 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7522.528680255,"data":"[stage A 62/240] 17b80ad2 slice=150s remaining=31491s\n"}
+,{"stream_name":"stdout","time":7672.85471326,"data":"  [17b80ad2] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":7751.185600549,"data":"  -\u003e 228.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":7751.186789354,"data":"[stage A 63/240] 17b866bd slice=150s remaining=31262s\n"}
+,{"stream_name":"stdout","time":7901.693976172,"data":"  [17b866bd] aug 1/1 [0, False, False, None] -\u003e pool sizes [8, 8]\n"}
+,{"stream_name":"stdout","time":8039.211311698,"data":"  -\u003e 288.0s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8039.212158196,"data":"[stage A 64/240] 17cae0c1 slice=150s remaining=30974s\n"}
+,{"stream_name":"stdout","time":8045.367635761,"data":"  [17cae0c1] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":8048.230363269,"data":"  -\u003e 9.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8048.231203202,"data":"[stage A 65/240] 18286ef8 slice=150s remaining=30965s\n"}
+,{"stream_name":"stdout","time":8198.661383254,"data":"  [18286ef8] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":8262.037574712,"data":"  -\u003e 213.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8262.038444271,"data":"[stage A 66/240] 182e5d0f slice=150s remaining=30752s\n"}
+,{"stream_name":"stdout","time":8412.604346564,"data":"  [182e5d0f] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":8464.475559247,"data":"  -\u003e 202.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8464.476395393,"data":"[stage A 67/240] 18419cfa slice=150s remaining=30549s\n"}
+,{"stream_name":"stdout","time":8615.395047637,"data":"  [18419cfa] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":8707.054583193,"data":"  -\u003e 242.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8707.055448879,"data":"[stage A 68/240] 18447a8d slice=150s remaining=30307s\n"}
+,{"stream_name":"stdout","time":8802.029291383,"data":"  [18447a8d] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":8860.181204648,"data":"  -\u003e 153.1s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":8860.182130681,"data":"[stage A 69/240] 184a9768 slice=150s remaining=30153s\n"}
+,{"stream_name":"stdout","time":9010.706002319,"data":"  [184a9768] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":9011.038676253,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 838.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 250.81 MiB is free. Including non-PyTorch memory, this process has 14.31 GiB memory in use. Of the allocated memory 14.03 GiB is allocated by PyTorch, and 163.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":9011.35012585,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 838.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 250.81 MiB is free. Including non-PyTorch memory, this process has 14.31 GiB memory in use. Of the allocated memory 14.03 GiB is allocated by PyTorch, and 163.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":9011.596405972,"data":"  -\u003e 151.4s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9011.597310742,"data":"[stage A 70/240] 195ba7dc slice=150s remaining=30002s\n"}
+,{"stream_name":"stdout","time":9015.846094294,"data":"  [195ba7dc] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":9018.437435862,"data":"  -\u003e 6.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9018.502695016,"data":"  [flush] submission.json written (70 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":9018.503707167,"data":"[stage A 71/240] 1990f7a8 slice=150s remaining=29995s\n"}
+,{"stream_name":"stdout","time":9169.054848251,"data":"  [1990f7a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":9246.490142612,"data":"  -\u003e 228.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9246.491053868,"data":"[stage A 72/240] 19bb5feb slice=150s remaining=29767s\n"}
+,{"stream_name":"stdout","time":9251.352204997,"data":"  [19bb5feb] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":9256.079042683,"data":"  -\u003e 9.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9256.079816675,"data":"[stage A 73/240] 1a07d186 slice=150s remaining=29758s\n"}
+,{"stream_name":"stdout","time":9406.750859093,"data":"  [1a07d186] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":9485.538595389,"data":"  -\u003e 229.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9485.539487733,"data":"[stage A 74/240] 1a244afd slice=150s remaining=29528s\n"}
+,{"stream_name":"stdout","time":9578.626381511,"data":"  [1a244afd] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":9635.063226147,"data":"  -\u003e 149.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9635.064393537,"data":"[stage A 75/240] 1a2e2828 slice=150s remaining=29379s\n"}
+,{"stream_name":"stdout","time":9638.34599825,"data":"  [1a2e2828] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":9641.58080199,"data":"  -\u003e 6.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9641.58174471,"data":"[stage A 76/240] 1a6449f1 slice=150s remaining=29372s\n"}
+,{"stream_name":"stdout","time":9791.943157079,"data":"  [1a6449f1] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":9868.037998851,"data":"  -\u003e 226.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":9868.039041811,"data":"[stage A 77/240] 1acc24af slice=150s remaining=29146s\n"}
+,{"stream_name":"stdout","time":9941.338686455,"data":"  [1acc24af] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":10003.178926426,"data":"  -\u003e 135.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10003.179852644,"data":"[stage A 78/240] 1b2d62fb slice=150s remaining=29010s\n"}
+,{"stream_name":"stdout","time":10005.912186468,"data":"  [1b2d62fb] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":10007.685415299,"data":"  -\u003e 4.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10007.6862874,"data":"[stage A 79/240] 1b59e163 slice=150s remaining=29006s\n"}
+,{"stream_name":"stdout","time":10063.799133833,"data":"  [1b59e163] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":10105.930212304,"data":"  -\u003e 98.2s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10105.931253726,"data":"[stage A 80/240] 1b60fb0c slice=150s remaining=28908s\n"}
+,{"stream_name":"stdout","time":10148.830472916,"data":"  [1b60fb0c] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":10181.462713854,"data":"  -\u003e 75.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10181.523598826,"data":"  [flush] submission.json written (80 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":10181.524380836,"data":"[stage A 81/240] 1b8318e3 slice=150s remaining=28832s\n"}
+,{"stream_name":"stdout","time":10254.167609738,"data":"  [1b8318e3] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":10319.761446597,"data":"  -\u003e 138.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10319.76238326,"data":"[stage A 82/240] 1be83260 slice=150s remaining=28694s\n"}
+,{"stream_name":"stdout","time":10470.37538826,"data":"  [1be83260] aug 1/1 [0, False, False, None] -\u003e pool sizes [7, 3]\n"}
+,{"stream_name":"stdout","time":10564.545381894,"data":"  -\u003e 244.8s candidates=10 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10564.546254978,"data":"[stage A 83/240] 1bfc4729 slice=150s remaining=28449s\n"}
+,{"stream_name":"stdout","time":10573.34584322,"data":"  [1bfc4729] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":10576.531353313,"data":"  -\u003e 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10576.532174053,"data":"[stage A 84/240] 1c02dbbe slice=150s remaining=28437s\n"}
+,{"stream_name":"stdout","time":10704.278482855,"data":"  [1c02dbbe] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":10781.431554106,"data":"  -\u003e 204.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":10781.432409138,"data":"[stage A 85/240] 1c0d0a4b slice=150s remaining=28232s\n"}
+,{"stream_name":"stdout","time":10931.950708188,"data":"  [1c0d0a4b] aug 1/1 [0, False, False, None] -\u003e pool sizes [24]\n"}
+,{"stream_name":"stdout","time":11010.728684987,"data":"  -\u003e 229.3s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11010.729520149,"data":"[stage A 86/240] 1c56ad9f slice=150s remaining=28003s\n"}
+,{"stream_name":"stdout","time":11043.335549013,"data":"  [1c56ad9f] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":11055.339111786,"data":"  -\u003e 44.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11055.339879265,"data":"[stage A 87/240] 1c786137 slice=150s remaining=27958s\n"}
+,{"stream_name":"stdout","time":11068.947366033,"data":"  [1c786137] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":11076.808124053,"data":"  -\u003e 21.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11076.808988238,"data":"[stage A 88/240] 1caeab9d slice=150s remaining=27937s\n"}
+,{"stream_name":"stdout","time":11111.791084438,"data":"  [1caeab9d] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":11160.328860856,"data":"  -\u003e 83.5s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11160.329801234,"data":"[stage A 89/240] 1cf80156 slice=150s remaining=27853s\n"}
+,{"stream_name":"stdout","time":11172.662404866,"data":"  [1cf80156] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":11180.214597602,"data":"  -\u003e 19.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11180.215430451,"data":"[stage A 90/240] 1d0a4b61 slice=150s remaining=27833s\n"}
+,{"stream_name":"stdout","time":11331.061878844,"data":"  [1d0a4b61] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":11421.16172748,"data":"  -\u003e 240.9s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11421.217273715,"data":"  [flush] submission.json written (90 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":11421.21818737,"data":"[stage A 91/240] 1d398264 slice=150s remaining=27592s\n"}
+,{"stream_name":"stdout","time":11566.04349922,"data":"  [1d398264] aug 1/1 [0, False, False, None] -\u003e pool sizes [6, 3]\n"}
+,{"stream_name":"stdout","time":11655.262690226,"data":"  -\u003e 234.0s candidates=9 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11655.263622864,"data":"[stage A 92/240] 1d61978c slice=150s remaining=27358s\n"}
+,{"stream_name":"stdout","time":11725.207954698,"data":"  [1d61978c] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":11741.39284191,"data":"  -\u003e 86.2s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11741.393604947,"data":"[stage A 93/240] 1da012fc slice=150s remaining=27272s\n"}
+,{"stream_name":"stdout","time":11796.775220383,"data":"  [1da012fc] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":11809.901783875,"data":"  -\u003e 68.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11809.902564607,"data":"[stage A 94/240] 1e0a9b12 slice=150s remaining=27204s\n"}
+,{"stream_name":"stdout","time":11816.47824274,"data":"  [1e0a9b12] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":11825.607071318,"data":"  -\u003e 15.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":11825.607827421,"data":"[stage A 95/240] 1e32b0e9 slice=150s remaining=27188s\n"}
+,{"stream_name":"stdout","time":11976.350723625,"data":"  [1e32b0e9] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":12064.707105172,"data":"  -\u003e 239.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12064.708015724,"data":"[stage A 96/240] 1e5d6875 slice=150s remaining=26949s\n"}
+,{"stream_name":"stdout","time":12162.421047921,"data":"  [1e5d6875] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":12193.160309889,"data":"  -\u003e 128.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12193.161197895,"data":"[stage A 97/240] 1e81d6f9 slice=150s remaining=26820s\n"}
+,{"stream_name":"stdout","time":12317.256343702,"data":"  [1e81d6f9] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":12394.282909658,"data":"  -\u003e 201.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12394.284101778,"data":"[stage A 98/240] 1efba499 slice=150s remaining=26619s\n"}
+,{"stream_name":"stdout","time":12469.593545852,"data":"  [1efba499] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":12521.213935366,"data":"  -\u003e 126.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12521.214773891,"data":"[stage A 99/240] 1f0c79e5 slice=150s remaining=26492s\n"}
+,{"stream_name":"stdout","time":12545.023847705,"data":"  [1f0c79e5] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":12553.557028695,"data":"  -\u003e 32.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12553.557937483,"data":"[stage A 100/240] 1f642eb9 slice=150s remaining=26460s\n"}
+,{"stream_name":"stdout","time":12580.673985455,"data":"  [1f642eb9] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":12588.886879557,"data":"  -\u003e 35.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12588.939905328,"data":"  [flush] submission.json written (100 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":12588.940725633,"data":"[stage A 101/240] 1f85a75f slice=150s remaining=26425s\n"}
+,{"stream_name":"stdout","time":12606.573468464,"data":"  [1f85a75f] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":12622.254063232,"data":"  -\u003e 33.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12622.254863275,"data":"[stage A 102/240] 1f876c06 slice=150s remaining=26391s\n"}
+,{"stream_name":"stdout","time":12667.453403346,"data":"  [1f876c06] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":12700.026361003,"data":"  -\u003e 77.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12700.027302237,"data":"[stage A 103/240] 1fad071e slice=150s remaining=26314s\n"}
+,{"stream_name":"stdout","time":12702.708794046,"data":"  [1fad071e] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":12708.072836993,"data":"  -\u003e 8.1s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12708.073592586,"data":"[stage A 104/240] 2013d3e2 slice=150s remaining=26306s\n"}
+,{"stream_name":"stdout","time":12734.462026154,"data":"  [2013d3e2] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":12747.123139057,"data":"  -\u003e 39.0s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":12747.123878209,"data":"[stage A 105/240] 2037f2c7 slice=150s remaining=26267s\n"}
+,{"stream_name":"stdout","time":12897.768598671,"data":"  [2037f2c7] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":13024.038280234,"data":"  -\u003e 276.9s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13024.039113624,"data":"[stage A 106/240] 2072aba6 slice=150s remaining=25990s\n"}
+,{"stream_name":"stdout","time":13028.766705392,"data":"  [2072aba6] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":13034.022454862,"data":"  -\u003e 10.0s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13034.023339069,"data":"[stage A 107/240] 20818e16 slice=150s remaining=25980s\n"}
+,{"stream_name":"stdout","time":13182.545902773,"data":"  [20818e16] aug 1/1 [0, False, False, None] -\u003e pool sizes [79]\n"}
+,{"stream_name":"stdout","time":13381.713625389,"data":"  -\u003e 347.7s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13381.71457066,"data":"[stage A 108/240] 20981f0e slice=150s remaining=25632s\n"}
+,{"stream_name":"stdout","time":13515.27038761,"data":"  [20981f0e] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":13589.613916525,"data":"  -\u003e 207.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13589.614721239,"data":"[stage A 109/240] 20fb2937 slice=150s remaining=25424s\n"}
+,{"stream_name":"stdout","time":13648.42544071,"data":"  [20fb2937] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":13693.54299707,"data":"  -\u003e 103.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13693.543782114,"data":"[stage A 110/240] 212895b5 slice=150s remaining=25320s\n"}
+,{"stream_name":"stdout","time":13843.885694577,"data":"  [212895b5] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":13936.597913404,"data":"  -\u003e 243.0s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":13936.646496898,"data":"  [flush] submission.json written (110 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":13936.647255133,"data":"[stage A 111/240] 21f83797 slice=150s remaining=25077s\n"}
+,{"stream_name":"stdout","time":14013.141252319,"data":"  [21f83797] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":14053.797248204,"data":"  -\u003e 117.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14053.798116921,"data":"[stage A 112/240] 2204b7a8 slice=150s remaining=24960s\n"}
+,{"stream_name":"stdout","time":14086.597070795,"data":"  [2204b7a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":14094.777131683,"data":"  -\u003e 41.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14094.777966608,"data":"[stage A 113/240] 22168020 slice=150s remaining=24919s\n"}
+,{"stream_name":"stdout","time":14129.945620287,"data":"  [22168020] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":14146.289869007,"data":"  -\u003e 51.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14146.290607988,"data":"[stage A 114/240] 22208ba4 slice=150s remaining=24867s\n"}
+,{"stream_name":"stdout","time":14296.621457896,"data":"  [22208ba4] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":14375.495377712,"data":"  -\u003e 229.2s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14375.496256166,"data":"[stage A 115/240] 22233c11 slice=150s remaining=24638s\n"}
+,{"stream_name":"stdout","time":14386.004416262,"data":"  [22233c11] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":14390.123451565,"data":"  -\u003e 14.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14390.124268056,"data":"[stage A 116/240] 22425bda slice=150s remaining=24624s\n"}
+,{"stream_name":"stdout","time":14452.641069784,"data":"  [22425bda] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":14461.171638253,"data":"  -\u003e 71.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14461.172505327,"data":"[stage A 117/240] 22806e14 slice=150s remaining=24552s\n"}
+,{"stream_name":"stdout","time":14611.994815133,"data":"  [22806e14] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":14689.565802068,"data":"  -\u003e 228.4s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14689.565841427,"data":"[stage A 118/240] 2281f1f4 slice=150s remaining=24324s\n"}
+,{"stream_name":"stdout","time":14737.076550981,"data":"  [2281f1f4] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":14769.50304028,"data":"  -\u003e 79.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14769.503911292,"data":"[stage A 119/240] 228f6490 slice=150s remaining=24244s\n"}
+,{"stream_name":"stdout","time":14811.633411127,"data":"  [228f6490] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":14844.247506927,"data":"  -\u003e 74.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":14844.248393037,"data":"[stage A 120/240] 22a4bbc2 slice=150s remaining=24169s\n"}
+,{"stream_name":"stdout","time":14896.811694098,"data":"  [22a4bbc2] aug 1/1 [0, False, False, None] -\u003e pool sizes [48]\n"}
+,{"stream_name":"stdout","time":15036.315780778,"data":"  -\u003e 192.1s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15036.370867704,"data":"  [flush] submission.json written (120 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":15036.371684379,"data":"[stage A 121/240] 22eb0ac0 slice=150s remaining=23977s\n"}
+,{"stream_name":"stdout","time":15063.801614983,"data":"  [22eb0ac0] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":15072.047571496,"data":"  -\u003e 35.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15072.048525905,"data":"[stage A 122/240] 230f2e48 slice=150s remaining=23942s\n"}
+,{"stream_name":"stdout","time":15222.485750918,"data":"  [230f2e48] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":15273.03894408,"data":"  -\u003e 201.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15273.039787373,"data":"[stage A 123/240] 234bbc79 slice=150s remaining=23741s\n"}
+,{"stream_name":"stdout","time":15285.135890918,"data":"  [234bbc79] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":15297.111959443,"data":"  -\u003e 24.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15297.112698194,"data":"[stage A 124/240] 23581191 slice=150s remaining=23717s\n"}
+,{"stream_name":"stdout","time":15329.071551414,"data":"  [23581191] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":15348.578418008,"data":"  -\u003e 51.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15348.579422866,"data":"[stage A 125/240] 239be575 slice=150s remaining=23665s\n"}
+,{"stream_name":"stdout","time":15352.581623738,"data":"  [239be575] aug 1/1 [0, False, False, None] -\u003e pool sizes [2, 2]\n"}
+,{"stream_name":"stdout","time":15359.320980411,"data":"  -\u003e 10.7s candidates=4 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15359.321915212,"data":"[stage A 126/240] 23b5c85d slice=150s remaining=23654s\n"}
+,{"stream_name":"stdout","time":15509.644331407,"data":"  [23b5c85d] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":15593.525352653,"data":"  -\u003e 234.2s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15593.526274174,"data":"[stage A 127/240] 25094a63 slice=150s remaining=23420s\n"}
+,{"stream_name":"stdout","time":15743.939318278,"data":"  [25094a63] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":15834.535885299,"data":"  -\u003e 241.0s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":15834.536859364,"data":"[stage A 128/240] 252143c9 slice=150s remaining=23179s\n"}
+,{"stream_name":"stdout","time":15985.131880204,"data":"  [252143c9] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":16021.911428263,"data":"  -\u003e 187.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":16021.912305528,"data":"[stage A 129/240] 253bf280 slice=150s remaining=22992s\n"}
+,{"stream_name":"stdout","time":16172.24360623,"data":"  [253bf280] aug 1/1 [0, False, False, None] -\u003e pool sizes [25]\n"}
+,{"stream_name":"stdout","time":16380.232191077,"data":"  -\u003e 358.3s candidates=24 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":16380.233107211,"data":"[stage A 130/240] 2546ccf6 slice=150s remaining=22633s\n"}
+,{"stream_name":"stdout","time":16531.007674648,"data":"  [2546ccf6] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":16614.313239873,"data":"  -\u003e 234.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":16614.363968804,"data":"  [flush] submission.json written (130 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":16614.364810923,"data":"[stage A 131/240] 256b0a75 slice=150s remaining=22399s\n"}
+,{"stream_name":"stdout","time":16737.730185118,"data":"  [256b0a75] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":16766.331808365,"data":"  -\u003e 152.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":16766.332558991,"data":"[stage A 132/240] 25c199f5 slice=150s remaining=22247s\n"}
+,{"stream_name":"stdout","time":16832.418841167,"data":"  [25c199f5] aug 1/1 [0, False, False, None] -\u003e pool sizes [15, 8]\n"}
+,{"stream_name":"stdout","time":16916.412260531,"data":"  -\u003e 150.1s candidates=23 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":16916.41316035,"data":"[stage A 133/240] 25d487eb slice=150s remaining=22097s\n"}
+,{"stream_name":"stdout","time":17047.813157512,"data":"  [25d487eb] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":17117.129732192,"data":"  -\u003e 200.7s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17117.130630067,"data":"[stage A 134/240] 25d8a9c8 slice=150s remaining=21897s\n"}
+,{"stream_name":"stdout","time":17118.379033532,"data":"  [25d8a9c8] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":17119.306600217,"data":"  -\u003e 2.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17119.307366316,"data":"[stage A 135/240] 25e02866 slice=150s remaining=21894s\n"}
+,{"stream_name":"stdout","time":17269.949579562,"data":"  [25e02866] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":17316.532097078,"data":"  -\u003e 197.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17316.533016811,"data":"[stage A 136/240] 25ff71a9 slice=150s remaining=21697s\n"}
+,{"stream_name":"stdout","time":17322.839394266,"data":"  [25ff71a9] aug 1/1 [0, False, False, None] -\u003e pool sizes [7, 7]\n"}
+,{"stream_name":"stdout","time":17331.640064682,"data":"  -\u003e 15.1s candidates=14 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17331.640861388,"data":"[stage A 137/240] 2601afb7 slice=150s remaining=21682s\n"}
+,{"stream_name":"stdout","time":17342.727471515,"data":"  [2601afb7] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":17346.781645799,"data":"  -\u003e 15.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17346.782490988,"data":"[stage A 138/240] 264363fd slice=150s remaining=21667s\n"}
+,{"stream_name":"stdout","time":17347.12372319,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":17347.124587517,"data":"  [264363fd] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":17347.127038435,"data":"  -\u003e 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17347.128218515,"data":"[stage A 139/240] 2685904e slice=150s remaining=21667s\n"}
+,{"stream_name":"stdout","time":17362.55645747,"data":"  [2685904e] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":17370.250217663,"data":"  -\u003e 23.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17370.251041068,"data":"[stage A 140/240] 2697da3f slice=150s remaining=21643s\n"}
+,{"stream_name":"stdout","time":17503.309749782,"data":"  [2697da3f] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":17556.841831395,"data":"  -\u003e 186.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17556.87935281,"data":"  [flush] submission.json written (140 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":17556.880144342,"data":"[stage A 141/240] 272f95fa slice=150s remaining=21457s\n"}
+,{"stream_name":"stdout","time":17707.479090214,"data":"  [272f95fa] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":17772.11815411,"data":"  -\u003e 215.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17772.119114617,"data":"[stage A 142/240] 2753e76c slice=150s remaining=21242s\n"}
+,{"stream_name":"stdout","time":17894.103448683,"data":"  [2753e76c] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":17956.023363309,"data":"  -\u003e 183.9s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":17956.024246594,"data":"[stage A 143/240] 278e5215 slice=150s remaining=21058s\n"}
+,{"stream_name":"stdout","time":18106.667330969,"data":"  [278e5215] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":18164.64103149,"data":"  -\u003e 208.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18164.641831462,"data":"[stage A 144/240] 27a28665 slice=150s remaining=20849s\n"}
+,{"stream_name":"stdout","time":18167.77613386,"data":"  [27a28665] aug 1/1 [0, False, False, None] -\u003e pool sizes [1, 2, 1]\n"}
+,{"stream_name":"stdout","time":18171.100180286,"data":"  -\u003e 6.5s candidates=4 conf=1.00 sources=['neural', 'fallback', 'neural', 'neural', 'neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18171.100993479,"data":"[stage A 145/240] 27a77e38 slice=150s remaining=20843s\n"}
+,{"stream_name":"stdout","time":18177.120780968,"data":"  [27a77e38] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":18179.101832966,"data":"  -\u003e 8.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18179.102597684,"data":"[stage A 146/240] 27f8ce4f slice=150s remaining=20835s\n"}
+,{"stream_name":"stdout","time":18204.972635543,"data":"  [27f8ce4f] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":18214.613846952,"data":"  -\u003e 35.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18214.614619445,"data":"[stage A 147/240] 281123b4 slice=150s remaining=20799s\n"}
+,{"stream_name":"stdout","time":18223.143239193,"data":"  [281123b4] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":18242.968212023,"data":"  -\u003e 28.3s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18242.969052939,"data":"[stage A 148/240] 28bf18c6 slice=150s remaining=20771s\n"}
+,{"stream_name":"stdout","time":18248.409506013,"data":"  [28bf18c6] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":18250.441127268,"data":"  -\u003e 7.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18250.442092876,"data":"[stage A 149/240] 28e73c20 slice=150s remaining=20763s\n"}
+,{"stream_name":"stdout","time":18287.077857151,"data":"  [28e73c20] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":18297.282117882,"data":"  -\u003e 46.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18297.282880812,"data":"[stage A 150/240] 292dd178 slice=150s remaining=20716s\n"}
+,{"stream_name":"stdout","time":18372.750531128,"data":"  [292dd178] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":18408.621812552,"data":"  -\u003e 111.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18408.671544543,"data":"  [flush] submission.json written (150 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":18408.672360072,"data":"[stage A 151/240] 29623171 slice=150s remaining=20605s\n"}
+,{"stream_name":"stdout","time":18427.904159947,"data":"  [29623171] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":18437.976600547,"data":"  -\u003e 29.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18437.977354984,"data":"[stage A 152/240] 29700607 slice=150s remaining=20576s\n"}
+,{"stream_name":"stdout","time":18453.027936591,"data":"  [29700607] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":18459.414096489,"data":"  -\u003e 21.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18459.414944537,"data":"[stage A 153/240] 29c11459 slice=150s remaining=20554s\n"}
+,{"stream_name":"stdout","time":18468.813639252,"data":"  [29c11459] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":18472.214900615,"data":"  -\u003e 12.8s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18472.215687962,"data":"[stage A 154/240] 2a28add5 slice=150s remaining=20541s\n"}
+,{"stream_name":"stdout","time":18481.011887598,"data":"  [2a28add5] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":18484.217026937,"data":"  -\u003e 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18484.217915623,"data":"[stage A 155/240] 2a5f8217 slice=150s remaining=20529s\n"}
+,{"stream_name":"stdout","time":18634.710939188,"data":"  [2a5f8217] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":18662.214956959,"data":"  -\u003e 178.0s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":18662.215711061,"data":"[stage A 156/240] 2b01abd0 slice=150s remaining=20351s\n"}
+,{"stream_name":"stdout","time":18812.710456629,"data":"  [2b01abd0] aug 1/1 [0, False, False, None] -\u003e pool sizes [33]\n"}
+,{"stream_name":"stdout","time":19016.461057751,"data":"  -\u003e 354.2s candidates=30 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19016.461968577,"data":"[stage A 157/240] 2b9ef948 slice=150s remaining=19997s\n"}
+,{"stream_name":"stdout","time":19093.772272275,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 732.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 492.81 MiB is free. Including non-PyTorch memory, this process has 14.08 GiB memory in use. Of the allocated memory 13.07 GiB is allocated by PyTorch, and 903.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":19093.77317737,"data":"  [2b9ef948] aug 1/1 [0, False, False, None] -\u003e pool sizes [2, 0]\n"}
+,{"stream_name":"stdout","time":19151.607360057,"data":"  -\u003e 135.1s candidates=2 conf=0.25 sources=['neural', 'neural', 'fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19151.608214405,"data":"[stage A 158/240] 2bcee788 slice=150s remaining=19862s\n"}
+,{"stream_name":"stdout","time":19188.218842624,"data":"  [2bcee788] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":19229.917334108,"data":"  -\u003e 78.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19229.918229538,"data":"[stage A 159/240] 2bee17df slice=150s remaining=19784s\n"}
+,{"stream_name":"stdout","time":19249.407767265,"data":"  [2bee17df] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":19255.485844743,"data":"  -\u003e 25.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19255.486695228,"data":"[stage A 160/240] 2c0b0aff slice=150s remaining=19758s\n"}
+,{"stream_name":"stdout","time":19406.134955675,"data":"  [2c0b0aff] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":19533.76733428,"data":"  -\u003e 278.3s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19533.813371301,"data":"  [flush] submission.json written (160 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":19533.814472559,"data":"[stage A 161/240] 2c608aff slice=150s remaining=19480s\n"}
+,{"stream_name":"stdout","time":19579.504414769,"data":"  [2c608aff] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":19591.356021262,"data":"  -\u003e 57.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19591.357175709,"data":"[stage A 162/240] 2c737e39 slice=150s remaining=19422s\n"}
+,{"stream_name":"stdout","time":19708.445054711,"data":"  [2c737e39] aug 1/1 [0, False, False, None] -\u003e pool sizes [43]\n"}
+,{"stream_name":"stdout","time":19878.279298581,"data":"  -\u003e 286.9s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":19878.280204037,"data":"[stage A 163/240] 2ccd9fef slice=150s remaining=19135s\n"}
+,{"stream_name":"stdout","time":20028.820856271,"data":"  [2ccd9fef] aug 1/1 [0, False, False, None] -\u003e pool sizes [11, 14]\n"}
+,{"stream_name":"stdout","time":20133.952717611,"data":"  -\u003e 255.7s candidates=19 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20133.953602229,"data":"[stage A 164/240] 2dc579da slice=150s remaining=18880s\n"}
+,{"stream_name":"stdout","time":20194.470090203,"data":"  [2dc579da] aug 1/1 [0, False, False, None] -\u003e pool sizes [12]\n"}
+,{"stream_name":"stdout","time":20229.358923184,"data":"  -\u003e 95.4s candidates=12 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20229.35975142,"data":"[stage A 165/240] 2dd70a9a slice=150s remaining=18784s\n"}
+,{"stream_name":"stdout","time":20346.330446305,"data":"  [2dd70a9a] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":20424.569449375,"data":"  -\u003e 195.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20424.570474133,"data":"[stage A 166/240] 2de01db2 slice=150s remaining=18589s\n"}
+,{"stream_name":"stdout","time":20435.300915016,"data":"  [2de01db2] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":20445.061341867,"data":"  -\u003e 20.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20445.062161637,"data":"[stage A 167/240] 2dee498d slice=150s remaining=18569s\n"}
+,{"stream_name":"stdout","time":20592.946015708,"data":"  [2dee498d] aug 1/1 [0, False, False, None] -\u003e pool sizes [49]\n"}
+,{"stream_name":"stdout","time":20663.738822972,"data":"  -\u003e 218.6s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20663.739600935,"data":"[stage A 168/240] 2e65ae53 slice=150s remaining=18350s\n"}
+,{"stream_name":"stdout","time":20814.245908015,"data":"  [2e65ae53] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":20901.360184822,"data":"  -\u003e 237.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":20901.361091979,"data":"[stage A 169/240] 2f0c5170 slice=150s remaining=18112s\n"}
+,{"stream_name":"stdout","time":21051.861751039,"data":"  [2f0c5170] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":21139.829688806,"data":"  -\u003e 238.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21139.830562116,"data":"[stage A 170/240] 2f767503 slice=150s remaining=17874s\n"}
+,{"stream_name":"stdout","time":21190.085953693,"data":"  [2f767503] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":21231.085071441,"data":"  -\u003e 91.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21231.131396205,"data":"  [flush] submission.json written (170 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":21231.132219146,"data":"[stage A 171/240] 2faf500b slice=150s remaining=17783s\n"}
+,{"stream_name":"stdout","time":21381.908853982,"data":"  [2faf500b] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":21448.097084819,"data":"  -\u003e 216.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21448.097945247,"data":"[stage A 172/240] 305b1341 slice=150s remaining=17566s\n"}
+,{"stream_name":"stdout","time":21598.662192843,"data":"  [305b1341] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":21693.571601049,"data":"  -\u003e 245.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21693.572485109,"data":"[stage A 173/240] 30f42897 slice=150s remaining=17320s\n"}
+,{"stream_name":"stdout","time":21844.024859708,"data":"  [30f42897] aug 1/1 [0, False, False, None] -\u003e pool sizes [24]\n"}
+,{"stream_name":"stdout","time":21912.588630511,"data":"  -\u003e 219.0s candidates=23 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21912.589604275,"data":"[stage A 174/240] 310f3251 slice=150s remaining=17101s\n"}
+,{"stream_name":"stdout","time":21965.938173287,"data":"  [310f3251] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":21993.109698627,"data":"  -\u003e 80.5s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":21993.110671878,"data":"[stage A 175/240] 3194b014 slice=150s remaining=17021s\n"}
+,{"stream_name":"stdout","time":22002.899408824,"data":"  [3194b014] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":22011.671713833,"data":"  -\u003e 18.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22011.672551426,"data":"[stage A 176/240] 319f2597 slice=150s remaining=17002s\n"}
+,{"stream_name":"stdout","time":22162.403306302,"data":"  [319f2597] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":22217.275207793,"data":"  -\u003e 205.6s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22217.276062503,"data":"[stage A 177/240] 31aa019c slice=150s remaining=16796s\n"}
+,{"stream_name":"stdout","time":22231.268781719,"data":"  [31aa019c] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":22243.542789959,"data":"  -\u003e 26.3s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22243.543599057,"data":"[stage A 178/240] 31adaf00 slice=150s remaining=16770s\n"}
+,{"stream_name":"stdout","time":22291.295715787,"data":"  [31adaf00] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":22323.876594238,"data":"  -\u003e 80.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22323.877543722,"data":"[stage A 179/240] 31d5ba1a slice=150s remaining=16690s\n"}
+,{"stream_name":"stdout","time":22343.250771914,"data":"  [31d5ba1a] aug 1/1 [0, False, False, None] -\u003e pool sizes [16, 8]\n"}
+,{"stream_name":"stdout","time":22380.999526411,"data":"  -\u003e 57.1s candidates=24 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22381.000435282,"data":"[stage A 180/240] 320afe60 slice=150s remaining=16633s\n"}
+,{"stream_name":"stdout","time":22531.621612922,"data":"  [320afe60] aug 1/1 [0, False, False, None] -\u003e pool sizes [2, 2]\n"}
+,{"stream_name":"stdout","time":22531.907980956,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 806.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 516.81 MiB is free. Including non-PyTorch memory, this process has 14.05 GiB memory in use. Of the allocated memory 13.77 GiB is allocated by PyTorch, and 162.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":22532.544652357,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 826.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 348.81 MiB is free. Including non-PyTorch memory, this process has 14.22 GiB memory in use. Of the allocated memory 13.93 GiB is allocated by PyTorch, and 164.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":22532.789734279,"data":"  -\u003e 151.8s candidates=4 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22532.843464163,"data":"  [flush] submission.json written (180 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":22532.844266,"data":"[stage A 181/240] 321b1fc6 slice=150s remaining=16481s\n"}
+,{"stream_name":"stdout","time":22568.402138469,"data":"  [321b1fc6] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":22592.315123155,"data":"  -\u003e 59.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22592.315908044,"data":"[stage A 182/240] 32597951 slice=150s remaining=16421s\n"}
+,{"stream_name":"stdout","time":22742.825110846,"data":"  [32597951] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":22830.378182911,"data":"  -\u003e 238.0s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22830.379125838,"data":"[stage A 183/240] 32e9702f slice=150s remaining=16183s\n"}
+,{"stream_name":"stdout","time":22868.328170508,"data":"  [32e9702f] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":22886.669501392,"data":"  -\u003e 56.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":22886.670389838,"data":"[stage A 184/240] 33067df9 slice=150s remaining=16127s\n"}
+,{"stream_name":"stdout","time":23037.461680865,"data":"  [33067df9] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":23132.609185604,"data":"  -\u003e 245.9s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23132.610043637,"data":"[stage A 185/240] 332202d5 slice=150s remaining=15881s\n"}
+,{"stream_name":"stdout","time":23283.42388298,"data":"  [332202d5] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":23361.405876451,"data":"  -\u003e 228.8s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23361.406203644,"data":"[stage A 186/240] 332efdb3 slice=150s remaining=15652s\n"}
+,{"stream_name":"stdout","time":23371.055404376,"data":"  [332efdb3] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":23373.981145816,"data":"  -\u003e 12.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23373.981959654,"data":"[stage A 187/240] 3345333e slice=150s remaining=15640s\n"}
+,{"stream_name":"stdout","time":23476.529151326,"data":"  [3345333e] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":23540.854518818,"data":"  -\u003e 166.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23540.855413067,"data":"[stage A 188/240] 337b420f slice=150s remaining=15473s\n"}
+,{"stream_name":"stdout","time":23588.475466171,"data":"  [337b420f] aug 1/1 [0, False, False, None] -\u003e pool sizes [12, 4]\n"}
+,{"stream_name":"stdout","time":23637.537014947,"data":"  -\u003e 96.7s candidates=16 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23637.537892051,"data":"[stage A 189/240] 3391f8c0 slice=150s remaining=15376s\n"}
+,{"stream_name":"stdout","time":23787.962117509,"data":"  [3391f8c0] aug 1/1 [0, False, False, None] -\u003e pool sizes [19]\n"}
+,{"stream_name":"stdout","time":23912.313916702,"data":"  -\u003e 274.8s candidates=17 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":23912.314783396,"data":"[stage A 190/240] 33b52de3 slice=150s remaining=15101s\n"}
+,{"stream_name":"stdout","time":24062.87633234,"data":"  [33b52de3] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":24130.332113684,"data":"  -\u003e 218.0s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24130.373531962,"data":"  [flush] submission.json written (190 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":24130.37431371,"data":"[stage A 191/240] 3428a4f5 slice=150s remaining=14883s\n"}
+,{"stream_name":"stdout","time":24191.07596669,"data":"  [3428a4f5] aug 1/1 [0, False, False, None] -\u003e pool sizes [13, 11]\n"}
+,{"stream_name":"stdout","time":24258.802615779,"data":"  -\u003e 128.4s candidates=24 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24258.803481576,"data":"[stage A 192/240] 342ae2ed slice=150s remaining=14755s\n"}
+,{"stream_name":"stdout","time":24407.521105163,"data":"  [342ae2ed] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":24486.393949423,"data":"  -\u003e 227.6s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24486.394855023,"data":"[stage A 193/240] 342dd610 slice=150s remaining=14527s\n"}
+,{"stream_name":"stdout","time":24511.552165519,"data":"  [342dd610] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":24518.669262521,"data":"  -\u003e 32.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24518.67020684,"data":"[stage A 194/240] 3490cc26 slice=150s remaining=14495s\n"}
+,{"stream_name":"stdout","time":24522.429165021,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 766.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 268.81 MiB is free. Including non-PyTorch memory, this process has 14.30 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 797.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":24522.431096051,"data":"  [3490cc26] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":24522.431962228,"data":"  -\u003e 3.8s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24522.432781144,"data":"[stage A 195/240] 34b99a2b slice=150s remaining=14491s\n"}
+,{"stream_name":"stdout","time":24525.539325411,"data":"  [34b99a2b] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":24527.5528004,"data":"  -\u003e 5.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24527.553746112,"data":"[stage A 196/240] 34cfa167 slice=150s remaining=14486s\n"}
+,{"stream_name":"stdout","time":24678.114172925,"data":"  [34cfa167] aug 1/1 [0, False, False, None] -\u003e pool sizes [6, 4]\n"}
+,{"stream_name":"stdout","time":24832.496266804,"data":"  -\u003e 304.9s candidates=10 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24832.497238342,"data":"[stage A 197/240] 351d6448 slice=150s remaining=14181s\n"}
+,{"stream_name":"stdout","time":24919.890077687,"data":"  [351d6448] aug 1/1 [0, False, False, None] -\u003e pool sizes [19]\n"}
+,{"stream_name":"stdout","time":24996.732560181,"data":"  -\u003e 164.2s candidates=19 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":24996.733451382,"data":"[stage A 198/240] 358ba94e slice=150s remaining=14017s\n"}
+,{"stream_name":"stdout","time":25147.316635457,"data":"  [358ba94e] aug 1/1 [0, False, False, None] -\u003e pool sizes [17]\n"}
+,{"stream_name":"stdout","time":25314.392454508,"data":"  -\u003e 317.7s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25314.393285965,"data":"[stage A 199/240] 3618c87e slice=150s remaining=13699s\n"}
+,{"stream_name":"stdout","time":25320.093120979,"data":"  [3618c87e] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":25325.615018977,"data":"  -\u003e 11.2s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25325.615737959,"data":"[stage A 200/240] 363442ee slice=150s remaining=13688s\n"}
+,{"stream_name":"stdout","time":25376.187229,"data":"  [363442ee] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":25413.651980809,"data":"  -\u003e 88.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25413.694288752,"data":"  [flush] submission.json written (200 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":25413.695126004,"data":"[stage A 201/240] 36d67576 slice=150s remaining=13600s\n"}
+,{"stream_name":"stdout","time":25564.018916729,"data":"  [36d67576] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":25632.244570304,"data":"  -\u003e 218.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25632.245594126,"data":"[stage A 202/240] 36fdfd69 slice=150s remaining=13381s\n"}
+,{"stream_name":"stdout","time":25671.136789706,"data":"  [36fdfd69] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":25683.04435714,"data":"  -\u003e 50.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25683.045213829,"data":"[stage A 203/240] 37ce87bb slice=150s remaining=13331s\n"}
+,{"stream_name":"stdout","time":25833.768217517,"data":"  [37ce87bb] aug 1/1 [0, False, False, None] -\u003e pool sizes [29]\n"}
+,{"stream_name":"stdout","time":25940.373772164,"data":"  -\u003e 257.3s candidates=28 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":25940.374554029,"data":"[stage A 204/240] 37d3e8b2 slice=150s remaining=13073s\n"}
+,{"stream_name":"stdout","time":26090.72822172,"data":"  [37d3e8b2] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":26167.88454449,"data":"  -\u003e 227.5s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26167.885424812,"data":"[stage A 205/240] 3906de3d slice=150s remaining=12846s\n"}
+,{"stream_name":"stdout","time":26214.855203933,"data":"  [3906de3d] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":26247.06532436,"data":"  -\u003e 79.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26247.066166267,"data":"[stage A 206/240] 396d80d7 slice=150s remaining=12767s\n"}
+,{"stream_name":"stdout","time":26349.90396425,"data":"  [396d80d7] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":26414.159342208,"data":"  -\u003e 167.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26414.160213324,"data":"[stage A 207/240] 3979b1a8 slice=150s remaining=12599s\n"}
+,{"stream_name":"stdout","time":26421.474584684,"data":"  [3979b1a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":26423.502273583,"data":"  -\u003e 9.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26423.503151656,"data":"[stage A 208/240] 39a8645d slice=150s remaining=12590s\n"}
+,{"stream_name":"stdout","time":26443.011228483,"data":"  [39a8645d] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":26453.429635908,"data":"  -\u003e 29.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26453.430454275,"data":"[stage A 209/240] 39e1d7f9 slice=150s remaining=12560s\n"}
+,{"stream_name":"stdout","time":26453.670118179,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 798.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 794.81 MiB is free. Including non-PyTorch memory, this process has 13.78 GiB memory in use. Of the allocated memory 13.56 GiB is allocated by PyTorch, and 98.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":26453.671288503,"data":"  [39e1d7f9] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":26453.673446741,"data":"  -\u003e 0.3s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26453.674227313,"data":"[stage A 210/240] 3a301edc slice=150s remaining=12560s\n"}
+,{"stream_name":"stdout","time":26604.277896522,"data":"  [3a301edc] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":26684.324380853,"data":"  -\u003e 230.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26684.349531928,"data":"  [flush] submission.json written (210 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":26684.350287906,"data":"[stage A 211/240] 3aa6fb7a slice=150s remaining=12329s\n"}
+,{"stream_name":"stdout","time":26701.35483196,"data":"  [3aa6fb7a] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":26713.456381071,"data":"  -\u003e 29.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26713.457146716,"data":"[stage A 212/240] 3ac3eb23 slice=150s remaining=12300s\n"}
+,{"stream_name":"stdout","time":26718.939212454,"data":"  [3ac3eb23] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":26720.884462604,"data":"  -\u003e 7.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26720.885311947,"data":"[stage A 213/240] 3ad05f52 slice=150s remaining=12293s\n"}
+,{"stream_name":"stdout","time":26724.476283406,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 722.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 596.81 MiB is free. Including non-PyTorch memory, this process has 13.98 GiB memory in use. Of the allocated memory 13.03 GiB is allocated by PyTorch, and 844.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":26724.478211437,"data":"  [3ad05f52] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":26724.479184792,"data":"  -\u003e 3.6s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26724.479931821,"data":"[stage A 214/240] 3af2c5a8 slice=150s remaining=12289s\n"}
+,{"stream_name":"stdout","time":26739.405776162,"data":"  [3af2c5a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":26742.168563299,"data":"  -\u003e 17.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26742.169401516,"data":"[stage A 215/240] 3b4c2228 slice=150s remaining=12271s\n"}
+,{"stream_name":"stdout","time":26846.727605641,"data":"  [3b4c2228] aug 1/1 [0, False, False, None] -\u003e pool sizes [21, 120]\n"}
+,{"stream_name":"stdout","time":26946.874160906,"data":"  -\u003e 204.7s candidates=53 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":26946.875025435,"data":"[stage A 216/240] 3bd292e8 slice=150s remaining=12067s\n"}
+,{"stream_name":"stdout","time":26981.43750114,"data":"  [3bd292e8] aug 1/1 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":27010.104348145,"data":"  -\u003e 63.3s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27010.105254021,"data":"[stage A 217/240] 3bd67248 slice=150s remaining=12004s\n"}
+,{"stream_name":"stdout","time":27160.67169486,"data":"  [3bd67248] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":27202.894791456,"data":"  -\u003e 192.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27202.895653833,"data":"[stage A 218/240] 3bdb4ada slice=150s remaining=11811s\n"}
+,{"stream_name":"stdout","time":27353.436526796,"data":"  [3bdb4ada] aug 1/1 [0, False, False, None] -\u003e pool sizes [19]\n"}
+,{"stream_name":"stdout","time":27472.135144344,"data":"  -\u003e 269.2s candidates=18 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27472.136146152,"data":"[stage A 219/240] 3befdf3e slice=150s remaining=11542s\n"}
+,{"stream_name":"stdout","time":27485.736400496,"data":"  [3befdf3e] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":27490.452084247,"data":"  -\u003e 18.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27490.45283914,"data":"[stage A 220/240] 3c9b0459 slice=150s remaining=11523s\n"}
+,{"stream_name":"stdout","time":27491.696882955,"data":"  [3c9b0459] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":27492.61182585,"data":"  -\u003e 2.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27492.674683532,"data":"  [flush] submission.json written (220 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":27492.675679758,"data":"[stage A 221/240] 3cd86f4f slice=150s remaining=11521s\n"}
+,{"stream_name":"stdout","time":27563.333451736,"data":"  [3cd86f4f] aug 1/1 [0, False, False, None] -\u003e pool sizes [92, 24, 2]\n"}
+,{"stream_name":"stdout","time":27676.132344785,"data":"  -\u003e 183.4s candidates=58 conf=0.50 sources=['neural', 'neural', 'neural', 'neural', 'neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27676.133306641,"data":"[stage A 222/240] 3d31c5b3 slice=150s remaining=11338s\n"}
+,{"stream_name":"stdout","time":27686.419769789,"data":"  [3d31c5b3] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":27714.247369143,"data":"  -\u003e 38.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27714.248295478,"data":"[stage A 223/240] 3d588dc9 slice=150s remaining=11299s\n"}
+,{"stream_name":"stdout","time":27826.442176249,"data":"  [3d588dc9] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":27890.463991645,"data":"  -\u003e 176.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27890.464233243,"data":"[stage A 224/240] 3d6c6e23 slice=150s remaining=11123s\n"}
+,{"stream_name":"stdout","time":27925.296176943,"data":"  [3d6c6e23] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":27935.135833943,"data":"  -\u003e 44.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":27935.136548234,"data":"[stage A 225/240] 3de23699 slice=150s remaining=11078s\n"}
+,{"stream_name":"stdout","time":28085.588501575,"data":"  [3de23699] aug 1/1 [0, False, False, None] -\u003e pool sizes [17]\n"}
+,{"stream_name":"stdout","time":28195.579841416,"data":"  -\u003e 260.4s candidates=17 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":28195.580683416,"data":"[stage A 226/240] 3e980e27 slice=150s remaining=10818s\n"}
+,{"stream_name":"stdout","time":28296.60398379,"data":"  [3e980e27] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":28368.597042335,"data":"  -\u003e 173.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":28368.597952866,"data":"[stage A 227/240] 3eda0437 slice=150s remaining=10645s\n"}
+,{"stream_name":"stdout","time":28518.915299786,"data":"  [3eda0437] aug 1/1 [0, False, False, None] -\u003e pool sizes [38]\n"}
+,{"stream_name":"stdout","time":28658.214258374,"data":"  -\u003e 289.6s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":28658.215153841,"data":"[stage A 228/240] 3ee1011a slice=150s remaining=10355s\n"}
+,{"stream_name":"stdout","time":28808.508357557,"data":"  [3ee1011a] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":28889.399165146,"data":"  -\u003e 231.2s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":28889.400101866,"data":"[stage A 229/240] 3f23242b slice=150s remaining=10124s\n"}
+,{"stream_name":"stdout","time":29040.029587098,"data":"  [3f23242b] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":29095.39583975,"data":"  -\u003e 206.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29095.39589171,"data":"[stage A 230/240] 3f7978a0 slice=150s remaining=9918s\n"}
+,{"stream_name":"stdout","time":29246.060601469,"data":"  [3f7978a0] aug 1/1 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":29298.966108781,"data":"  -\u003e 203.6s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29299.008799535,"data":"  [flush] submission.json written (230 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":29299.009530852,"data":"[stage A 231/240] 4093f84a slice=150s remaining=9715s\n"}
+,{"stream_name":"stdout","time":29383.75841347,"data":"  [4093f84a] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":29416.622259934,"data":"  -\u003e 117.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29416.623335836,"data":"[stage A 232/240] 40f6cd08 slice=150s remaining=9597s\n"}
+,{"stream_name":"stdout","time":29416.94182141,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 4.79 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 12.50 GiB memory in use. Of the allocated memory 12.29 GiB is allocated by PyTorch, and 83.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":29416.942551762,"data":"  [40f6cd08] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":29416.944900754,"data":"  -\u003e 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29416.945577718,"data":"[stage A 233/240] 412b6263 slice=150s remaining=9597s\n"}
+,{"stream_name":"stdout","time":29496.855958676,"data":"  [412b6263] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":29530.227606158,"data":"  -\u003e 113.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29530.228509809,"data":"[stage A 234/240] 414297c0 slice=150s remaining=9483s\n"}
+,{"stream_name":"stdout","time":29618.085677623,"data":"  [414297c0] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":29695.504934029,"data":"  -\u003e 165.3s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29695.505745527,"data":"[stage A 235/240] 41ace6b5 slice=150s remaining=9318s\n"}
+,{"stream_name":"stdout","time":29846.052903571,"data":"  [41ace6b5] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":29872.005422114,"data":"  -\u003e 176.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":29872.00626765,"data":"[stage A 236/240] 41e4d17e slice=150s remaining=9142s\n"}
+,{"stream_name":"stdout","time":29989.732464654,"data":"  [41e4d17e] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":30045.271523316,"data":"  -\u003e 173.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":30045.272473863,"data":"[stage A 237/240] 423a55dc slice=150s remaining=8968s\n"}
+,{"stream_name":"stdout","time":30195.821537784,"data":"  [423a55dc] aug 1/1 [0, False, False, None] -\u003e pool sizes [14]\n"}
+,{"stream_name":"stdout","time":30300.203854293,"data":"  -\u003e 254.9s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":30300.204796134,"data":"[stage A 238/240] 4258a5f9 slice=150s remaining=8713s\n"}
+,{"stream_name":"stdout","time":30325.002223859,"data":"  [4258a5f9] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":30344.455714352,"data":"  -\u003e 44.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":30344.456547586,"data":"[stage A 239/240] 4290ef0e slice=150s remaining=8669s\n"}
+,{"stream_name":"stdout","time":30494.882110624,"data":"  [4290ef0e] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":30559.591786738,"data":"  -\u003e 215.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":30559.592688523,"data":"[stage A 240/240] 42918530 slice=150s remaining=8454s\n"}
+,{"stream_name":"stdout","time":30709.975013908,"data":"  [42918530] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":30710.264881771,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.06 GiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 11.20 GiB is allocated by PyTorch, and 177.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30710.410234759,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.06 GiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 7.78 GiB is allocated by PyTorch, and 3.59 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30710.658600448,"data":"  -\u003e 151.1s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":30710.721687375,"data":"  [flush] submission.json written (240 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":30710.72253745,"data":"[stage B 1/240] 05a7bcf2 conf=0.00 slice=45s remaining=8303s\n"}
+,{"stream_name":"stdout","time":30710.818316465,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30711.322600044,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.12 GiB is free. Including non-PyTorch memory, this process has 11.44 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 62.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30711.825502426,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.13 GiB is free. Including non-PyTorch memory, this process has 11.43 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 50.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30712.046798346,"data":"  [05a7bcf2] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30712.608713597,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":30712.609502721,"data":"  [05a7bcf2] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":30712.611616835,"data":"  -\u003e 1.9s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30712.612457814,"data":"[stage B 2/240] 264363fd conf=0.00 slice=45s remaining=8301s\n"}
+,{"stream_name":"stdout","time":30712.68753336,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30712.929284234,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.69 GiB is free. Including non-PyTorch memory, this process has 12.87 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 1.50 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30713.470819589,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.04 GiB is free. Including non-PyTorch memory, this process has 11.52 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 148.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30713.917559423,"data":"  [264363fd] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30714.482872775,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":30714.483624534,"data":"  [264363fd] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":30714.486008154,"data":"  -\u003e 1.9s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30714.48671033,"data":"[stage B 3/240] 3490cc26 conf=0.00 slice=45s remaining=8299s\n"}
+,{"stream_name":"stdout","time":30714.561549336,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30742.413567988,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 612.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 432.81 MiB is free. Including non-PyTorch memory, this process has 14.14 GiB memory in use. Of the allocated memory 13.14 GiB is allocated by PyTorch, and 884.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30771.793481124,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.38 GiB. GPU 0 has a total capacity of 14.56 GiB of which 744.81 MiB is free. Including non-PyTorch memory, this process has 13.83 GiB memory in use. Of the allocated memory 12.83 GiB is allocated by PyTorch, and 894.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30772.240290953,"data":"  [3490cc26] TTT 0 steps in 57.7s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30772.532479184,"data":"  -\u003e 58.0s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30772.533279685,"data":"[stage B 4/240] 39e1d7f9 conf=0.00 slice=45s remaining=8241s\n"}
+,{"stream_name":"stdout","time":30772.583699286,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30799.764687721,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.14 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.53 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 12.27 GiB is allocated by PyTorch, and 639.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30827.272217397,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.14 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.53 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 12.27 GiB is allocated by PyTorch, and 639.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30827.690193128,"data":"  [39e1d7f9] TTT 0 steps in 55.1s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30827.960473187,"data":"  -\u003e 55.5s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30827.961280026,"data":"[stage B 5/240] 3ad05f52 conf=0.00 slice=45s remaining=8186s\n"}
+,{"stream_name":"stdout","time":30828.036498502,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30853.904701962,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.95 GiB. GPU 0 has a total capacity of 14.56 GiB of which 84.81 MiB is free. Including non-PyTorch memory, this process has 14.48 GiB memory in use. Of the allocated memory 13.79 GiB is allocated by PyTorch, and 567.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30879.938624858,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 66.81 MiB is free. Including non-PyTorch memory, this process has 14.49 GiB memory in use. Of the allocated memory 13.81 GiB is allocated by PyTorch, and 566.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30880.353021599,"data":"  [3ad05f52] TTT 0 steps in 52.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30880.598677302,"data":"  -\u003e 52.6s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30880.599536163,"data":"[stage B 6/240] 40f6cd08 conf=0.00 slice=45s remaining=8133s\n"}
+,{"stream_name":"stdout","time":30880.677945257,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30880.927844265,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.30 GiB is free. Including non-PyTorch memory, this process has 11.26 GiB memory in use. Of the allocated memory 10.99 GiB is allocated by PyTorch, and 146.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30881.440658199,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.49 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.37 GiB is free. Including non-PyTorch memory, this process has 11.19 GiB memory in use. Of the allocated memory 11.00 GiB is allocated by PyTorch, and 59.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":30881.881569424,"data":"  [40f6cd08] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30882.437912223,"data":"    prompt forward failed (CUDA out of memory. Tried to allocate 4.79 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.95 GiB is free. Including non-PyTorch memory, this process has 12.61 GiB memory in use. Of the allocated memory 12.30 GiB is allocated by PyTorch, and 182.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate\n"}
+,{"stream_name":"stdout","time":30882.438870308,"data":"  [40f6cd08] aug 1/1 [0, False, False, None] -\u003e pool sizes [0]\n"}
+,{"stream_name":"stdout","time":30882.441039756,"data":"  -\u003e 1.8s conf=0.00 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30882.441872259,"data":"[stage B 7/240] 3979b1a8 conf=0.12 slice=45s remaining=8131s\n"}
+,{"stream_name":"stdout","time":30882.504963303,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30890.991304042,"data":"  [3979b1a8] TTT 2 steps in 8.5s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30898.557228063,"data":"  [3979b1a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":30900.590293327,"data":"  -\u003e 18.1s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30900.591154966,"data":"[stage B 8/240] 0692e18c conf=0.12 slice=45s remaining=8113s\n"}
+,{"stream_name":"stdout","time":30900.662935121,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30909.241469217,"data":"  [0692e18c] TTT 2 steps in 8.6s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":30915.827713584,"data":"  [0692e18c] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":30917.818052282,"data":"  -\u003e 17.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":30917.818838607,"data":"[stage B 9/240] 256b0a75 conf=0.12 slice=45s remaining=8096s\n"}
+,{"stream_name":"stdout","time":30917.88768598,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":30979.185274111,"data":"  [256b0a75] TTT 1 steps in 61.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31008.040780513,"data":"  -\u003e 90.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31008.041534968,"data":"[stage B 10/240] 007bbfb7 conf=0.12 slice=45s remaining=8006s\n"}
+,{"stream_name":"stdout","time":31008.101348082,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31016.372252626,"data":"  [007bbfb7] TTT 1 steps in 8.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31024.201615217,"data":"  [007bbfb7] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31027.130268172,"data":"  -\u003e 19.1s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31027.178280494,"data":"  [flush] submission.json written (10 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":31027.179062484,"data":"[stage B 11/240] 00576224 conf=0.12 slice=45s remaining=7986s\n"}
+,{"stream_name":"stdout","time":31027.23754886,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31029.271681964,"data":"  [00576224] TTT 1 steps in 2.0s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31032.299680156,"data":"  [00576224] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31033.236130036,"data":"  -\u003e 6.1s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31033.236918972,"data":"[stage B 12/240] 28e73c20 conf=0.12 slice=45s remaining=7980s\n"}
+,{"stream_name":"stdout","time":31033.297579923,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31054.587591796,"data":"  [28e73c20] TTT 1 steps in 21.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31078.48524036,"data":"  [28e73c20] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31098.867816165,"data":"  -\u003e 65.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31098.868678914,"data":"[stage B 13/240] 332efdb3 conf=0.12 slice=45s remaining=7915s\n"}
+,{"stream_name":"stdout","time":31098.89412229,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31104.225182426,"data":"  [332efdb3] TTT 1 steps in 5.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31114.130679632,"data":"  [332efdb3] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31117.072827471,"data":"  -\u003e 18.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31117.073773943,"data":"[stage B 14/240] 36fdfd69 conf=0.12 slice=45s remaining=7897s\n"}
+,{"stream_name":"stdout","time":31117.139495601,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31171.171249701,"data":"  [36fdfd69] TTT 2 steps in 54.0s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31183.238018773,"data":"  -\u003e 66.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31183.23881104,"data":"[stage B 15/240] 2c608aff conf=0.12 slice=45s remaining=7830s\n"}
+,{"stream_name":"stdout","time":31183.302179037,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31205.609711677,"data":"  [2c608aff] TTT 1 steps in 22.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31228.499449667,"data":"  [2c608aff] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31252.018006133,"data":"  -\u003e 68.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31252.018869373,"data":"[stage B 16/240] 195ba7dc conf=0.12 slice=45s remaining=7762s\n"}
+,{"stream_name":"stdout","time":31252.049209248,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31258.47623393,"data":"  [195ba7dc] TTT 1 steps in 6.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31262.976999592,"data":"  [195ba7dc] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31265.566769277,"data":"  -\u003e 13.6s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31265.567502778,"data":"[stage B 17/240] 15663ba9 conf=0.12 slice=45s remaining=7748s\n"}
+,{"stream_name":"stdout","time":31265.628633977,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31285.565803001,"data":"  [15663ba9] TTT 1 steps in 19.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31310.851033158,"data":"  [15663ba9] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31328.520478922,"data":"  -\u003e 62.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31328.521382381,"data":"[stage B 18/240] 06df4c85 conf=0.12 slice=45s remaining=7685s\n"}
+,{"stream_name":"stdout","time":31328.552498899,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31385.496347922,"data":"  [06df4c85] TTT 1 steps in 56.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31413.176191213,"data":"  -\u003e 84.7s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31413.176955502,"data":"[stage B 19/240] 0f63c0b9 conf=0.12 slice=45s remaining=7600s\n"}
+,{"stream_name":"stdout","time":31413.240914225,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31446.117379062,"data":"  [0f63c0b9] TTT 1 steps in 32.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31458.416592568,"data":"  [0f63c0b9] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31484.048237218,"data":"  -\u003e 70.8s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31484.049137601,"data":"[stage B 20/240] 1bfc4729 conf=0.12 slice=45s remaining=7530s\n"}
+,{"stream_name":"stdout","time":31484.077568753,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31490.455915191,"data":"  [1bfc4729] TTT 1 steps in 6.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31499.467584964,"data":"  [1bfc4729] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31502.665818509,"data":"  -\u003e 18.6s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31502.714501153,"data":"  [flush] submission.json written (20 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":31502.715314554,"data":"[stage B 21/240] 1da012fc conf=0.12 slice=45s remaining=7511s\n"}
+,{"stream_name":"stdout","time":31502.771537964,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31526.504857143,"data":"  [1da012fc] TTT 1 steps in 23.7s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31547.970927892,"data":"  [1da012fc] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31574.269120853,"data":"  -\u003e 71.5s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31574.27013002,"data":"[stage B 22/240] 3befdf3e conf=0.12 slice=45s remaining=7439s\n"}
+,{"stream_name":"stdout","time":31574.293264346,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31584.181040307,"data":"  [3befdf3e] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31598.033618682,"data":"  [3befdf3e] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31602.706192987,"data":"  -\u003e 28.5s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31602.706993189,"data":"[stage B 23/240] 1c786137 conf=0.12 slice=45s remaining=7411s\n"}
+,{"stream_name":"stdout","time":31602.76750646,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31622.074064532,"data":"  [1c786137] TTT 1 steps in 19.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31635.77351455,"data":"  [1c786137] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31643.601814347,"data":"  -\u003e 40.9s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31643.60257319,"data":"[stage B 24/240] 29700607 conf=0.12 slice=45s remaining=7370s\n"}
+,{"stream_name":"stdout","time":31643.665801143,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31660.678690574,"data":"  [29700607] TTT 1 steps in 17.0s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31675.890232529,"data":"  [29700607] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31682.341529259,"data":"  -\u003e 38.7s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31682.34236002,"data":"[stage B 25/240] 2bee17df conf=0.12 slice=45s remaining=7331s\n"}
+,{"stream_name":"stdout","time":31682.405930744,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31695.776004865,"data":"  [2bee17df] TTT 1 steps in 13.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31715.485222585,"data":"  [2bee17df] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31721.613777336,"data":"  -\u003e 39.3s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31721.614642873,"data":"[stage B 26/240] 0c786b71 conf=0.12 slice=45s remaining=7292s\n"}
+,{"stream_name":"stdout","time":31721.676073775,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31725.161869638,"data":"  [0c786b71] TTT 1 steps in 3.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31729.286738527,"data":"  [0c786b71] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31730.722862915,"data":"  -\u003e 9.1s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31730.72364575,"data":"[stage B 27/240] 3ac3eb23 conf=0.12 slice=45s remaining=7283s\n"}
+,{"stream_name":"stdout","time":31730.783457659,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31734.414037318,"data":"  [3ac3eb23] TTT 1 steps in 3.6s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31740.091833812,"data":"  [3ac3eb23] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31742.082250158,"data":"  -\u003e 11.4s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31742.083344927,"data":"[stage B 28/240] 11852cab conf=0.12 slice=45s remaining=7272s\n"}
+,{"stream_name":"stdout","time":31742.144648174,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31761.535803782,"data":"  [11852cab] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31772.289769682,"data":"  [11852cab] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31776.454061771,"data":"  -\u003e 34.4s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":31776.454836709,"data":"[stage B 29/240] 3d6c6e23 conf=0.12 slice=45s remaining=7237s\n"}
+,{"stream_name":"stdout","time":31776.518386759,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31816.132343392,"data":"  [3d6c6e23] TTT 2 steps in 39.6s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31824.30047435,"data":"  [3d6c6e23] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31843.881795798,"data":"  -\u003e 67.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31843.882642081,"data":"[stage B 30/240] 1f85a75f conf=0.12 slice=45s remaining=7170s\n"}
+,{"stream_name":"stdout","time":31843.946683135,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31876.050692399,"data":"  [1f85a75f] TTT 1 steps in 32.1s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31891.872280627,"data":"  [1f85a75f] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31923.278678413,"data":"  -\u003e 79.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31923.305422591,"data":"  [flush] submission.json written (30 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":31923.306212884,"data":"[stage B 31/240] 22425bda conf=0.12 slice=45s remaining=7090s\n"}
+,{"stream_name":"stdout","time":31923.365543969,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":31932.924793613,"data":"  [22425bda] TTT 1 steps in 9.6s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":31968.604422468,"data":"  [22425bda] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":31985.515387667,"data":"  -\u003e 62.2s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":31985.516237516,"data":"[stage B 32/240] 2685904e conf=0.12 slice=45s remaining=7028s\n"}
+,{"stream_name":"stdout","time":31985.575497147,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32006.930022397,"data":"  [2685904e] TTT 1 steps in 21.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32022.531489424,"data":"  [2685904e] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32030.229226311,"data":"  -\u003e 44.7s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32030.230167639,"data":"[stage B 33/240] 1c56ad9f conf=0.12 slice=45s remaining=6983s\n"}
+,{"stream_name":"stdout","time":32030.294390713,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32060.701883894,"data":"  [1c56ad9f] TTT 1 steps in 30.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32075.517721196,"data":"  [1c56ad9f] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32099.659721159,"data":"  -\u003e 69.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32099.660513649,"data":"[stage B 34/240] 19bb5feb conf=0.12 slice=45s remaining=6914s\n"}
+,{"stream_name":"stdout","time":32099.689811781,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32110.815803405,"data":"  [19bb5feb] TTT 1 steps in 11.1s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32115.885099666,"data":"  [19bb5feb] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32120.590978159,"data":"  -\u003e 21.0s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32120.591853064,"data":"[stage B 35/240] 34b99a2b conf=0.12 slice=45s remaining=6893s\n"}
+,{"stream_name":"stdout","time":32120.647220281,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32125.15970217,"data":"  [34b99a2b] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32128.418878145,"data":"  [34b99a2b] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32130.452389353,"data":"  -\u003e 9.8s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32130.453369387,"data":"[stage B 36/240] 1b2d62fb conf=0.12 slice=45s remaining=6883s\n"}
+,{"stream_name":"stdout","time":32130.481260115,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32134.987384798,"data":"  [1b2d62fb] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32137.94423214,"data":"  [1b2d62fb] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32139.703598567,"data":"  -\u003e 9.3s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32139.704408585,"data":"[stage B 37/240] 0962bcdd conf=0.12 slice=45s remaining=6874s\n"}
+,{"stream_name":"stdout","time":32139.762659066,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32158.495388428,"data":"  [0962bcdd] TTT 2 steps in 18.7s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32172.213783854,"data":"  [0962bcdd] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32176.671791073,"data":"  -\u003e 37.0s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32176.672544017,"data":"[stage B 38/240] 27a77e38 conf=0.12 slice=45s remaining=6837s\n"}
+,{"stream_name":"stdout","time":32176.727998868,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32183.161513832,"data":"  [27a77e38] TTT 2 steps in 6.4s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32189.481845835,"data":"  [27a77e38] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32191.465376547,"data":"  -\u003e 14.8s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32191.466138761,"data":"[stage B 39/240] 11dc524f conf=0.12 slice=45s remaining=6822s\n"}
+,{"stream_name":"stdout","time":32191.529367711,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32226.392875097,"data":"  [11dc524f] TTT 2 steps in 34.8s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32236.745104398,"data":"  [11dc524f] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32251.073891267,"data":"  -\u003e 59.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32251.07462494,"data":"[stage B 40/240] 342dd610 conf=0.12 slice=45s remaining=6763s\n"}
+,{"stream_name":"stdout","time":32251.140375593,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32277.870933249,"data":"  [342dd610] TTT 2 steps in 26.7s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32296.33976743,"data":"  [342dd610] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32310.523543832,"data":"  -\u003e 59.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32310.550728679,"data":"  [flush] submission.json written (40 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":32310.551467669,"data":"[stage B 41/240] 22233c11 conf=0.12 slice=45s remaining=6703s\n"}
+,{"stream_name":"stdout","time":32310.615545313,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32329.923463771,"data":"  [22233c11] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32340.730863773,"data":"  [22233c11] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32344.840431301,"data":"  -\u003e 34.3s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32344.841201514,"data":"[stage B 42/240] 025d127b conf=0.12 slice=45s remaining=6669s\n"}
+,{"stream_name":"stdout","time":32344.897019872,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32357.413702175,"data":"  [025d127b] TTT 2 steps in 12.5s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32366.490204228,"data":"  [025d127b] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32369.677930922,"data":"  -\u003e 24.8s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32369.678750709,"data":"[stage B 43/240] 28bf18c6 conf=0.12 slice=45s remaining=6644s\n"}
+,{"stream_name":"stdout","time":32369.736481242,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32378.284856443,"data":"  [28bf18c6] TTT 2 steps in 8.5s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32383.935824083,"data":"  [28bf18c6] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32385.987962078,"data":"  -\u003e 16.3s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32385.98869186,"data":"[stage B 44/240] 12eac192 conf=0.12 slice=45s remaining=6628s\n"}
+,{"stream_name":"stdout","time":32386.051605863,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32398.161980402,"data":"  [12eac192] TTT 2 steps in 12.1s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32404.681780496,"data":"  [12eac192] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32407.318083623,"data":"  -\u003e 21.3s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32407.318832018,"data":"[stage B 45/240] 3c9b0459 conf=0.12 slice=45s remaining=6606s\n"}
+,{"stream_name":"stdout","time":32407.377025895,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32411.206112127,"data":"  [3c9b0459] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32412.640224492,"data":"  [3c9b0459] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32413.55878864,"data":"  -\u003e 6.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32413.559499246,"data":"[stage B 46/240] 2a28add5 conf=0.12 slice=45s remaining=6600s\n"}
+,{"stream_name":"stdout","time":32413.619312444,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32426.129505517,"data":"  [2a28add5] TTT 2 steps in 12.5s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32435.195120935,"data":"  [2a28add5] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32438.380173776,"data":"  -\u003e 24.8s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32438.381008375,"data":"[stage B 47/240] 137eaa0f conf=0.12 slice=45s remaining=6575s\n"}
+,{"stream_name":"stdout","time":32438.441966666,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32450.965394932,"data":"  [137eaa0f] TTT 2 steps in 12.4s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32461.544679423,"data":"  [137eaa0f] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32465.03089418,"data":"  -\u003e 26.6s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32465.032080369,"data":"[stage B 48/240] 2601afb7 conf=0.12 slice=45s remaining=6549s\n"}
+,{"stream_name":"stdout","time":32465.091921644,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32481.832809327,"data":"  [2601afb7] TTT 2 steps in 16.7s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32493.129050356,"data":"  [2601afb7] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32497.20112396,"data":"  -\u003e 32.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32497.201933132,"data":"[stage B 49/240] 3194b014 conf=0.12 slice=45s remaining=6516s\n"}
+,{"stream_name":"stdout","time":32497.26586657,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32539.666585602,"data":"  [3194b014] TTT 2 steps in 42.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32548.661630359,"data":"  -\u003e 51.5s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32548.66270157,"data":"[stage B 50/240] 25d8a9c8 conf=0.12 slice=45s remaining=6465s\n"}
+,{"stream_name":"stdout","time":32548.718304193,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32552.513335679,"data":"  [25d8a9c8] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32553.985981986,"data":"  [25d8a9c8] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32554.91144413,"data":"  -\u003e 6.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32554.972471339,"data":"  [flush] submission.json written (50 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":32554.973246062,"data":"[stage B 51/240] 0d3d703e conf=0.12 slice=45s remaining=6459s\n"}
+,{"stream_name":"stdout","time":32555.034584836,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32558.81392458,"data":"  [0d3d703e] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32560.288342564,"data":"  [0d3d703e] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32561.219174322,"data":"  -\u003e 6.2s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32561.219984792,"data":"[stage B 52/240] 1a2e2828 conf=0.12 slice=45s remaining=6452s\n"}
+,{"stream_name":"stdout","time":32561.282665546,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32577.314821862,"data":"  [1a2e2828] TTT 2 steps in 16.0s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32580.794559351,"data":"  [1a2e2828] aug 1/1 [0, False, False, None] -\u003e pool sizes [2]\n"}
+,{"stream_name":"stdout","time":32584.004942349,"data":"  -\u003e 22.8s conf=0.12 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32584.005819462,"data":"[stage B 53/240] 0607ce86 conf=0.25 slice=45s remaining=6430s\n"}
+,{"stream_name":"stdout","time":32584.074273814,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32640.74185742,"data":"  [0607ce86] TTT 1 steps in 56.6s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32691.196205317,"data":"  -\u003e 107.2s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32691.197085145,"data":"[stage B 54/240] 0a2355a6 conf=0.25 slice=45s remaining=6322s\n"}
+,{"stream_name":"stdout","time":32691.219804714,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32714.73535636,"data":"  [0a2355a6] TTT 1 steps in 23.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32736.697723797,"data":"  [0a2355a6] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":32776.89804496,"data":"  -\u003e 85.7s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32776.898801028,"data":"[stage B 55/240] 009d5c81 conf=0.25 slice=45s remaining=6237s\n"}
+,{"stream_name":"stdout","time":32776.924254399,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32813.738610886,"data":"  [009d5c81] TTT 1 steps in 36.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32826.32509555,"data":"  [009d5c81] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":32866.735435822,"data":"  -\u003e 89.8s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32866.736313264,"data":"[stage B 56/240] 1f642eb9 conf=0.25 slice=45s remaining=6147s\n"}
+,{"stream_name":"stdout","time":32866.75702505,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32876.659637675,"data":"  [1f642eb9] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32904.136433729,"data":"  [1f642eb9] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":32912.348441512,"data":"  -\u003e 45.7s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":32912.349337691,"data":"[stage B 57/240] 1d61978c conf=0.25 slice=45s remaining=6101s\n"}
+,{"stream_name":"stdout","time":32912.411131404,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":32929.860284198,"data":"  [1d61978c] TTT 1 steps in 17.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":32957.744696736,"data":"  [1d61978c] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":32990.27019239,"data":"  -\u003e 77.9s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":32990.271100641,"data":"[stage B 58/240] 0becf7df conf=0.25 slice=45s remaining=6023s\n"}
+,{"stream_name":"stdout","time":32990.294137994,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33000.170645715,"data":"  [0becf7df] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33029.855783366,"data":"  [0becf7df] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33038.015842573,"data":"  -\u003e 47.8s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33038.016798404,"data":"[stage B 59/240] 22eb0ac0 conf=0.25 slice=45s remaining=5976s\n"}
+,{"stream_name":"stdout","time":33038.077076084,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33047.95977916,"data":"  [22eb0ac0] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33075.543119466,"data":"  [22eb0ac0] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33083.696302562,"data":"  -\u003e 45.7s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33083.697142819,"data":"[stage B 60/240] 29623171 conf=0.25 slice=45s remaining=5930s\n"}
+,{"stream_name":"stdout","time":33083.756574852,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33096.055465865,"data":"  [29623171] TTT 1 steps in 12.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33115.529399952,"data":"  [29623171] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33125.612517111,"data":"  -\u003e 41.9s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33125.670327628,"data":"  [flush] submission.json written (60 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":33125.671083962,"data":"[stage B 61/240] 39a8645d conf=0.25 slice=45s remaining=5888s\n"}
+,{"stream_name":"stdout","time":33125.72968005,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33135.734840983,"data":"  [39a8645d] TTT 1 steps in 10.0s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33155.669305599,"data":"  [39a8645d] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33166.188091977,"data":"  -\u003e 40.5s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33166.188837248,"data":"[stage B 62/240] 3af2c5a8 conf=0.25 slice=45s remaining=5847s\n"}
+,{"stream_name":"stdout","time":33166.246965734,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33169.724915024,"data":"  [3af2c5a8] TTT 1 steps in 3.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33184.956376844,"data":"  [3af2c5a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33187.811644898,"data":"  -\u003e 21.6s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33187.812542976,"data":"[stage B 63/240] 1cf80156 conf=0.25 slice=45s remaining=5826s\n"}
+,{"stream_name":"stdout","time":33187.833923222,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33202.069128143,"data":"  [1cf80156] TTT 2 steps in 14.2s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33214.556847734,"data":"  [1cf80156] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33222.113629468,"data":"  -\u003e 34.3s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33222.114495812,"data":"[stage B 64/240] 2204b7a8 conf=0.25 slice=45s remaining=5792s\n"}
+,{"stream_name":"stdout","time":33222.130400153,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33241.434547012,"data":"  [2204b7a8] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33267.518413634,"data":"  [2204b7a8] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33283.719639272,"data":"  -\u003e 61.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":33283.720488303,"data":"[stage B 65/240] 1f0c79e5 conf=0.25 slice=45s remaining=5730s\n"}
+,{"stream_name":"stdout","time":33283.787603244,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33305.175904229,"data":"  [1f0c79e5] TTT 2 steps in 21.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33328.980492602,"data":"  [1f0c79e5] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33337.515014553,"data":"  -\u003e 53.8s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33337.515892316,"data":"[stage B 66/240] 29c11459 conf=0.25 slice=45s remaining=5676s\n"}
+,{"stream_name":"stdout","time":33337.534636943,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33344.407648224,"data":"  [29c11459] TTT 2 steps in 6.9s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33354.007082782,"data":"  [29c11459] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33357.383365418,"data":"  -\u003e 19.9s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33357.384199723,"data":"[stage B 67/240] 2b9ef948 conf=0.25 slice=45s remaining=5656s\n"}
+,{"stream_name":"stdout","time":33357.473358217,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33386.268216644,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.27 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.18 GiB is free. Including non-PyTorch memory, this process has 13.38 GiB memory in use. Of the allocated memory 12.56 GiB is allocated by PyTorch, and 691.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":33415.436473235,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.27 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.18 GiB is free. Including non-PyTorch memory, this process has 13.38 GiB memory in use. Of the allocated memory 12.56 GiB is allocated by PyTorch, and 691.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":33415.895432176,"data":"  [2b9ef948] TTT 0 steps in 58.4s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33473.563997756,"data":"  -\u003e 116.1s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33473.565022934,"data":"[stage B 68/240] 17cae0c1 conf=0.25 slice=45s remaining=5540s\n"}
+,{"stream_name":"stdout","time":33473.577165508,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33480.541382779,"data":"  [17cae0c1] TTT 2 steps in 7.0s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33486.877792834,"data":"  [17cae0c1] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":33489.734683646,"data":"  -\u003e 16.2s conf=0.25 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33489.735448073,"data":"[stage B 69/240] 140c817e conf=0.38 slice=45s remaining=5524s\n"}
+,{"stream_name":"stdout","time":33489.792231397,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33514.332888172,"data":"  [140c817e] TTT 2 steps in 24.5s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33535.199415784,"data":"  [140c817e] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":33564.983586788,"data":"  -\u003e 75.2s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":33564.984486378,"data":"[stage B 70/240] 31aa019c conf=0.38 slice=45s remaining=5449s\n"}
+,{"stream_name":"stdout","time":33565.008676886,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33584.335332199,"data":"  [31aa019c] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33598.625512238,"data":"  [31aa019c] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":33610.907890698,"data":"  -\u003e 45.9s conf=0.38 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33610.922881462,"data":"  [flush] submission.json written (70 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":33610.924088611,"data":"[stage B 71/240] 319f2597 conf=0.38 slice=45s remaining=5403s\n"}
+,{"stream_name":"stdout","time":33611.011550984,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33656.487935139,"data":"  [319f2597] TTT 1 steps in 45.4s (aug_train=2, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33711.688391944,"data":"  -\u003e 100.7s conf=0.38 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33711.689282817,"data":"[stage B 72/240] 09c534e7 conf=0.38 slice=45s remaining=5302s\n"}
+,{"stream_name":"stdout","time":33711.714867208,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33777.008127163,"data":"  [09c534e7] TTT 1 steps in 65.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33862.466119011,"data":"  -\u003e 150.8s conf=0.38 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":33862.467052254,"data":"[stage B 73/240] 25094a63 conf=0.38 slice=45s remaining=5151s\n"}
+,{"stream_name":"stdout","time":33862.489531946,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":33885.481339762,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.16 GiB is free. Including non-PyTorch memory, this process has 13.40 GiB memory in use. Of the allocated memory 12.84 GiB is allocated by PyTorch, and 437.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":33885.930223344,"data":"  [25094a63] TTT 0 steps in 23.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":33915.650783003,"data":"  [25094a63] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":34062.788128949,"data":"  -\u003e 200.3s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":34062.789098924,"data":"[stage B 74/240] 1d0a4b61 conf=0.38 slice=45s remaining=4951s\n"}
+,{"stream_name":"stdout","time":34062.816437529,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34087.34542992,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.83 GiB. GPU 0 has a total capacity of 14.56 GiB of which 570.81 MiB is free. Including non-PyTorch memory, this process has 14.00 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 492.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":34087.793812826,"data":"  [1d0a4b61] TTT 0 steps in 25.0s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34116.654825077,"data":"  [1d0a4b61] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":34235.380562499,"data":"  -\u003e 172.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None\n"}
+,{"stream_name":"stdout","time":34235.381427945,"data":"[stage B 75/240] 1fad071e conf=0.38 slice=45s remaining=4778s\n"}
+,{"stream_name":"stdout","time":34235.40473292,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34239.905024502,"data":"  [1fad071e] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34242.822260537,"data":"  [1fad071e] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":34248.128852045,"data":"  -\u003e 12.8s conf=0.38 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34248.129576677,"data":"[stage B 76/240] 363442ee conf=0.50 slice=45s remaining=4766s\n"}
+,{"stream_name":"stdout","time":34248.191557178,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34259.560856599,"data":"  [363442ee] TTT 1 steps in 11.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34293.774625859,"data":"  [363442ee] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":34367.799344958,"data":"  -\u003e 119.6s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34367.800300348,"data":"[stage B 77/240] 0a938d79 conf=0.50 slice=45s remaining=4646s\n"}
+,{"stream_name":"stdout","time":34367.816405829,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34396.909557777,"data":"  [0a938d79] TTT 1 steps in 29.1s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34413.317989908,"data":"  [0a938d79] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":34518.215324886,"data":"  -\u003e 150.4s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34518.216304885,"data":"[stage B 78/240] 1c0d0a4b conf=0.50 slice=45s remaining=4495s\n"}
+,{"stream_name":"stdout","time":34518.2362354,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34527.044586008,"data":"  [1c0d0a4b] TTT 1 steps in 8.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34563.640724313,"data":"  [1c0d0a4b] aug 1/1 [0, False, False, None] -\u003e pool sizes [24]\n"}
+,{"stream_name":"stdout","time":34662.109184291,"data":"  -\u003e 143.9s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34662.11013562,"data":"[stage B 79/240] 3345333e conf=0.50 slice=45s remaining=4352s\n"}
+,{"stream_name":"stdout","time":34662.12859794,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34679.293051611,"data":"  [3345333e] TTT 1 steps in 17.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34707.823910957,"data":"  [3345333e] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":34800.907499635,"data":"  -\u003e 138.8s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34800.908863957,"data":"[stage B 80/240] 21f83797 conf=0.50 slice=45s remaining=4213s\n"}
+,{"stream_name":"stdout","time":34800.939798504,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34811.839789454,"data":"  [21f83797] TTT 1 steps in 10.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34846.526168281,"data":"  [21f83797] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":34924.631480496,"data":"  -\u003e 123.7s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":34924.646403354,"data":"  [flush] submission.json written (80 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":34924.647514806,"data":"[stage B 81/240] 272f95fa conf=0.50 slice=45s remaining=4089s\n"}
+,{"stream_name":"stdout","time":34924.712186872,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":34941.761506137,"data":"  [272f95fa] TTT 1 steps in 17.0s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":34970.256818173,"data":"  [272f95fa] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":35091.042347601,"data":"  -\u003e 166.3s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35091.043282631,"data":"[stage B 82/240] 2b01abd0 conf=0.50 slice=45s remaining=3923s\n"}
+,{"stream_name":"stdout","time":35091.061935447,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35104.455819595,"data":"  [2b01abd0] TTT 1 steps in 13.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35136.54210826,"data":"  [2b01abd0] aug 1/1 [0, False, False, None] -\u003e pool sizes [35]\n"}
+,{"stream_name":"stdout","time":35353.007090083,"data":"  -\u003e 262.0s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35353.008146459,"data":"[stage B 83/240] 25d487eb conf=0.50 slice=45s remaining=3661s\n"}
+,{"stream_name":"stdout","time":35353.030797772,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35369.542806093,"data":"  [25d487eb] TTT 1 steps in 16.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35398.412716732,"data":"  [25d487eb] aug 1/1 [0, False, False, None] -\u003e pool sizes [14]\n"}
+,{"stream_name":"stdout","time":35493.436771374,"data":"  -\u003e 140.4s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35493.437566581,"data":"[stage B 84/240] 0b17323b conf=0.50 slice=45s remaining=3520s\n"}
+,{"stream_name":"stdout","time":35493.455293106,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35508.616348173,"data":"  [0b17323b] TTT 1 steps in 15.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35538.781830328,"data":"  [0b17323b] aug 1/1 [0, False, False, None] -\u003e pool sizes [10]\n"}
+,{"stream_name":"stdout","time":35608.129539795,"data":"  -\u003e 114.7s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35608.130460797,"data":"[stage B 85/240] 137f0df0 conf=0.50 slice=45s remaining=3406s\n"}
+,{"stream_name":"stdout","time":35608.146520954,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35617.996046169,"data":"  [137f0df0] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35653.473999179,"data":"  [137f0df0] aug 1/1 [0, False, False, None] -\u003e pool sizes [10]\n"}
+,{"stream_name":"stdout","time":35693.970562197,"data":"  -\u003e 85.8s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35693.971477941,"data":"[stage B 86/240] 1a6449f1 conf=0.50 slice=45s remaining=3320s\n"}
+,{"stream_name":"stdout","time":35693.994873235,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35717.109901805,"data":"  [1a6449f1] TTT 1 steps in 23.1s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35739.754253662,"data":"  [1a6449f1] aug 1/1 [0, False, False, None] -\u003e pool sizes [12]\n"}
+,{"stream_name":"stdout","time":35882.681394082,"data":"  -\u003e 188.7s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35882.682312179,"data":"[stage B 87/240] 27f8ce4f conf=0.50 slice=45s remaining=3131s\n"}
+,{"stream_name":"stdout","time":35882.694434888,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35888.945499014,"data":"  [27f8ce4f] TTT 1 steps in 6.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35914.9475309,"data":"  [27f8ce4f] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":35924.485401904,"data":"  -\u003e 41.9s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":35924.486140393,"data":"[stage B 88/240] 41e4d17e conf=0.50 slice=45s remaining=3089s\n"}
+,{"stream_name":"stdout","time":35924.544851811,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":35939.765562389,"data":"  [41e4d17e] TTT 1 steps in 15.2s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":35970.245076107,"data":"  [41e4d17e] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":36068.27566543,"data":"  -\u003e 143.7s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36068.276556828,"data":"[stage B 89/240] 396d80d7 conf=0.50 slice=45s remaining=2945s\n"}
+,{"stream_name":"stdout","time":36068.291655691,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36085.554064653,"data":"  [396d80d7] TTT 1 steps in 17.3s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36113.561194958,"data":"  [396d80d7] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":36206.750122403,"data":"  -\u003e 138.5s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36206.750973953,"data":"[stage B 90/240] 178fcbfb conf=0.50 slice=45s remaining=2807s\n"}
+,{"stream_name":"stdout","time":36206.766340307,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36216.186428494,"data":"  [178fcbfb] TTT 1 steps in 9.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36252.029254157,"data":"  [178fcbfb] aug 1/1 [0, False, False, None] -\u003e pool sizes [28]\n"}
+,{"stream_name":"stdout","time":36379.672768948,"data":"  -\u003e 172.9s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36379.690525645,"data":"  [flush] submission.json written (90 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":36379.691325082,"data":"[stage B 91/240] 1d398264 conf=0.50 slice=45s remaining=2634s\n"}
+,{"stream_name":"stdout","time":36379.752908023,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36405.177794122,"data":"  [1d398264] TTT 1 steps in 25.4s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36424.97652365,"data":"  [1d398264] aug 1/1 [0, False, False, None] -\u003e pool sizes [7, 5]\n"}
+,{"stream_name":"stdout","time":36541.318554616,"data":"  -\u003e 161.6s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36541.319550168,"data":"[stage B 92/240] 1e81d6f9 conf=0.50 slice=45s remaining=2472s\n"}
+,{"stream_name":"stdout","time":36541.335528986,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36564.926470176,"data":"  [1e81d6f9] TTT 1 steps in 23.6s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36586.904673908,"data":"  [1e81d6f9] aug 1/1 [0, False, False, None] -\u003e pool sizes [15]\n"}
+,{"stream_name":"stdout","time":36697.308881254,"data":"  -\u003e 156.0s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36697.308917785,"data":"[stage B 93/240] 22168020 conf=0.50 slice=45s remaining=2316s\n"}
+,{"stream_name":"stdout","time":36697.319509199,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36707.150723956,"data":"  [22168020] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36742.424265673,"data":"  [22168020] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":36758.629870029,"data":"  -\u003e 61.4s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36758.630730481,"data":"[stage B 94/240] 0e671a1a conf=0.50 slice=45s remaining=2255s\n"}
+,{"stream_name":"stdout","time":36758.694824305,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36782.274027167,"data":"  [0e671a1a] TTT 1 steps in 23.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36804.252649992,"data":"  [0e671a1a] aug 1/1 [0, False, False, None] -\u003e pool sizes [12]\n"}
+,{"stream_name":"stdout","time":36909.923973421,"data":"  -\u003e 151.2s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":36909.924911192,"data":"[stage B 95/240] 342ae2ed conf=0.50 slice=45s remaining=2104s\n"}
+,{"stream_name":"stdout","time":36909.94061021,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":36937.016847579,"data":"  [342ae2ed] TTT 1 steps in 27.1s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":36955.382880933,"data":"  [342ae2ed] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":37056.022611041,"data":"  -\u003e 146.1s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37056.023694587,"data":"[stage B 96/240] 11e1fe23 conf=0.50 slice=45s remaining=1958s\n"}
+,{"stream_name":"stdout","time":37056.032778107,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37064.518835032,"data":"  [11e1fe23] TTT 1 steps in 8.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37101.335993491,"data":"  [11e1fe23] aug 1/1 [0, False, False, None] -\u003e pool sizes [34]\n"}
+,{"stream_name":"stdout","time":37253.873521079,"data":"  -\u003e 197.8s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37253.874436322,"data":"[stage B 97/240] 310f3251 conf=0.50 slice=45s remaining=1760s\n"}
+,{"stream_name":"stdout","time":37253.882069918,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37265.833458551,"data":"  [310f3251] TTT 1 steps in 11.9s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37299.396050395,"data":"  [310f3251] aug 1/1 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":37335.445309453,"data":"  -\u003e 81.6s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37335.446225403,"data":"[stage B 98/240] 3d588dc9 conf=0.50 slice=45s remaining=1678s\n"}
+,{"stream_name":"stdout","time":37335.46073968,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37353.149409101,"data":"  [3d588dc9] TTT 1 steps in 17.7s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37380.823797202,"data":"  [3d588dc9] aug 1/1 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":37469.509348592,"data":"  -\u003e 134.1s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37469.510269874,"data":"[stage B 99/240] 2dd70a9a conf=0.50 slice=45s remaining=1544s\n"}
+,{"stream_name":"stdout","time":37469.524482351,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37494.991771753,"data":"  [2dd70a9a] TTT 1 steps in 25.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37515.061400707,"data":"  [2dd70a9a] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":37635.525158047,"data":"  -\u003e 166.0s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37635.526133827,"data":"[stage B 100/240] 3bd67248 conf=0.50 slice=45s remaining=1378s\n"}
+,{"stream_name":"stdout","time":37635.538063193,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37645.006216471,"data":"  [3bd67248] TTT 1 steps in 9.5s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37680.936855386,"data":"  [3bd67248] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":37753.009768239,"data":"  -\u003e 117.5s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37753.024147312,"data":"  [flush] submission.json written (100 stage-B tasks)\n"}
+,{"stream_name":"stdout","time":37753.024860795,"data":"[stage B 101/240] 292dd178 conf=0.50 slice=45s remaining=1261s\n"}
+,{"stream_name":"stdout","time":37753.086293665,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37762.678237709,"data":"  [292dd178] TTT 1 steps in 9.6s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37798.341488161,"data":"  [292dd178] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":37866.200221077,"data":"  -\u003e 113.1s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37866.201064036,"data":"[stage B 102/240] 412b6263 conf=0.50 slice=45s remaining=1147s\n"}
+,{"stream_name":"stdout","time":37866.215114501,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":37876.026160787,"data":"  [412b6263] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)\n"}
+,{"stream_name":"stdout","time":37911.601101372,"data":"  [412b6263] aug 1/1 [0, False, False, None] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":37976.562004303,"data":"  -\u003e 110.4s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":37976.562856581,"data":"[stage B] stopping: reserve reached (remaining=1037s)\n"}
+,{"stream_name":"stdout","time":37976.563499854,"data":"[stage C] skipped: no symbolic engine loaded (232 task(s) kept their stage A/B + fallback answers)\n"}
+,{"stream_name":"stdout","time":37976.643170039,"data":"[done] submission -\u003e /kaggle/working/submission.json  report -\u003e /kaggle/working/report.json  elapsed=37963.0s\n"}
+,{"stream_name":"stderr","time":37982.350611837,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":37982.350642961,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":37982.502852154,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":37982.502886983,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":37983.15691805,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":37983.590396808,"data":"[NbConvertApp] Writing 270345 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":37985.939786643,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":37987.169135129,"data":"[NbConvertApp] Writing 897106 bytes to __results__.html\n"}
+]

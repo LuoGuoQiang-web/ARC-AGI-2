@@ -14,12 +14,12 @@
 | 当前日期 | **2026-09-14**（实测；本表此前写 09-11，已过期 3 天） |
 | 硬截止 | 代码提交 2026-11-02；论文 2026-11-08～09（距今约 **7 周**）。⚠️ **私有仓库必须在收到官方私有评测分数之前转为公开**（官方开源要求） |
 | 当前主力 | **`work/arc_w1/arc26_solver.py`**（2,536 行）：Qwen3-4B（vocab=16 网格字母表，3.634B）SFT + **LoRA TTT** + 16-token 约束束搜索 DFS；`cascade` 调度分 Stage A 廉价扫描 / B 精修 / C 回填。详见 `work/arc_w1/ARC26_SOLVER_SPEC.md`（**重建版**，原件缺失） |
-| 真实分数 | 神经路线：评估集 24 题子集 **1/24**；smoke 5 题 4/5。符号 v1：评估集 **0/167**、训练集 34/1076。⚠️ **v1 现在是 Stage C 的候选引擎（`--engine`），但从未成功加载过** |
-| 运行约束 | Kaggle **最多 2 个并发 GPU 会话**、周配额约 30 h → 240 题拆 2 个交错分片各约 12 h；单次 `--time-budget-seconds 39000`（实测跑满 37,976 s）；T4 ×2（各 14.6 GiB），3.634B 必须 bf16 + 梯度检查点；**成功运行不发布日志**，靠 tee 到 `/kaggle/working/kernel_stdout.log` |
-| 下一个动作 | ① 用 `work/arc_w1/tools/kpush.py` 建立本机「编辑→推送→读回」闭环（已重建并通过保真度校验）；② 补 `--engine` 符号引擎（Stage C 目前空转）；③ 补 13 个网格符号↔颜色对应表（`arc26-stage1` 因 torchao 不兼容未完成） |
-| 阻塞项 | ❌ **无硬件/账号阻塞**：手机验证已过（GPU 可开、240 题竞赛数据可挂载）。剩余都是技术性缺口，见上「下一个动作」 |
-| 已解决 | ✅ 「公开仓库」（github.com/LuoGuoQiang-web/ARC-AGI-2 私有，`kaggle.json` 不在远端）；✅ **手机验证**（GPU 与竞赛数据均可用）；✅ MattSkills 初始化；✅ 本机 git 2.55 / gh 2.100 / kaggle 包；✅ 官方数据克隆；✅ **从 Kaggle 抢救出另一台电脑的求解器 + 重建推送工具** |
-| 待用户确认 | 另一台电脑的代码**是否已推到 GitHub**？本机 `git fetch` 时网络失败，无法判断；`work/arc_w1/` 目前是唯一本地副本 |
+| 真实分数 | 神经路线：评估集 24 题子集 **1/24**；smoke 5 题 4/5。符号 v1：评估集 **0/167**、训练集 34/1076。**线上**：首次提交（`arc26-submit-full`，2026-09-14 04:01）状态 **PENDING**，结果待观察；上一次 v1 提交因**格式错误**得 0（见 §2.6.3） |
+| 运行约束 | Kaggle **最多 2 个并发 GPU 会话**；**周配额 30 h**（§2.4 已更正）、单次 `--time-budget-seconds 39000`（实测跑满 37,963 s）；T4 ×2（各 14.6 GiB），3.634B 必须 bf16 + 梯度检查点；**成功运行不发布日志**，靠 tee 到 `/kaggle/working/kernel_stdout.log`。**每日提交次数有限**，比 GPU 额度更稀缺 |
+| 下一个动作 | ① 等 `arc26-submit-full` 的线上分数（决定提交管线是否真的通了）；② 等 `arc26-exp-prob10` / `arc26-exp-branch4` 两个搜索宽度实验（各 8 题，与 base 配对）；③ **写论文**（真正的奖金来源，0 GPU 成本） |
+| 阻塞项 | ❌ **无硬件/账号阻塞**。真正的瓶颈已实测锁定为**生成**而非选择：`pool_recall = 0.0`、`selection_headroom = 0.0`（两次独立测量：24 题与 8 题评估子集）→ **任何重排序/选择改进都不可能提分** |
+| 已解决 | ✅ 「公开仓库」（github.com/LuoGuoQiang-web/ARC-AGI-2 私有，`kaggle.json` 不在远端）；✅ **手机验证**；✅ MattSkills 初始化；✅ 本机 git / gh / kaggle 包；✅ 官方数据克隆；✅ **从 Kaggle 抢救出另一台电脑的求解器 + 重建推送工具**；✅ **符号引擎接入 Stage C**（`--engine`，11/11 本地测试通过）；✅ **分片合并 + 实验脚手架**；✅ **首次跑通竞赛提交动作**（§2.6.1） |
+| 待用户确认 | 额度事实已更正（30 h/周期，非 6 h）——**是否需要重排全局计划**？当前仅剩 5.2 h，09-19 刷新后有 30 h |
 | 已花预算 | 0 / 300 RMB |
 | 工作目录 | `C:\Users\LRDC07\Desktop\Kaggle` |
 
@@ -73,6 +73,90 @@
   - Bonus $150k：首个 private eval ≥85% 的方案
 - **ARC-AGI-3 $850k**：Grand $700k（首个 100%）+ Top Score $75k（40/15/10/5/5）+ Milestone $75k（M1 2026-06-30、M2 2026-09-30，各 25/10/2.5）。
 - **论文评分维度**：Accuracy / Universality / Progress / Theory / Completeness / Novelty。
+
+#### 2.3.1 ⭐ $275k Grand Prize **不挂钩排行榜名次**——但**并非不看成绩**（2026-09-14 官网原文核实）
+
+来源：<https://arcprize.org/competitions/2026/arc-agi-2>，原文逐字：
+
+> **ARC-AGI-2 Grand Prize: $275,000** — "The Grand Prize will be awarded to the
+> **highest scoring Solution Writeup** based on the below criteria. All artifacts should be
+> open sourced and attached to an official competition Solution Writeup within seven days
+> of the competition's submission deadline to be considered eligible.
+> Submissions for the Grand Prize are evaluated equally across the following six criteria.
+> Each criterion is scored on a scale from 0 (lowest) to 5 (highest), with the final score
+> calculated as the average of all six."
+
+**这不是"给榜首的附加奖"，而是独立的写作奖。** 加上 Paper Track 的 $450k，两项共用同一套 6 维评分表。
+
+#### 2.3.1.1 🔒 **硬约束：Accuracy 必须 ≥3/5，否则算术上不可能过 4.5 线**
+
+> ⚠️ **本节修正了本文档先前的错误结论。** 此前写的是"$725k 完全由写作质量决定"。
+> **这是错的。** 正确的区别是：**Grand Prize 不挂钩"名次"，但成绩仍以 Accuracy 一项参与评分。**
+> "名次不设门槛" ≠ "成绩不参与评分"。
+
+评分 = 6 项各 0–5 分，**取算术平均**，Outstanding Papers Pool 要求 **>4.5**。设 Accuracy 为 $a$，
+其余五项最高各 5 分：
+
+$$\text{平均} \le \frac{a + 25}{6}$$
+
+| Accuracy | 其余五项全满分时 | 能否 >4.5 |
+|---|---|---|
+| 1 | 26/6 = **4.33** | ❌ |
+| 2 | 27/6 = **4.50** | ❌（要求**严格大于**） |
+| 3 | 28/6 = **4.67** | ✅ |
+
+**⇒ Accuracy ≥3/5 是拿到 Outstanding Papers Pool 的*必要条件*。**
+官方明文：*"The submission's score will be used in the rubric's 'accuracy' category."*
+
+**对我们的直接后果**（2026-09-14 评估）：求解器评估集约 0–4% → Accuracy 0–1 分
+→ **即便其余五项全部满分，论文上限 4.33，够不到 4.5。**
+
+**⇒ 战略结论（取代此前的"钱在写作上"）**：
+
+- 提分**不是**"锦上添花的 1/6"，而是**拿到任何奖金的必要前提**；
+- 只有 Top Paper 前三（$50k/$20k/$5k）是**排名制**，不受上述算术约束——但要在强队中进前三；
+- **唯一可行的路径**：修好 TTT（见 §2.3.2 末），让 Accuracy 有机会够到 2–3。
+  这同时把论文从"发现静默失效"升级为"发现 + 修复 + 验证"，
+  Progress / Theory / Novelty 三项会一起上移。
+
+#### 2.3.2 新颖性边界（2026-09-14 文献核查后确立，**不得再重复主张**）
+
+我们曾打算把 **oracle pool recall** 当作论文的核心贡献。**这个主张是错的，已放弃。**
+核查（每条 URL 均实际抓取）结论：
+
+| 我们想主张的 | 真实状态 | 必须引用 |
+|---|---|---|
+| 「真值是否在候选池中」= 选择上限 | **不是我们的**：ARChitects 的 "coverage" 曲线原文就写着 *"provides an upper bound for the performance of the selection algorithms"* | ARChitects, `arXiv:2505.07859` Fig.4 |
+| Sample+Oracle 式上限 | 已有 | Li et al., `arXiv:2411.02272` Fig.8 |
+| 「生成受限而非选择受限」 | **已有**：Moghe & Chin 把它做成了论文主贡献 | `arXiv:2607.06764` |
+| 公开 test 结构性不具代表性（多输入占比） | **近似复现**：Habr 分析给出 6.9% vs 40.8%，我们是 7.1% vs 40.8% | Habr `habr.com/ru/articles/1071730/` |
+| 公开 test 与训练集逐字节相同 / 与 eval 零重合 | **可能原创，但只能声明"检索未穷尽"**，不得主张优先权 | （未找到先例） |
+| **TTT 静默失效被掩蔽** | ✅ **唯一可主张的新颖点** | 内存受限的 TTT-for-ARC 有大量先例（P100 16GB、L4×4、rank-32 LoRA batch=1），但**"被掩蔽的失效"无人报告** |
+
+**定位**：NVARC（2025 冠军）用的就是 **Qwen3-4B + LoRA**，ARChitects 用 8B + D4 增强 + 阈值 DFS。
+**我们的系统是既有配方的小规模实例，不是新求解器**——论文必须明说，不能暗示新架构。
+
+**因此论文的主轴已改为**：*"一种被静默掩蔽的适配失效"*。实测数据：
+
+- 240 题提交运行中，**Stage B 收到 102 题，只有 16 题真正执行了优化步**；
+- 整轮 **共 21 个优化步**，而 Stage B 烧掉 **7,266 秒**（≈346 秒/步）；
+- **84 道一步没跑的题被系统记成 `B_ttt_no_gain`** ——把自己的空转当成了"试过但没用"的证据。
+- 两种掩蔽路径都要写：(a) 无熔断 → 每题独立静默失败（16 次 OOM，86 题未适配）；(b) 有熔断
+  → 一次失败全局禁用（这是"合理"的工程决定，却把单题失败升级成整轮失败）。
+
+**给未来的 agent**：这条发现来自 `ttt_steps` 这个计数器。**任何人做 TTT 都应该报告
+"实际执行的优化步数"，而不是配置里打算跑的步数。** 这是论文 §5.2 的 safeguard。
+
+**下一步的杠杆也随之确定**：把 TTT 做成内存可行（分批/分片喂入，而不是一次materialize
+8192-token 激活），并把 OOM 降级为**每题独立**的重试。⚠️ **论文里这条写的是"已识别、未验证"**
+——不要在没有实验前把它改写成结论。
+
+**根因已在代码中定位（2026-09-14）**：`build_ttt_sequences()` 把**整套演示对打包成一条序列**
+（对第 k 个增强：`fmt_train(其余全部演示, 目标输入) + fmt_reply(目标输出)`，从左侧截断到
+`max_seq_length=8192`）。于是**一个优化步 = 对 3.63B 模型做一次 8192 token 的前向+反向**，
+还要和 Stage A 的残存 KV 缓存抢 14.56 GiB 的 T4。而 `--aug-train 2` 只产生**2 条**这样的序列
+——**整个适配预算就是 2 步**。修法：把整包序列**切块**（每步只回传一小段，注意力显存随长度
+平方下降），并把 OOM 降级为**每题独立**。这同时治两个病：装得下，且步数从 2 涨到几十。
 - **关键规则（原文要点）**：
   1. 论文必须关联一份 ARC-AGI-2 或 ARC-AGI-3 的 Kaggle 代码提交；**"The code submission need not achieve a high score for the corresponding paper to be eligible."**
   2. Grand Prize 的 artifacts 需在提交截止后 **7 天内**开源并挂到官方 Solution Writeup。
@@ -88,14 +172,21 @@
 - 加速器：**必须显式指定 `machine_shape`**。只设 `enable_gpu=true` 会得到通用 `Gpu` 形状，实测被分到
   **Tesla P100（sm_60）**，而 torch 2.10+cu128 只支持 sm_70+ → **每个 CUDA 算子都失败、每题异常被
   吞掉、报告 `errors` 为空、静默产出 100% 兜底提交**。正确值：**`machine_shape = "NvidiaTeslaT4"`**。
-- 额度（`api.quota_view()` 实测，**取代此前所有记录**）：
-  - **GPU `totalTimeAllowed = 21,600s` = 6.0 小时/周期**（不是 30 小时！`isPayToScaleEnabled=false`）
-  - 已用 `timeUsed ≈ 84,916s` = **23.59 小时 = 额度的 3.9 倍**；刷新时间 **2026-09-19T00:00Z**（约每周）
+- 额度（**2026-09-14T03:47Z 用 `subprocess kaggle quota` + 类型化字段二次核对**）：
+  - **GPU `totalTimeAllowed = 108,000s` = 30.0 小时/周期**（`minimumTimeAllowed` 同为 108,000s，
+    `isPayToScaleEnabled=false`）
+  - 已用 `timeUsed = 88,918.69s` = **24.70 小时（82%）；本周期仅剩 5.30 小时**
   - TPU `totalTimeAllowed = 72,000s` = 20 小时，**完全未使用**
-  - 记账精确到秒且**实时**（两次冒烟使计数 +618s 已核对）
+  - 刷新时间 **2026-09-19T00:00Z**（约每周），记账精确到秒且实时
+  - ⚠️ **踩坑记录**：此前版本的本节曾写成 "`totalTimeAllowed = 21,600s` = 6 小时、已超额 3.9 倍"，
+    这是**错的**，并已据此错误地重排过额度计划。错误来源是直接 `repr()` 打印 SDK 返回的
+    protobuf 对象（Duration 字段被拼成 `"2490.200591.0s"` 这类畸形串）。**正确读法**：
+    `q.gpu_quota.total_time_allowed.total_seconds()`，或直接跑 CLI `kaggle quota`。
+    教训：跨进程边界读数值，一律走 CLI 或类型化字段，不要读 `repr()`。
 - **额度可以通过 API 读取**（此前记为"读不到"，已推翻）：`KaggleApi().quota_view()`，亦见 CLI `kaggle quota`。
 - 实测成本：**完整 240 题提交 = 37,963s（10.5h）**，其中 Stage A 30,600s、Stage B 7,266s；
-  模型加载 84–140s/run。→ **完整提交超过单个 6h 周期，必须分片跨周期 + 合并**。
+  模型加载 84–140s/run。→ **单周期 30h 容得下一次完整提交**；但若该周期已消耗大半，
+  仍必须分片 + 合并（工具见 `work/arc_w1/tools/merge_shards.py`）。
   分配方案与真实成本表见 `work/arc_w1/QUOTA_PLAN.md`。
 - 单会话上限 12 小时；空闲约 20 分钟断开。
 - 目录：`/kaggle/input` 只读（竞赛数据实际挂在 `/kaggle/input/competitions/<slug>/`，引擎会自动定位）；
@@ -118,7 +209,7 @@
 | 额度查询 | — | **不存在**（12 个端点全 404） |
 | 网页抓取 | `www.kaggle.com/*` | **被 reCAPTCHA 拦截**，不要尝试 |
 
-### 2.6 提交契约（2026-09-11 复核，取代任何旧笔记）
+### 2.6 提交契约（2026-09-11 复核，**2026-09-14 增补实战事实**）
 
 来源：arcprize.org 两条赛道页 + 官方 `sample_submission.json`（真实 task id，含 2 个与 3 个 test 输入的任务）。
 
@@ -128,6 +219,56 @@
 - 计分：每个 test 输入必须给**恰好 2 个**输出；任一完全匹配则该题得 1 分；最终取所有 test 输出的平均。
 - 评测期**无网络**；获奖必须**开源**（宽松许可）。
 - **仍未核实**：「Hardware and compute limits will be announced with the competition launch」→ 这是 §11 W1 唯一残留的规则项，不得臆测。
+
+#### 2.6.1 提交的**实际操作方式**（2026-09-14 首次跑通）
+
+这是 **code competition**：不能只上传一个 `submission.json` 就完事。可用的 CLI 形式是
+**三者必须同时给**：
+
+```bash
+kaggle competitions submit -c arc-prize-2026-arc-agi-2 \
+    -k <owner>/<kernel-slug> -f submission.json -v <version>
+```
+
+- 只给 `-k` 会报错：`Code competition submissions require both the output file name and
+  the version number`。
+- `-f` 这里填的是**内核产出的输出文件名**（`submission.json`），不是本地路径。
+- 提交后 Kaggle 会**在隐藏测试集上重跑该 notebook**，此时才真正评分；状态先 `PENDING`。
+- 重跑**不占用我们的 GPU 额度**（提交后额度计数纹丝不动，已核对）。
+- **每日提交次数有限**：用掉一次后显示 `0 submissions remaining today`。→
+  提交机会比 GPU 额度更稀缺，**不要拿它做格式试探**。
+
+#### 2.6.2 公开测试集是**训练集**（泄漏，与本地自评分直接相关）
+
+来源：Kaggle 公开 notebook《ARC-AGI-2: A Submission Starter and a Trap》（逐条 md5 验证过）。
+
+- Data 页说公开的 `arc-agi_test_challenges.json` 是"取自 evaluation challenges"的占位文件。
+  **实测相反**：其 240 个 task **全部**与训练集同 id 任务**逐字节相同**，答案全在
+  `arc-agi_training_solutions.json` 里；与 evaluation split 的**内容重合度为 0**。
+- ⇒ **任何在公开 test 文件上量出来的分数都是训练集分数，没有意义。** 本地验证必须用
+  **evaluation split**（有答案、无重合、且更难）。
+- 公开 test 文件只适合**验证提交管线的形状**（能不能产出合法 JSON）。
+- 另一个致命形状差异：**公开 test 文件只有 7.1% 的题需要 >1 个 test 输入；evaluation split 是
+  40.8%**。→ 写"一题一个输出"的构造器**本地全过、线上一定畸形**。这正是 §2.6.3 的失败原因。
+  必须 `for ti in task["test"]` 逐个产出条目，顺序与输入一致。
+
+#### 2.6.3 已发生的真实失败（必须记住，别再犯）
+
+| 提交 | 时间 | 结果 |
+|---|---|---|
+| `arc-prize-2026-arc-agi-2-v1-diagnostic-engine` | 2026-09-13 05:17 | **COMPLETE 但 errorDescription = "Your notebook generated a submission file with incorrect format."**，分数栏空白、`userRank = 0` |
+| `arc26-submit-full` | 2026-09-14 04:01 | **PENDING**（首次跑通提交动作；结果待观察） |
+
+- 排行榜是**公开可见**的（2026-09-14 榜首 76.94，参赛 2004 队），所以"没有分数"就是**0 分**，
+  不是"不公开"。
+- 教训：**提交前必须用结构校验器自检**（`validate_submission`：task id 集合、每题条目数 ==
+  test 输入数、grid 非空/非锯齿/≤30×30/值域 0–9）。本地校验 0 成本，线上失败 1 天 + 1 次提交机会。
+
+#### 2.6.4 顺带发现：ARC-AGI-3 赛道
+
+`arc-prize-2026-arc-agi-3`，奖金 **850,000 USD**（比 ARC-AGI-2 的 700k 更多），已有 **3032 队**，
+我们**尚未参赛**（`userHasEntered=False`）。交互式/agentic 基准，与现有投入不兼容，
+**记录在案但当前不切换**。
 
 ---
 

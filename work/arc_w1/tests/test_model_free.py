@@ -274,6 +274,86 @@ def main() -> int:
     check("T9f no solutions -> empty recall",
           S.score_pool_recall(pools, None, "t")["n_with_truth"] == 0, 1)
 
+    # ---- T9g: the aggregate must be idempotent under multi-stage recording -----------
+    # Regression: record_task runs once per stage (A, then B, then C) for the same task.
+    # The aggregate used to be += 'd there, so a task revisited by two later stages had
+    # every one of its test inputs counted three times. A run with 8 tasks / 11 test inputs
+    # published n_with_truth = 16. The denominator of pool recall was therefore inflated,
+    # which biases the headline metric *towards* the hypothesis under test.
+    def _ctx():
+        return S.RunContext(args=None, tasks={}, task_ids=[],
+                            solutions={"t": [[[1, 1], [1, 1]]]},
+                            submission={}, report={"per_task": []},
+                            scheduler=None, log=lambda *a, **k: None)
+
+    def _res(cands):
+        r = S.TaskResult(attempts=[{"attempt_1": np.asarray(cands[0].grid),
+                                    "attempt_2": np.asarray(cands[0].grid)}],
+                         sources=["neural"], n_candidates=len(cands), seconds=1.0,
+                         pools=[list(cands)])
+        return r
+
+    c = _ctx()
+    # Stage A: truth IS in the pool.  Stage B: it is not (TTT search went elsewhere).
+    c.record_task("t", _res([cand(truth, 0.1), cand(other, 0.5)]), "A_sweep", replace=True)
+    agg_a = dict(c.report["pool_recall"])
+    c.record_task("t", _res([cand(other, 0.1), cand(third, 0.2)]), "B_ttt")
+    agg_b = dict(c.report["pool_recall"])
+    check("T9g aggregate counts each test input once across stages",
+          agg_a["n_with_truth"] == 1 and agg_a["n_in_pool"] == 1
+          and agg_b["n_with_truth"] == 1,
+          1, [f"A={agg_a}", f"B={agg_b}"])
+    check("T9g2 aggregate equals the per_task rows it summarises",
+          agg_b["n_with_truth"] == sum(int(e.get("n_with_truth") or 0)
+                                       for e in c.report["per_task"]),
+          1, [f"agg={agg_b['n_with_truth']}",
+              f"rows={[e.get('n_with_truth') for e in c.report['per_task']]}"])
+
+    # ---- T14: TTT context budget actually shrinks the step, and keeps the target ---------
+    # The measured failure this guards: with the whole demonstration set in one sequence a
+    # 30x30 task builds an ~8192-token optimizer step, the backward allocation fails on a
+    # 14.56 GiB T4, and adaptation silently never runs (86 of 102 tasks in the 240-task run).
+    # Capping the context must (a) really shorten the step and (b) never cut the target pair,
+    # which is the only part of the sequence that carries loss.
+    ev_all = splits.get("evaluation") or {}
+    big = None
+    for tid, task in sorted(ev_all.items()):
+        if len(task.get("train") or []) >= 3:
+            big = (tid, task)
+            break
+    if big is None:
+        check("T14a found a multi-demo evaluation task", False, 1, ["no task with >=3 demos"])
+    else:
+        tid, task = big
+        rng = random.Random(0)
+        uncapped, _ = S.build_ttt_sequences(task["train"], tok, 1, 8192, rng)
+        rng = random.Random(0)
+        capped, _ = S.build_ttt_sequences(task["train"], tok, 1, 8192, rng,
+                                          seq_token_budget=256)
+        check("T14a multi-demo task found and encoded", bool(uncapped) and bool(capped), 1,
+              [f"{tid}: {len(task['train'])} demos, uncapped={[len(s) for s in uncapped]}, "
+               f"capped={[len(s) for s in capped]}"])
+        # k=0 is the identity augmentation, so the target is demo 0 and the reply is known.
+        reply = S.fmt_reply(task["train"][0]["output"])
+        check("T14b the cap shortens the optimizer step",
+              max(len(s) for s in capped) < max(len(s) for s in uncapped), 1,
+              [f"uncapped max={max(len(s) for s in uncapped)}, "
+               f"capped max={max(len(s) for s in capped)}"])
+        check("T14c the target pair survives the cap",
+              all(tok.decode(s).endswith(reply) for s in capped), 1,
+              [f"target reply len={len(reply)} tokens"])
+        check("T14d a zero budget leaves the sequence untouched",
+              [len(s) for s in S.build_ttt_sequences(task["train"], tok, 1, 8192,
+                                                     random.Random(0),
+                                                     seq_token_budget=0)[0]]
+              == [len(s) for s in uncapped], 1)
+        # A budget smaller than one grid cannot be honoured by dropping context alone; the
+        # function must still return something usable rather than an empty sequence.
+        tiny, _ = S.build_ttt_sequences(task["train"], tok, 1, 8192, random.Random(0),
+                                        seq_token_budget=8)
+        check("T14e an unsatisfiable budget degrades instead of vanishing",
+              len(tiny) == 1 and len(tiny[0]) > 0, 1, [f"lens={[len(s) for s in tiny]}"])
+
     # ---- T10: on real evals the diagnostic runs and is self-consistent ---------------
     real_sols = {}
     ev = splits.get("evaluation") or {}

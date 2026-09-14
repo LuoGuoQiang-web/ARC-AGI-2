@@ -1,0 +1,1300 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_test_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+[data] split=test n_tasks=240 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json solutions=None
+[engine] status=skipped no --engine path given
+[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 96.99s
+[schedule] cascade budget=39000s calibrate=4 aug_train=2 aug_infer=1
+[stage A 1/240] 00576224 slice=90s remaining=38903s
+  [00576224] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 4.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 2/240] 007bbfb7 slice=90s remaining=38898s
+  [007bbfb7] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 9.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 3/240] 009d5c81 slice=90s remaining=38889s
+  [009d5c81] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 106.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 4/240] 00d62c1b slice=90s remaining=38782s
+  [00d62c1b] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 178.7s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 5/240] 00dbd492 slice=150s remaining=38603s
+  [00dbd492] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 224.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 6/240] 017c7c7b slice=150s remaining=38379s
+  [017c7c7b] aug 1/1 [0, False, False, None] -> pool sizes [15]
+  -> 28.0s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 7/240] 025d127b slice=150s remaining=38351s
+  [025d127b] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 8/240] 03560426 slice=150s remaining=38339s
+  [03560426] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 53.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 9/240] 045e512c slice=150s remaining=38286s
+  [045e512c] aug 1/1 [0, False, False, None] -> pool sizes [5]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 716.81 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.58 GiB is allocated by PyTorch, and 156.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 784.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 716.81 MiB is free. Including non-PyTorch memory, this process has 13.86 GiB memory in use. Of the allocated memory 13.58 GiB is allocated by PyTorch, and 156.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 171.7s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 10/240] 0520fde7 slice=150s remaining=38114s
+  [0520fde7] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 9.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (10 stage-A tasks)
+[stage A 11/240] 05269061 slice=150s remaining=38104s
+  [05269061] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 36.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 12/240] 05a7bcf2 slice=150s remaining=38068s
+    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [05a7bcf2] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 13/240] 05f2a901 slice=150s remaining=38068s
+  [05f2a901] aug 1/1 [0, False, False, None] -> pool sizes [11]
+  -> 104.6s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 14/240] 0607ce86 slice=150s remaining=37963s
+  [0607ce86] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 146.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 15/240] 0692e18c slice=150s remaining=37816s
+  [0692e18c] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 8.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 16/240] 06df4c85 slice=150s remaining=37808s
+  [06df4c85] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 151.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 17/240] 070dd51e slice=150s remaining=37657s
+  [070dd51e] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 237.4s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 18/240] 08ed6ac7 slice=150s remaining=37420s
+  [08ed6ac7] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 46.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 19/240] 09629e4f slice=150s remaining=37373s
+  [09629e4f] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 76.8s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 20/240] 0962bcdd slice=150s remaining=37296s
+  [0962bcdd] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 18.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+  [flush] submission.json written (20 stage-A tasks)
+[stage A 21/240] 09c534e7 slice=150s remaining=37278s
+  [09c534e7] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 236.4s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 22/240] 0a1d4ef5 slice=150s remaining=37042s
+  [0a1d4ef5] aug 1/1 [0, False, False, None] -> pool sizes [4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.41 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.35 GiB is free. Including non-PyTorch memory, this process has 11.21 GiB memory in use. Of the allocated memory 10.92 GiB is allocated by PyTorch, and 174.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.41 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.35 GiB is free. Including non-PyTorch memory, this process has 11.21 GiB memory in use. Of the allocated memory 7.74 GiB is allocated by PyTorch, and 3.35 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 25.3s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 23/240] 0a2355a6 slice=150s remaining=37017s
+  [0a2355a6] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 110.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 24/240] 0a938d79 slice=150s remaining=36906s
+  [0a938d79] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 224.8s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 25/240] 0b148d64 slice=150s remaining=36681s
+  [0b148d64] aug 1/1 [0, False, False, None] -> pool sizes [22]
+  -> 355.1s candidates=22 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 26/240] 0b17323b slice=150s remaining=36326s
+  [0b17323b] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 156.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 27/240] 0bb8deee slice=150s remaining=36170s
+  [0bb8deee] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 57.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 28/240] 0becf7df slice=150s remaining=36113s
+  [0becf7df] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 37.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 29/240] 0c786b71 slice=150s remaining=36075s
+  [0c786b71] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 5.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 30/240] 0c9aba6e slice=150s remaining=36070s
+  [0c9aba6e] aug 1/1 [0, False, False, None] -> pool sizes [15]
+  -> 59.8s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (30 stage-A tasks)
+[stage A 31/240] 0ca9ddb6 slice=150s remaining=36010s
+  [0ca9ddb6] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 52.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 32/240] 0d3d703e slice=150s remaining=35957s
+  [0d3d703e] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 2.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 33/240] 0d87d2a6 slice=150s remaining=35955s
+  [0d87d2a6] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 217.4s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 34/240] 0e206a2e slice=150s remaining=35738s
+  [0e206a2e] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 230.8s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 35/240] 0e671a1a slice=150s remaining=35507s
+  [0e671a1a] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 157.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 36/240] 0f63c0b9 slice=150s remaining=35350s
+  [0f63c0b9] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 46.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 37/240] 103eff5b slice=150s remaining=35303s
+  [103eff5b] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 233.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 38/240] 10fcaaa3 slice=150s remaining=35070s
+  [10fcaaa3] aug 1/1 [0, False, False, None] -> pool sizes [62]
+  -> 117.3s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 39/240] 11852cab slice=150s remaining=34952s
+  [11852cab] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 14.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 40/240] 1190bc91 slice=150s remaining=34938s
+  [1190bc91] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 50.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (40 stage-A tasks)
+[stage A 41/240] 1190e5a7 slice=150s remaining=34887s
+  [1190e5a7] aug 1/1 [0, False, False, None] -> pool sizes [33]
+  -> 444.1s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 42/240] 11dc524f slice=150s remaining=34443s
+  [11dc524f] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 26.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 43/240] 11e1fe23 slice=150s remaining=34417s
+  [11e1fe23] aug 1/1 [0, False, False, None] -> pool sizes [26]
+  -> 248.2s candidates=26 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 44/240] 12422b43 slice=150s remaining=34168s
+  [12422b43] aug 1/1 [0, False, False, None] -> pool sizes [127]
+  -> 221.7s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 45/240] 12997ef3 slice=150s remaining=33947s
+  [12997ef3] aug 1/1 [0, False, False, None] -> pool sizes [8, 11]
+  -> 235.4s candidates=19 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 46/240] 12eac192 slice=150s remaining=33711s
+  [12eac192] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 8.9s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 47/240] 13713586 slice=150s remaining=33702s
+  [13713586] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 236.0s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 48/240] 137eaa0f slice=150s remaining=33467s
+  [137eaa0f] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 13.9s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 49/240] 137f0df0 slice=150s remaining=33453s
+  [137f0df0] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 60.1s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 50/240] 13f06aa5 slice=150s remaining=33393s
+  [13f06aa5] aug 1/1 [0, False, False, None] -> pool sizes [13]
+  -> 253.7s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (50 stage-A tasks)
+[stage A 51/240] 140c817e slice=150s remaining=33139s
+  [140c817e] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 86.2s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 52/240] 14754a24 slice=150s remaining=33052s
+  [14754a24] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 243.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 53/240] 1478ab18 slice=150s remaining=32809s
+  [1478ab18] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 48.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 54/240] 14b8e18c slice=150s remaining=32761s
+  [14b8e18c] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 71.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 55/240] 150deff5 slice=150s remaining=32689s
+  [150deff5] aug 1/1 [0, False, False, None] -> pool sizes [26]
+  -> 255.4s candidates=25 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 56/240] 15113be4 slice=150s remaining=32434s
+  [15113be4] aug 1/1 [0, False, False, None] -> pool sizes [4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.74 GiB is free. Including non-PyTorch memory, this process has 11.82 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 169.74 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.74 GiB is free. Including non-PyTorch memory, this process has 11.82 GiB memory in use. Of the allocated memory 7.82 GiB is allocated by PyTorch, and 3.87 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 57/240] 15660dd6 slice=150s remaining=32282s
+  [15660dd6] aug 1/1 [0, False, False, None] -> pool sizes [13]
+  -> 297.0s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 58/240] 15663ba9 slice=150s remaining=31985s
+  [15663ba9] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 36.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 59/240] 15696249 slice=150s remaining=31949s
+  [15696249] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 49.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 60/240] 17829a00 slice=150s remaining=31900s
+  [17829a00] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 207.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (60 stage-A tasks)
+[stage A 61/240] 178fcbfb slice=150s remaining=31692s
+  [178fcbfb] aug 1/1 [0, False, False, None] -> pool sizes [20]
+  -> 201.3s candidates=20 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 62/240] 17b80ad2 slice=150s remaining=31491s
+  [17b80ad2] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 228.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 63/240] 17b866bd slice=150s remaining=31262s
+  [17b866bd] aug 1/1 [0, False, False, None] -> pool sizes [8, 8]
+  -> 288.0s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 64/240] 17cae0c1 slice=150s remaining=30974s
+  [17cae0c1] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 9.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 65/240] 18286ef8 slice=150s remaining=30965s
+  [18286ef8] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 213.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 66/240] 182e5d0f slice=150s remaining=30752s
+  [182e5d0f] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 202.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 67/240] 18419cfa slice=150s remaining=30549s
+  [18419cfa] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 242.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 68/240] 18447a8d slice=150s remaining=30307s
+  [18447a8d] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 153.1s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 69/240] 184a9768 slice=150s remaining=30153s
+  [184a9768] aug 1/1 [0, False, False, None] -> pool sizes [4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 838.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 250.81 MiB is free. Including non-PyTorch memory, this process has 14.31 GiB memory in use. Of the allocated memory 14.03 GiB is allocated by PyTorch, and 163.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 838.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 250.81 MiB is free. Including non-PyTorch memory, this process has 14.31 GiB memory in use. Of the allocated memory 14.03 GiB is allocated by PyTorch, and 163.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.4s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 70/240] 195ba7dc slice=150s remaining=30002s
+  [195ba7dc] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 6.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+  [flush] submission.json written (70 stage-A tasks)
+[stage A 71/240] 1990f7a8 slice=150s remaining=29995s
+  [1990f7a8] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 228.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 72/240] 19bb5feb slice=150s remaining=29767s
+  [19bb5feb] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 9.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 73/240] 1a07d186 slice=150s remaining=29758s
+  [1a07d186] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 229.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 74/240] 1a244afd slice=150s remaining=29528s
+  [1a244afd] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 149.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 75/240] 1a2e2828 slice=150s remaining=29379s
+  [1a2e2828] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 6.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 76/240] 1a6449f1 slice=150s remaining=29372s
+  [1a6449f1] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 226.4s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 77/240] 1acc24af slice=150s remaining=29146s
+  [1acc24af] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 135.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 78/240] 1b2d62fb slice=150s remaining=29010s
+  [1b2d62fb] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 4.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 79/240] 1b59e163 slice=150s remaining=29006s
+  [1b59e163] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 98.2s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 80/240] 1b60fb0c slice=150s remaining=28908s
+  [1b60fb0c] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 75.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (80 stage-A tasks)
+[stage A 81/240] 1b8318e3 slice=150s remaining=28832s
+  [1b8318e3] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 138.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 82/240] 1be83260 slice=150s remaining=28694s
+  [1be83260] aug 1/1 [0, False, False, None] -> pool sizes [7, 3]
+  -> 244.8s candidates=10 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 83/240] 1bfc4729 slice=150s remaining=28449s
+  [1bfc4729] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 84/240] 1c02dbbe slice=150s remaining=28437s
+  [1c02dbbe] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 204.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 85/240] 1c0d0a4b slice=150s remaining=28232s
+  [1c0d0a4b] aug 1/1 [0, False, False, None] -> pool sizes [24]
+  -> 229.3s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 86/240] 1c56ad9f slice=150s remaining=28003s
+  [1c56ad9f] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 44.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 87/240] 1c786137 slice=150s remaining=27958s
+  [1c786137] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 21.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 88/240] 1caeab9d slice=150s remaining=27937s
+  [1caeab9d] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 83.5s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 89/240] 1cf80156 slice=150s remaining=27853s
+  [1cf80156] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 19.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 90/240] 1d0a4b61 slice=150s remaining=27833s
+  [1d0a4b61] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 240.9s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (90 stage-A tasks)
+[stage A 91/240] 1d398264 slice=150s remaining=27592s
+  [1d398264] aug 1/1 [0, False, False, None] -> pool sizes [6, 3]
+  -> 234.0s candidates=9 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 92/240] 1d61978c slice=150s remaining=27358s
+  [1d61978c] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 86.2s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 93/240] 1da012fc slice=150s remaining=27272s
+  [1da012fc] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 68.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 94/240] 1e0a9b12 slice=150s remaining=27204s
+  [1e0a9b12] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 15.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 95/240] 1e32b0e9 slice=150s remaining=27188s
+  [1e32b0e9] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 239.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 96/240] 1e5d6875 slice=150s remaining=26949s
+  [1e5d6875] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 128.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 97/240] 1e81d6f9 slice=150s remaining=26820s
+  [1e81d6f9] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 201.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 98/240] 1efba499 slice=150s remaining=26619s
+  [1efba499] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 126.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 99/240] 1f0c79e5 slice=150s remaining=26492s
+  [1f0c79e5] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 32.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 100/240] 1f642eb9 slice=150s remaining=26460s
+  [1f642eb9] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 35.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (100 stage-A tasks)
+[stage A 101/240] 1f85a75f slice=150s remaining=26425s
+  [1f85a75f] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 33.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 102/240] 1f876c06 slice=150s remaining=26391s
+  [1f876c06] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 77.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 103/240] 1fad071e slice=150s remaining=26314s
+  [1fad071e] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 8.1s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 104/240] 2013d3e2 slice=150s remaining=26306s
+  [2013d3e2] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 39.0s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 105/240] 2037f2c7 slice=150s remaining=26267s
+  [2037f2c7] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 276.9s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 106/240] 2072aba6 slice=150s remaining=25990s
+  [2072aba6] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 10.0s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 107/240] 20818e16 slice=150s remaining=25980s
+  [20818e16] aug 1/1 [0, False, False, None] -> pool sizes [79]
+  -> 347.7s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 108/240] 20981f0e slice=150s remaining=25632s
+  [20981f0e] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 207.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 109/240] 20fb2937 slice=150s remaining=25424s
+  [20fb2937] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 103.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 110/240] 212895b5 slice=150s remaining=25320s
+  [212895b5] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 243.0s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (110 stage-A tasks)
+[stage A 111/240] 21f83797 slice=150s remaining=25077s
+  [21f83797] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 117.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 112/240] 2204b7a8 slice=150s remaining=24960s
+  [2204b7a8] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 41.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 113/240] 22168020 slice=150s remaining=24919s
+  [22168020] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 51.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 114/240] 22208ba4 slice=150s remaining=24867s
+  [22208ba4] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 229.2s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 115/240] 22233c11 slice=150s remaining=24638s
+  [22233c11] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 14.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 116/240] 22425bda slice=150s remaining=24624s
+  [22425bda] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 71.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 117/240] 22806e14 slice=150s remaining=24552s
+  [22806e14] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 228.4s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 118/240] 2281f1f4 slice=150s remaining=24324s
+  [2281f1f4] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 79.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 119/240] 228f6490 slice=150s remaining=24244s
+  [228f6490] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 74.7s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 120/240] 22a4bbc2 slice=150s remaining=24169s
+  [22a4bbc2] aug 1/1 [0, False, False, None] -> pool sizes [48]
+  -> 192.1s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (120 stage-A tasks)
+[stage A 121/240] 22eb0ac0 slice=150s remaining=23977s
+  [22eb0ac0] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 35.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 122/240] 230f2e48 slice=150s remaining=23942s
+  [230f2e48] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 201.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 123/240] 234bbc79 slice=150s remaining=23741s
+  [234bbc79] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 24.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 124/240] 23581191 slice=150s remaining=23717s
+  [23581191] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 51.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 125/240] 239be575 slice=150s remaining=23665s
+  [239be575] aug 1/1 [0, False, False, None] -> pool sizes [2, 2]
+  -> 10.7s candidates=4 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 126/240] 23b5c85d slice=150s remaining=23654s
+  [23b5c85d] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 234.2s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 127/240] 25094a63 slice=150s remaining=23420s
+  [25094a63] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 241.0s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 128/240] 252143c9 slice=150s remaining=23179s
+  [252143c9] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 187.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 129/240] 253bf280 slice=150s remaining=22992s
+  [253bf280] aug 1/1 [0, False, False, None] -> pool sizes [25]
+  -> 358.3s candidates=24 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 130/240] 2546ccf6 slice=150s remaining=22633s
+  [2546ccf6] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 234.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (130 stage-A tasks)
+[stage A 131/240] 256b0a75 slice=150s remaining=22399s
+  [256b0a75] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 152.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 132/240] 25c199f5 slice=150s remaining=22247s
+  [25c199f5] aug 1/1 [0, False, False, None] -> pool sizes [15, 8]
+  -> 150.1s candidates=23 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 133/240] 25d487eb slice=150s remaining=22097s
+  [25d487eb] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 200.7s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 134/240] 25d8a9c8 slice=150s remaining=21897s
+  [25d8a9c8] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 2.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 135/240] 25e02866 slice=150s remaining=21894s
+  [25e02866] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 197.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 136/240] 25ff71a9 slice=150s remaining=21697s
+  [25ff71a9] aug 1/1 [0, False, False, None] -> pool sizes [7, 7]
+  -> 15.1s candidates=14 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 137/240] 2601afb7 slice=150s remaining=21682s
+  [2601afb7] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 15.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 138/240] 264363fd slice=150s remaining=21667s
+    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [264363fd] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 139/240] 2685904e slice=150s remaining=21667s
+  [2685904e] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 23.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 140/240] 2697da3f slice=150s remaining=21643s
+  [2697da3f] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 186.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (140 stage-A tasks)
+[stage A 141/240] 272f95fa slice=150s remaining=21457s
+  [272f95fa] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 215.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 142/240] 2753e76c slice=150s remaining=21242s
+  [2753e76c] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 183.9s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 143/240] 278e5215 slice=150s remaining=21058s
+  [278e5215] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 208.6s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 144/240] 27a28665 slice=150s remaining=20849s
+  [27a28665] aug 1/1 [0, False, False, None] -> pool sizes [1, 2, 1]
+  -> 6.5s candidates=4 conf=1.00 sources=['neural', 'fallback', 'neural', 'neural', 'neural', 'fallback'] task_ok=None
+[stage A 145/240] 27a77e38 slice=150s remaining=20843s
+  [27a77e38] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 8.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 146/240] 27f8ce4f slice=150s remaining=20835s
+  [27f8ce4f] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 35.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 147/240] 281123b4 slice=150s remaining=20799s
+  [281123b4] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 28.3s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 148/240] 28bf18c6 slice=150s remaining=20771s
+  [28bf18c6] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 7.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 149/240] 28e73c20 slice=150s remaining=20763s
+  [28e73c20] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 46.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 150/240] 292dd178 slice=150s remaining=20716s
+  [292dd178] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 111.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (150 stage-A tasks)
+[stage A 151/240] 29623171 slice=150s remaining=20605s
+  [29623171] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 29.3s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 152/240] 29700607 slice=150s remaining=20576s
+  [29700607] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 21.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 153/240] 29c11459 slice=150s remaining=20554s
+  [29c11459] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 12.8s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 154/240] 2a28add5 slice=150s remaining=20541s
+  [2a28add5] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 12.0s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 155/240] 2a5f8217 slice=150s remaining=20529s
+  [2a5f8217] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 178.0s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 156/240] 2b01abd0 slice=150s remaining=20351s
+  [2b01abd0] aug 1/1 [0, False, False, None] -> pool sizes [33]
+  -> 354.2s candidates=30 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 157/240] 2b9ef948 slice=150s remaining=19997s
+    prompt forward failed (CUDA out of memory. Tried to allocate 732.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 492.81 MiB is free. Including non-PyTorch memory, this process has 14.08 GiB memory in use. Of the allocated memory 13.07 GiB is allocated by PyTorch, and 903.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [2b9ef948] aug 1/1 [0, False, False, None] -> pool sizes [2, 0]
+  -> 135.1s candidates=2 conf=0.25 sources=['neural', 'neural', 'fallback', 'fallback'] task_ok=None
+[stage A 158/240] 2bcee788 slice=150s remaining=19862s
+  [2bcee788] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 78.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 159/240] 2bee17df slice=150s remaining=19784s
+  [2bee17df] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 25.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 160/240] 2c0b0aff slice=150s remaining=19758s
+  [2c0b0aff] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 278.3s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (160 stage-A tasks)
+[stage A 161/240] 2c608aff slice=150s remaining=19480s
+  [2c608aff] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 57.5s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 162/240] 2c737e39 slice=150s remaining=19422s
+  [2c737e39] aug 1/1 [0, False, False, None] -> pool sizes [43]
+  -> 286.9s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 163/240] 2ccd9fef slice=150s remaining=19135s
+  [2ccd9fef] aug 1/1 [0, False, False, None] -> pool sizes [11, 14]
+  -> 255.7s candidates=19 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 164/240] 2dc579da slice=150s remaining=18880s
+  [2dc579da] aug 1/1 [0, False, False, None] -> pool sizes [12]
+  -> 95.4s candidates=12 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 165/240] 2dd70a9a slice=150s remaining=18784s
+  [2dd70a9a] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 195.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 166/240] 2de01db2 slice=150s remaining=18589s
+  [2de01db2] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 20.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 167/240] 2dee498d slice=150s remaining=18569s
+  [2dee498d] aug 1/1 [0, False, False, None] -> pool sizes [49]
+  -> 218.6s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 168/240] 2e65ae53 slice=150s remaining=18350s
+  [2e65ae53] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 237.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 169/240] 2f0c5170 slice=150s remaining=18112s
+  [2f0c5170] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 238.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 170/240] 2f767503 slice=150s remaining=17874s
+  [2f767503] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 91.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (170 stage-A tasks)
+[stage A 171/240] 2faf500b slice=150s remaining=17783s
+  [2faf500b] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 216.9s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 172/240] 305b1341 slice=150s remaining=17566s
+  [305b1341] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 245.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 173/240] 30f42897 slice=150s remaining=17320s
+  [30f42897] aug 1/1 [0, False, False, None] -> pool sizes [24]
+  -> 219.0s candidates=23 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 174/240] 310f3251 slice=150s remaining=17101s
+  [310f3251] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 80.5s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 175/240] 3194b014 slice=150s remaining=17021s
+  [3194b014] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 18.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 176/240] 319f2597 slice=150s remaining=17002s
+  [319f2597] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 205.6s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 177/240] 31aa019c slice=150s remaining=16796s
+  [31aa019c] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 26.3s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage A 178/240] 31adaf00 slice=150s remaining=16770s
+  [31adaf00] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 80.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 179/240] 31d5ba1a slice=150s remaining=16690s
+  [31d5ba1a] aug 1/1 [0, False, False, None] -> pool sizes [16, 8]
+  -> 57.1s candidates=24 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 180/240] 320afe60 slice=150s remaining=16633s
+  [320afe60] aug 1/1 [0, False, False, None] -> pool sizes [2, 2]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 806.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 516.81 MiB is free. Including non-PyTorch memory, this process has 14.05 GiB memory in use. Of the allocated memory 13.77 GiB is allocated by PyTorch, and 162.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 826.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 348.81 MiB is free. Including non-PyTorch memory, this process has 14.22 GiB memory in use. Of the allocated memory 13.93 GiB is allocated by PyTorch, and 164.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.8s candidates=4 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+  [flush] submission.json written (180 stage-A tasks)
+[stage A 181/240] 321b1fc6 slice=150s remaining=16481s
+  [321b1fc6] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 59.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 182/240] 32597951 slice=150s remaining=16421s
+  [32597951] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 238.0s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 183/240] 32e9702f slice=150s remaining=16183s
+  [32e9702f] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 56.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 184/240] 33067df9 slice=150s remaining=16127s
+  [33067df9] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 245.9s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 185/240] 332202d5 slice=150s remaining=15881s
+  [332202d5] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 228.8s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 186/240] 332efdb3 slice=150s remaining=15652s
+  [332efdb3] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 12.6s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 187/240] 3345333e slice=150s remaining=15640s
+  [3345333e] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 166.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 188/240] 337b420f slice=150s remaining=15473s
+  [337b420f] aug 1/1 [0, False, False, None] -> pool sizes [12, 4]
+  -> 96.7s candidates=16 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 189/240] 3391f8c0 slice=150s remaining=15376s
+  [3391f8c0] aug 1/1 [0, False, False, None] -> pool sizes [19]
+  -> 274.8s candidates=17 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 190/240] 33b52de3 slice=150s remaining=15101s
+  [33b52de3] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 218.0s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (190 stage-A tasks)
+[stage A 191/240] 3428a4f5 slice=150s remaining=14883s
+  [3428a4f5] aug 1/1 [0, False, False, None] -> pool sizes [13, 11]
+  -> 128.4s candidates=24 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 192/240] 342ae2ed slice=150s remaining=14755s
+  [342ae2ed] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 227.6s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 193/240] 342dd610 slice=150s remaining=14527s
+  [342dd610] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 32.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 194/240] 3490cc26 slice=150s remaining=14495s
+    prompt forward failed (CUDA out of memory. Tried to allocate 766.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 268.81 MiB is free. Including non-PyTorch memory, this process has 14.30 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 797.85 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [3490cc26] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 3.8s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 195/240] 34b99a2b slice=150s remaining=14491s
+  [34b99a2b] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 5.1s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 196/240] 34cfa167 slice=150s remaining=14486s
+  [34cfa167] aug 1/1 [0, False, False, None] -> pool sizes [6, 4]
+  -> 304.9s candidates=10 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 197/240] 351d6448 slice=150s remaining=14181s
+  [351d6448] aug 1/1 [0, False, False, None] -> pool sizes [19]
+  -> 164.2s candidates=19 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 198/240] 358ba94e slice=150s remaining=14017s
+  [358ba94e] aug 1/1 [0, False, False, None] -> pool sizes [17]
+  -> 317.7s candidates=16 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 199/240] 3618c87e slice=150s remaining=13699s
+  [3618c87e] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 11.2s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 200/240] 363442ee slice=150s remaining=13688s
+  [363442ee] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 88.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (200 stage-A tasks)
+[stage A 201/240] 36d67576 slice=150s remaining=13600s
+  [36d67576] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 218.5s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 202/240] 36fdfd69 slice=150s remaining=13381s
+  [36fdfd69] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 50.8s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 203/240] 37ce87bb slice=150s remaining=13331s
+  [37ce87bb] aug 1/1 [0, False, False, None] -> pool sizes [29]
+  -> 257.3s candidates=28 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 204/240] 37d3e8b2 slice=150s remaining=13073s
+  [37d3e8b2] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 227.5s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 205/240] 3906de3d slice=150s remaining=12846s
+  [3906de3d] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 79.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 206/240] 396d80d7 slice=150s remaining=12767s
+  [396d80d7] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 167.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 207/240] 3979b1a8 slice=150s remaining=12599s
+  [3979b1a8] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 9.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 208/240] 39a8645d slice=150s remaining=12590s
+  [39a8645d] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 29.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 209/240] 39e1d7f9 slice=150s remaining=12560s
+    prompt forward failed (CUDA out of memory. Tried to allocate 798.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 794.81 MiB is free. Including non-PyTorch memory, this process has 13.78 GiB memory in use. Of the allocated memory 13.56 GiB is allocated by PyTorch, and 98.11 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [39e1d7f9] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 0.3s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 210/240] 3a301edc slice=150s remaining=12560s
+  [3a301edc] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 230.6s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (210 stage-A tasks)
+[stage A 211/240] 3aa6fb7a slice=150s remaining=12329s
+  [3aa6fb7a] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 29.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 212/240] 3ac3eb23 slice=150s remaining=12300s
+  [3ac3eb23] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 7.4s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 213/240] 3ad05f52 slice=150s remaining=12293s
+    prompt forward failed (CUDA out of memory. Tried to allocate 722.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 596.81 MiB is free. Including non-PyTorch memory, this process has 13.98 GiB memory in use. Of the allocated memory 13.03 GiB is allocated by PyTorch, and 844.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [3ad05f52] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 3.6s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 214/240] 3af2c5a8 slice=150s remaining=12289s
+  [3af2c5a8] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 17.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage A 215/240] 3b4c2228 slice=150s remaining=12271s
+  [3b4c2228] aug 1/1 [0, False, False, None] -> pool sizes [21, 120]
+  -> 204.7s candidates=53 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 216/240] 3bd292e8 slice=150s remaining=12067s
+  [3bd292e8] aug 1/1 [0, False, False, None] -> pool sizes [11]
+  -> 63.3s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 217/240] 3bd67248 slice=150s remaining=12004s
+  [3bd67248] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 192.8s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 218/240] 3bdb4ada slice=150s remaining=11811s
+  [3bdb4ada] aug 1/1 [0, False, False, None] -> pool sizes [19]
+  -> 269.2s candidates=18 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 219/240] 3befdf3e slice=150s remaining=11542s
+  [3befdf3e] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 18.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 220/240] 3c9b0459 slice=150s remaining=11523s
+  [3c9b0459] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 2.2s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+  [flush] submission.json written (220 stage-A tasks)
+[stage A 221/240] 3cd86f4f slice=150s remaining=11521s
+  [3cd86f4f] aug 1/1 [0, False, False, None] -> pool sizes [92, 24, 2]
+  -> 183.4s candidates=58 conf=0.50 sources=['neural', 'neural', 'neural', 'neural', 'neural', 'neural'] task_ok=None
+[stage A 222/240] 3d31c5b3 slice=150s remaining=11338s
+  [3d31c5b3] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 38.1s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 223/240] 3d588dc9 slice=150s remaining=11299s
+  [3d588dc9] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 176.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 224/240] 3d6c6e23 slice=150s remaining=11123s
+  [3d6c6e23] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 44.7s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=None
+[stage A 225/240] 3de23699 slice=150s remaining=11078s
+  [3de23699] aug 1/1 [0, False, False, None] -> pool sizes [17]
+  -> 260.4s candidates=17 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 226/240] 3e980e27 slice=150s remaining=10818s
+  [3e980e27] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 173.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 227/240] 3eda0437 slice=150s remaining=10645s
+  [3eda0437] aug 1/1 [0, False, False, None] -> pool sizes [38]
+  -> 289.6s candidates=32 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 228/240] 3ee1011a slice=150s remaining=10355s
+  [3ee1011a] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 231.2s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 229/240] 3f23242b slice=150s remaining=10124s
+  [3f23242b] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 206.0s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 230/240] 3f7978a0 slice=150s remaining=9918s
+  [3f7978a0] aug 1/1 [0, False, False, None] -> pool sizes [11]
+  -> 203.6s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (230 stage-A tasks)
+[stage A 231/240] 4093f84a slice=150s remaining=9715s
+  [4093f84a] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 117.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 232/240] 40f6cd08 slice=150s remaining=9597s
+    prompt forward failed (CUDA out of memory. Tried to allocate 4.79 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 12.50 GiB memory in use. Of the allocated memory 12.29 GiB is allocated by PyTorch, and 83.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [40f6cd08] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 0.4s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=None
+[stage A 233/240] 412b6263 slice=150s remaining=9597s
+  [412b6263] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 113.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 234/240] 414297c0 slice=150s remaining=9483s
+  [414297c0] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 165.3s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 235/240] 41ace6b5 slice=150s remaining=9318s
+  [41ace6b5] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 176.5s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 236/240] 41e4d17e slice=150s remaining=9142s
+  [41e4d17e] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 173.2s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 237/240] 423a55dc slice=150s remaining=8968s
+  [423a55dc] aug 1/1 [0, False, False, None] -> pool sizes [14]
+  -> 254.9s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 238/240] 4258a5f9 slice=150s remaining=8713s
+  [4258a5f9] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 44.3s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 239/240] 4290ef0e slice=150s remaining=8669s
+  [4290ef0e] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 215.1s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage A 240/240] 42918530 slice=150s remaining=8454s
+  [42918530] aug 1/1 [0, False, False, None] -> pool sizes [4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.06 GiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 11.20 GiB is allocated by PyTorch, and 177.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.06 GiB is free. Including non-PyTorch memory, this process has 11.50 GiB memory in use. Of the allocated memory 7.78 GiB is allocated by PyTorch, and 3.59 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.1s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (240 stage-A tasks)
+[stage B 1/240] 05a7bcf2 conf=0.00 slice=45s remaining=8303s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.12 GiB is free. Including non-PyTorch memory, this process has 11.44 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 62.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.13 GiB is free. Including non-PyTorch memory, this process has 11.43 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 50.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [05a7bcf2] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)
+    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [05a7bcf2] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 1.9s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 2/240] 264363fd conf=0.00 slice=45s remaining=8301s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.69 GiB is free. Including non-PyTorch memory, this process has 12.87 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 1.50 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.04 GiB is free. Including non-PyTorch memory, this process has 11.52 GiB memory in use. Of the allocated memory 11.25 GiB is allocated by PyTorch, and 148.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [264363fd] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)
+    prompt forward failed (CUDA out of memory. Tried to allocate 5.08 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.75 GiB is free. Including non-PyTorch memory, this process has 12.81 GiB memory in use. Of the allocated memory 12.60 GiB is allocated by PyTorch, and 84.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [264363fd] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 1.9s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 3/240] 3490cc26 conf=0.00 slice=45s remaining=8299s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 612.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 432.81 MiB is free. Including non-PyTorch memory, this process has 14.14 GiB memory in use. Of the allocated memory 13.14 GiB is allocated by PyTorch, and 884.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.38 GiB. GPU 0 has a total capacity of 14.56 GiB of which 744.81 MiB is free. Including non-PyTorch memory, this process has 13.83 GiB memory in use. Of the allocated memory 12.83 GiB is allocated by PyTorch, and 894.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [3490cc26] TTT 0 steps in 57.7s (aug_train=2, aug_infer=1)
+  -> 58.0s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 4/240] 39e1d7f9 conf=0.00 slice=45s remaining=8241s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.14 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.53 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 12.27 GiB is allocated by PyTorch, and 639.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.14 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.53 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 12.27 GiB is allocated by PyTorch, and 639.35 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [39e1d7f9] TTT 0 steps in 55.1s (aug_train=2, aug_infer=1)
+  -> 55.5s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 5/240] 3ad05f52 conf=0.00 slice=45s remaining=8186s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.95 GiB. GPU 0 has a total capacity of 14.56 GiB of which 84.81 MiB is free. Including non-PyTorch memory, this process has 14.48 GiB memory in use. Of the allocated memory 13.79 GiB is allocated by PyTorch, and 567.99 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 66.81 MiB is free. Including non-PyTorch memory, this process has 14.49 GiB memory in use. Of the allocated memory 13.81 GiB is allocated by PyTorch, and 566.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [3ad05f52] TTT 0 steps in 52.3s (aug_train=2, aug_infer=1)
+  -> 52.6s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 6/240] 40f6cd08 conf=0.00 slice=45s remaining=8133s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.30 GiB is free. Including non-PyTorch memory, this process has 11.26 GiB memory in use. Of the allocated memory 10.99 GiB is allocated by PyTorch, and 146.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 3.49 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.37 GiB is free. Including non-PyTorch memory, this process has 11.19 GiB memory in use. Of the allocated memory 11.00 GiB is allocated by PyTorch, and 59.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [40f6cd08] TTT 0 steps in 1.2s (aug_train=2, aug_infer=1)
+    prompt forward failed (CUDA out of memory. Tried to allocate 4.79 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.95 GiB is free. Including non-PyTorch memory, this process has 12.61 GiB memory in use. Of the allocated memory 12.30 GiB is allocated by PyTorch, and 182.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [40f6cd08] aug 1/1 [0, False, False, None] -> pool sizes [0]
+  -> 1.8s conf=0.00 (no improvement over stage A; attempts kept)
+[stage B 7/240] 3979b1a8 conf=0.12 slice=45s remaining=8131s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3979b1a8] TTT 2 steps in 8.5s (aug_train=2, aug_infer=1)
+  [3979b1a8] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 18.1s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 8/240] 0692e18c conf=0.12 slice=45s remaining=8113s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0692e18c] TTT 2 steps in 8.6s (aug_train=2, aug_infer=1)
+  [0692e18c] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 17.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 9/240] 256b0a75 conf=0.12 slice=45s remaining=8096s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [256b0a75] TTT 1 steps in 61.3s (aug_train=2, aug_infer=1)
+  -> 90.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 10/240] 007bbfb7 conf=0.12 slice=45s remaining=8006s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [007bbfb7] TTT 1 steps in 8.2s (aug_train=1, aug_infer=1)
+  [007bbfb7] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 19.1s conf=0.12 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (10 stage-B tasks)
+[stage B 11/240] 00576224 conf=0.12 slice=45s remaining=7986s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [00576224] TTT 1 steps in 2.0s (aug_train=1, aug_infer=1)
+  [00576224] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 6.1s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 12/240] 28e73c20 conf=0.12 slice=45s remaining=7980s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [28e73c20] TTT 1 steps in 21.2s (aug_train=1, aug_infer=1)
+  [28e73c20] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 65.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 13/240] 332efdb3 conf=0.12 slice=45s remaining=7915s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [332efdb3] TTT 1 steps in 5.3s (aug_train=1, aug_infer=1)
+  [332efdb3] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 18.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 14/240] 36fdfd69 conf=0.12 slice=45s remaining=7897s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [36fdfd69] TTT 2 steps in 54.0s (aug_train=2, aug_infer=1)
+  -> 66.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 15/240] 2c608aff conf=0.12 slice=45s remaining=7830s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2c608aff] TTT 1 steps in 22.3s (aug_train=1, aug_infer=1)
+  [2c608aff] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 68.7s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 16/240] 195ba7dc conf=0.12 slice=45s remaining=7762s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [195ba7dc] TTT 1 steps in 6.4s (aug_train=1, aug_infer=1)
+  [195ba7dc] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 13.6s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 17/240] 15663ba9 conf=0.12 slice=45s remaining=7748s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [15663ba9] TTT 1 steps in 19.9s (aug_train=1, aug_infer=1)
+  [15663ba9] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 62.9s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 18/240] 06df4c85 conf=0.12 slice=45s remaining=7685s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [06df4c85] TTT 1 steps in 56.9s (aug_train=1, aug_infer=1)
+  -> 84.7s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 19/240] 0f63c0b9 conf=0.12 slice=45s remaining=7600s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0f63c0b9] TTT 1 steps in 32.8s (aug_train=1, aug_infer=1)
+  [0f63c0b9] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 70.8s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 20/240] 1bfc4729 conf=0.12 slice=45s remaining=7530s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1bfc4729] TTT 1 steps in 6.4s (aug_train=1, aug_infer=1)
+  [1bfc4729] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 18.6s conf=0.12 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (20 stage-B tasks)
+[stage B 21/240] 1da012fc conf=0.12 slice=45s remaining=7511s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1da012fc] TTT 1 steps in 23.7s (aug_train=1, aug_infer=1)
+  [1da012fc] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 71.5s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 22/240] 3befdf3e conf=0.12 slice=45s remaining=7439s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3befdf3e] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)
+  [3befdf3e] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 28.5s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 23/240] 1c786137 conf=0.12 slice=45s remaining=7411s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1c786137] TTT 1 steps in 19.3s (aug_train=1, aug_infer=1)
+  [1c786137] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 40.9s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 24/240] 29700607 conf=0.12 slice=45s remaining=7370s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [29700607] TTT 1 steps in 17.0s (aug_train=1, aug_infer=1)
+  [29700607] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 38.7s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 25/240] 2bee17df conf=0.12 slice=45s remaining=7331s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2bee17df] TTT 1 steps in 13.3s (aug_train=1, aug_infer=1)
+  [2bee17df] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 39.3s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 26/240] 0c786b71 conf=0.12 slice=45s remaining=7292s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0c786b71] TTT 1 steps in 3.5s (aug_train=1, aug_infer=1)
+  [0c786b71] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 9.1s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 27/240] 3ac3eb23 conf=0.12 slice=45s remaining=7283s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3ac3eb23] TTT 1 steps in 3.6s (aug_train=1, aug_infer=1)
+  [3ac3eb23] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 11.4s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 28/240] 11852cab conf=0.12 slice=45s remaining=7272s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [11852cab] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)
+  [11852cab] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 34.4s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 29/240] 3d6c6e23 conf=0.12 slice=45s remaining=7237s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3d6c6e23] TTT 2 steps in 39.6s (aug_train=2, aug_infer=1)
+  [3d6c6e23] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 67.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 30/240] 1f85a75f conf=0.12 slice=45s remaining=7170s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1f85a75f] TTT 1 steps in 32.1s (aug_train=1, aug_infer=1)
+  [1f85a75f] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 79.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (30 stage-B tasks)
+[stage B 31/240] 22425bda conf=0.12 slice=45s remaining=7090s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [22425bda] TTT 1 steps in 9.6s (aug_train=1, aug_infer=1)
+  [22425bda] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 62.2s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 32/240] 2685904e conf=0.12 slice=45s remaining=7028s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2685904e] TTT 1 steps in 21.3s (aug_train=1, aug_infer=1)
+  [2685904e] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 44.7s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 33/240] 1c56ad9f conf=0.12 slice=45s remaining=6983s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1c56ad9f] TTT 1 steps in 30.4s (aug_train=1, aug_infer=1)
+  [1c56ad9f] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 69.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 34/240] 19bb5feb conf=0.12 slice=45s remaining=6914s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [19bb5feb] TTT 1 steps in 11.1s (aug_train=1, aug_infer=1)
+  [19bb5feb] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 21.0s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 35/240] 34b99a2b conf=0.12 slice=45s remaining=6893s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [34b99a2b] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)
+  [34b99a2b] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 9.8s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 36/240] 1b2d62fb conf=0.12 slice=45s remaining=6883s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1b2d62fb] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)
+  [1b2d62fb] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 9.3s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 37/240] 0962bcdd conf=0.12 slice=45s remaining=6874s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0962bcdd] TTT 2 steps in 18.7s (aug_train=2, aug_infer=1)
+  [0962bcdd] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 37.0s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 38/240] 27a77e38 conf=0.12 slice=45s remaining=6837s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [27a77e38] TTT 2 steps in 6.4s (aug_train=2, aug_infer=1)
+  [27a77e38] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 14.8s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 39/240] 11dc524f conf=0.12 slice=45s remaining=6822s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [11dc524f] TTT 2 steps in 34.8s (aug_train=2, aug_infer=1)
+  [11dc524f] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 59.6s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+[stage B 40/240] 342dd610 conf=0.12 slice=45s remaining=6763s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [342dd610] TTT 2 steps in 26.7s (aug_train=2, aug_infer=1)
+  [342dd610] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 59.4s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=None
+  [flush] submission.json written (40 stage-B tasks)
+[stage B 41/240] 22233c11 conf=0.12 slice=45s remaining=6703s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [22233c11] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)
+  [22233c11] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 34.3s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 42/240] 025d127b conf=0.12 slice=45s remaining=6669s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [025d127b] TTT 2 steps in 12.5s (aug_train=2, aug_infer=1)
+  [025d127b] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 24.8s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 43/240] 28bf18c6 conf=0.12 slice=45s remaining=6644s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [28bf18c6] TTT 2 steps in 8.5s (aug_train=2, aug_infer=1)
+  [28bf18c6] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 16.3s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 44/240] 12eac192 conf=0.12 slice=45s remaining=6628s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [12eac192] TTT 2 steps in 12.1s (aug_train=2, aug_infer=1)
+  [12eac192] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 21.3s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 45/240] 3c9b0459 conf=0.12 slice=45s remaining=6606s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3c9b0459] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)
+  [3c9b0459] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 6.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 46/240] 2a28add5 conf=0.12 slice=45s remaining=6600s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2a28add5] TTT 2 steps in 12.5s (aug_train=2, aug_infer=1)
+  [2a28add5] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 24.8s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 47/240] 137eaa0f conf=0.12 slice=45s remaining=6575s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [137eaa0f] TTT 2 steps in 12.4s (aug_train=2, aug_infer=1)
+  [137eaa0f] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 26.6s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 48/240] 2601afb7 conf=0.12 slice=45s remaining=6549s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2601afb7] TTT 2 steps in 16.7s (aug_train=2, aug_infer=1)
+  [2601afb7] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 32.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 49/240] 3194b014 conf=0.12 slice=45s remaining=6516s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3194b014] TTT 2 steps in 42.3s (aug_train=2, aug_infer=1)
+  -> 51.5s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 50/240] 25d8a9c8 conf=0.12 slice=45s remaining=6465s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [25d8a9c8] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)
+  [25d8a9c8] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 6.2s conf=0.12 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (50 stage-B tasks)
+[stage B 51/240] 0d3d703e conf=0.12 slice=45s remaining=6459s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0d3d703e] TTT 2 steps in 3.8s (aug_train=2, aug_infer=1)
+  [0d3d703e] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 6.2s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 52/240] 1a2e2828 conf=0.12 slice=45s remaining=6452s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1a2e2828] TTT 2 steps in 16.0s (aug_train=2, aug_infer=1)
+  [1a2e2828] aug 1/1 [0, False, False, None] -> pool sizes [2]
+  -> 22.8s conf=0.12 (no improvement over stage A; attempts kept)
+[stage B 53/240] 0607ce86 conf=0.25 slice=45s remaining=6430s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0607ce86] TTT 1 steps in 56.6s (aug_train=2, aug_infer=1)
+  -> 107.2s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 54/240] 0a2355a6 conf=0.25 slice=45s remaining=6322s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0a2355a6] TTT 1 steps in 23.5s (aug_train=1, aug_infer=1)
+  [0a2355a6] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 85.7s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 55/240] 009d5c81 conf=0.25 slice=45s remaining=6237s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [009d5c81] TTT 1 steps in 36.8s (aug_train=1, aug_infer=1)
+  [009d5c81] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 89.8s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=None
+[stage B 56/240] 1f642eb9 conf=0.25 slice=45s remaining=6147s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1f642eb9] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)
+  [1f642eb9] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 45.7s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 57/240] 1d61978c conf=0.25 slice=45s remaining=6101s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1d61978c] TTT 1 steps in 17.4s (aug_train=1, aug_infer=1)
+  [1d61978c] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 77.9s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 58/240] 0becf7df conf=0.25 slice=45s remaining=6023s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0becf7df] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)
+  [0becf7df] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 47.8s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 59/240] 22eb0ac0 conf=0.25 slice=45s remaining=5976s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [22eb0ac0] TTT 1 steps in 9.9s (aug_train=1, aug_infer=1)
+  [22eb0ac0] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 45.7s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 60/240] 29623171 conf=0.25 slice=45s remaining=5930s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [29623171] TTT 1 steps in 12.3s (aug_train=1, aug_infer=1)
+  [29623171] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 41.9s conf=0.25 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (60 stage-B tasks)
+[stage B 61/240] 39a8645d conf=0.25 slice=45s remaining=5888s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [39a8645d] TTT 1 steps in 10.0s (aug_train=1, aug_infer=1)
+  [39a8645d] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 40.5s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 62/240] 3af2c5a8 conf=0.25 slice=45s remaining=5847s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3af2c5a8] TTT 1 steps in 3.5s (aug_train=1, aug_infer=1)
+  [3af2c5a8] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 21.6s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 63/240] 1cf80156 conf=0.25 slice=45s remaining=5826s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1cf80156] TTT 2 steps in 14.2s (aug_train=2, aug_infer=1)
+  [1cf80156] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 34.3s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 64/240] 2204b7a8 conf=0.25 slice=45s remaining=5792s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2204b7a8] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)
+  [2204b7a8] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 61.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 65/240] 1f0c79e5 conf=0.25 slice=45s remaining=5730s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1f0c79e5] TTT 2 steps in 21.3s (aug_train=2, aug_infer=1)
+  [1f0c79e5] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 53.8s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 66/240] 29c11459 conf=0.25 slice=45s remaining=5676s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [29c11459] TTT 2 steps in 6.9s (aug_train=2, aug_infer=1)
+  [29c11459] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 19.9s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 67/240] 2b9ef948 conf=0.25 slice=45s remaining=5656s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.27 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.18 GiB is free. Including non-PyTorch memory, this process has 13.38 GiB memory in use. Of the allocated memory 12.56 GiB is allocated by PyTorch, and 691.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 2.27 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.18 GiB is free. Including non-PyTorch memory, this process has 13.38 GiB memory in use. Of the allocated memory 12.56 GiB is allocated by PyTorch, and 691.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [2b9ef948] TTT 0 steps in 58.4s (aug_train=2, aug_infer=1)
+  -> 116.1s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 68/240] 17cae0c1 conf=0.25 slice=45s remaining=5540s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [17cae0c1] TTT 2 steps in 7.0s (aug_train=2, aug_infer=1)
+  [17cae0c1] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 16.2s conf=0.25 (no improvement over stage A; attempts kept)
+[stage B 69/240] 140c817e conf=0.38 slice=45s remaining=5524s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [140c817e] TTT 2 steps in 24.5s (aug_train=2, aug_infer=1)
+  [140c817e] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 75.2s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 70/240] 31aa019c conf=0.38 slice=45s remaining=5449s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [31aa019c] TTT 2 steps in 19.3s (aug_train=2, aug_infer=1)
+  [31aa019c] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 45.9s conf=0.38 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (70 stage-B tasks)
+[stage B 71/240] 319f2597 conf=0.38 slice=45s remaining=5403s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [319f2597] TTT 1 steps in 45.4s (aug_train=2, aug_infer=1)
+  -> 100.7s conf=0.38 (no improvement over stage A; attempts kept)
+[stage B 72/240] 09c534e7 conf=0.38 slice=45s remaining=5302s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [09c534e7] TTT 1 steps in 65.2s (aug_train=1, aug_infer=1)
+  -> 150.8s conf=0.38 (no improvement over stage A; attempts kept)
+[stage B 73/240] 25094a63 conf=0.38 slice=45s remaining=5151s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.66 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.16 GiB is free. Including non-PyTorch memory, this process has 13.40 GiB memory in use. Of the allocated memory 12.84 GiB is allocated by PyTorch, and 437.90 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [25094a63] TTT 0 steps in 23.4s (aug_train=1, aug_infer=1)
+  [25094a63] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 200.3s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 74/240] 1d0a4b61 conf=0.38 slice=45s remaining=4951s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.83 GiB. GPU 0 has a total capacity of 14.56 GiB of which 570.81 MiB is free. Including non-PyTorch memory, this process has 14.00 GiB memory in use. Of the allocated memory 13.39 GiB is allocated by PyTorch, and 492.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [1d0a4b61] TTT 0 steps in 25.0s (aug_train=1, aug_infer=1)
+  [1d0a4b61] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 172.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=None
+[stage B 75/240] 1fad071e conf=0.38 slice=45s remaining=4778s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1fad071e] TTT 1 steps in 4.5s (aug_train=1, aug_infer=1)
+  [1fad071e] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 12.8s conf=0.38 (no improvement over stage A; attempts kept)
+[stage B 76/240] 363442ee conf=0.50 slice=45s remaining=4766s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [363442ee] TTT 1 steps in 11.4s (aug_train=1, aug_infer=1)
+  [363442ee] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 119.6s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 77/240] 0a938d79 conf=0.50 slice=45s remaining=4646s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0a938d79] TTT 1 steps in 29.1s (aug_train=1, aug_infer=1)
+  [0a938d79] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 150.4s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 78/240] 1c0d0a4b conf=0.50 slice=45s remaining=4495s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1c0d0a4b] TTT 1 steps in 8.8s (aug_train=1, aug_infer=1)
+  [1c0d0a4b] aug 1/1 [0, False, False, None] -> pool sizes [24]
+  -> 143.9s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 79/240] 3345333e conf=0.50 slice=45s remaining=4352s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3345333e] TTT 1 steps in 17.2s (aug_train=1, aug_infer=1)
+  [3345333e] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 138.8s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 80/240] 21f83797 conf=0.50 slice=45s remaining=4213s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [21f83797] TTT 1 steps in 10.9s (aug_train=1, aug_infer=1)
+  [21f83797] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 123.7s conf=0.50 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (80 stage-B tasks)
+[stage B 81/240] 272f95fa conf=0.50 slice=45s remaining=4089s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [272f95fa] TTT 1 steps in 17.0s (aug_train=1, aug_infer=1)
+  [272f95fa] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 166.3s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 82/240] 2b01abd0 conf=0.50 slice=45s remaining=3923s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2b01abd0] TTT 1 steps in 13.4s (aug_train=1, aug_infer=1)
+  [2b01abd0] aug 1/1 [0, False, False, None] -> pool sizes [35]
+  -> 262.0s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 83/240] 25d487eb conf=0.50 slice=45s remaining=3661s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [25d487eb] TTT 1 steps in 16.5s (aug_train=1, aug_infer=1)
+  [25d487eb] aug 1/1 [0, False, False, None] -> pool sizes [14]
+  -> 140.4s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 84/240] 0b17323b conf=0.50 slice=45s remaining=3520s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0b17323b] TTT 1 steps in 15.2s (aug_train=1, aug_infer=1)
+  [0b17323b] aug 1/1 [0, False, False, None] -> pool sizes [10]
+  -> 114.7s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 85/240] 137f0df0 conf=0.50 slice=45s remaining=3406s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [137f0df0] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)
+  [137f0df0] aug 1/1 [0, False, False, None] -> pool sizes [10]
+  -> 85.8s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 86/240] 1a6449f1 conf=0.50 slice=45s remaining=3320s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1a6449f1] TTT 1 steps in 23.1s (aug_train=1, aug_infer=1)
+  [1a6449f1] aug 1/1 [0, False, False, None] -> pool sizes [12]
+  -> 188.7s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 87/240] 27f8ce4f conf=0.50 slice=45s remaining=3131s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [27f8ce4f] TTT 1 steps in 6.2s (aug_train=1, aug_infer=1)
+  [27f8ce4f] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 41.9s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 88/240] 41e4d17e conf=0.50 slice=45s remaining=3089s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [41e4d17e] TTT 1 steps in 15.2s (aug_train=1, aug_infer=1)
+  [41e4d17e] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 143.7s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 89/240] 396d80d7 conf=0.50 slice=45s remaining=2945s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [396d80d7] TTT 1 steps in 17.3s (aug_train=1, aug_infer=1)
+  [396d80d7] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 138.5s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 90/240] 178fcbfb conf=0.50 slice=45s remaining=2807s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [178fcbfb] TTT 1 steps in 9.4s (aug_train=1, aug_infer=1)
+  [178fcbfb] aug 1/1 [0, False, False, None] -> pool sizes [28]
+  -> 172.9s conf=0.50 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (90 stage-B tasks)
+[stage B 91/240] 1d398264 conf=0.50 slice=45s remaining=2634s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1d398264] TTT 1 steps in 25.4s (aug_train=1, aug_infer=1)
+  [1d398264] aug 1/1 [0, False, False, None] -> pool sizes [7, 5]
+  -> 161.6s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 92/240] 1e81d6f9 conf=0.50 slice=45s remaining=2472s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1e81d6f9] TTT 1 steps in 23.6s (aug_train=1, aug_infer=1)
+  [1e81d6f9] aug 1/1 [0, False, False, None] -> pool sizes [15]
+  -> 156.0s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 93/240] 22168020 conf=0.50 slice=45s remaining=2316s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [22168020] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)
+  [22168020] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 61.4s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 94/240] 0e671a1a conf=0.50 slice=45s remaining=2255s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [0e671a1a] TTT 1 steps in 23.5s (aug_train=1, aug_infer=1)
+  [0e671a1a] aug 1/1 [0, False, False, None] -> pool sizes [12]
+  -> 151.2s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 95/240] 342ae2ed conf=0.50 slice=45s remaining=2104s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [342ae2ed] TTT 1 steps in 27.1s (aug_train=1, aug_infer=1)
+  [342ae2ed] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  -> 146.1s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 96/240] 11e1fe23 conf=0.50 slice=45s remaining=1958s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [11e1fe23] TTT 1 steps in 8.5s (aug_train=1, aug_infer=1)
+  [11e1fe23] aug 1/1 [0, False, False, None] -> pool sizes [34]
+  -> 197.8s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 97/240] 310f3251 conf=0.50 slice=45s remaining=1760s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [310f3251] TTT 1 steps in 11.9s (aug_train=1, aug_infer=1)
+  [310f3251] aug 1/1 [0, False, False, None] -> pool sizes [11]
+  -> 81.6s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 98/240] 3d588dc9 conf=0.50 slice=45s remaining=1678s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3d588dc9] TTT 1 steps in 17.7s (aug_train=1, aug_infer=1)
+  [3d588dc9] aug 1/1 [0, False, False, None] -> pool sizes [11]
+  -> 134.1s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 99/240] 2dd70a9a conf=0.50 slice=45s remaining=1544s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [2dd70a9a] TTT 1 steps in 25.5s (aug_train=1, aug_infer=1)
+  [2dd70a9a] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 166.0s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 100/240] 3bd67248 conf=0.50 slice=45s remaining=1378s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [3bd67248] TTT 1 steps in 9.5s (aug_train=1, aug_infer=1)
+  [3bd67248] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 117.5s conf=0.50 (no improvement over stage A; attempts kept)
+  [flush] submission.json written (100 stage-B tasks)
+[stage B 101/240] 292dd178 conf=0.50 slice=45s remaining=1261s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [292dd178] TTT 1 steps in 9.6s (aug_train=1, aug_infer=1)
+  [292dd178] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 113.1s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 102/240] 412b6263 conf=0.50 slice=45s remaining=1147s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [412b6263] TTT 1 steps in 9.8s (aug_train=1, aug_infer=1)
+  [412b6263] aug 1/1 [0, False, False, None] -> pool sizes [16]
+  -> 110.4s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B] stopping: reserve reached (remaining=1037s)
+[stage C] skipped: no symbolic engine loaded (232 task(s) kept their stage A/B + fallback answers)
+[done] submission -> /kaggle/working/submission.json  report -> /kaggle/working/report.json  elapsed=37963.0s

@@ -1,0 +1,90 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+[data] split=evaluation n_tasks=8 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json
+[engine] status=loaded 
+[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 72.94s
+[schedule] cascade budget=3600s calibrate=5 aug_train=2 aug_infer=2
+[stage A 1/8] 0934a4d8 slice=90s remaining=3527s
+  [0934a4d8] aug 1/2 [0, False, False, None] -> pool sizes [3]
+  [0934a4d8] aug 2/2 [3, False, True, [1, 0, 4, 5, 3, 2, 9, 6, 7, 8]] -> pool sizes [6]
+  -> 196.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 2/8] 135a2760 slice=90s remaining=3330s
+  [135a2760] aug 1/2 [0, False, False, None] -> pool sizes [7]
+  [135a2760] aug 2/2 [1, True, False, [3, 9, 1, 6, 5, 0, 7, 2, 8, 4]] -> pool sizes [13]
+  -> 203.3s candidates=12 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 3/8] 136b0064 slice=90s remaining=3127s
+  [136b0064] aug 1/2 [0, False, False, None] -> pool sizes [11]
+  [136b0064] aug 2/2 [2, True, False, None] -> pool sizes [13]
+  -> 124.7s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 4/8] 13e47133 slice=90s remaining=3002s
+  [13e47133] aug 1/2 [0, False, False, None] -> pool sizes [5, 2]
+  [13e47133] aug 2/2 [3, True, False, [2, 4, 7, 6, 9, 3, 5, 1, 0, 8]] -> pool sizes [7, 6]
+  -> 274.2s candidates=13 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 5/8] 142ca369 slice=90s remaining=2728s
+  [142ca369] aug 1/2 [0, False, False, None] -> pool sizes [2, 3]
+  [142ca369] aug 2/2 [2, False, True, None] -> pool sizes [5, 4]
+  -> 196.7s candidates=8 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 6/8] 16b78196 slice=150s remaining=2531s
+  [16b78196] aug 1/2 [0, False, False, None] -> pool sizes [3]
+  [16b78196] aug 2/2 [1, True, False, None] -> pool sizes [4]
+  -> 258.0s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 7/8] 16de56c4 slice=150s remaining=2273s
+  [16de56c4] aug 1/2 [0, False, False, None] -> pool sizes [3, 3]
+  [16de56c4] aug 2/2 [3, True, False, None] -> pool sizes [10, 11]
+  -> 251.2s candidates=21 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 8/8] 1818057f slice=150s remaining=2022s
+  [1818057f] aug 1/2 [0, False, False, None] -> pool sizes [8]
+  [1818057f] aug 2/2 [3, True, False, [7, 0, 1, 2, 9, 4, 6, 3, 5, 8]] -> pool sizes [16]
+  -> 264.7s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage B 1/8] 136b0064 conf=0.50 slice=145s remaining=1757s
+  [136b0064] pre-TTT free 7.62 GiB of 14.56 GiB
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [136b0064] TTT 2 steps in 21.5s (aug_train=2, aug_infer=2)
+  [136b0064] aug 1/2 [0, False, False, None] -> pool sizes [26]
+  [136b0064] aug 2/2 [0, False, False, [0, 9, 2, 3, 5, 1, 7, 4, 8, 6]] -> pool sizes [38]
+  -> 273.9s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 2/8] 1818057f conf=0.50 slice=126s remaining=1483s
+  [1818057f] pre-TTT free 7.57 GiB of 14.56 GiB
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+  [1818057f] TTT 2 steps in 31.0s (aug_train=2, aug_infer=2)
+  [1818057f] aug 1/2 [0, False, False, None] -> pool sizes [23]
+  [1818057f] aug 2/2 [0, False, True, [3, 4, 9, 1, 8, 0, 7, 6, 5, 2]] -> pool sizes [31]
+  -> 358.7s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 3/8] 0934a4d8 conf=0.50 slice=87s remaining=1125s
+  [0934a4d8] pre-TTT free 7.57 GiB of 14.56 GiB
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.13 GiB is free. Including non-PyTorch memory, this process has 13.43 GiB memory in use. Of the allocated memory 13.19 GiB is allocated by PyTorch, and 104.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.13 GiB is free. Including non-PyTorch memory, this process has 13.43 GiB memory in use. Of the allocated memory 13.19 GiB is allocated by PyTorch, and 104.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [0934a4d8] TTT 0 steps in 44.1s (aug_train=2, aug_infer=2)
+  ! TTT disabled for the rest of the run: LoRA TTT OOM on the first step (model + Stage A residuals leave no room for 8192-token activations); budget moved to Stage A coverage
+  [0934a4d8] aug 1/2 [0, False, False, None] -> pool sizes [5]
+  [0934a4d8] aug 2/2 [0, True, False, [8, 3, 5, 4, 7, 2, 0, 6, 1, 9]] -> pool sizes [5]
+  -> 232.9s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 4/8] 16b78196 conf=0.50 slice=58s remaining=892s
+  [16b78196] aug 1/2 [0, False, False, None] -> pool sizes [6]
+  [16b78196] aug 2/2 [1, False, True, [2, 5, 1, 7, 6, 9, 4, 8, 0, 3]] -> pool sizes [7]
+  -> 243.0s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B 5/8] 135a2760 conf=0.50 slice=45s remaining=649s
+  [135a2760] aug 1/2 [0, False, False, None] -> pool sizes [17]
+  [135a2760] aug 2/2 [1, True, True, [2, 1, 5, 3, 6, 4, 9, 7, 8, 0]] -> pool sizes [19]
+  -> 223.3s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B] stopping: reserve reached (remaining=425s)
+[stage C] backfilling 7 task(s) below confidence 0.6
+  [0934a4d8] engine pool sizes [6]
+  [0934a4d8] aug 1/1 [0, False, False, None] -> pool sizes [9]
+  [135a2760] engine pool sizes [14]
+  [135a2760] aug 1/1 [0, False, False, None] -> pool sizes [21]
+  [136b0064] engine pool sizes [13]
+  [13e47133] engine pool sizes [9, 8]
+  -> 252.1s candidates=17 conf=0.53 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x
+  [142ca369] engine pool sizes [7, 5]
+  -> 172.1s candidates=12 conf=0.55 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x
+  [16b78196] engine pool sizes [6]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.17 GiB is free. Including non-PyTorch memory, this process has 11.39 GiB memory in use. Of the allocated memory 11.13 GiB is allocated by PyTorch, and 122.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.15 GiB is free. Including non-PyTorch memory, this process has 11.41 GiB memory in use. Of the allocated memory 11.13 GiB is allocated by PyTorch, and 142.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [1818057f] engine pool sizes [17]
+  -> 129.8s candidates=17 conf=0.50 sources=['prior', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[score] solved 0/8 tasks with ground truth
+[done] submission -> /kaggle/working/submission.json  report -> /kaggle/working/report.json  elapsed=4312.76s
+/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+  warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)

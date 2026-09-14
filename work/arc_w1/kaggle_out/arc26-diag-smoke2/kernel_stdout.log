@@ -1,0 +1,26 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+[data] split=evaluation n_tasks=2 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json
+[engine] status=skipped no --engine path given
+[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 83.86s
+[schedule] cascade budget=900s calibrate=5 aug_train=2 aug_infer=2
+[stage A 1/2] 0934a4d8 slice=90s remaining=816s
+  [0934a4d8] aug 1/2 [0, False, False, None] -> pool sizes [3]
+  [0934a4d8] aug 2/2 [3, False, True, [1, 0, 4, 5, 3, 2, 9, 6, 7, 8]] -> pool sizes [6]
+  -> 186.2s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 2/2] 135a2760 slice=90s remaining=630s
+  [135a2760] aug 1/2 [0, False, False, None] -> pool sizes [7]
+  [135a2760] aug 2/2 [1, True, False, [3, 9, 1, 6, 5, 0, 7, 2, 8, 4]] -> pool sizes [14]
+  -> 165.6s candidates=9 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage B 1/2] 0934a4d8 conf=0.50 slice=45s remaining=464s
+[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 724.81 MiB is free. Including non-PyTorch memory, this process has 13.85 GiB memory in use. Of the allocated memory 13.20 GiB is allocated by PyTorch, and 535.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 724.81 MiB is free. Including non-PyTorch memory, this process has 13.85 GiB memory in use. Of the allocated memory 13.20 GiB is allocated by PyTorch, and 535.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  [0934a4d8] TTT 0 steps in 38.7s (aug_train=2, aug_infer=1)
+    prompt forward failed (CUDA out of memory. Tried to allocate 700.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 146.81 MiB is free. Including non-PyTorch memory, this process has 14.42 GiB memory in use. Of the allocated memory 13.42 GiB is allocated by PyTorch, and 886.87 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)); no neural candidate
+  [0934a4d8] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 158.2s conf=0.50 (no improvement over stage A; attempts kept)
+[stage B] stopping: reserve reached (remaining=306s)
+[stage C] skipped: no symbolic engine loaded (2 task(s) kept their stage A/B + fallback answers)
+[score] solved 0/2 tasks with ground truth
+[done] submission -> /kaggle/working/submission.json  report -> /kaggle/working/report.json  elapsed=594.25s

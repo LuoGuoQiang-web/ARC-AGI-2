@@ -38,3 +38,17 @@ ARC-AGI-2-main/
 data/
 fixture_data/
 *.zip
+# 竞赛数据（`kaggle competitions download` 的产物）。可随时重新下载，
+# 且竞赛规则不允许再分发。我们的工具只需它在本地存在。
+comp_data/
+arc-agi_*.json
+sample_submission.json
+
+# ============================================================
+# Kaggle 运行产物
+# ============================================================
+# `kaggle_out/` **必须入库**：它是论文全部数字的唯一出处（report.json 的 per_task 行、
+# kernel_stdout.log 里的 TTT OOM 记录），也是 Completeness 维度要求的东西。
+# 体积实测仅 1.3 MB，没有理由排除。
+# 只排除可再生的构建中间产物。
+.kpush_build/

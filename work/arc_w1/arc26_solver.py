@@ -131,6 +131,15 @@ LORA_TARGET_MODULES = (
 TTT_LR = 5e-5
 TTT_EPOCHS = 1
 TTT_MAX_SEQ_LENGTH = 8192
+# Cap on the *context* of one TTT optimizer step. Measured failure it prevents: with the whole
+# demonstration set in one sequence, a 30x30 task builds an ~8192-token step, the backward
+# allocation (1.77 GiB) fails on a 14.56 GiB T4, and 86 of 102 tasks routed to TTT executed zero
+# optimizer steps while being reported as "no gain". 2048 tokens is ~2 average grid pairs: enough
+# in-context signal to define the rule, small enough that the step fits.
+TTT_SEQ_TOKEN_BUDGET = 2048
+# How many tasks in a row must fail to allocate before TTT is abandoned for the whole run. One
+# task's OOM must not unadapt the remaining 200: degrade that task, keep the mechanism.
+TTT_MAX_CONSECUTIVE_OOM = 3
 TTT_MAX_GRAD_NORM = 1.0
 
 # Constrained DFS (spec section 2.3)
@@ -173,6 +182,10 @@ SYMBOLIC_CONFIDENCE = 0.9       # a validated symbolic program is strong evidenc
 # free)" while peak memory was already 14.09 of 14.56 GiB). The budget is far better spent
 # on Stage A coverage -- that is where the loss actually is (pool_recall was 0.0).
 TTT_DISABLED_REASON: Optional[str] = None
+# Consecutive tasks whose whole retry ladder failed to allocate. TTT is abandoned run-wide only
+# once this reaches --ttt-max-consecutive-oom. Measured cost of getting this wrong: abandoning
+# on the *first* OOM left 86 of 102 "TTT" tasks unadapted (FINDINGS_2026-09-14.md section 5).
+TTT_CONSECUTIVE_OOM: int = 0
 STAGE_A_DEFAULT_SLICE = 45.0    # seconds per task during the cheap sweep (before measurement)
 STAGE_A_CALIBRATION_SLICE = 90.0
 STAGE_A_MIN_SLICE = 8.0
@@ -907,7 +920,8 @@ def detach_lora(model: Any) -> None:
 
 
 def build_ttt_sequences(train_demos: Sequence[dict], tokenizer: Any, n_aug: int,
-                        max_seq_length: int, rng: random.Random
+                        max_seq_length: int, rng: random.Random,
+                        seq_token_budget: int = 0
                         ) -> Tuple[List[List[int]], List[AugKey]]:
     """Augmented TTT sequences (spec 2.1 step 2).
 
@@ -916,8 +930,17 @@ def build_ttt_sequences(train_demos: Sequence[dict], tokenizer: Any, n_aug: int,
     is exactly ``fmt_train(other_demos, target_input) + fmt_reply(target_output)``,
     i.e. the same shape as an inference prompt plus its answer.  Rotating which demo
     is the target means every demonstration gets predicted, under a different
-    augmentation each time.  Over-long sequences are truncated from the LEFT so the
-    target answer (at the end) always survives.
+    augmentation each time.
+
+    ``seq_token_budget`` (0 = disabled) caps the *context* so that one optimizer step fits in
+    memory.  This matters more than it looks: with the whole demonstration set packed into a
+    single sequence, a task whose grids are 30x30 produces one ~8192-token sequence, so a
+    single step is a full forward+backward over a 3.63B model -- measured, that allocation
+    fails on a 14.56 GiB T4 and adaptation silently never happens (`FINDINGS_2026-09-14.md`
+    section 5).  Context demonstrations are dropped from the *front* (furthest from the target)
+    until the sequence fits, so the target pair -- which is what actually carries the loss --
+    always survives intact.  Truncating the token stream instead would cut a grid in half and
+    leave the model fitting half a rectangle, so it is only the last resort.
     """
     seqs: List[List[int]] = []
     keys: List[AugKey] = []
@@ -925,13 +948,25 @@ def build_ttt_sequences(train_demos: Sequence[dict], tokenizer: Any, n_aug: int,
     if not demos or n_aug <= 0:
         return seqs, keys
     m = len(demos)
+    budget = int(seq_token_budget) if seq_token_budget else 0
     for k in range(int(n_aug)):
         key = AugKey.identity() if k == 0 else random_augment_key(rng, allow_color=True)
         aug = augment_demos(demos, key)
         target = k % m
         others = [aug[i] for i in range(m) if i != target]
-        text = fmt_train(others, aug[target]["input"]) + fmt_reply(aug[target]["output"])
-        ids = _encode_text(tokenizer, text)
+        ids: List[int] = []
+        # Drop context demos from the front until the step fits the budget.
+        lo = 0
+        while True:
+            text = (fmt_train(others[lo:], aug[target]["input"])
+                    + fmt_reply(aug[target]["output"]))
+            ids = _encode_text(tokenizer, text)
+            if not ids:
+                break
+            over_budget = budget and len(ids) > budget
+            if not over_budget or lo >= len(others):
+                break
+            lo += 1
         if not ids:
             continue
         if len(ids) > max_seq_length:
@@ -1893,7 +1928,7 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
         log_fn(f"  [{task_id}] engine pool sizes {[len(p) for p in pools]}")
 
     # ---- (b) TTT on the augmented demonstrations ---------------------------------
-    global TTT_DISABLED_REASON
+    global TTT_DISABLED_REASON, TTT_CONSECUTIVE_OOM
     if do_ttt and model is not None and not TTT_DISABLED_REASON:
         if scheduler is not None:
             n_train_aug, n_infer_aug = scheduler.augmentation_budget(
@@ -1903,49 +1938,73 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
         if aug_override:
             n_infer_aug = max(1, int(aug_override))
         if time.time() < deadline - 10.0:
-            sequences, _keys = build_ttt_sequences(task.get("train", []), tokenizer,
-                                                   n_train_aug, args.max_seq_length, rng)
-            if sequences:
-                peft_model = None
+            # Retry ladder: full context first, then progressively shorter ones. A task that
+            # cannot fit a 2048-token step may still fit a 1024-token one, and adapting it
+            # partially beats not adapting it at all.
+            budget = int(args.ttt_seq_tokens)
+            ladder = [budget] if budget <= 0 else [budget, budget // 2, budget // 4]
+            ladder = [b for b in ladder if b > 0] or [0]
+            steps = ttt_seconds = 0
+            oom = False
+            peft_model = None
+            for attempt, ctx_budget in enumerate(ladder):
+                sequences, _keys = build_ttt_sequences(
+                    task.get("train", []), tokenizer, n_train_aug, args.max_seq_length, rng,
+                    seq_token_budget=ctx_budget)
+                if not sequences:
+                    break
                 try:
                     # Hand every cached byte back to the driver *before* asking for the
-                    # ~1.8 GB of gradient-checkpointed activations a step needs. Stage A's
-                    # DFS leaves its KV caches behind: observed peak 14.09 of 14.56 GiB,
-                    # 724 MiB free, and the allocation then failing.
+                    # gradient-checkpointed activations a step needs. Stage A's DFS leaves its
+                    # KV caches behind: observed peak 14.09 of 14.56 GiB, 724 MiB free, and the
+                    # allocation then failing.
                     gc.collect()
                     try:
                         torch.cuda.empty_cache()
                         free_b, total_b = torch.cuda.mem_get_info()
                         log_fn(f"  [{task_id}] pre-TTT free {free_b / 2**30:.2f} GiB "
-                               f"of {total_b / 2**30:.2f} GiB")
+                               f"of {total_b / 2**30:.2f} GiB (ctx<= {ctx_budget or 'uncapped'})")
                     except Exception:
                         pass
                     peft_model = attach_lora(model)
                     steps, ttt_seconds, oom = run_ttt(peft_model, sequences, deadline,
                                                       next(model.parameters()).device,
                                                       log_fn=log_fn)
-                    result.ttt_steps = steps
-                    if steps > 0:
-                        per_step = ttt_seconds / steps
-                        if scheduler is not None:
-                            if scheduler.ttt_step_seconds is None:
-                                scheduler.ttt_step_seconds = per_step
-                            else:
-                                scheduler.ttt_step_seconds = (
-                                    0.7 * scheduler.ttt_step_seconds + 0.3 * per_step
-                                )
-                    log_fn(f"  [{task_id}] TTT {steps} steps in {ttt_seconds:.1f}s "
-                           f"(aug_train={n_train_aug}, aug_infer={n_infer_aug})")
-                    if oom and steps == 0:
-                        # Doomed, not merely unhelpful: stop spending slices on it.
-                        TTT_DISABLED_REASON = (
-                            f"LoRA TTT OOM on the first step (model + Stage A residuals leave "
-                            f"no room for {TTT_MAX_SEQ_LENGTH}-token activations); budget moved "
-                            f"to Stage A coverage")
-                        log_fn(f"  ! TTT disabled for the rest of the run: {TTT_DISABLED_REASON}")
                 finally:
                     if peft_model is not None:
                         detach_lora(peft_model)
+                        peft_model = None
+                if steps > 0 or not oom:
+                    break
+                if attempt + 1 < len(ladder):
+                    log_fn(f"  [{task_id}] TTT OOM at ctx<={ctx_budget}; retrying at "
+                           f"ctx<={ladder[attempt + 1]}")
+            result.ttt_steps = steps
+            if steps > 0:
+                per_step = ttt_seconds / steps
+                if scheduler is not None:
+                    if scheduler.ttt_step_seconds is None:
+                        scheduler.ttt_step_seconds = per_step
+                    else:
+                        scheduler.ttt_step_seconds = (
+                            0.7 * scheduler.ttt_step_seconds + 0.3 * per_step
+                        )
+            log_fn(f"  [{task_id}] TTT {steps} steps in {ttt_seconds:.1f}s "
+                   f"(aug_train={n_train_aug}, aug_infer={n_infer_aug})")
+            if oom and steps == 0:
+                # Doomed *for this task*, not for the run. Disabling TTT globally after one
+                # failure is how a single 1.77 GiB allocation turned a 240-task run into a beam
+                # search over an unadapted model: 86 of 102 "TTT" tasks executed zero steps.
+                # Degrade the mechanism only after the ladder has failed repeatedly.
+                self_consec = TTT_CONSECUTIVE_OOM + 1
+                TTT_CONSECUTIVE_OOM = self_consec
+                if self_consec >= max(1, int(args.ttt_max_consecutive_oom)):
+                    TTT_DISABLED_REASON = (
+                        f"LoRA TTT OOM on {self_consec} consecutive tasks even at the shortest "
+                        f"context (<= {ladder[-1]} tokens); budget moved to Stage A coverage")
+                    log_fn(f"  ! TTT disabled for the rest of the run: {TTT_DISABLED_REASON}")
+            else:
+                TTT_CONSECUTIVE_OOM = 0
     else:
         n_infer_aug = max(1, int(aug_override or args.aug_infer))
 
@@ -2164,6 +2223,20 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                         help="model weights directory")
     parser.add_argument("--max-seq-length", type=int, default=TTT_MAX_SEQ_LENGTH,
                         help="TTT / prompt truncation length")
+    # The binding constraint on TTT is memory, not the learning rate: one optimizer step over
+    # an 8192-token sequence on a 3.63B model does not fit a 14.56 GiB T4 alongside the search's
+    # residual caches, and the failure is silent (the stage is recorded as attempted and
+    # reported as "no gain"). Capping the context keeps the target pair -- which carries the
+    # loss -- while making the step fit.
+    parser.add_argument("--ttt-seq-tokens", type=int, default=TTT_SEQ_TOKEN_BUDGET,
+                        help="cap TTT context length per optimizer step by dropping context "
+                             "demonstrations, keeping the target pair (0 = no cap; default "
+                             f"{TTT_SEQ_TOKEN_BUDGET}). This is what makes adaptation fit.")
+    parser.add_argument("--ttt-max-consecutive-oom", type=int, default=TTT_MAX_CONSECUTIVE_OOM,
+                        help="give up on TTT for the whole run only after this many tasks in a "
+                             "row fail to allocate (default "
+                             f"{TTT_MAX_CONSECUTIVE_OOM}); each task is retried at a shorter "
+                             "context first, so one task's OOM does not unadapt the run")
     parser.add_argument("--cache-budget-gb", type=float, default=DFS_DEFAULT_CACHE_BUDGET_GB,
                         help="KV-cache budget for live DFS beams, in GiB")
     # Search width. These are the only levers that can raise pool recall, which is the
@@ -2291,18 +2364,26 @@ class RunContext:
                 if (np.array_equal(att["attempt_1"], want)
                         or np.array_equal(att["attempt_2"], want)):
                     n_sel += 1
-            agg = self.report.setdefault("pool_recall", {
-                "n_with_truth": 0, "n_in_pool": 0, "n_top1": 0, "n_solved_inputs": 0})
-            agg["n_with_truth"] += int(rec["n_with_truth"])
-            agg["n_in_pool"] += res.n_truth_in_pool
-            agg["n_top1"] += res.n_truth_top1
-            agg["n_solved_inputs"] += n_sel
+            entry["n_solved_inputs"] = n_sel
+            # Recompute from the *unique per-task entries*; never accumulate into the
+            # aggregate here. record_task runs once per stage (A, then B, then C), so an
+            # incremental accumulator counts the same test input several times: measured on
+            # arc26-exp-base it reported n_with_truth = 16 where only 11 test inputs exist,
+            # silently deflating pool_recall's denominator. The aggregate must always equal
+            # the sum over the per_task rows it claims to summarise.
+            agg = {"n_with_truth": 0, "n_in_pool": 0, "n_top1": 0, "n_solved_inputs": 0}
+            for e in self.per_task_index.values():
+                agg["n_with_truth"] += int(e.get("n_with_truth") or 0)
+                agg["n_in_pool"] += int(e.get("truth_in_pool") or 0)
+                agg["n_top1"] += int(e.get("truth_top1") or 0)
+                agg["n_solved_inputs"] += int(e.get("n_solved_inputs") or 0)
             if agg["n_with_truth"]:
                 agg["pool_recall"] = round(agg["n_in_pool"] / agg["n_with_truth"], 4)
                 agg["top1_rate"] = round(agg["n_top1"] / agg["n_with_truth"], 4)
                 agg["selected_rate"] = round(agg["n_solved_inputs"] / agg["n_with_truth"], 4)
                 agg["selection_headroom"] = round(
                     (agg["n_in_pool"] - agg["n_solved_inputs"]) / agg["n_with_truth"], 4)
+            self.report["pool_recall"] = agg
         return entry
 
     def update_submission(self, tid: str, res: TaskResult) -> None:
@@ -2749,6 +2830,43 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         report["elapsed_seconds"] = round(time.time() - started_at, 2)
         if task_ids:
             report["n_tasks_total"] = len(task_ids)
+
+        # --- adaptation telemetry: intended steps are not executed steps --------------
+        # The failure this guards against is silent by construction: a task whose TTT stage
+        # cannot allocate is recorded exactly like a task whose TTT stage ran and did not
+        # help. Measured on arc26-submit-full, that let 86 of 102 tasks be reported as
+        # "B_ttt_no_gain" after executing zero optimizer steps, and the run's accuracy was
+        # read as a statement about model capability rather than about a failed allocation.
+        # A run-level counter is the cheapest thing that makes the difference visible.
+        per_task = report.get("per_task") or []
+        routed = [e for e in per_task
+                  if any(str(s).startswith("B_ttt") for s in (e.get("stages") or []))]
+        stepped = [e for e in routed if int(e.get("ttt_steps") or 0) > 0]
+        total_steps = sum(int(e.get("ttt_steps") or 0) for e in per_task)
+        stage_b = next((s for s in (report.get("stages") or [])
+                        if s.get("name") == "B_ttt"), {})
+        report["ttt"] = {
+            "tasks_routed": len(routed),
+            "tasks_executed": len(stepped),
+            "tasks_routed_but_never_stepped": len(routed) - len(stepped),
+            "total_optimizer_steps": total_steps,
+            "stage_b_seconds": stage_b.get("seconds"),
+            "seconds_per_step": (round(stage_b["seconds"] / total_steps, 1)
+                                 if total_steps and stage_b.get("seconds") else None),
+            "seq_token_budget": args.ttt_seq_tokens,
+            "disabled_reason": TTT_DISABLED_REASON,
+        }
+        if routed:
+            log(f"[ttt] routed={len(routed)} executed={len(stepped)} "
+                f"never_stepped={len(routed) - len(stepped)} steps={total_steps}"
+                + (f" disabled={TTT_DISABLED_REASON}" if TTT_DISABLED_REASON else ""))
+            if not stepped:
+                log("! WARNING: TTT was routed tasks but executed ZERO optimizer steps. This run "
+                    "is a beam search over an UNADAPTED model; do not report it as a TTT result.")
+            elif len(stepped) < len(routed):
+                log(f"! WARNING: {len(routed) - len(stepped)}/{len(routed)} TTT tasks never "
+                    "stepped; their 'no gain' verdicts say nothing about adaptation.")
+
         try:
             write_json_atomic(args.report, report)
             log(f"[done] submission -> {args.out}  report -> {args.report}  "

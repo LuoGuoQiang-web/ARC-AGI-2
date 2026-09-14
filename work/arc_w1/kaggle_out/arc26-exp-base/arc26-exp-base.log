@@ -1,0 +1,113 @@
+[{"stream_name":"stderr","time":6.575721151,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.5757776,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.428875523,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.428902282,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.428908106,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.428912669,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.02391318,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.023971408,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.023977014,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.023981358,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.154415928,"data":"Writing /kaggle/working/arc_prize_v1.py\n"}
+,{"stream_name":"stdout","time":10.171556432,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":14.583090215,"data":"[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2\n"}
+,{"stream_name":"stdout","time":14.646037586,"data":"[data] split=evaluation n_tasks=8 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json\n"}
+,{"stream_name":"stdout","time":14.679385644,"data":"[engine] status=loaded \n"}
+,{"stream_name":"stdout","time":87.617375764,"data":"[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 72.94s\n"}
+,{"stream_name":"stdout","time":87.617415136,"data":"[schedule] cascade budget=3600s calibrate=5 aug_train=2 aug_infer=2\n"}
+,{"stream_name":"stdout","time":87.61758464,"data":"[stage A 1/8] 0934a4d8 slice=90s remaining=3527s\n"}
+,{"stream_name":"stdout","time":133.422378093,"data":"  [0934a4d8] aug 1/2 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":178.511030073,"data":"  [0934a4d8] aug 2/2 [3, False, True, [1, 0, 4, 5, 3, 2, 9, 6, 7, 8]] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":284.222817008,"data":"  -\u003e 196.6s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":284.223782528,"data":"[stage A 2/8] 135a2760 slice=90s remaining=3330s\n"}
+,{"stream_name":"stdout","time":329.925504291,"data":"  [135a2760] aug 1/2 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":374.605333271,"data":"  [135a2760] aug 2/2 [1, True, False, [3, 9, 1, 6, 5, 0, 7, 2, 8, 4]] -\u003e pool sizes [13]\n"}
+,{"stream_name":"stdout","time":487.51738866,"data":"  -\u003e 203.3s candidates=12 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":487.518298833,"data":"[stage A 3/8] 136b0064 slice=90s remaining=3127s\n"}
+,{"stream_name":"stdout","time":533.247475872,"data":"  [136b0064] aug 1/2 [0, False, False, None] -\u003e pool sizes [11]\n"}
+,{"stream_name":"stdout","time":554.137412752,"data":"  [136b0064] aug 2/2 [2, True, False, None] -\u003e pool sizes [13]\n"}
+,{"stream_name":"stdout","time":612.262929458,"data":"  -\u003e 124.7s candidates=11 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":612.2639171,"data":"[stage A 4/8] 13e47133 slice=90s remaining=3002s\n"}
+,{"stream_name":"stdout","time":658.376685437,"data":"  [13e47133] aug 1/2 [0, False, False, None] -\u003e pool sizes [5, 2]\n"}
+,{"stream_name":"stdout","time":702.989030206,"data":"  [13e47133] aug 2/2 [3, True, False, [2, 4, 7, 6, 9, 3, 5, 1, 0, 8]] -\u003e pool sizes [7, 6]\n"}
+,{"stream_name":"stdout","time":886.42107067,"data":"  -\u003e 274.2s candidates=13 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":886.421905411,"data":"[stage A 5/8] 142ca369 slice=90s remaining=2728s\n"}
+,{"stream_name":"stdout","time":932.22563365,"data":"  [142ca369] aug 1/2 [0, False, False, None] -\u003e pool sizes [2, 3]\n"}
+,{"stream_name":"stdout","time":976.793853914,"data":"  [142ca369] aug 2/2 [2, False, True, None] -\u003e pool sizes [5, 4]\n"}
+,{"stream_name":"stdout","time":1083.08539117,"data":"  -\u003e 196.7s candidates=8 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":1083.086170797,"data":"[stage A 6/8] 16b78196 slice=150s remaining=2531s\n"}
+,{"stream_name":"stdout","time":1158.891503049,"data":"  [16b78196] aug 1/2 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":1233.6403609,"data":"  [16b78196] aug 2/2 [1, True, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":1341.044346744,"data":"  -\u003e 258.0s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":1341.045172978,"data":"[stage A 7/8] 16de56c4 slice=150s remaining=2273s\n"}
+,{"stream_name":"stdout","time":1416.810945052,"data":"  [16de56c4] aug 1/2 [0, False, False, None] -\u003e pool sizes [3, 3]\n"}
+,{"stream_name":"stdout","time":1491.720412397,"data":"  [16de56c4] aug 2/2 [3, True, False, None] -\u003e pool sizes [10, 11]\n"}
+,{"stream_name":"stdout","time":1592.203653073,"data":"  -\u003e 251.2s candidates=21 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":1592.204473973,"data":"[stage A 8/8] 1818057f slice=150s remaining=2022s\n"}
+,{"stream_name":"stdout","time":1667.926838303,"data":"  [1818057f] aug 1/2 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":1742.922500867,"data":"  [1818057f] aug 2/2 [3, True, False, [7, 0, 1, 2, 9, 4, 6, 3, 5, 8]] -\u003e pool sizes [16]\n"}
+,{"stream_name":"stdout","time":1856.936698725,"data":"  -\u003e 264.7s candidates=15 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":1856.937529036,"data":"[stage B 1/8] 136b0064 conf=0.50 slice=145s remaining=1757s\n"}
+,{"stream_name":"stdout","time":1857.153025873,"data":"  [136b0064] pre-TTT free 7.62 GiB of 14.56 GiB\n"}
+,{"stream_name":"stdout","time":1857.221671559,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":1878.74967537,"data":"  [136b0064] TTT 2 steps in 21.5s (aug_train=2, aug_infer=2)\n"}
+,{"stream_name":"stdout","time":1941.036351242,"data":"  [136b0064] aug 1/2 [0, False, False, None] -\u003e pool sizes [26]\n"}
+,{"stream_name":"stdout","time":2002.000151515,"data":"  [136b0064] aug 2/2 [0, False, False, [0, 9, 2, 3, 5, 1, 7, 4, 8, 6]] -\u003e pool sizes [38]\n"}
+,{"stream_name":"stdout","time":2130.878692003,"data":"  -\u003e 273.9s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":2130.880068636,"data":"[stage B 2/8] 1818057f conf=0.50 slice=126s remaining=1483s\n"}
+,{"stream_name":"stdout","time":2131.103851603,"data":"  [1818057f] pre-TTT free 7.57 GiB of 14.56 GiB\n"}
+,{"stream_name":"stdout","time":2131.185391544,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":2162.24897003,"data":"  [1818057f] TTT 2 steps in 31.0s (aug_train=2, aug_infer=2)\n"}
+,{"stream_name":"stdout","time":2210.20769398,"data":"  [1818057f] aug 1/2 [0, False, False, None] -\u003e pool sizes [23]\n"}
+,{"stream_name":"stdout","time":2257.814947232,"data":"  [1818057f] aug 2/2 [0, False, True, [3, 4, 9, 1, 8, 0, 7, 6, 5, 2]] -\u003e pool sizes [31]\n"}
+,{"stream_name":"stdout","time":2489.616563275,"data":"  -\u003e 358.7s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":2489.617443347,"data":"[stage B 3/8] 0934a4d8 conf=0.50 slice=87s remaining=1125s\n"}
+,{"stream_name":"stdout","time":2489.843306085,"data":"  [0934a4d8] pre-TTT free 7.57 GiB of 14.56 GiB\n"}
+,{"stream_name":"stdout","time":2489.894691102,"data":"[lora] wrapped 252 modules, trainable params 33.03M (scale=8.0, device=cuda:0)\n"}
+,{"stream_name":"stdout","time":2511.522254831,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.13 GiB is free. Including non-PyTorch memory, this process has 13.43 GiB memory in use. Of the allocated memory 13.19 GiB is allocated by PyTorch, and 104.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":2533.37470157,"data":"    TTT step 0 failed: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.13 GiB is free. Including non-PyTorch memory, this process has 13.43 GiB memory in use. Of the allocated memory 13.19 GiB is allocated by PyTorch, and 104.38 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":2533.984048791,"data":"  [0934a4d8] TTT 0 steps in 44.1s (aug_train=2, aug_infer=2)\n"}
+,{"stream_name":"stdout","time":2533.986620049,"data":"  ! TTT disabled for the rest of the run: LoRA TTT OOM on the first step (model + Stage A residuals leave no room for 8192-token activations); budget moved to Stage A coverage\n"}
+,{"stream_name":"stdout","time":2561.186722541,"data":"  [0934a4d8] aug 1/2 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":2588.239469188,"data":"  [0934a4d8] aug 2/2 [0, True, False, [8, 3, 5, 4, 7, 2, 0, 6, 1, 9]] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":2722.52988043,"data":"  -\u003e 232.9s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":2722.530807622,"data":"[stage B 4/8] 16b78196 conf=0.50 slice=58s remaining=892s\n"}
+,{"stream_name":"stdout","time":2752.390561773,"data":"  [16b78196] aug 1/2 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":2781.323554557,"data":"  [16b78196] aug 2/2 [1, False, True, [2, 5, 1, 7, 6, 9, 4, 8, 0, 3]] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":2965.53820671,"data":"  -\u003e 243.0s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":2965.539123845,"data":"[stage B 5/8] 135a2760 conf=0.50 slice=45s remaining=649s\n"}
+,{"stream_name":"stdout","time":2988.403657346,"data":"  [135a2760] aug 1/2 [0, False, False, None] -\u003e pool sizes [17]\n"}
+,{"stream_name":"stdout","time":3011.064025195,"data":"  [135a2760] aug 2/2 [1, True, True, [2, 1, 5, 3, 6, 4, 9, 7, 8, 0]] -\u003e pool sizes [19]\n"}
+,{"stream_name":"stdout","time":3188.867665738,"data":"  -\u003e 223.3s conf=0.50 (no improvement over stage A; attempts kept)\n"}
+,{"stream_name":"stdout","time":3188.868639801,"data":"[stage B] stopping: reserve reached (remaining=425s)\n"}
+,{"stream_name":"stdout","time":3188.869457314,"data":"[stage C] backfilling 7 task(s) below confidence 0.6\n"}
+,{"stream_name":"stdout","time":3188.970948715,"data":"  [0934a4d8] engine pool sizes [6]\n"}
+,{"stream_name":"stdout","time":3249.647715132,"data":"  [0934a4d8] aug 1/1 [0, False, False, None] -\u003e pool sizes [9]\n"}
+,{"stream_name":"stdout","time":3411.325755344,"data":"  [135a2760] engine pool sizes [14]\n"}
+,{"stream_name":"stdout","time":3464.938937943,"data":"  [135a2760] aug 1/1 [0, False, False, None] -\u003e pool sizes [21]\n"}
+,{"stream_name":"stdout","time":3596.831158,"data":"  [136b0064] engine pool sizes [13]\n"}
+,{"stream_name":"stdout","time":3665.490473601,"data":"  [13e47133] engine pool sizes [9, 8]\n"}
+,{"stream_name":"stdout","time":3917.562144303,"data":"  -\u003e 252.1s candidates=17 conf=0.53 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":3917.592989959,"data":"  [142ca369] engine pool sizes [7, 5]\n"}
+,{"stream_name":"stdout","time":4089.655052422,"data":"  -\u003e 172.1s candidates=12 conf=0.55 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":4089.703771268,"data":"  [16b78196] engine pool sizes [6]\n"}
+,{"stream_name":"stdout","time":4196.64175971,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.17 GiB is free. Including non-PyTorch memory, this process has 11.39 GiB memory in use. Of the allocated memory 11.13 GiB is allocated by PyTorch, and 122.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":4197.093137377,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.73 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.15 GiB is free. Including non-PyTorch memory, this process has 11.41 GiB memory in use. Of the allocated memory 11.13 GiB is allocated by PyTorch, and 142.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":4197.240641124,"data":"  [1818057f] engine pool sizes [17]\n"}
+,{"stream_name":"stdout","time":4327.022367404,"data":"  -\u003e 129.8s candidates=17 conf=0.50 sources=['prior', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":4327.023158672,"data":"[score] solved 0/8 tasks with ground truth\n"}
+,{"stream_name":"stdout","time":4327.036515423,"data":"[done] submission -\u003e /kaggle/working/submission.json  report -\u003e /kaggle/working/report.json  elapsed=4312.76s\n"}
+,{"stream_name":"stderr","time":4327.041434585,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":4327.041450944,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":4327.04145564,"data":"\n"}
+,{"stream_name":"stderr","time":4327.041459162,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":4327.041462914,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":4332.523072189,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4332.52309408,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4332.694105056,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4332.694149476,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4333.362473669,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":4333.670603923,"data":"[NbConvertApp] Writing 252116 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":4336.040261325,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4337.440404523,"data":"[NbConvertApp] Writing 1150161 bytes to __results__.html\n"}
+]

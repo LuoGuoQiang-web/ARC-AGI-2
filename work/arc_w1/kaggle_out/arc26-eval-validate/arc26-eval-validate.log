@@ -1,0 +1,107 @@
+[{"stream_name":"stderr","time":7.123718912,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.123768688,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.123772728,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.123775478,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.739145112,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.73917214,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.739177523,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.739182521,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.733668946,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":13.919182393,"data":"[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2\n"}
+,{"stream_name":"stdout","time":14.0129058,"data":"[shard] 0/5 -\u003e 24 tasks\n"}
+,{"stream_name":"stdout","time":14.015006328,"data":"[data] split=evaluation n_tasks=24 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json\n"}
+,{"stream_name":"stdout","time":14.046951648,"data":"[engine] status=skipped no --engine path given\n"}
+,{"stream_name":"stdout","time":154.37927033,"data":"[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 140.33s\n"}
+,{"stream_name":"stdout","time":154.380304151,"data":"[schedule] cascade budget=5400s calibrate=3 aug_train=2 aug_infer=1\n"}
+,{"stream_name":"stdout","time":154.381065235,"data":"[stage A 1/24] 0934a4d8 slice=90s remaining=5259s\n"}
+,{"stream_name":"stdout","time":244.672899311,"data":"  [0934a4d8] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":294.36973527,"data":"  -\u003e 140.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":294.370565538,"data":"[stage A 2/24] 16b78196 slice=90s remaining=5119s\n"}
+,{"stream_name":"stdout","time":385.100710407,"data":"  [16b78196] aug 1/1 [0, False, False, None] -\u003e pool sizes [3]\n"}
+,{"stream_name":"stdout","time":457.383553579,"data":"  -\u003e 163.0s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":457.384341644,"data":"[stage A 3/24] 20270e3b slice=90s remaining=4956s\n"}
+,{"stream_name":"stdout","time":547.923973432,"data":"  [20270e3b] aug 1/1 [0, False, False, None] -\u003e pool sizes [17, 31]\n"}
+,{"stream_name":"stdout","time":662.033198947,"data":"  -\u003e 204.6s candidates=45 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":662.034087265,"data":"[stage A 4/24] 269e22fb slice=150s remaining=4752s\n"}
+,{"stream_name":"stdout","time":812.625207154,"data":"  [269e22fb] aug 1/1 [0, False, False, None] -\u003e pool sizes [5, 5]\n"}
+,{"stream_name":"stdout","time":940.826113386,"data":"  -\u003e 278.8s candidates=10 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":940.827407668,"data":"[stage A 5/24] 2ba387bc slice=150s remaining=4473s\n"}
+,{"stream_name":"stdout","time":1091.121752197,"data":"  [2ba387bc] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":1161.355983805,"data":"  -\u003e 220.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=True truth: a1=OK(1/1) a2=x\n"}
+,{"stream_name":"stdout","time":1161.35685087,"data":"[stage A 6/24] 35ab12c3 slice=150s remaining=4252s\n"}
+,{"stream_name":"stdout","time":1311.843299813,"data":"  [35ab12c3] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":1381.474267192,"data":"  -\u003e 220.1s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":1381.475305276,"data":"[stage A 7/24] 3e6067c3 slice=150s remaining=4032s\n"}
+,{"stream_name":"stdout","time":1531.841208348,"data":"  [3e6067c3] aug 1/1 [0, False, False, None] -\u003e pool sizes [3, 4]\n"}
+,{"stream_name":"stdout","time":1532.180044774,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.98 GiB is free. Including non-PyTorch memory, this process has 11.58 GiB memory in use. Of the allocated memory 11.29 GiB is allocated by PyTorch, and 168.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":1532.686563768,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.97 GiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 11.30 GiB is allocated by PyTorch, and 166.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":1532.808077282,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.97 GiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 7.79 GiB is allocated by PyTorch, and 3.67 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":1533.043449707,"data":"  -\u003e 151.6s candidates=6 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":1533.044316078,"data":"[stage A 8/24] 4c3d4a41 slice=150s remaining=3881s\n"}
+,{"stream_name":"stdout","time":1643.799501996,"data":"  [4c3d4a41] aug 1/1 [0, False, False, None] -\u003e pool sizes [8, 8]\n"}
+,{"stream_name":"stdout","time":1702.860018193,"data":"  -\u003e 169.8s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":1702.860914228,"data":"[stage A 9/24] 5545f144 slice=150s remaining=3711s\n"}
+,{"stream_name":"stdout","time":1853.367198891,"data":"  [5545f144] aug 1/1 [0, False, False, None] -\u003e pool sizes [14]\n"}
+,{"stream_name":"stdout","time":1938.119160541,"data":"  -\u003e 235.3s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":1938.120036187,"data":"[stage A 10/24] 5dbc8537 slice=150s remaining=3475s\n"}
+,{"stream_name":"stdout","time":2035.412807512,"data":"  [5dbc8537] aug 1/1 [0, False, False, None] -\u003e pool sizes [1, 1]\n"}
+,{"stream_name":"stdout","time":2052.219096386,"data":"  -\u003e 114.1s candidates=2 conf=0.25 sources=['neural', 'fallback', 'neural', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":2052.237294562,"data":"  [flush] submission.json written (10 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":2052.238045357,"data":"[stage A 11/24] 6e453dd6 slice=150s remaining=3361s\n"}
+,{"stream_name":"stdout","time":2202.811461936,"data":"  [6e453dd6] aug 1/1 [0, False, False, None] -\u003e pool sizes [8]\n"}
+,{"stream_name":"stdout","time":2264.628271021,"data":"  -\u003e 212.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":2264.629155335,"data":"[stage A 12/24] 7666fa5d slice=150s remaining=3149s\n"}
+,{"stream_name":"stdout","time":2351.023364376,"data":"  [7666fa5d] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":2388.916911504,"data":"  -\u003e 124.3s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":2388.917785609,"data":"[stage A 13/24] 7b80bb43 slice=150s remaining=3025s\n"}
+,{"stream_name":"stdout","time":2539.498497419,"data":"  [7b80bb43] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":2608.772190837,"data":"  -\u003e 219.9s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":2608.773028615,"data":"[stage A 14/24] 8698868d slice=150s remaining=2805s\n"}
+,{"stream_name":"stdout","time":2722.293427846,"data":"  [8698868d] aug 1/1 [0, False, False, None] -\u003e pool sizes [1]\n"}
+,{"stream_name":"stdout","time":2738.039707139,"data":"  -\u003e 129.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":2738.040502602,"data":"[stage A 15/24] 8b7bacbf slice=150s remaining=2676s\n"}
+,{"stream_name":"stdout","time":2888.551771827,"data":"  [8b7bacbf] aug 1/1 [0, False, False, None] -\u003e pool sizes [5, 5]\n"}
+,{"stream_name":"stdout","time":3010.557568473,"data":"  -\u003e 272.5s candidates=9 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":3010.558376014,"data":"[stage A 16/24] 9385bd28 slice=150s remaining=2403s\n"}
+,{"stream_name":"stdout","time":3160.868233927,"data":"  [9385bd28] aug 1/1 [0, False, False, None] -\u003e pool sizes [8, 8]\n"}
+,{"stream_name":"stdout","time":3281.086485612,"data":"  -\u003e 270.5s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":3281.087411919,"data":"[stage A 17/24] a251c730 slice=150s remaining=2133s\n"}
+,{"stream_name":"stdout","time":3431.563587404,"data":"  [a251c730] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":3507.598445263,"data":"  -\u003e 226.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":3507.59946771,"data":"[stage A 18/24] a6f40cea slice=150s remaining=1906s\n"}
+,{"stream_name":"stdout","time":3658.21400494,"data":"  [a6f40cea] aug 1/1 [0, False, False, None] -\u003e pool sizes [5]\n"}
+,{"stream_name":"stdout","time":3724.363051554,"data":"  -\u003e 216.8s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":3724.364062623,"data":"[stage A 19/24] b5ca7ac4 slice=150s remaining=1689s\n"}
+,{"stream_name":"stdout","time":3875.016234111,"data":"  [b5ca7ac4] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":3875.28711901,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.55 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.19 GiB is free. Including non-PyTorch memory, this process has 11.37 GiB memory in use. Of the allocated memory 11.07 GiB is allocated by PyTorch, and 171.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":3875.403700483,"data":"    rescoring batch failed: CUDA out of memory. Tried to allocate 3.55 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.19 GiB is free. Including non-PyTorch memory, this process has 11.37 GiB memory in use. Of the allocated memory 7.76 GiB is allocated by PyTorch, and 3.48 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
+,{"stream_name":"stdout","time":3875.634849401,"data":"  -\u003e 151.3s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":3875.635739651,"data":"[stage A 20/24] c4d067a0 slice=150s remaining=1538s\n"}
+,{"stream_name":"stdout","time":4026.305012769,"data":"  [c4d067a0] aug 1/1 [0, False, False, None] -\u003e pool sizes [4]\n"}
+,{"stream_name":"stdout","time":4114.891837376,"data":"  -\u003e 239.2s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":4114.902083494,"data":"  [flush] submission.json written (20 stage-A tasks)\n"}
+,{"stream_name":"stdout","time":4114.903024048,"data":"[stage A 21/24] d59b0160 slice=150s remaining=1299s\n"}
+,{"stream_name":"stdout","time":4242.215220971,"data":"  [d59b0160] aug 1/1 [0, False, False, None] -\u003e pool sizes [7]\n"}
+,{"stream_name":"stdout","time":4304.526843365,"data":"  -\u003e 189.6s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":4304.527748172,"data":"[stage A 22/24] dbff022c slice=150s remaining=1109s\n"}
+,{"stream_name":"stdout","time":4455.251446061,"data":"  [dbff022c] aug 1/1 [0, False, False, None] -\u003e pool sizes [6]\n"}
+,{"stream_name":"stdout","time":4483.62990697,"data":"  -\u003e 179.1s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":4483.630995712,"data":"[stage A 23/24] e3721c99 slice=150s remaining=930s\n"}
+,{"stream_name":"stdout","time":4633.949742919,"data":"  [e3721c99] aug 1/1 [0, False, False, None] -\u003e pool sizes [3, 1]\n"}
+,{"stream_name":"stdout","time":4731.771826888,"data":"  -\u003e 248.1s candidates=4 conf=0.50 sources=['neural', 'neural', 'neural', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":4731.773021873,"data":"[stage A 24/24] eee78d87 slice=82s remaining=682s\n"}
+,{"stream_name":"stdout","time":4814.091332581,"data":"  [eee78d87] aug 1/1 [0, False, False, None] -\u003e pool sizes [10]\n"}
+,{"stream_name":"stdout","time":4857.894270781,"data":"  -\u003e 126.1s candidates=10 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":4857.895093727,"data":"[stage B] stopping: reserve reached (remaining=556s)\n"}
+,{"stream_name":"stdout","time":4857.895821957,"data":"[stage C] skipped: no symbolic engine loaded (23 task(s) kept their stage A/B + fallback answers)\n"}
+,{"stream_name":"stdout","time":4857.906856633,"data":"[score] solved 1/24 tasks with ground truth\n"}
+,{"stream_name":"stdout","time":4857.924598003,"data":"[done] submission -\u003e /kaggle/working/submission.json  report -\u003e /kaggle/working/report.json  elapsed=4844.31s\n"}
+,{"stream_name":"stderr","time":4863.161395532,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4863.161424768,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4863.324592878,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4863.324623381,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4864.010222068,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":4864.311412967,"data":"[NbConvertApp] Writing 159993 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":4866.694784308,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4867.898446831,"data":"[NbConvertApp] Writing 790832 bytes to __results__.html\n"}
+]

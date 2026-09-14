@@ -5,7 +5,7 @@ exp_suite.py -- run a controlled comparison of solver configurations and print o
 
 Why: the binding constraint is pool recall (on the 2026-09-14 eval probe the truth was
 never generated -- `selection_headroom = 0.0`), and the only levers that can move it are the
-DFS search-width knobs. A GPU-period is 6 h and a full submission costs 8.5 h, so every
+DFS search-width knobs. A GPU-period is 30 h and a full submission costs 10.5 h, so every
 experiment has to be small, comparable and self-summarising -- that is this tool.
 
 Fair-comparison rules it enforces:

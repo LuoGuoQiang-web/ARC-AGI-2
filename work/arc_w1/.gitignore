@@ -1,5 +1,9 @@
-# kpush 构建产物与从 Kaggle 拉回的文件
+# kpush 构建产物（可随时重新生成，不入库）
 .kpush_build/
-kaggle_out/
 __pycache__/
 *.pyc
+
+# `kaggle_out/` **故意入库**（2026-09-14 决定）。
+# 它是论文每一个数字的唯一出处：report.json 的 per_task 行、kernel_stdout.log 里的
+# TTT OOM / 熔断记录、submission.json 的形状。实测总体积仅约 1.3 MB。
+# 排除它会让论文无法被复核（Completeness 维度直接受损），省下的空间毫无意义。

@@ -1,0 +1,90 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+[shard] 0/5 -> 24 tasks
+[data] split=evaluation n_tasks=24 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json
+[engine] status=skipped no --engine path given
+[model] loaded /kaggle/input/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1 in 140.33s
+[schedule] cascade budget=5400s calibrate=3 aug_train=2 aug_infer=1
+[stage A 1/24] 0934a4d8 slice=90s remaining=5259s
+  [0934a4d8] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 140.0s candidates=2 conf=0.25 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 2/24] 16b78196 slice=90s remaining=5119s
+  [16b78196] aug 1/1 [0, False, False, None] -> pool sizes [3]
+  -> 163.0s candidates=3 conf=0.38 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 3/24] 20270e3b slice=90s remaining=4956s
+  [20270e3b] aug 1/1 [0, False, False, None] -> pool sizes [17, 31]
+  -> 204.6s candidates=45 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 4/24] 269e22fb slice=150s remaining=4752s
+  [269e22fb] aug 1/1 [0, False, False, None] -> pool sizes [5, 5]
+  -> 278.8s candidates=10 conf=1.00 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 5/24] 2ba387bc slice=150s remaining=4473s
+  [2ba387bc] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 220.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=True truth: a1=OK(1/1) a2=x
+[stage A 6/24] 35ab12c3 slice=150s remaining=4252s
+  [35ab12c3] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 220.1s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 7/24] 3e6067c3 slice=150s remaining=4032s
+  [3e6067c3] aug 1/1 [0, False, False, None] -> pool sizes [3, 4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.98 GiB is free. Including non-PyTorch memory, this process has 11.58 GiB memory in use. Of the allocated memory 11.29 GiB is allocated by PyTorch, and 168.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.97 GiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 11.30 GiB is allocated by PyTorch, and 166.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.75 GiB. GPU 0 has a total capacity of 14.56 GiB of which 2.97 GiB is free. Including non-PyTorch memory, this process has 11.59 GiB memory in use. Of the allocated memory 7.79 GiB is allocated by PyTorch, and 3.67 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.6s candidates=6 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 8/24] 4c3d4a41 slice=150s remaining=3881s
+  [4c3d4a41] aug 1/1 [0, False, False, None] -> pool sizes [8, 8]
+  -> 169.8s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 9/24] 5545f144 slice=150s remaining=3711s
+  [5545f144] aug 1/1 [0, False, False, None] -> pool sizes [14]
+  -> 235.3s candidates=13 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 10/24] 5dbc8537 slice=150s remaining=3475s
+  [5dbc8537] aug 1/1 [0, False, False, None] -> pool sizes [1, 1]
+  -> 114.1s candidates=2 conf=0.25 sources=['neural', 'fallback', 'neural', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x
+  [flush] submission.json written (10 stage-A tasks)
+[stage A 11/24] 6e453dd6 slice=150s remaining=3361s
+  [6e453dd6] aug 1/1 [0, False, False, None] -> pool sizes [8]
+  -> 212.4s candidates=8 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 12/24] 7666fa5d slice=150s remaining=3149s
+  [7666fa5d] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 124.3s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 13/24] 7b80bb43 slice=150s remaining=3025s
+  [7b80bb43] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 219.9s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 14/24] 8698868d slice=150s remaining=2805s
+  [8698868d] aug 1/1 [0, False, False, None] -> pool sizes [1]
+  -> 129.3s candidates=1 conf=0.12 sources=['neural', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 15/24] 8b7bacbf slice=150s remaining=2676s
+  [8b7bacbf] aug 1/1 [0, False, False, None] -> pool sizes [5, 5]
+  -> 272.5s candidates=9 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 16/24] 9385bd28 slice=150s remaining=2403s
+  [9385bd28] aug 1/1 [0, False, False, None] -> pool sizes [8, 8]
+  -> 270.5s candidates=16 conf=0.50 sources=['neural', 'neural', 'neural', 'neural'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 17/24] a251c730 slice=150s remaining=2133s
+  [a251c730] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 226.5s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 18/24] a6f40cea slice=150s remaining=1906s
+  [a6f40cea] aug 1/1 [0, False, False, None] -> pool sizes [5]
+  -> 216.8s candidates=5 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 19/24] b5ca7ac4 slice=150s remaining=1689s
+  [b5ca7ac4] aug 1/1 [0, False, False, None] -> pool sizes [4]
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.55 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.19 GiB is free. Including non-PyTorch memory, this process has 11.37 GiB memory in use. Of the allocated memory 11.07 GiB is allocated by PyTorch, and 171.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+    rescoring batch failed: CUDA out of memory. Tried to allocate 3.55 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.19 GiB is free. Including non-PyTorch memory, this process has 11.37 GiB memory in use. Of the allocated memory 7.76 GiB is allocated by PyTorch, and 3.48 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  -> 151.3s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 20/24] c4d067a0 slice=150s remaining=1538s
+  [c4d067a0] aug 1/1 [0, False, False, None] -> pool sizes [4]
+  -> 239.2s candidates=4 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+  [flush] submission.json written (20 stage-A tasks)
+[stage A 21/24] d59b0160 slice=150s remaining=1299s
+  [d59b0160] aug 1/1 [0, False, False, None] -> pool sizes [7]
+  -> 189.6s candidates=7 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 22/24] dbff022c slice=150s remaining=1109s
+  [dbff022c] aug 1/1 [0, False, False, None] -> pool sizes [6]
+  -> 179.1s candidates=6 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 23/24] e3721c99 slice=150s remaining=930s
+  [e3721c99] aug 1/1 [0, False, False, None] -> pool sizes [3, 1]
+  -> 248.1s candidates=4 conf=0.50 sources=['neural', 'neural', 'neural', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x
+[stage A 24/24] eee78d87 slice=82s remaining=682s
+  [eee78d87] aug 1/1 [0, False, False, None] -> pool sizes [10]
+  -> 126.1s candidates=10 conf=0.50 sources=['neural', 'neural'] task_ok=False truth: a1=x(0/1) a2=x
+[stage B] stopping: reserve reached (remaining=556s)
+[stage C] skipped: no symbolic engine loaded (23 task(s) kept their stage A/B + fallback answers)
+[score] solved 1/24 tasks with ground truth
+[done] submission -> /kaggle/working/submission.json  report -> /kaggle/working/report.json  elapsed=4844.31s
