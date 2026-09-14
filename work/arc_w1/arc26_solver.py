@@ -2534,6 +2534,19 @@ def run_cascade(ctx: RunContext) -> None:
 # 16. Entry point
 # ======================================================================================
 
+def submission_is_worthless(model: Any, engine: Optional[Dict[str, Any]]) -> bool:
+    """True when the run can only emit the heuristic floor for every task.
+
+    A model-less run is legitimate *only* with the symbolic engine (``--engine``). With
+    neither, every task falls back to ``fallback_pair`` -- and because the model-load
+    failure is caught and the run continues, the notebook still exits 0 and leaves a
+    schema-valid, 100%-fallback ``submission.json``. That is strictly worse than failing:
+    it wastes a submission slot and looks like success. Observed 2026-09-14 when Kaggle
+    handed out a Tesla P100 the installed torch cannot execute.
+    """
+    return model is None and not (engine or {}).get("module")
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """Run the solver. Returns an exit code; never raises out of the notebook cell."""
     args = parse_args(argv)
@@ -2656,6 +2669,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 ctx.model = ctx.tokenizer = None
                 log(f"[model] FAILED to load: {report['model_error']}")
 
+        if submission_is_worthless(ctx.model, engine):
+            # Abort loudly instead of emitting an all-fallback submission. SystemExit is a
+            # BaseException, so the `except Exception` below will not swallow it; the
+            # finally block sees report["aborted"] and removes the submission file.
+            report["aborted"] = "model_unavailable_and_no_engine"
+            report["errors"].append({"task_id": None, "error": report["model_error"],
+                                     "trace": "aborted before any task ran"})
+            log("[abort] no model and no symbolic engine: every task would be the heuristic "
+                "floor, so this run must not be scored")
+            raise SystemExit(2)
+
         # ---- schedule -------------------------------------------------------------
         log(f"[schedule] {args.schedule} budget={args.time_budget_seconds:.0f}s "
             f"calibrate={args.calibrate_tasks} aug_train={args.aug_train} "
@@ -2711,7 +2735,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         except Exception:
             pass
         try:
-            flush_submission(args.out, task_ids or list(submission.keys()), submission, log)
+            if report.get("aborted"):
+                # Nothing here is worth scoring; leaving submission.json in place would
+                # hand the platform a schema-valid, all-fallback artifact.
+                if os.path.exists(args.out):
+                    os.remove(args.out)
+                    log(f"[abort] removed {args.out} so this run cannot be scored")
+            else:
+                flush_submission(args.out, task_ids or list(submission.keys()), submission, log)
         except Exception:
             pass
         report["finished_at"] = utc_stamp()
@@ -2727,4 +2758,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 
 if __name__ == "__main__":
-    main()
+    # Propagate the exit code: bare `main()` discarded it, so "return 1" had no effect on
+    # whether Kaggle considered the run failed.
+    raise SystemExit(main())

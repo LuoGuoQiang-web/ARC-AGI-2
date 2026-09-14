@@ -368,6 +368,18 @@ def main() -> int:
           abs(_math.log(d0.dfs_prob_threshold) - S.DFS_TOKEN_LOGPROB_THRESHOLD) < 1e-9,
           f"{S.DFS_TOKEN_LOGPROB_THRESHOLD}")
 
+    # ---- T13: worthless-submission guard --------------------------------------------
+    # A model-less run is only meaningful with the symbolic engine; otherwise every task is
+    # the heuristic floor and the run must refuse to be scored.
+    check("T13a no model + no engine is worthless",
+          S.submission_is_worthless(None, {"module": None}) is True, "")
+    check("T13b no model but an engine is legitimate",
+          S.submission_is_worthless(None, {"module": object()}) is False, "")
+    check("T13c a loaded model is legitimate",
+          S.submission_is_worthless(object(), None) is False, "")
+    check("T13d SystemExit escapes `except Exception` (the abort relies on this)",
+          issubclass(SystemExit, Exception) is False, "SystemExit must be a BaseException")
+
     # ---- report ---------------------------------------------------------------------
     print()
     for name in sorted(COUNTS):

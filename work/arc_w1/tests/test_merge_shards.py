@@ -163,6 +163,37 @@ def main() -> int:
     check("T5 sample_submission accepted as expected", rc4 == 0 and "120/120" in log4,
           log4[-200:])
 
+    # ---- T6: shard quality -- presence is not quality -------------------------------
+    # The solver pre-fills every task with the heuristic floor, so a half-finished shard
+    # still emits a complete-looking submission. Only its report.json tells the truth.
+    r0 = TMP / "shard0_report.json"
+    r0.write_text(json.dumps({
+        "shard": {"index": 0, "num_shards": 2}, "split": "test", "n_solved": 3,
+        "pool_recall": {"pool_recall": 0.05},
+        "per_task": [{"task_id": t, "source": "neural"} for t in ids[:5]]
+                    + [{"task_id": t, "source": "fallback"} for t in ids[5:10]],
+    }), encoding="utf-8")
+    r1 = TMP / "shard1_report.json"
+    r1.write_text(json.dumps({
+        "shard": {"index": 1, "num_shards": 2}, "split": "test",
+        "model_error": "RuntimeError: GPU sm_60 unsupported", "aborted": "model_unavailable_and_no_engine",
+        "per_task": [{"task_id": t, "source": "fallback"} for t in ids[10:20]],
+    }), encoding="utf-8")
+    out5 = TMP / "merged5.json"
+    rc5, log5 = run_merge(["--expected", str(challenges), "--shards", str(s0), str(s1),
+                           "--out", str(out5), "--shard-reports", str(r0), str(r1),
+                           "--report", str(TMP / "r5.json")])
+    check("T6a quality block printed", "shard quality" in log5)
+    check("T6b real vs floor counts reported",
+          "tasks=10 real=5 floor=5" in log5, [l for l in log5.splitlines() if "tasks=10" in l][:1])
+    check("T6c a shard-level abort is surfaced",
+          "ABORTED: model_unavailable_and_no_engine" in log5,
+          [l for l in log5.splitlines() if "ABORTED" in l][:1])
+    check("T6d model_error is surfaced", "MODEL ERROR" in log5)
+    rep5 = json.loads((TMP / "r5.json").read_text(encoding="utf-8"))
+    check("T6e quality persisted into the json report",
+          rep5.get("shard_quality") and len(rep5["shard_quality"]) == 2, str(rep5.get("shard_quality"))[:80])
+
     print()
     print(f"{'ALL PASS' if not FAILS else 'FAILURES'} — {len(FAILS)} failure(s)")
     for f in FAILS:

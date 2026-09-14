@@ -15,9 +15,10 @@ Operational shape on Kaggle (the merge must happen inside a notebook):
     2. download both and upload them as a Kaggle Dataset (or attach the kernels as
        kernel_sources), e.g. /kaggle/input/arc26-shards/shard0_submission.json
     3. run ONE notebook whose only job is:
-           python merge_shards.py --expected /kaggle/input/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json \
-                                  --shards '/kaggle/input/arc26-shards/*.json' \
+           python merge_shards.py --shards '/kaggle/input/arc26-shards/*.json' \
                                   --out /kaggle/working/submission.json
+       (--expected defaults to 'auto' and searches /kaggle/input, because the competition
+        data resolves to /kaggle/input/competitions/<slug>/, not /kaggle/input/<slug>/)
     4. submit that notebook version
 
 Self-contained on purpose: it must run in a minimal notebook, so it does not import the
@@ -125,6 +126,65 @@ def validate(payload: Any, expected: Sequence[Tuple[str, int]]) -> List[str]:
 # --------------------------------------------------------------------------------------
 # expected structure
 # --------------------------------------------------------------------------------------
+def auto_expected() -> Optional[Path]:
+    """Locate the expected-structure file on Kaggle without being told where it is.
+
+    The competition data is NOT at /kaggle/input/<slug>/ in a scored run -- it resolves to
+    ``/kaggle/input/competitions/<slug>/`` (observed 2026-09-14 in the kernel log:
+    "[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield ... auto-resolved to
+    /kaggle/input/competitions/arc-prize-2026-arc-agi-2/..."). Hard-coding the path is
+    therefore a silent blocker for the merge notebook, so search for it instead.
+    """
+    roots = [Path("/kaggle/input"), Path("/kaggle/working"), Path(".")]
+    names = ["arc-agi_test_challenges.json", "arc-agi_evaluation_challenges.json",
+             "sample_submission.json"]
+    for name in names:                       # test challenges first: that is the real split
+        for root in roots:
+            if not root.exists():
+                continue
+            direct = list(root.rglob(name))
+            if direct:
+                return sorted(direct, key=lambda p: len(str(p)))[0]
+    return None
+
+
+def shard_quality(patterns: Sequence[str]) -> List[Dict[str, Any]]:
+    """Read shard report.json files and report how many tasks were actually answered.
+
+    Presence is not quality: the solver pre-fills every task with ``fallback_attempts()``
+    before it starts, so a shard that died (or ran out of budget) half way still emits a
+    *complete*-looking submission.json whose remaining entries are the heuristic floor and
+    are indistinguishable from real answers by content alone. Only the shard's own
+    report.json records ``source == "fallback"`` per task, plus ``model_error`` /
+    ``aborted`` -- so the merge reads those and says so out loud.
+    """
+    out: List[Dict[str, Any]] = []
+    for pat in patterns:
+        for p in sorted(Path(x) for x in glob.glob(pat, recursive=True)):
+            if not p.is_file():
+                continue
+            try:
+                rep = json.loads(p.read_text(encoding="utf-8"))
+            except Exception as exc:
+                out.append({"report": str(p), "error": f"unreadable: {exc}"})
+                continue
+            per = rep.get("per_task") or []
+            n_fb = sum(1 for e in per if str(e.get("source")) == "fallback")
+            out.append({
+                "report": str(p),
+                "shard": rep.get("shard"),
+                "split": rep.get("split"),
+                "tasks_reported": len(per),
+                "fallback_tasks": n_fb,
+                "real_tasks": len(per) - n_fb,
+                "model_error": rep.get("model_error"),
+                "aborted": rep.get("aborted"),
+                "pool_recall": (rep.get("pool_recall") or {}).get("pool_recall"),
+                "solved": rep.get("n_solved"),
+            })
+    return out
+
+
 def expected_from_expected_file(path: Path) -> List[Tuple[str, int]]:
     """Accept challenges ({tid: {train, test}}), sample_submission ({tid: [entry,...]})
     or a directory of one-task-per-file JSONs."""
@@ -171,16 +231,30 @@ def expand_shard_args(patterns: Sequence[str]) -> List[Path]:
 # --------------------------------------------------------------------------------------
 def main() -> int:
     ap = argparse.ArgumentParser(description="merge shard submissions into one valid submission")
-    ap.add_argument("--expected", required=True,
-                    help="challenges JSON (preferred), sample_submission.json, or a task dir")
+    ap.add_argument("--expected", default="auto",
+                    help="challenges JSON (preferred), sample_submission.json, a task dir, "
+                         "or 'auto' (default) to search /kaggle/input")
     ap.add_argument("--shards", nargs="+", required=True, help="shard submission globs/paths")
     ap.add_argument("--out", default="/kaggle/working/submission.json")
     ap.add_argument("--no-fill", action="store_true",
                     help="do not pad tasks no shard covered (default: pad so the file stays valid)")
     ap.add_argument("--report", default="", help="also write a JSON report here")
+    ap.add_argument("--shard-reports", nargs="*", default=[],
+                    help="shard report.json globs; lets the merge state how many tasks each "
+                         "shard actually answered instead of pre-filled the heuristic floor")
     args = ap.parse_args()
 
-    expected = expected_from_expected_file(Path(args.expected))
+    exp_path = Path(args.expected)
+    if args.expected == "auto" or not exp_path.exists():
+        found = auto_expected()
+        if found is None:
+            print(f"could not locate the expected structure ({args.expected!r} does not exist "
+                  f"and the auto-search over /kaggle/input found nothing); pass --expected")
+            return 2
+        if args.expected != "auto":
+            print(f"note: {args.expected} not found; auto-resolved to {found}")
+        exp_path = found
+    expected = expected_from_expected_file(exp_path)
     exp_map = dict(expected)
     print(f"expected: {len(expected)} tasks, {sum(n for _, n in expected)} test inputs "
           f"(from {args.expected})")
@@ -259,6 +333,35 @@ def main() -> int:
         print(f"   ! {p}")
     print(f"written                             : {out_path} "
           f"({out_path.stat().st_size} bytes)")
+
+    quality = shard_quality(args.shard_reports) if args.shard_reports else []
+    if quality:
+        print()
+        print("shard quality (presence is not quality -- the solver pre-fills the floor):")
+        tot_rep = tot_fb = 0
+        for q in quality:
+            if "error" in q:
+                print(f"   ! {q['report']}: {q['error']}")
+                continue
+            tot_rep += q["tasks_reported"]
+            tot_fb += q["fallback_tasks"]
+            # show the root cause AND the abort reason -- the abort alone does not say why
+            flags = []
+            if q.get("aborted"):
+                flags.append(f"ABORTED: {q['aborted']}")
+            if q.get("model_error"):
+                flags.append(f"MODEL ERROR: {str(q['model_error'])[:60]}")
+            flag = ("  <<< " + " | ".join(flags)) if flags else ""
+            print(f"   {Path(q['report']).name}: shard={q.get('shard')} split={q.get('split')} "
+                  f"tasks={q['tasks_reported']} real={q['real_tasks']} "
+                  f"floor={q['fallback_tasks']} solved={q.get('solved')} "
+                  f"recall={q.get('pool_recall')}{flag}")
+        if tot_rep:
+            print(f"   TOTAL: {tot_rep} reported, {tot_fb} on the heuristic floor "
+                  f"({100.0 * tot_fb / tot_rep:.1f}%)")
+            if tot_fb == tot_rep:
+                print("   !!! every reported task is the floor -- this merge carries no real "
+                      "signal; check the shard reports for model_error/aborted")
     print("=" * 74)
 
     if args.report:
@@ -273,6 +376,7 @@ def main() -> int:
             "rejected": rejected,
             "problems": problems,
             "valid": not problems,
+            "shard_quality": quality,
             "out": str(out_path),
         }, indent=2), encoding="utf-8")
         print(f"report  : {args.report}")
