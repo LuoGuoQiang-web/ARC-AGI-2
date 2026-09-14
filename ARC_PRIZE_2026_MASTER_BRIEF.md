@@ -343,3 +343,30 @@ python arc_prize_v1/tests/eval_local.py --dataset training   #    应复现 3.16
 **不需要迁移**：本机 `kaggle.json`（凭据，靠 Kaggle 账号重下）、运行历史 `arcprize_runtime/`
 （全量重跑评估集 6 秒、训练集 31 秒）、本次对话上下文（§0 就是为此写的）。
 DSH 历史会话存在 `C:\Users\LRDC07\.dsh`，理论上可整目录拷贝到新机同路径，**跨机恢复未实测**，不要依赖。
+
+### 16.1 ⚠️ 本机网络：`github.com:443` 会被阻断 —— 用 API 推送
+
+2026-09-14 实测：**只有 `github.com` 这一台主机不通**（connection reset / timeout），
+而 `api.github.com`、`codeload.github.com`、`raw.githubusercontent.com`、`registry.npmjs.org`
+全部 200。因此：
+
+- `git push` / `git fetch` / `git clone https://github.com/...` **会失败**（时通时断，同一天内两种都出现过）；
+- **替代方案**：用仓库自带的 `tools/gh_api_push.py` 通过 GitHub REST API 推送：
+  ```powershell
+  $env:GH_TOKEN = (gh auth token)
+  python tools/gh_api_push.py --repo LuoGuoQiang-web/ARC-AGI-2 --branch main
+  ```
+  它会上传本地 HEAD 的**全部文件**构建 tree（不依赖远端 tree），并**强制校验
+  `GitHub tree == 本地 tree`**，不一致就拒绝写入 —— 所以内容零损失。
+- **副作用**：API 产生的提交 SHA 与本地不同（内容相同、元数据不同）。
+  网络恢复后用一条命令调和：
+  ```bash
+  git fetch origin && git reset --hard origin/main
+  ```
+
+### 16.2 安全规则（2026-09-14 事件后确立）
+
+探测脚本**禁止** `print(os.environ)` —— 曾导致 4 个 kernel 的日志泄露
+`KAGGLE_DATA_PROXY_TOKEN` / `KAGGLE_USER_SECRETS_TOKEN`（该 4 个 kernel 已删除）。
+只打印键名与值长度。推送前确认 `is_private=True`（`tools/kpush.py` 默认私有）。
+细节见 `work/arc_w1/README.md` §7。

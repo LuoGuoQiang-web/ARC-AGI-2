@@ -81,10 +81,34 @@ python tools/kpush.py --output --slug arc26-solver-dev     # 取 report.json / s
 | `arc26-stage0` CUDA 错误 | 日志出现 `CUDA kernel errors might be asynchronously reported` |
 | **当前分数** | 评估集 24 题子集 **solved 1/24**；smoke 5 题 4/5（简单题） |
 
-## 7. 安全提醒
+## 7. 安全事件：token 泄露（**已处理 2026-09-14**）
 
-`arc26-mount-probe` 把整个环境变量表打印进了日志，包含 `KAGGLE_DATA_PROXY_TOKEN` 与
-`KAGGLE_USER_SECRETS_TOKEN` 的值。**建议删除该 kernel 或清空其输出**；探测脚本不要全量 `print(os.environ)`。
+**事件**：4 个探测型 kernel 把环境变量表打印进了运行日志，其中含 `KAGGLE_DATA_PROXY_TOKEN` 与
+`KAGGLE_USER_SECRETS_TOKEN` 的值：
+
+| kernel | token 命中 | 状态 |
+|---|---|---|
+| `arc26-mount-probe` | 4 处 | ✅ 已删除 |
+| `accel-probe-nvidial4x4` | 2 处 | ✅ 已删除 |
+| `accel-probe-nvidial4` | 2 处 | ✅ 已删除 |
+| `accel-probe-nvidiateslat4` | 2 处 | ✅ 已删除 |
+
+（扫描了全部 14 个 ARC kernel 的日志；`accelerator-probe-l4x4-check`、`nvarc-env-probe-shape-err`
+以及 4 个求解器/stage kernel 均为 0 命中。四个被删 kernel 的**源码已留档**在本目录
+`kaggle_probes/`，删除无信息损失。）
+
+**风险更正**：初次判定"公开可见"来自 `kernels/list` 的 `isPrivate` 字段，但该字段在 list 投影里
+**未填充**（同批返回的 `hasIsPrivate` 为 false）。用 `kernels/pull` 元数据核对存活 kernel，
+全部为 `isPrivate: True` + `hasIsPrivate: True`（真私有）→ 被删的 4 个大概率也是私有，
+**实际暴露面小于初判**。删除仍然正确：把"不确定"变成"确定"。
+
+**本地**：`kaggle_refs/arc26-mount-probe.log` 已删除；仓库与拉取目录全量复扫 **0 命中**
+（token 从未进入 git 历史）。
+
+**预防规则（以后必须遵守）**：
+1. 探测脚本**禁止** `print(os.environ)`，只打印白名单键名，不打印值；
+2. 需要检查环境时用键名列表 + 值长度，不输出值；
+3. 运行含输出的 notebook 前先确认 `is_private=True`（`kpush.py` 默认就是私有）。
 
 ## 8. 抢救过程与校验
 
