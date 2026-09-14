@@ -165,6 +165,14 @@ SOURCE_PRIORITY = {"neural": 0, "symbolic": 1, "prior": 2, "fallback": 3}
 # --- cascade scheduling ---------------------------------------------------------------
 CONFIDENCE_BAR = 0.6            # >= this => Stage C leaves the task alone
 SYMBOLIC_CONFIDENCE = 0.9       # a validated symbolic program is strong evidence
+
+# Set when LoRA TTT hits an unrecoverable OOM; TTT then stays off for the rest of the run.
+# Why: each doomed attempt still costs ~40 s of the task's slice AND leaves the GPU too full
+# for the Stage B inference that follows (observed 2026-09-14 on arc26-diag-smoke2:
+# "TTT 0 steps in 38.7s", then "prompt forward failed (CUDA out of memory ... 146.81 MiB
+# free)" while peak memory was already 14.09 of 14.56 GiB). The budget is far better spent
+# on Stage A coverage -- that is where the loss actually is (pool_recall was 0.0).
+TTT_DISABLED_REASON: Optional[str] = None
 STAGE_A_DEFAULT_SLICE = 45.0    # seconds per task during the cheap sweep (before measurement)
 STAGE_A_CALIBRATION_SLICE = 90.0
 STAGE_A_MIN_SLICE = 8.0
@@ -935,14 +943,15 @@ def build_ttt_sequences(train_demos: Sequence[dict], tokenizer: Any, n_aug: int,
 
 def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float,
             device: Any, log_fn: Callable[[str], None] = lambda _m: None
-            ) -> Tuple[int, float]:
+            ) -> Tuple[int, float, bool]:
     """One epoch of LoRA TTT: bf16, batch 1, lr 5e-5, grad-norm 1.0 (spec 2.2).
 
-    Stops early -- between optimizer steps -- once ``deadline`` passes and reports
-    how many steps actually ran so the scheduler can size the next task.
+    Stops early -- between optimizer steps -- once ``deadline`` passes and reports how many
+    steps actually ran, how long it took, and whether an OOM occurred (so the caller can
+    stop wasting slices on a task that cannot fit).
     """
     if not sequences:
-        return 0, 0.0
+        return 0, 0.0, False
     if torch is None:
         raise RuntimeError("torch is not importable in this environment")
     params = [p for p in peft_model.parameters() if p.requires_grad]
@@ -950,6 +959,7 @@ def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float
     peft_model.train()
     t0 = time.time()
     steps = 0
+    oom = False
     for seq in sequences:
         if time.time() > deadline:
             break
@@ -968,6 +978,8 @@ def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float
             torch.nn.utils.clip_grad_norm_(params, TTT_MAX_GRAD_NORM)
             optimizer.step()
         except RuntimeError as exc:  # OOM or dtype problem: skip this step
+            if "out of memory" in str(exc).lower():
+                oom = True
             log_fn(f"    TTT step {steps} failed: {exc}")
             try:
                 optimizer.zero_grad(set_to_none=True)
@@ -994,7 +1006,7 @@ def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float
         torch.cuda.empty_cache()
     except Exception:
         pass
-    return steps, time.time() - t0
+    return steps, time.time() - t0, oom
 
 
 # ======================================================================================
@@ -1881,7 +1893,8 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
         log_fn(f"  [{task_id}] engine pool sizes {[len(p) for p in pools]}")
 
     # ---- (b) TTT on the augmented demonstrations ---------------------------------
-    if do_ttt and model is not None:
+    global TTT_DISABLED_REASON
+    if do_ttt and model is not None and not TTT_DISABLED_REASON:
         if scheduler is not None:
             n_train_aug, n_infer_aug = scheduler.augmentation_budget(
                 time_slice, args.aug_train, args.aug_infer)
@@ -1895,10 +1908,22 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
             if sequences:
                 peft_model = None
                 try:
+                    # Hand every cached byte back to the driver *before* asking for the
+                    # ~1.8 GB of gradient-checkpointed activations a step needs. Stage A's
+                    # DFS leaves its KV caches behind: observed peak 14.09 of 14.56 GiB,
+                    # 724 MiB free, and the allocation then failing.
+                    gc.collect()
+                    try:
+                        torch.cuda.empty_cache()
+                        free_b, total_b = torch.cuda.mem_get_info()
+                        log_fn(f"  [{task_id}] pre-TTT free {free_b / 2**30:.2f} GiB "
+                               f"of {total_b / 2**30:.2f} GiB")
+                    except Exception:
+                        pass
                     peft_model = attach_lora(model)
-                    steps, ttt_seconds = run_ttt(peft_model, sequences, deadline,
-                                                 next(model.parameters()).device,
-                                                 log_fn=log_fn)
+                    steps, ttt_seconds, oom = run_ttt(peft_model, sequences, deadline,
+                                                      next(model.parameters()).device,
+                                                      log_fn=log_fn)
                     result.ttt_steps = steps
                     if steps > 0:
                         per_step = ttt_seconds / steps
@@ -1911,6 +1936,13 @@ def solve_task(task: dict, task_id: str, model: Any, tokenizer: Any,
                                 )
                     log_fn(f"  [{task_id}] TTT {steps} steps in {ttt_seconds:.1f}s "
                            f"(aug_train={n_train_aug}, aug_infer={n_infer_aug})")
+                    if oom and steps == 0:
+                        # Doomed, not merely unhelpful: stop spending slices on it.
+                        TTT_DISABLED_REASON = (
+                            f"LoRA TTT OOM on the first step (model + Stage A residuals leave "
+                            f"no room for {TTT_MAX_SEQ_LENGTH}-token activations); budget moved "
+                            f"to Stage A coverage")
+                        log_fn(f"  ! TTT disabled for the rest of the run: {TTT_DISABLED_REASON}")
                 finally:
                     if peft_model is not None:
                         detach_lora(peft_model)

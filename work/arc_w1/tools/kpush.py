@@ -6,7 +6,14 @@ kpush.py -- push a local solver script to Kaggle as a single-cell notebook.
 RECONSTRUCTED on 2026-09-14 from the artefacts the original tool left behind:
 the `# --- injected by kpush.py ... ---` prelude embedded in every pushed notebook
 (arc26-submit-full / -shard0 / eval-validate / solver-smoke). The prelude below is
-reproduced faithfully, including the two hard-won details it documents:
+reproduced faithfully **except for two deliberate additions**, both marked in the text:
+
+  * `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` -- fights the fragmentation that
+    made LoRA TTT OOM at 14.09/14.56 GiB (see arc26_solver.assert_gpu_compatible notes);
+  * an `# --- end kpush prelude ---` marker, which `--solver` validation uses to refuse
+    a file that already contains the prelude.
+
+The original two hard-won details are preserved verbatim:
 
   * sys.argv must be pinned BEFORE any `if __name__ == "__main__"` guard, because a
     Kaggle notebook runs the cell with its own argv;
@@ -56,6 +63,12 @@ MODEL_SOURCE = "sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16/1"
 PRELUDE = '''# --- injected by kpush.py: pin sys.argv BEFORE any __main__ guard ---
 import sys as _sys, os as _os
 _sys.argv = ['arc26_solver.py'{argv}]
+# Fragmentation, not capacity, is what killed LoRA TTT: peak memory reached 14.09 of
+# 14.56 GiB and the 1.77 GiB activation allocation then failed with 724 MiB free.
+# expandable_segments lets the allocator reuse the freed DFS cache instead of splitting
+# a new segment. Must be set before torch is imported (it is imported lazily, so here is
+# still early enough).
+_os.environ.setdefault('PYTORCH_CUDA_ALLOC_CONF', 'expandable_segments:True')
 # A successful Kaggle run publishes NO execution log; only failed runs do.
 # The only reliable channel for reading a successful run is /kaggle/working,
 # so tee every stream into a file there.
