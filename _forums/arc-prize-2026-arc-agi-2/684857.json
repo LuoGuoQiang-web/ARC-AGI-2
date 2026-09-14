@@ -1,0 +1,89 @@
+{
+ "topic": {
+  "id": 684857,
+  "title": "How the current dataset compares with ARC-AGI-1?",
+  "authorName": "",
+  "commentCount": 10,
+  "votes": 3,
+  "postDate": "2026-03-26T08:52:17.152000"
+ },
+ "messages": [
+  {
+   "id": 3431634,
+   "authorName": "",
+   "postDate": "2026-03-30T12:24:11.370000",
+   "votes": 4,
+   "content": "<p>Part of arc agi1 eval and test is included in arc agi2 train. Eval and test for arc agi2 is much harder.</p>\n<p>Our last year winning solution achieved 31% on arc agi2 eval, and over 95% on arc agi1 eval.</p>"
+  },
+  {
+   "id": 3429032,
+   "authorName": "",
+   "postDate": "2026-03-26T08:52:17.153000",
+   "votes": 3,
+   "content": "<p>I'm curious if anyone looked at the difficulty and variety level of the current dataset versus ARC Prize 2024 one (ARC-AGI-1). Perhaps someone had run 2024 model on ARC-AGI-2 dataset or 2025 model on ARC-AGI-1 dataset.</p>"
+  },
+  {
+   "id": 3429139,
+   "authorName": "",
+   "postDate": "2026-03-26T12:31:02.690000",
+   "votes": 4,
+   "content": "<p>Yes, ARC-AGI-2 is substantially more difficult than ARC-AGI-1. You can see e.g. the ARC Prize Foundation's writeup here: <a href=\"https://arcprize.org/blog/arc-agi-2-technical-report\" target=\"_blank\">https://arcprize.org/blog/arc-agi-2-technical-report</a>. From that writeup: </p>\n<blockquote>\n  <p>At the time of publishing the technical report, none of the leading AI models have surpassed a 5% success rate on ARC-AGI-2 tasks, whereas comparable models routinely achieve between 20% and 50% on ARC-AGI-1.</p>\n</blockquote>\n<p>That 5% is now greatly improved upon, last year a NVIDIA team scored 24% <a href=\"https://github.com/1ytic/NVARC\" target=\"_blank\">https://github.com/1ytic/NVARC</a>. You could reuse their ideas (eg synthetic data generation), but their model assumed the availability of L4x4 GPUs for execution, and right now I believe the execution environment here is limited to T4x2 or P100x1. </p>"
+  },
+  {
+   "id": 3431636,
+   "authorName": "",
+   "postDate": "2026-03-30T12:26:24.870000",
+   "votes": 1,
+   "content": "<p>You don't compare apple to apple. The 24% we got last year is on the private test data. The numbers reported on the ARC AGI leaderboard are on the public test data, same as in the public leaderboard of Kaggle. We got 27% during the competition and 29% few days after its end.</p>"
+  },
+  {
+   "id": 3432238,
+   "authorName": "",
+   "postDate": "2026-03-31T09:27:36.110000",
+   "votes": 0,
+   "content": "<p>Can you comment on why there is no 24% scores on the leaderboard yet? Did something change since 2025?</p>"
+  },
+  {
+   "id": 3432278,
+   "authorName": "",
+   "postDate": "2026-03-31T10:49:42.297000",
+   "votes": 0,
+   "content": "<p>As said, the arc agi leaderboard uses the same data as the public leaderboard on Kaggle.  We appear on the arc agi2 leaderboard witht he same score as our public leaderboard score on Kaggle last year.</p>"
+  },
+  {
+   "id": 3432279,
+   "authorName": "",
+   "postDate": "2026-03-31T10:52:19.767000",
+   "votes": 0,
+   "content": "<p>We're the orange dot at $0.2 per task </p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F75976%2Faf4f4c3e419512975e8df72971055565%2FScreenshot%202026-03-31%20at%2012-51-45%20ARC%20Prize%20-%20Leaderboard.png?generation=1774954338204516&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3432280,
+   "authorName": "",
+   "postDate": "2026-03-31T10:53:18.560000",
+   "votes": 0,
+   "content": "<p>When running on a H100 we get similar score but at a much lower cost. We did not bother resubmit that. We'll see how it goes this year depending on the GPUs we will have access to here.</p>"
+  },
+  {
+   "id": 3433044,
+   "authorName": "",
+   "postDate": "2026-04-01T05:51:06.997000",
+   "votes": 0,
+   "content": "<p>So the compute cost is an issue?</p>"
+  },
+  {
+   "id": 3433210,
+   "authorName": "",
+   "postDate": "2026-04-01T11:56:57.423000",
+   "votes": 3,
+   "content": "<p>Compute limit is the main issue. You can see it here. With 2 T4 the score people get is around 10%, when we got almost 30% with 4 L4. We spent time optimizing inference to produce as many candidates as possible given the time and compute limits.</p>"
+  },
+  {
+   "id": 3437236,
+   "authorName": "",
+   "postDate": "2026-04-07T11:35:13.027000",
+   "votes": 4,
+   "content": "<p>I made a close to 20% notebook public with 2xT4s  - was just minor tweaks to original and using 2B model.  </p>"
+  }
+ ]
+}

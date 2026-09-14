@@ -1,0 +1,54 @@
+{
+ "topic": {
+  "id": 731040,
+  "title": "does task 963c33f8 contains an error ?",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": 5,
+  "postDate": "2026-07-30T17:14:17.309000"
+ },
+ "messages": [
+  {
+   "id": 3505899,
+   "authorName": "",
+   "postDate": "2026-07-30T17:14:17.310000",
+   "votes": 5,
+   "content": "<p>Task is a gravity problem where the brown box falls to the bottom unlelss a blue pixel is present. When present it stops at the first gray area on the column.\nTrain example 2, have 2 gray missing cells at the bottom.</p>\n<p>Correct me if I missed something.</p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F22485060%2F1164f3b8a09deea680d866d0572888a6%2FScreenshot%20from%202026-07-30%2014-10-34.png?generation=1785431640824430&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3509728,
+   "authorName": "",
+   "postDate": "2026-08-06T23:28:42.513000",
+   "votes": 1,
+   "content": "<p>These are all meant to be human solvable right? I'm guessing this one passed human testing because most people can get it right by completely missing the errors in the second and third examples?</p>"
+  },
+  {
+   "id": 3507836,
+   "authorName": "",
+   "postDate": "2026-08-02T21:12:15.613000",
+   "votes": 2,
+   "content": "<p>For this task on the train 3 solution shouldn't the three maroon blocks stacked on each other be one to the left as at the start there it was 4 spaces from the right while it is 3 space now?</p>"
+  },
+  {
+   "id": 3507840,
+   "authorName": "",
+   "postDate": "2026-08-02T21:32:21.073000",
+   "votes": 0,
+   "content": "<p>Yes, unless we understood something wrong..</p>"
+  },
+  {
+   "id": 3506160,
+   "authorName": "",
+   "postDate": "2026-07-31T02:30:17.240000",
+   "votes": 0,
+   "content": "<p>Thank you for the task 963c33f8 error info <a href=\"https://www.kaggle.com/laureanoarcanio\" target=\"_blank\">@laureanoarcanio</a> </p>"
+  },
+  {
+   "id": 3508001,
+   "authorName": "",
+   "postDate": "2026-08-03T12:28:52.340000",
+   "votes": 0,
+   "content": ""
+  }
+ ]
+}

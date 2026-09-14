@@ -1,0 +1,46 @@
+===== TOPIC 684662 | votes=5 | comments=7 | date=2026-03-25T18:43:54.428000
+TITLE: Discrepancy between stated prizes on Kaggle page & ARC-AGI-2 2026 page?
+
+--- [684662] OP msgid=3428633 date=2026-03-25T18:43:54.427000 votes=5
+Edit Apr 8: The discrepancy has been resolved, the original ArcPrize.org website was incorrect, and it's now been updated: https://arcprize.org/competitions/2026/arc-agi-2 
+===
+First off, thank you for re-launching ARC-AGI-2 again this year! I'm excited to participate.
+But, to clarify, which version of the prizes is the correct version? As of the time I'm writing this discussion post, the ArcPrize.org page ( archived link ) says:
+
+1st prize is $425k, guaranteed
+5th prize is $5k
+(No 8th prize mentioned)
+(No mention of the Innovation Prize based on Solution Writeup)
+>85% bonus prize is $200K, for first eligible solution
+
+Meanwhile, this Kaggle competition page and the Terms & Conditions say:
+
+1st prize is $75k
+5th prize is $25k
+8th prize is $15k
+$275k to the best paper (called "Grand Prize" in the Overview, "Innovation Prize" in the ToC)
+>85% bonus prize is $150K, for first 5 eligible solutions
+
+Please let us know which version is the correct prize listing! Many thanks again!
+
+--- [684662] reply#1 msgid=3438155 date=2026-04-08T18:25:28.950000 votes=1
+Hi @insanitycheck @boronic @chewkokwahibrainai -- I didn't hear back from staff & I was just about to ping them again today, but then I noticed the ArcPrize.org website has been updated. Alas, the (lower, but still nice) Kaggle page prizes were the correct version, if you haven't already seen it: https://arcprize.org/competitions/2026/arc-agi-2 
+Best of luck to everyone's submissions!
+
+--- [684662] reply#2 msgid=3428839 date=2026-03-26T01:27:01.747000 votes=1
+42.5=7.5+7.5+27.5
+
+--- [684662] reply#3 msgid=3428646 date=2026-03-25T18:53:07.703000 votes=1
+Hi @kittyhawkarc -- thank you for pointing this out. I'll reach out to the host to fix the discrepancy. The information on the competition site is the latest. Thanks again for flagging, and good luck!
+
+--- [684662] reply#4 msgid=3429239 date=2026-03-26T14:03:41.617000 votes=0
+edit: My mistake, the ArcPrize.org website has been updated, it was the Kaggle overview that was the correct version: https://arcprize.org/competitions/2026/arc-agi-2
+
+--- [684662] reply#5 msgid=3430635 date=2026-03-28T18:27:59.143000 votes=1
+Wait isn't she saying that the competition page, ie the one on kaggle is the correct one?
+
+--- [684662] reply#6 msgid=3430888 date=2026-03-29T00:27:57.993000 votes=2
+"the competition site" is indeed ambiguous, especially given the OP's usage. Just say "ArcPrize" or "Kaggle". Can you specify which is correct, @macruzbar ?
+
+--- [684662] reply#7 msgid=3434548 date=2026-04-03T02:23:29.567000 votes=1
+Which competition site do you mean has the latest and correct information? Kaggle one or the ArcPrize.org ? @macruzbar

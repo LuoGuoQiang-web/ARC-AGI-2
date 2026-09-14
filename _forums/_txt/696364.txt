@@ -1,0 +1,15 @@
+===== TOPIC 696364 | votes=0 | comments=2 | date=2026-05-02T00:35:55.589000
+TITLE: Double GPU Quota consomption
+
+--- [696364] OP msgid=3451861 date=2026-05-02T02:52:44.517000 votes=1
+It is explained in the overview page, see www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview/upgraded-accelerators
+
+--- [696364] reply#1 msgid=3452153 date=2026-05-02T17:32:16.630000 votes=0
+thanks man.
+
+--- [696364] reply#2 msgid=3451819 date=2026-05-02T00:35:55.590000 votes=0
+Hi everyone! 👋
+This is my first time joining the ARC-AGI so apologies if this is a known thing, I just want to make sure I understand correctly.
+I've noticed that when I run a notebook using the T4 x4 GPU for, say, 10 minutes, my GPU quota shows 20 minutes consumed. Is this expected behavior in ARC? I'm guessing it might be because the accelerator counts each 2 GPU separately, but I wanted to confirm before I burn through my quota without realizing it.
+Has anyone else noticed this? Is there an official rule or explanation in the competition docs that I might have missed?
+Thanks in advance! 🙏

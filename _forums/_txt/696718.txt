@@ -1,0 +1,115 @@
+===== TOPIC 696718 | votes=1 | comments=2 | date=2026-05-03T17:46:09.910000
+TITLE: Running ARC-AGI-2 on an Intel Arc A770 — setup + what works (no CUDA path)
+
+--- [696718] OP msgid=3452540 date=2026-05-03T17:46:09.910000 votes=1
+Posting this in case anyone else is approaching this comp from a non-NVIDIA GPU and wondering whether it's viable. Short answer: yes, with caveats. I've been training Qwen3-4B + LoRA test-time training (TTT) + AIRV inference on a single 16 GB Intel Arc A770 on Windows 11, and most of the typical "fast LoRA fine-tune" stack doesn't work — but a vanilla transformers + peft path does, and it's fast enough to be useful.
+This post covers the dev environment, what CAN and CAN'T be done on a 16 GB Arc card, the install recipe I'm using, and two empirical findings from running TTT loops on Arc that aren't documented anywhere I've found.
+Hardware + ground truth
+
+Field
+Value
+
+GPU
+Acer Predator BiFrost Intel Arc A770 16 GB OC (APBF-IA770-16G-OC). Real VRAM 15.56 GiB per torch.xpu.get_device_properties.
+
+Driver
+Intel Arc Graphics 32.0.101.8626 (Windows)
+
+CPU
+Intel Core i7-13700K (16 cores / 24 threads)
+
+Motherboard
+ASUS PRIME Z790-P WIFI
+
+RAM
+G.Skill Ripjaws S5 64 GB (2 × 32 GB) DDR5-5600 CL36 (F5-5600J3636D32GX2-RS5W)
+
+OS
+Windows 11 Pro 10.0.26200
+
+Torch
+torch 2.11.0+xpu (Intel's upstream Arc support)
+
+Model under test
+Qwen3-4B in fp16, attn_implementation='eager'
+
+ Side note: Win32_VideoController.AdapterRAM is unreliable above 4 GB — Windows reports the Arc's VRAM as 2.0 GB. Use torch.xpu.get_device_properties(0).total_memory instead.
+
+What's NOT available
+If you're moving from CUDA, these are the "nope, CUDA-only" gaps:
+
+Unsloth — CUDA-only kernels. No XPU path as of mid-2026.
+Flash-Attention 2 — same. attn_implementation='flash_attention_2' errors. Use 'eager'.
+bitsandbytes 4-bit / 8-bit quantization — CUDA-only. No QLoRA on Arc.
+NVIDIA Apex — irrelevant on Arc.
+
+You can still fine-tune. You just have to do it with vanilla transformers + peft + AdamW, which is slower but works.
+What DOES work
+Three backends, in rough order of "least friction for ML training":
+
+PyTorch + XPU (torch 2.11+xpu, official Intel build): closest thing to "CUDA but Intel". Most tutorial code ports if you swap cuda → xpu. This is what I use for TTT.
+OpenVINO — Intel's inference toolkit. Production-grade for running models on Arc, but the API is not interchangeable with PyTorch. Best for serving.
+PyTorch + DirectML — works on any DX12 GPU (Intel, AMD, even old NVIDIA cards). Easier to install, less efficient than torch+xpu, some ops fall back to CPU. Good fallback if torch+xpu errors on a specific op.
+
+⚠ One operational gotcha: torch+xpu and OpenVINO-GPU cannot share a Python process — they fight over the GPU runtime. I keep them in two separate venvs.
+⚠ Second gotcha: the first XPU call in any process has a ~6 second JIT compile penalty. Time it as warmup; don't include it in your per-task budget.
+Concrete capability envelope on a 16 GB Arc A770
+For ARC Prize 2026 specifically (Qwen3-4B + LoRA TTT + AIRV):
+
+✅ Inference of 8B-parameter LLMs in bf16 — 16 GB just fits weights (~14 GB used).
+✅ LoRA fine-tuning of 1-3B models — enough headroom for activations + gradients + AdamW state.
+✅ LoRA TTT on a 4B model with gradient checkpointing — works; cost is wallclock, not memory.
+❌ Pre-fine-tuning a 7B+ from scratch — weights alone fill VRAM in bf16. No headroom for activations.
+❌ Anything requiring CUDA-only kernels — has to be re-implemented in vanilla PyTorch or skipped.
+
+For 7B+ fine-tunes, plan on cloud rental (~$50-300 H100 / A100 one-time) or start from a published fine-tuned checkpoint and do per-task LoRA from there. That second path is what I'm doing — Boston-class submission (Qwen3-4B + AIRV n=4) scored 5.83 public.
+Setup recipe — .venv-ml
+I keep three venvs alongside each other:
+.venv/ # Mirrors Kaggle runtime; minimal deps; CPU-only
+.venv-ml/ # PyTorch+XPU 2.11.0 + OpenVINO; primary training/inference
+.venv-dml/ # PyTorch+DirectML; alternate GPU path (kept separate from xpu)
+
+Install for .venv-ml:
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu
+pip install transformers peft accelerate safetensors
+pip install psutil # for memory + CPU telemetry alongside PowerShell perf counters
+
+Important:
+
+Don't install intel-extension-for-pytorch (IPEX) into this venv — ABI mismatch with torch 2.11. Leave it uninstalled.
+attn_implementation='eager' when loading the model. 'flash_attention_2' errors; the SDPA path works but is slower than 'eager' on Arc for the prompt sizes I tested.
+For per-task LoRA reset across many tasks, model.eval() after training and gc.collect() + torch.xpu.empty_cache() between tasks. Memory creep accumulates without it.
+
+Two empirical findings from this week's runs
+
+VRAM scales linearly at ~1.61 MB / prompt-token for Qwen3-4B fp16 on Arc A770 (during training). That gives a usable formula: (VRAM_free_MB − safety_margin) / 1.61 ≈ max_prompt_tokens. The KV cache during inference grows much slower — about 0.144 MB/token — so training and inference thresholds decouple sharply on Qwen3-class vocabularies. Practical implication: separate MAX_TTT_TOKENS (training-step, logit-bound) from MAX_INFERENCE_TOKENS (KV-cache-bound) in your skip-too-long-prompt logic; using one threshold for both either wastes inference headroom or OOMs at training time.
+WDDM 2.0 silently spills allocations above 16 GiB into shared system RAM rather than OOMing. The perf hit is roughly 5-10× because of PCIe page traffic on every spilled access. This caused me to project a 23-hour wall-clock for a tier I expected to take 6.5 hours, until I diagnosed it. Diagnostic pattern: in your per-task records, watch for vram_peak > total_memory_mb — if you see that, you've spilled, and the run keeps going but everything from that point is paging over PCIe. The 1 Hz \GPU Adapter Memory(*)\Shared Usage PowerShell perf counter confirms it independently — gpu_shared_mb will be visibly climbing during the spilled task. I haven't seen this documented anywhere; most Arc-on-Windows ML writeups assume the card OOMs the way a CUDA card does, and it doesn't.
+
+Looking for teammates
+I'm looking for teammates to join up with for this competition. If you're working on it from any non-NVIDIA hardware, or you've seen this WDDM spill behavior on Intel GPUs in any context, or you just want to compare notes on what configs actually work on consumer GPUs — please reply or DM. Happy to share the raw per-task records + sampler CSVs behind the numbers above with anyone interested.
+
+*Author: Boladi — https://github.com/Boladi888/*
+
+--- [696718] reply#1 msgid=3452621 date=2026-05-03T23:17:21.540000 votes=0
+Thank you for sharing.
+Have you tested the speed? For example, how much time will it take to run full TTT + inference for all 120 ARC2 Evaluation set?
+
+--- [696718] reply#2 msgid=3453039 date=2026-05-04T19:56:08.160000 votes=1
+Yeah man, and I'm documenting and grabbing as much data as I can from this. The only problem is that I'm running on my daily driver so I'm using the pc at the same time so that might mess up the numbers a bit. At first I didn't think the A770 would work for this, but it does and I'm glad because I love this gpu!
+I actually made a pretty big finding about WDDM-spill that's going to be another post after I gather more data.
+Thanks for reading my post!
+-A real human :)
+=============================================================
+Short answer: ~12-15 hours for the full 120 eval set under D1 config, with the chkpt_threshold set right for Arc.
+Concrete data on a 6-task quantile-spread subset (smallest/largest prompts, biased toward edge cases):
+Config = Qwen3-4B + per-task LoRA TTT (n_steps=8, augs_per_step=2) + AIRV n_augs=4 + chkpt_threshold=1500 (gradient-checkpointing kicks in above this prompt-token count) + MAX_TTT_TOKENS=3000 skip-TTT cap. Total: 38-43 min for 6 tasks → ~6.5-7 min/task average.
+Per-task variance is huge:
+
+Short prompts (~600 tok) — TTT 30-60s + inference ~6 min
+Medium (~1500-2200 tok) — TTT 2-4 min + inference 2-10 min
+Long prompts (>3000 tok) — TTT skipped, base AIRV only, ~3-7 min
+A single WDDM-spilled task (vram_peak > 16 GB) blows up 5-10× wallclock and dominates the budget
+
+I'm running a 30-task stratified subset right now (21 same-shape + 9 shape-change, proportional to the eval-set distribution) to get a less biased calibration — I'll follow up here with the concrete number when it finishes (~3 hours).
+Caveat worth flagging: the chkpt_threshold you'd port from a T4 baseline is wrong for Arc — T4 hard-OOMs above its threshold; Arc silently spills into shared system RAM and keeps running. My first partial 8-task run with a T4-calibrated chkpt_threshold=1500 projected 23 hours total before I realized the spill was happening. Drop it to ~800-1000 (Arc's actual spill point) or use pure gradient-checkpointing always. I actually made a pretty big finding about WDDM-spill that's going to be another post after I gather more data.
+What's your setup — also Arc, or something else?

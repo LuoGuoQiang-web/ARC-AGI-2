@@ -1,0 +1,61 @@
+{
+ "topic": {
+  "id": 697058,
+  "title": "Funny observation",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": 4,
+  "postDate": "2026-05-05T05:24:59.299000"
+ },
+ "messages": [
+  {
+   "id": 3453190,
+   "authorName": "",
+   "postDate": "2026-05-05T05:24:59.300000",
+   "votes": 4,
+   "content": "<p>I like how my model kinda gets the idea of this puzzle, but implementation is a bit nonchalant 😂</p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F396001%2F541f225780c3b170d5b9714746238284%2FScreenshot%202026-05-05%20152059.png?generation=1777958563878556&amp;alt=media\" alt=\"it's getting the idea\"></p>"
+  },
+  {
+   "id": 3453237,
+   "authorName": "",
+   "postDate": "2026-05-05T06:48:39.757000",
+   "votes": 0,
+   "content": "<p>wow, interesting, can you give more detail of this puzzle? like it ID, or its full training set?</p>"
+  },
+  {
+   "id": 3453988,
+   "authorName": "",
+   "postDate": "2026-05-06T11:20:53.090000",
+   "votes": 0,
+   "content": "<p>yeah it's a puzzle 16b78196 from arc-agi-2 eval subset. </p>"
+  },
+  {
+   "id": 3454057,
+   "authorName": "",
+   "postDate": "2026-05-06T14:04:37.633000",
+   "votes": 1,
+   "content": "<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F8293010%2F56e10a9ea6a10f4061dbf7637cb565d7%2Foutput.png?generation=1778076218684550&amp;alt=media\" alt=\"image\"></p>\n<p>yea this pullze is quite complex.</p>"
+  },
+  {
+   "id": 3454114,
+   "authorName": "",
+   "postDate": "2026-05-06T16:01:35.347000",
+   "votes": 0,
+   "content": "<p>How strange.  That's not the image for 017c7c7b.</p>"
+  },
+  {
+   "id": 3454208,
+   "authorName": "",
+   "postDate": "2026-05-06T18:08:55.553000",
+   "votes": 0,
+   "content": "<p>o yea, let me check check again</p>"
+  },
+  {
+   "id": 3454213,
+   "authorName": "",
+   "postDate": "2026-05-06T18:12:50.657000",
+   "votes": 0,
+   "content": "<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F8293010%2Fa9d87806babe9fba9be862936a85942d%2Foutput.png?generation=1778091161960455&amp;alt=media\" alt=\"\"></p>\n<p>sorry, my mistake</p>"
+  }
+ ]
+}

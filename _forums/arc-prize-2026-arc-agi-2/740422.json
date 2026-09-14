@@ -1,0 +1,61 @@
+{
+ "topic": {
+  "id": 740422,
+  "title": "clarification ",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": 0,
+  "postDate": "2026-09-09T16:14:51.172000"
+ },
+ "messages": [
+  {
+   "id": 3523218,
+   "authorName": "",
+   "postDate": "2026-09-10T20:59:53.050000",
+   "votes": 1,
+   "content": "<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F27681700%2F46f5bd3b0dfc7f2afaf8228e3921ee07%2FScreenshot%20from%202026-09-10%2016-59-38.png?generation=1789073991323823&amp;alt=media\" alt=\"\"></p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F27681700%2F0acddc5d854b2ab1ddd856c2b36a77e3%2FScreenshot%20from%202026-09-10%2016-57-55.png?generation=1789073919999775&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3522832,
+   "authorName": "",
+   "postDate": "2026-09-09T20:33:33.190000",
+   "votes": 0,
+   "content": "<p>GUYS kindly reply me</p>"
+  },
+  {
+   "id": 3522994,
+   "authorName": "",
+   "postDate": "2026-09-10T08:20:03.347000",
+   "votes": 1,
+   "content": "<p>What is your question?</p>\n<p>You asked none.</p>"
+  },
+  {
+   "id": 3523972,
+   "authorName": "",
+   "postDate": "2026-09-13T15:22:37.360000",
+   "votes": 0,
+   "content": "<p>thanks manh , my que was\nso rabbithole achieve 76 score on 120 task or 240 task including private set . Btw congratulations for top leaderboards</p>"
+  },
+  {
+   "id": 3524002,
+   "authorName": "",
+   "postDate": "2026-09-13T16:46:15.907000",
+   "votes": 2,
+   "content": "<p>their code, your code, my code is run against 240 hidden puzzles. 120 of these are used to compute the public leaderboard. The score we see during the competition.</p>\n<p>The other 120 puzzles are used to computed another score which stays hidden till the end of the competition. At the end of the competition you select two of your submissions. The hidden scores of these two submissions are retrieved (nothing is rerun), and the best of these is used for the final ranking in the competition.</p>"
+  },
+  {
+   "id": 3523004,
+   "authorName": "",
+   "postDate": "2026-09-10T09:23:34.573000",
+   "votes": 0,
+   "content": "<p>….yup…  That's about right.</p>"
+  },
+  {
+   "id": 3522709,
+   "authorName": "",
+   "postDate": "2026-09-09T16:14:51.173000",
+   "votes": 0,
+   "content": "<p>so rabbithole achieve 76 score on 120 task or 240 task including private set . Btw congratulations for top leaderboards</p>"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+===== TOPIC 724073 | votes=0 | comments=1 | date=2026-07-09T12:18:33.949000
+TITLE: Solution of the first competition task
+
+--- [724073] OP msgid=3494909 date=2026-07-11T01:48:15.580000 votes=0
+The publicly accessible test challenges file is only a placeholder. Scoring is done on different and hidden tasks.
+
+--- [724073] reply#1 msgid=3494208 date=2026-07-09T12:18:33.950000 votes=0
+Hello, Im currently trying to get a score out of my notebook: https://www.kaggle.com/code/andreshzapke/starter-notebook-qwen-lora-stop-loss?scriptVersionId=333797918 
+I noticed that the first competition task (public test tasks) is the first that the first training task "13713586", right? It's the one where we get a 2x2 grid, and the task is simply to repeat the pattern to make a 8x8 grid. Essentially, the first task solution should be: 
+pred_grid: [[3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8], [2, 3, 2, 3, 2, 3], [8, 7, 8, 7, 8, 7], [3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8]]
+Which I confirmed to be correct on the train tasks, but is not generating any score in my test tasks.
+Any ideas?

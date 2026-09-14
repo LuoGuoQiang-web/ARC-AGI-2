@@ -1,0 +1,42 @@
+===== TOPIC 737594 | votes=1 | comments=12 | date=2026-08-26T08:49:11.119000
+TITLE: Use dynamic Python library in Kaggle or use Docker from GitHub repository
+
+--- [737594] OP msgid=3517140 date=2026-08-26T08:49:11.120000 votes=1
+I created a dataset with necessary files from my GitHub repository (aicpp ), the import from link does not work. I built the .so for Python 3.12 (Kaggle version) from my computer and I put necessary other .so but system file libstdc++.6. is used and not local file provided in Notebook. How to do it? Is it also possible to use a local Docker file image and run it ?
+
+--- [737594] reply#1 msgid=3520060 date=2026-09-02T18:48:19.297000 votes=0
+I used a .zip file and it is good.
+
+--- [737594] reply#2 msgid=3519777 date=2026-09-02T07:27:55.590000 votes=0
+The final step is to install the Python dependencies offline. My tar.xz archive is 2.8 GB, but the upload for the dataset isn't progressing. Can you help me?
+
+--- [737594] reply#3 msgid=3519113 date=2026-09-01T04:25:38.527000 votes=0
+I think I'm going to need some help. Can I share my dataset, and if so, how?
+
+--- [737594] reply#4 msgid=3519441 date=2026-09-01T17:54:27.507000 votes=0
+Did you look at how public notebooks install dependencies?
+
+--- [737594] reply#5 msgid=3518550 date=2026-08-31T08:29:53.370000 votes=0
+I created a Docker container to test the setup, then created a dataset with the source files and uploaded it. However, starting the notebook session takes too long, and I don't know why. Any ideas?
+
+--- [737594] reply#6 msgid=3519440 date=2026-09-01T17:54:07.617000 votes=0
+did you sue a kaggle docker container? That's what is run here.
+
+--- [737594] reply#7 msgid=3519716 date=2026-09-02T04:21:01.977000 votes=0
+I use a Docker with Ubuntu 22.04. I finally managed to create a dataset to install gcc-16, g++-16, and cmake from .deb files, and boost, dlib, eigen, and pybind11 from source.
+
+--- [737594] reply#8 msgid=3518062 date=2026-08-29T06:39:14.477000 votes=0
+I use C++23 but g++-14 is not available, like also clang-20. Do I need to install them from sources too?
+
+--- [737594] reply#9 msgid=3517960 date=2026-08-28T19:10:09.190000 votes=0
+i guess kaggle one would be better
+
+--- [737594] reply#10 msgid=3517884 date=2026-08-28T15:47:33.820000 votes=0
+Thank you! So I will investigate more in this way. Do you have a link that you think directly to share me?
+
+--- [737594] reply#11 msgid=3517951 date=2026-08-28T18:55:58.193000 votes=0
+just click on the Code button on this page.
+
+--- [737594] reply#12 msgid=3517875 date=2026-08-28T15:05:55.583000 votes=0
+AFAIK you can'[t run custom docker containers, you hve to use Kaggle's.
+You should build your code in a Kaggle notebook. Look at how public notebooks install dependencies.

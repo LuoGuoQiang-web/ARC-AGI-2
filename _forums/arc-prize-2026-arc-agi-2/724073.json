@@ -1,0 +1,26 @@
+{
+ "topic": {
+  "id": 724073,
+  "title": "Solution of the first competition task",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-07-09T12:18:33.949000"
+ },
+ "messages": [
+  {
+   "id": 3494909,
+   "authorName": "",
+   "postDate": "2026-07-11T01:48:15.580000",
+   "votes": 0,
+   "content": "<p>The publicly accessible test challenges file is only a placeholder. Scoring is done on different and hidden tasks.</p>"
+  },
+  {
+   "id": 3494208,
+   "authorName": "",
+   "postDate": "2026-07-09T12:18:33.950000",
+   "votes": 0,
+   "content": "<p>Hello, Im currently trying to get a score out of my notebook: <a href=\"https://www.kaggle.com/code/andreshzapke/starter-notebook-qwen-lora-stop-loss?scriptVersionId=333797918\" target=\"_blank\">https://www.kaggle.com/code/andreshzapke/starter-notebook-qwen-lora-stop-loss?scriptVersionId=333797918</a></p>\n<p>I noticed that the first competition task (public test tasks) is the first that the first training task \"13713586\", right? It's the one where we get a 2x2 grid, and the task is simply to repeat the pattern to make a 8x8 grid. Essentially, the first task solution should be: </p>\n<p>pred_grid: [[3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8], [2, 3, 2, 3, 2, 3], [8, 7, 8, 7, 8, 7], [3, 2, 3, 2, 3, 2], [7, 8, 7, 8, 7, 8]]</p>\n<p>Which I confirmed to be correct on the train tasks, but is not generating any score in my test tasks.\nAny ideas?</p>"
+  }
+ ]
+}

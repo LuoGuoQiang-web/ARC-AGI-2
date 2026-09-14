@@ -1,0 +1,68 @@
+{
+ "topic": {
+  "id": 693826,
+  "title": "finding teamate",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": -1,
+  "postDate": "2026-04-22T13:38:25.049000"
+ },
+ "messages": [
+  {
+   "id": 3446945,
+   "authorName": "",
+   "postDate": "2026-04-22T13:38:25.050000",
+   "votes": -1,
+   "content": "<p>28th，lets win together</p>"
+  },
+  {
+   "id": 3502509,
+   "authorName": "",
+   "postDate": "2026-07-24T11:46:29.867000",
+   "votes": 0,
+   "content": "<p>Hello, I have this starter: <a href=\"https://www.kaggle.com/code/andreshzapke/starter-notebook-qwen-lora-stop-loss\" target=\"_blank\">https://www.kaggle.com/code/andreshzapke/starter-notebook-qwen-lora-stop-loss</a>\nand tried to get into token-by-token, best first DFS search but got stuck because the DFS search also takes too long. Im not wanting to get deeper into technical things like KV cache, but maybe you can make something useful out of this: <a href=\"https://www.kaggle.com/code/andreshzapke/best-first-search-and-token-insertion/edit\" target=\"_blank\">https://www.kaggle.com/code/andreshzapke/best-first-search-and-token-insertion/edit</a></p>\n<p>I also struggle to just get a public score since this is my first competition.\nText me if you want to collab!</p>"
+  },
+  {
+   "id": 3502520,
+   "authorName": "",
+   "postDate": "2026-07-24T12:02:57.503000",
+   "votes": 0,
+   "content": "<p>i will send you a invitation</p>"
+  },
+  {
+   "id": 3471869,
+   "authorName": "",
+   "postDate": "2026-06-12T17:23:59.313000",
+   "votes": 0,
+   "content": "<p>i also want to join </p>"
+  },
+  {
+   "id": 3447878,
+   "authorName": "",
+   "postDate": "2026-04-24T07:09:40.047000",
+   "votes": 0,
+   "content": "<p>May I join?</p>"
+  },
+  {
+   "id": 3447979,
+   "authorName": "",
+   "postDate": "2026-04-24T12:10:43.533000",
+   "votes": 0,
+   "content": "<p>yes,of corse</p>"
+  },
+  {
+   "id": 3502605,
+   "authorName": "",
+   "postDate": "2026-07-24T14:10:53.083000",
+   "votes": 0,
+   "content": "<p>Could you send me invitation?</p>"
+  },
+  {
+   "id": 3447502,
+   "authorName": "",
+   "postDate": "2026-04-23T08:53:09.583000",
+   "votes": 0,
+   "content": "<p>HI,I WILL LIKE TO WORK TOGETHER</p>"
+  }
+ ]
+}

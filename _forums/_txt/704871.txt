@@ -1,0 +1,8 @@
+===== TOPIC 704871 | votes=0 | comments=1 | date=2026-06-06T22:49:30.608000
+TITLE: Corrupted datasets
+
+--- [704871] OP msgid=3467972 date=2026-06-08T05:38:09.887000 votes=0
+It’s not just for this competition; it seems like an internal error affects other competitions too. I mean, if you check the dataset on the Kaggle platform, you might see other data that isn’t relevant to the competition.
+
+--- [704871] reply#1 msgid=3467634 date=2026-06-06T22:49:30.607000 votes=0
+Look at all the json files in the data section. They seems to be different kinds of datasets, some bug kaggle side, or you've been hacked…

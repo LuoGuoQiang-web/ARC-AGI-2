@@ -1,0 +1,72 @@
+===== TOPIC 724647 | votes=12 | comments=17 | date=2026-07-12T13:03:23.331000
+TITLE: Good to see movement on LB
+
+--- [724647] OP msgid=3523883 date=2026-09-13T08:38:07.710000 votes=-1
+Thank you for the info on 2nd team @cpmpml
+
+--- [724647] reply#1 msgid=3516290 date=2026-08-23T20:56:56.657000 votes=4
+I said "let's not make too much progress "
+What is hard to understand in this?
+Kidding ofc, end of competition will be quit interesting I guess.
+Ps. For those who wonder, 2nd team made a big jump over 70%. Our lead is quite small now.
+
+--- [724647] reply#2 msgid=3520568 date=2026-09-03T17:11:11.857000 votes=0
+Time to assemble 5x KGMON team :D
+
+--- [724647] reply#3 msgid=3514730 date=2026-08-20T01:55:31.190000 votes=1
+Didnt want to spend the money to contribute to this competition but wow the progress here is absolutely incredible. Really looking forward to see your writeup @cpmpml @darraghdog absolutely exceptional work!
+
+--- [724647] reply#4 msgid=3505590 date=2026-07-30T11:19:35.030000 votes=2
+2nd team now at 44%
+Great progress.
+
+--- [724647] reply#5 msgid=3516212 date=2026-08-23T14:52:59.317000 votes=0
+Now they’ve reached 70.42, a huge improvement. Do you think they’ve found the “secret sauce,” like your team did?
+
+--- [724647] reply#6 msgid=3516236 date=2026-08-23T16:36:02.953000 votes=0
+I have no clue about what they do.
+
+--- [724647] reply#7 msgid=3516311 date=2026-08-23T22:20:41.820000 votes=0
+
+
+--- [724647] reply#8 msgid=3501003 date=2026-07-21T05:06:04.567000 votes=5
+Congratulations on reaching 67.50!
+I've noticed your team has been making very consistent progress week after week. It's really impressive to see how steadily your performance keeps improving. Keep up the great work!
+
+--- [724647] reply#9 msgid=3501086 date=2026-07-21T10:11:55.830000 votes=3
+Thanks. We're not done yet hopefully 😁
+
+--- [724647] reply#10 msgid=3507783 date=2026-08-02T17:30:43.010000 votes=0
+@cpmpml , big fan here — Thank you and Ivan for releasing the NVARC solution so openly.
+I’m considering renting GPUs for a serious solo-gold attempt here, but I’d like to avoid an expensive wrong path. Since the Qwen and TRM checkpoints are already public, would you recommend starting from qwen3_4b_grids15_sft139 and TRM step_220708, then using full-weight continued fine-tuning for the small TRM and LoRA/QLoRA for Qwen on a carefully filtered new synthetic dataset?
+Or do you think meaningful improvement still requires repeating the large-scale pretraining? What would be the main trap in this lower-budget path?
+I completely understand that this is still an active competition and you cannot reveal too much. However, since most of us are mainly competing for a possible gold medal rather than challenging your top position—and you seemed genuinely encouraged by the progress from the current #2 team—I was hoping you might be willing to share a small introductory hint or direction for those of us trying to explore this path. 😊
+
+--- [724647] reply#11 msgid=3507814 date=2026-08-02T18:09:34.390000 votes=5
+Hi Tony,
+We won't share more till the deadline.
+
+--- [724647] reply#12 msgid=3507849 date=2026-08-02T22:56:08.543000 votes=1
+Thanks, CPMP. Completely understandable—best of luck for the rest of the competition, and thank you again for sharing so much after last year’s competition.
+
+--- [724647] reply#13 msgid=3509366 date=2026-08-06T09:10:52.653000 votes=7
+@tonylica https://huggingface.co/datasets/nvidia/Nemotron-SFT-ARC-AGI-v1 
+you can deduce the tools used: arc-python-executor, commit, augmenter
+they already trained nemotron-ultra with it (no mention of evaluation in tech report… hiding in plain sight until this competition i guess + we know how much fchollet hates people using code to solve his benchmarks) - obvs ultra doesn't fit this competition but they can train a smaller model to accomplish the same thing. thinking they go for 14B model as no test-time-train now and they pretty good throughput to accomplish sub 10hrs for their initial large scores.
+guessing they are the first but even SFT to harness for ARC2 could produce lots of progress (like nvbanana have shown) 
+open to team up if anyone wants to push this further? (arc-gen has been updated to include all arc-agi-2 tasks likely how gdm improve gemini on arc-agi-2)
+lastly wild thought but nvbanana == nanobanana imagine if they built image generation that solves the problem from input 🤗
+
+--- [724647] reply#14 msgid=3509467 date=2026-08-06T12:33:36.910000 votes=3
+It is true that the name nvbanana was inspired by nanobana. I won't comment on the rest of the post 😁
+
+--- [724647] reply#15 msgid=3509686 date=2026-08-06T20:55:35.510000 votes=1
+
+
+--- [724647] reply#16 msgid=3495523 date=2026-07-12T13:03:23.330000 votes=12
+2nd team has clearly moved beyond what could be done with knob fitting on our last year solution. This is good news for the competition.
+Congrats to them.
+But let's not make too much progress still 😂
+
+--- [724647] reply#17 msgid=3523854 date=2026-09-13T06:31:36.497000 votes=0
+Do you think your team has a real shot at breaking 85 this year?

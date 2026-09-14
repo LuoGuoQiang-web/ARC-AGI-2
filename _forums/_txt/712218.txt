@@ -1,0 +1,26 @@
+===== TOPIC 712218 | votes=2 | comments=5 | date=2026-06-22T16:01:32.181000
+TITLE: ARC agi 2 rubix solver
+
+--- [712218] OP msgid=3478835 date=2026-06-23T05:12:48.060000 votes=9
+Whatever you do I advise you to submit. IN 2024 I developed a solver that was solving almost all arc agi evaluation. And when i submitted it I got like 6%.
+This competition is about learning from few instances. If you method discover the group form the training part of each puzzle then it might have value. If your method relies on the publicly available puzzles then it will fail.
+
+--- [712218] reply#1 msgid=3478349 date=2026-06-22T16:01:32.180000 votes=2
+ARC agi 2 is very similar to a solving rubik's cube. It needs to fix some kind of subgroup and then solve it by layer. I tried the subgroup, the search layer is too big to search. Anyone tried the similar take?
+
+--- [712218] reply#2 msgid=3478733 date=2026-06-23T01:40:30.733000 votes=0
+Yeah, I went down this exact rabbit hole. The thing that killed it for me: Rubik's only works because the group is fixed. Same moves, same solved state every time, so Kociemba/Thistlethwaite can precompute the subgroup chain and pruning tables once, offline, and then any scramble is fast.
+ARC gives you none of that. Every task basically defines its own move set and its own "solved" state, so before you can even think about solving layer by layer, you have to first figure out what the layers are for that specific task. That discovery step is where my search exploded too, not the actual solving. The subgroup idea is right, it's just that the hard part quietly moved from "solve the cube" to "find the cube."
+So I stopped trying to search the layers harder and started thinking about how to propose a decomposition cheaply instead (same spirit as a solver leaning on a heuristic table instead of brute force). Promising but fiddly so far.
+
+--- [712218] reply#3 msgid=3478736 date=2026-06-23T02:02:29.943000 votes=0
+I am able to reply every individual training with subgroup and greedy algorithm, but failed at coefficient and size when it comes to general function, I still need to find a way to get the size and coefficients. I could train a nn to get coefficient and size, but I would exhaust all methods before that. 
+I also find out that it makes llm work a lot less if you lift it to 3d, but I am trying the non llm way of solving the problem.
+
+--- [712218] reply#4 msgid=3478766 date=2026-06-23T02:54:42.710000 votes=-1
+yeah i got to basically the same spot. subgroup plus greedy nails the train pairs every time, but the size and coefficients on the general function is exactly where mine fell apart too.
+one thing that moved the needle for me: I stopped treating the coefficient as a constant to find and started treating it as a relation to the input. each train pair is a sample of that relation, like out size vs in size, or count vs coefficient. once you line up all the pairs it's usually something dead simple, and then you apply the relation to the test input instead of guessing a number. size and coefficient also tend to be the same unknown a lot of the time, pin one and the other falls out.
+you wanna team up on this? feels like we're circling the same problem from the same side, i'd rather build it together than race it solo.
+
+--- [712218] reply#5 msgid=3478351 date=2026-06-22T16:02:43.263000 votes=0
+

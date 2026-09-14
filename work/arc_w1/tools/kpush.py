@@ -213,8 +213,11 @@ def main() -> int:
     ap.add_argument("--argv", default="--split evaluation --limit 3 --time-budget-seconds 1800",
                     help="arguments to pin inside the notebook")
     ap.add_argument("--no-gpu", action="store_true", help="disable the GPU accelerator")
-    ap.add_argument("--machine-shape", default="NvidiaTeslaT4",
-                    help="accelerator shape (default NvidiaTeslaT4; never leave it generic)")
+    ap.add_argument("--machine-shape", default="NvidiaL4",
+                    help="accelerator shape (default NvidiaL4 = the 4xL4 machine, 4 x 22.03 GiB. "
+                         "NEVER use the generic 'Gpu' (falls back to a P100, sm_60, on which "
+                         "every CUDA op fails), and note the shape string is 'NvidiaL4' -- NOT "
+                         "'NvidiaL4x4', which is silently downgraded to a P100 as well)")
     ap.add_argument("--public", action="store_true", help="make the kernel public (default: private)")
     ap.add_argument("--internet", action="store_true", help="enable internet (must stay OFF for scored runs)")
     ap.add_argument("--no-competition", action="store_true", help="do not attach the competition data")

@@ -1,0 +1,33 @@
+{
+ "topic": {
+  "id": 737679,
+  "title": "Rules clarification: hosted AI coding assistants",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-08-26T18:55:14.182000"
+ },
+ "messages": [
+  {
+   "id": 3518535,
+   "authorName": "",
+   "postDate": "2026-08-31T07:42:22.160000",
+   "votes": -1,
+   "content": "<p>think about how AI.agents kick in mamny.score 0.0,  such as inpiut  AIqwen 3, offline, freevwrsion 4b, qwen.coder, yet many bugs thr AI.agent produce~gogogogooo~ chatGPt produce full.production via exactly concrete Python, while Gemini seems to short answer.just.for. one.block? all improve score 0.0, how another 50% test may going, let AI predict, active scientists~</p>"
+  },
+  {
+   "id": 3517954,
+   "authorName": "",
+   "postDate": "2026-08-28T18:57:14.307000",
+   "votes": 0,
+   "content": "<p>Many people use coding assistants like claude code or codex or others in Kaggle competitions. I think the only real limit is to not spend unreasonable amount of money using these.</p>"
+  },
+  {
+   "id": 3517318,
+   "authorName": "",
+   "postDate": "2026-08-26T18:55:14.183000",
+   "votes": 0,
+   "content": "<p>Hello!</p>\n<p>I have a few items I'd like clarified if possible:</p>\n<p>May a hosted AI coding assistant, which is not a registered team member, help author or review private generic or submission-relevant code if it receives no Competition Data, task grids, solutions, task identifiers, or task-derived examples? </p>\n<p>Does the answer change if the code is first shared publicly with all participants through a Kaggle notebook or competition forum? </p>\n<p>May we share aggregate metrics such as pass rates, timing, memory, and predefined failure-category counts with the assistant?  Any required disclosure or licensing conditions on that front that could be identified would be helpful.</p>"
+  }
+ ]
+}

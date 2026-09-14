@@ -1,0 +1,82 @@
+{
+ "topic": {
+  "id": 691202,
+  "title": "is this normal ?",
+  "authorName": "",
+  "commentCount": 9,
+  "votes": 0,
+  "postDate": "2026-04-14T07:14:58.338000"
+ },
+ "messages": [
+  {
+   "id": 3444444,
+   "authorName": "",
+   "postDate": "2026-04-17T20:02:07.440000",
+   "votes": 0,
+   "content": "<p>Validation set is hard enough to verify your approach a have a good estimate on how it can perform on unseen test tasks.</p>"
+  },
+  {
+   "id": 3444633,
+   "authorName": "",
+   "postDate": "2026-04-18T05:13:38.717000",
+   "votes": 0,
+   "content": "<p>Thanks 👍that’s helpful</p>"
+  },
+  {
+   "id": 3444442,
+   "authorName": "",
+   "postDate": "2026-04-17T20:00:17.830000",
+   "votes": 0,
+   "content": "<p>Yeah, some kind of reasoning seems to be mandatory, even though model does not have to understand or speak natural language.</p>"
+  },
+  {
+   "id": 3441762,
+   "authorName": "",
+   "postDate": "2026-04-14T14:56:37.690000",
+   "votes": 0,
+   "content": "<p>Yes, this is normal. It is impossible to do well in this benchmark with a fixed set of rules.</p>"
+  },
+  {
+   "id": 3442219,
+   "authorName": "",
+   "postDate": "2026-04-15T05:46:12.883000",
+   "votes": 0,
+   "content": "<p>Thanks  that makes sense 👍</p>"
+  },
+  {
+   "id": 3442359,
+   "authorName": "",
+   "postDate": "2026-04-15T11:19:27.530000",
+   "votes": 0,
+   "content": "<p>I know because I went there for arc agi1 competition. </p>"
+  },
+  {
+   "id": 3444022,
+   "authorName": "",
+   "postDate": "2026-04-17T06:15:10.400000",
+   "votes": 0,
+   "content": "<p>okay  That’s interesting👍</p>"
+  },
+  {
+   "id": 3441667,
+   "authorName": "",
+   "postDate": "2026-04-14T11:47:07.700000",
+   "votes": 0,
+   "content": "<p>the rules-bases ai is weak\nthat llm</p>"
+  },
+  {
+   "id": 3442221,
+   "authorName": "",
+   "postDate": "2026-04-15T05:47:57.250000",
+   "votes": 0,
+   "content": "<p>Thanks for the suggestion  I’ll try to explore better approaches</p>"
+  },
+  {
+   "id": 3441551,
+   "authorName": "",
+   "postDate": "2026-04-14T07:14:58.340000",
+   "votes": 0,
+   "content": "<p>Hi  everybody I’m new to ML competitions and working on ARC  I built a rule-based solver  and the notebook runs fine but my public score is 0.00</p>\n<p>Is this common when starting out? Any tips to improve generalization?</p>\n<p>Thanks </p>"
+  }
+ ]
+}

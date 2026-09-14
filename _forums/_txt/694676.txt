@@ -1,0 +1,50 @@
+===== TOPIC 694676 | votes=-4 | comments=11 | date=2026-04-26T10:33:51.411000
+TITLE: To group nvbanana
+
+--- [694676] OP msgid=3490818 date=2026-07-06T13:36:23.383000 votes=-2
+If I score over 30 can you please let me join your team.
+
+--- [694676] reply#1 msgid=3491533 date=2026-07-06T17:42:37.047000 votes=7
+We would team with you (or anyone else) if:
+
+We think we have a risk of not winning the competition
+We think you can help us increase our score
+
+A score of 30 is likely to be using our last year code, hence does not meet condition 2. And for now, no other teams is threatening us.
+TL;DR Chances are low that we will expand our team. But there are several months left, anything can happen.
+
+--- [694676] reply#2 msgid=3493761 date=2026-07-08T12:53:20.300000 votes=-4
+Can you help me by answering my few questions
+
+--- [694676] reply#3 msgid=3507101 date=2026-08-01T12:32:49.350000 votes=-1
+How about 45
+
+--- [694676] reply#4 msgid=3514745 date=2026-08-20T02:59:17.107000 votes=0
+I don't know but my code me a reload score of 35.33333 and its public leader board score was 28.09.
+
+--- [694676] reply#5 msgid=3448702 date=2026-04-26T11:54:45.870000 votes=6
+I think we are all set and won't team more.
+My previous comment was to not ask to team with people way above you on the LB without showing you can bring something to the table. For now your score suggest you merely submitted our last year solution with minor tweaks, using the model we trained. 
+Given you ask, here is some advice: focus on finding a better solution by yourself.
+
+--- [694676] reply#6 msgid=3449719 date=2026-04-28T19:22:25.030000 votes=0
+On a slightly different note, @cpmpml , two questions:
+Do you think the recent addition of H100s will have an effect on your score?
+and
+Considering available compute, allowed time, and your knowledge of your own model, can you ballpark how high you think your score will go? Very curious!
+Thanks in advance (and congrats on 2025)!
+
+--- [694676] reply#7 msgid=3449766 date=2026-04-28T20:36:02.817000 votes=0
+Which H100?
+
+--- [694676] reply#8 msgid=3449810 date=2026-04-28T22:12:30.220000 votes=0
+Sigh. My bad - H100s announced for ARC3. So! Barring any H100s for ARC2, any predictions as to how far you might go in ARC2, LB% wise?
+
+--- [694676] reply#9 msgid=3449913 date=2026-04-29T03:54:42.353000 votes=5
+I have no clue about how far we can go. But we will go higher than the current score for sure. We have some interesting things in the pipe.
+
+--- [694676] reply#10 msgid=3450188 date=2026-04-29T13:11:15.630000 votes=0
+Word.
+
+--- [694676] reply#11 msgid=3448668 date=2026-04-26T10:33:51.413000 votes=-4
+If I reach the score of 35%,can I join ur team?

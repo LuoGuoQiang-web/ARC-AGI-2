@@ -1,0 +1,75 @@
+===== TOPIC 704408 | votes=4 | comments=21 | date=2026-06-04T13:16:01.629000
+TITLE: Submission finished in ~15 minutes with 0.00 score and no error
+
+--- [704408] OP msgid=3466668 date=2026-06-04T13:16:01.630000 votes=4
+Hi, we had a successful submission return a 0.0 public score after finishing in about 15 minutes, with no error message shown.
+It was a copy with a small change from a notebook that previously ran for many hours during submission. It also ran fine on sample/training checks, and a smoke test on 30 training samples ran successfully.
+Is there any chance the competition admins can check whether this was an infrastructure/runtime issue?
+This is the first time we have seen this behavior in more than 40 submissions, and we do not have enough information from the submission page to diagnose it.
+
+--- [704408] reply#1 msgid=3471764 date=2026-06-12T11:32:46.663000 votes=2
+I got this same issue before: same code, different weigths, zero LB score. 
+I found that I used kaggle API to upload the weights to a dataset new version and, I don't know why, it changed a bit the path and it broke my code.
+
+--- [704408] reply#2 msgid=3467736 date=2026-06-07T08:26:09.357000 votes=1
+Same problem that I faced before.
+
+--- [704408] reply#3 msgid=3468082 date=2026-06-08T11:48:12.670000 votes=1
+not the same problem at all. What you show is that you noteboook runs fine on train data (bottom screenshot) but scores 0 when you submit. 
+Darragh is different. The same submission yields 0 in 15 minutes, then 46% the next day in 10 hours or so. 
+If you disagree then show a screenshot where we see twice the same submission, one with 0 score and one with non zero score.
+
+--- [704408] reply#4 msgid=3466891 date=2026-06-04T21:11:16.737000 votes=1
+from my side, its working fine. 
+probably a code bug rather than a system error
+
+--- [704408] reply#5 msgid=3467028 date=2026-06-05T08:28:06.767000 votes=0
+It is the same code as previous N submissions, with new model weights.
+
+--- [704408] reply#6 msgid=3488115 date=2026-07-04T15:28:22.177000 votes=0
+@cpmpml can you share what model are you using
+
+--- [704408] reply#7 msgid=3488159 date=2026-07-04T16:03:46.847000 votes=1
+You think we did not share enough already? We won't share more than our winning solution from last year.
+
+--- [704408] reply#8 msgid=3488202 date=2026-07-04T16:35:32.917000 votes=-1
+i want the model name. I am not asking the exact model you finetuned i only want the model name like qwen 3.6 or gemma 4 and exact version like 32b or any other
+
+--- [704408] reply#9 msgid=3488204 date=2026-07-04T16:35:52.603000 votes=-1
+i think you misunderstood
+
+--- [704408] reply#10 msgid=3488795 date=2026-07-05T08:31:03.363000 votes=0
+Sure, I misunderstood. LOL.
+
+--- [704408] reply#11 msgid=3488896 date=2026-07-05T09:46:33.740000 votes=-2
+so now can you share the model name please.
+
+--- [704408] reply#12 msgid=3488897 date=2026-07-05T09:47:42.430000 votes=-2
+this will make the scores go higher and make this comp more interesting
+
+--- [704408] reply#13 msgid=3489242 date=2026-07-05T14:47:29.073000 votes=1
+I replied already, you're the one who misunderstands.
+
+--- [704408] reply#14 msgid=3489382 date=2026-07-05T16:19:45.090000 votes=0
+
+
+--- [704408] reply#15 msgid=3467646 date=2026-06-07T00:49:51.143000 votes=0
+mine is same！
+
+--- [704408] reply#16 msgid=3468083 date=2026-06-08T11:48:59.770000 votes=1
+Did you submit the exact same code? Asking because the name is different.
+
+--- [704408] reply#17 msgid=3468107 date=2026-06-08T12:58:17.980000 votes=0
+yes,alllll same
+
+--- [704408] reply#18 msgid=3468176 date=2026-06-08T15:44:57.907000 votes=1
+why different names?
+
+--- [704408] reply#19 msgid=3503766 date=2026-07-26T10:42:26.293000 votes=0
+Sensei can I ask you for a favour
+
+--- [704408] reply#20 msgid=3467311 date=2026-06-05T21:44:45.867000 votes=2
+
+
+--- [704408] reply#21 msgid=3466701 date=2026-06-04T14:40:13.370000 votes=-2
+

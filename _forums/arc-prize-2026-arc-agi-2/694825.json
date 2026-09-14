@@ -1,0 +1,40 @@
+{
+ "topic": {
+  "id": 694825,
+  "title": "How many general classes does this competition exist?",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 4,
+  "postDate": "2026-04-27T10:55:31.304000"
+ },
+ "messages": [
+  {
+   "id": 3449035,
+   "authorName": "",
+   "postDate": "2026-04-27T10:55:31.303000",
+   "votes": 4,
+   "content": "<p>I find although there are a lot of different rules in this competition, it seems the classes of those rules are limited; is it better for us to understand what are patterns of those rules?</p>\n<p>I searched the previous discussion about this thing in Kaggle but I didn't find a lot of useful information; if you know, please tell me ^W^</p>\n<p>In discussion, it is quiet to show what I find, so I make a notebook for it. Or you can also check the image below.</p>\n<p>By the way, I am new in here; I may make a lot of mistakes here, so please forgive me QQQ.</p>\n<p><a href=\"https://www.kaggle.com/code/yoyobar/general-classes-visualization\" target=\"_blank\">general-classes-visualization</a></p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F8293010%2F2f36fbb4a34dff85ab2c58f4d85ad3bf%2F.png?generation=1777287162710963&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3453238,
+   "authorName": "",
+   "postDate": "2026-05-05T06:49:45.907000",
+   "votes": 0,
+   "content": "<p>Do private LB and public LB have a same domain?</p>"
+  },
+  {
+   "id": 3455587,
+   "authorName": "",
+   "postDate": "2026-05-09T18:52:04.937000",
+   "votes": 0,
+   "content": "<p>It depends on your definition of the word \"domain\".  All of the ARC I and II challenges have essentially the same qualities:\nA \"challenge\" is a small collection of very similar puzzles, in a very similar \"input\" --&gt; \"output\" style.\nA given challenge has (more or less) 2 or 3 puzzles in an array for the \"train\": key\nIt also has a very small (usually 1, but occasionally more) array of 'input-only' puzzles for the \"test\": key\nThe idea is to solve for the output of each \"test\": input, and submit your array of challenge \"solutions\" by creating a solutions.json file.  That file gets read in and scored for correct answers.  I've left out some very important steps only to save time.\nIn that sense both LBs have the same domain.\nBut the puzzles themselves (the ones you submit to get a LB score) are not \"the same\" or even picked from \"the same corpus\"\nThey are different enough to be very difficult for a program to \"solve\", while being similar enough to be (somewhat?) easy for a human to solve.  Regardless, all the LB puzzles are guaranteed to be different.</p>"
+  },
+  {
+   "id": 3467593,
+   "authorName": "",
+   "postDate": "2026-06-06T18:14:29.660000",
+   "votes": 0,
+   "content": "<blockquote>\n  <p>Do private LB and public LB have a same domain?</p>\n</blockquote>\n<p>Maybe a probe model can be useful to verify it.</p>"
+  }
+ ]
+}

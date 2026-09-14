@@ -1,0 +1,33 @@
+{
+ "topic": {
+  "id": 735044,
+  "title": "Where is the submit button and L4?",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-08-13T17:33:54.863000"
+ },
+ "messages": [
+  {
+   "id": 3512641,
+   "authorName": "",
+   "postDate": "2026-08-14T00:30:36.090000",
+   "votes": 0,
+   "content": "<p>u havent added the comp dataset ('no input attched'). add it, then u will find the l4 gpu</p>"
+  },
+  {
+   "id": 3512604,
+   "authorName": "",
+   "postDate": "2026-08-13T21:28:28.970000",
+   "votes": 0,
+   "content": "<p>You have to create the notebook in the competition, i.e. use the Code panel here.\nAlso turn internet off.</p>"
+  },
+  {
+   "id": 3512524,
+   "authorName": "",
+   "postDate": "2026-08-13T17:33:54.863000",
+   "votes": 0,
+   "content": "<p>I did not see the submit button and can’t select L4x2.I did not see submitt buttona dn can't select L4x2.<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F5591682%2Ff92de72141449f99e755f90a4092f697%2FScreenshot%202026-08-13%20223333.jpg?generation=1786642419067437&amp;alt=media\" alt=\"\"></p>"
+  }
+ ]
+}

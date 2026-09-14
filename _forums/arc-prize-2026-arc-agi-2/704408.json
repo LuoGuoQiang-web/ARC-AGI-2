@@ -1,0 +1,166 @@
+{
+ "topic": {
+  "id": 704408,
+  "title": "Submission finished in ~15 minutes with 0.00 score and no error",
+  "authorName": "",
+  "commentCount": 21,
+  "votes": 4,
+  "postDate": "2026-06-04T13:16:01.629000"
+ },
+ "messages": [
+  {
+   "id": 3466668,
+   "authorName": "",
+   "postDate": "2026-06-04T13:16:01.630000",
+   "votes": 4,
+   "content": "<p>Hi, we had a successful submission return a 0.0 public score after finishing in about 15 minutes, with no error message shown.</p>\n<p>It was a copy with a small change from a notebook that previously ran for many hours during submission. It also ran fine on sample/training checks, and a smoke test on 30 training samples ran successfully.</p>\n<p>Is there any chance the competition admins can check whether this was an infrastructure/runtime issue?</p>\n<p>This is the first time we have seen this behavior in more than 40 submissions, and we do not have enough information from the submission page to diagnose it.</p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F213493%2F9e8f84a2842360addb9a48a9235d6729%2FScreenshot%202026-06-04%20at%2014.02.32.png?generation=1780578194170215&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3471764,
+   "authorName": "",
+   "postDate": "2026-06-12T11:32:46.663000",
+   "votes": 2,
+   "content": "<p>I got this same issue before: same code, different weigths, zero LB score. </p>\n<p>I found that I used kaggle API to upload the weights to a dataset new version and, I don't know why, it changed a bit the path and it broke my code.</p>"
+  },
+  {
+   "id": 3467736,
+   "authorName": "",
+   "postDate": "2026-06-07T08:26:09.357000",
+   "votes": 1,
+   "content": "<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F27966974%2F57940a628b1c0c8399d678e3c31e3ebe%2FScreenshot%202026-06-07%20142250.png?generation=1780820714273061&amp;alt=media\" alt=\"\"></p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F27966974%2F3c374011ccc5fdd6cbe414ccc693f87c%2FScreenshot%202026-06-07%20142308.png?generation=1780820735389964&amp;alt=media\" alt=\"\"></p>\n<p>Same problem that I faced before.</p>"
+  },
+  {
+   "id": 3468082,
+   "authorName": "",
+   "postDate": "2026-06-08T11:48:12.670000",
+   "votes": 1,
+   "content": "<p>not the same problem at all. What you show is that you noteboook runs fine on train data (bottom screenshot) but scores 0 when you submit. </p>\n<p>Darragh is different. The same submission yields 0 in 15 minutes, then 46% the next day in 10 hours or so. </p>\n<p>If you disagree then show a screenshot where we see twice the same submission, one with 0 score and one with non zero score.</p>"
+  },
+  {
+   "id": 3466891,
+   "authorName": "",
+   "postDate": "2026-06-04T21:11:16.737000",
+   "votes": 1,
+   "content": "<p>from my side, its working fine. </p>\n<p>probably a code bug rather than a system error</p>"
+  },
+  {
+   "id": 3467028,
+   "authorName": "",
+   "postDate": "2026-06-05T08:28:06.767000",
+   "votes": 0,
+   "content": "<p>It is the same code as previous N submissions, with new model weights.</p>"
+  },
+  {
+   "id": 3488115,
+   "authorName": "",
+   "postDate": "2026-07-04T15:28:22.177000",
+   "votes": 0,
+   "content": "<p><a href=\"https://www.kaggle.com/cpmpml\" target=\"_blank\">@cpmpml</a> can you share what model are you using</p>"
+  },
+  {
+   "id": 3488159,
+   "authorName": "",
+   "postDate": "2026-07-04T16:03:46.847000",
+   "votes": 1,
+   "content": "<p>You think we did not share enough already? We won't share more than our winning solution from last year.</p>"
+  },
+  {
+   "id": 3488202,
+   "authorName": "",
+   "postDate": "2026-07-04T16:35:32.917000",
+   "votes": -1,
+   "content": "<p>i want the model name. I am not asking the exact model you finetuned i only want the model name like qwen 3.6 or gemma 4 and exact version like 32b or any other</p>"
+  },
+  {
+   "id": 3488204,
+   "authorName": "",
+   "postDate": "2026-07-04T16:35:52.603000",
+   "votes": -1,
+   "content": "<p>i think you misunderstood </p>"
+  },
+  {
+   "id": 3488795,
+   "authorName": "",
+   "postDate": "2026-07-05T08:31:03.363000",
+   "votes": 0,
+   "content": "<p>Sure,  I misunderstood. LOL.</p>"
+  },
+  {
+   "id": 3488896,
+   "authorName": "",
+   "postDate": "2026-07-05T09:46:33.740000",
+   "votes": -2,
+   "content": "<p>so now can you share the model name please.</p>"
+  },
+  {
+   "id": 3488897,
+   "authorName": "",
+   "postDate": "2026-07-05T09:47:42.430000",
+   "votes": -2,
+   "content": "<p>this will make the scores go higher and make this comp more interesting</p>"
+  },
+  {
+   "id": 3489242,
+   "authorName": "",
+   "postDate": "2026-07-05T14:47:29.073000",
+   "votes": 1,
+   "content": "<p>I replied already, you're the one who misunderstands.</p>"
+  },
+  {
+   "id": 3489382,
+   "authorName": "",
+   "postDate": "2026-07-05T16:19:45.090000",
+   "votes": 0,
+   "content": ""
+  },
+  {
+   "id": 3467646,
+   "authorName": "",
+   "postDate": "2026-06-07T00:49:51.143000",
+   "votes": 0,
+   "content": "<p>mine is same！</p>"
+  },
+  {
+   "id": 3468083,
+   "authorName": "",
+   "postDate": "2026-06-08T11:48:59.770000",
+   "votes": 1,
+   "content": "<p>Did you submit the exact same code? Asking because the name is different.</p>"
+  },
+  {
+   "id": 3468107,
+   "authorName": "",
+   "postDate": "2026-06-08T12:58:17.980000",
+   "votes": 0,
+   "content": "<p>yes,alllll same</p>"
+  },
+  {
+   "id": 3468176,
+   "authorName": "",
+   "postDate": "2026-06-08T15:44:57.907000",
+   "votes": 1,
+   "content": "<p>why different names?</p>"
+  },
+  {
+   "id": 3503766,
+   "authorName": "",
+   "postDate": "2026-07-26T10:42:26.293000",
+   "votes": 0,
+   "content": "<p>Sensei can I ask you for a favour </p>"
+  },
+  {
+   "id": 3467311,
+   "authorName": "",
+   "postDate": "2026-06-05T21:44:45.867000",
+   "votes": 2,
+   "content": ""
+  },
+  {
+   "id": 3466701,
+   "authorName": "",
+   "postDate": "2026-06-04T14:40:13.370000",
+   "votes": -2,
+   "content": ""
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+===== TOPIC 690497 | votes=1 | comments=9 | date=2026-04-12T00:40:32.406000
+TITLE: collecting solution from the competition
+
+--- [690497] OP msgid=3440116 date=2026-04-12T00:40:32.407000 votes=1
+would the competition winner use finetune LLM to win or use a creative solution?
+lets discusss our solution together
+
+--- [690497] reply#1 msgid=3448037 date=2026-04-24T13:52:46.623000 votes=0
+everyone,i have a new solution.lets focus on TIR and poolthreadtime
+
+--- [690497] reply#2 msgid=3441119 date=2026-04-13T14:22:14.557000 votes=0
+They will probably use fine-tuned LLMs with TTT (test time training). 
+One interesting direction I am trying is neuro-symbolic: a model that extracts scene structure, generates hypotheses about the transformation rule, then verifies them with executable code. 
+However, even large frontier models like Opus struggle on ARC-AGI-2 tasks, which makes such solution hard for reaching 85% due to the time constraints and the many required loops for hypotheses/testing with code
+
+--- [690497] reply#3 msgid=3441230 date=2026-04-13T17:26:15.463000 votes=0
+You get that you can't use frontier LLMs in the competition, right? Yuo can only use LLMs running locally.
+
+--- [690497] reply#4 msgid=3441330 date=2026-04-13T20:07:27.450000 votes=1
+Yes of course, I was just talking about frontier LLMs to solve the puzzle, extract the traces and train small ones with them.
+
+--- [690497] reply#5 msgid=3441434 date=2026-04-14T01:32:20.370000 votes=0
+Then you don't have much time constraints when using these frontier models if you use them offline. It is what confused me in your previous message.
+
+--- [690497] reply#6 msgid=3441510 date=2026-04-14T05:58:13.813000 votes=1
+Sorry that was not clear. Once you have the traces you can train a 4-7B model on them. 
+The time constraint comes from the 12h evaluation on Kaggle.
+More specifically on the small models for 400 tasks by:
+
+1. formulate hypothesis
+2. test prediction with some codes 
+3. if 2. is not correct re-feed 1. once or twice 
+
+Such small models, even trained might need a couple of such loops to generate something similar as frontier models.
+
+--- [690497] reply#7 msgid=3441348 date=2026-04-13T20:43:33.093000 votes=0
+
+
+--- [690497] reply#8 msgid=3441511 date=2026-04-14T05:59:24.227000 votes=0
+If you saved the traces, it would be a great dataset to have.
+Not only for the thinking solution, but to categorise each puzzles and performed specific augmentation
+
+--- [690497] reply#9 msgid=3441512 date=2026-04-14T06:03:02.517000 votes=0
+

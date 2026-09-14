@@ -1,0 +1,12 @@
+===== TOPIC 735044 | votes=0 | comments=2 | date=2026-08-13T17:33:54.863000
+TITLE: Where is the submit button and L4?
+
+--- [735044] OP msgid=3512641 date=2026-08-14T00:30:36.090000 votes=0
+u havent added the comp dataset ('no input attched'). add it, then u will find the l4 gpu
+
+--- [735044] reply#1 msgid=3512604 date=2026-08-13T21:28:28.970000 votes=0
+You have to create the notebook in the competition, i.e. use the Code panel here.
+Also turn internet off.
+
+--- [735044] reply#2 msgid=3512524 date=2026-08-13T17:33:54.863000 votes=0
+I did not see the submit button and can’t select L4x2.I did not see submitt buttona dn can't select L4x2.

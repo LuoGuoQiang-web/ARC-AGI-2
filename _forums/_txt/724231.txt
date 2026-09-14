@@ -1,0 +1,64 @@
+===== TOPIC 724231 | votes=4 | comments=19 | date=2026-07-10T06:48:48.106000
+TITLE: Can't load Competition data and L4s
+
+--- [724231] OP msgid=3502799 date=2026-07-24T20:47:34.450000 votes=1
+Hi @tanyong666 and @madarshbb -- this issue has been fixed!
+
+--- [724231] reply#1 msgid=3502862 date=2026-07-25T00:27:48.633000 votes=0
+Everything works fine now. thanks!
+
+--- [724231] reply#2 msgid=3502288 date=2026-07-23T23:55:26.193000 votes=1
+Hey y'all we released a fix for this, are y'all still having this issue?
+
+--- [724231] reply#3 msgid=3502294 date=2026-07-24T00:19:46.760000 votes=0
+All good now
+
+--- [724231] reply#4 msgid=3494522 date=2026-07-10T06:48:48.107000 votes=4
+Has anyone run into this issue? It started happening today — all Competition details, stats and L4s content are missing.
+
+--- [724231] reply#5 msgid=3496586 date=2026-07-14T08:36:19.883000 votes=2
+I got the same, weird, datasets are not carried over in a fork by default.
+
+--- [724231] reply#6 msgid=3498057 date=2026-07-15T02:20:11.577000 votes=0
+It seems to be working now.
+
+--- [724231] reply#7 msgid=3498127 date=2026-07-15T06:04:30.960000 votes=0
+Yes, same for me; thanks for posting it - I had no clue what was happening.
+
+--- [724231] reply#8 msgid=3494539 date=2026-07-10T07:56:35.273000 votes=1
+Everything works fine after manually adding all the data.
+
+--- [724231] reply#9 msgid=3494748 date=2026-07-10T15:58:55.307000 votes=0
+Maybe you didn't wait long enough for it to load when you copied it.
+
+--- [724231] reply#10 msgid=3494908 date=2026-07-11T01:44:18.910000 votes=0
+Every time I edit the notebook, there's still no data.
+
+--- [724231] reply#11 msgid=3494987 date=2026-07-11T08:04:00.853000 votes=0
+Same situation
+
+--- [724231] reply#12 msgid=3494989 date=2026-07-11T08:13:24.277000 votes=0
+
+
+--- [724231] reply#13 msgid=3494992 date=2026-07-11T08:18:20.020000 votes=0
+You can try adding the data pip-install-unsloth-flash-patch
+
+--- [724231] reply#14 msgid=3500116 date=2026-07-18T15:33:16.343000 votes=0
+This issue is still happening.
+It's becoming really frustrating to manually reattach all datasets, models, and scripts every time I copy a notebook just to edit. 
+Is the Kaggle team working on improving this workflow? Also, is this an intentional design change to discourage copying and repeatedly submitting notebooks, or is it an unintended regression?
+
+--- [724231] reply#15 msgid=3500288 date=2026-07-19T01:06:51.797000 votes=0
+Yes, the issue persists again.
+
+--- [724231] reply#16 msgid=3500300 date=2026-07-19T02:50:39.483000 votes=1
+@herbison Hi, sorry to tag you but can you help out here? Thank you!
+
+--- [724231] reply#17 msgid=3500656 date=2026-07-20T07:00:00.207000 votes=0
+Same issue persists for me as well, @macruzbar @gregkamradt could you help us with the above?
+
+--- [724231] reply#18 msgid=3500833 date=2026-07-20T17:24:35.267000 votes=1
+Hi @madarshbb -- thank you for the flag, we are looking into this issue. Stay tuned!
+
+--- [724231] reply#19 msgid=3494770 date=2026-07-10T16:53:05.663000 votes=0
+

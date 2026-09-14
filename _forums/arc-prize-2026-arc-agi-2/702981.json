@@ -1,0 +1,68 @@
+{
+ "topic": {
+  "id": 702981,
+  "title": "Why Are We Still Enumerating Primitives?",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 1,
+  "postDate": "2026-05-27T19:45:20.957000"
+ },
+ "messages": [
+  {
+   "id": 3463919,
+   "authorName": "",
+   "postDate": "2026-05-28T10:05:03.350000",
+   "votes": 1,
+   "content": "<p>Which DSL are you discussing?</p>"
+  },
+  {
+   "id": 3464115,
+   "authorName": "",
+   "postDate": "2026-05-28T19:38:26.880000",
+   "votes": 0,
+   "content": "<p>No specific one — I was thinking about DSL design in general. \nMost public solvers I've seen use a flat primitive vocabulary \n(MindsAI-style, BARC, etc). I was wondering whether replacing \ndiscrete primitives with parametric function families would \nchange the search dynamics meaningfully. \nHave you explored anything along those lines?</p>"
+  },
+  {
+   "id": 3464256,
+   "authorName": "",
+   "postDate": "2026-05-29T10:31:16.663000",
+   "votes": 1,
+   "content": "<p>I never believed in DSL approach for arc agi2. We shared what we explored, see our winning solution from last year.</p>"
+  },
+  {
+   "id": 3464478,
+   "authorName": "",
+   "postDate": "2026-05-29T23:23:41.740000",
+   "votes": -1,
+   "content": "<p>I’d have to disagree, I believe a DSL is exactly what will solve this. I think I’ve cracked it. Once I finish cleaning up the code, I’ll share the full result with you.</p>"
+  },
+  {
+   "id": 3464490,
+   "authorName": "",
+   "postDate": "2026-05-30T03:01:14.660000",
+   "votes": 5,
+   "content": "<p>It is fine to have a different opinion. </p>\n<p>Please don't share result with me, especially privately. Submit to the competition rather. Tha's how you can show that your ideas work.</p>\n<p>The LB at end of competition will tell who is right.</p>"
+  },
+  {
+   "id": 3495098,
+   "authorName": "",
+   "postDate": "2026-07-11T13:02:31.477000",
+   "votes": 0,
+   "content": "<p>What is DSL?</p>"
+  },
+  {
+   "id": 3495528,
+   "authorName": "",
+   "postDate": "2026-07-12T13:07:25.070000",
+   "votes": 0,
+   "content": "<p>domain specific language.</p>"
+  },
+  {
+   "id": 3463748,
+   "authorName": "",
+   "postDate": "2026-05-27T19:45:20.957000",
+   "votes": 1,
+   "content": "<p>Why Are We Still Enumerating Primitives?</p>\n<p>Something has been bugging me about current DSL approaches to ARC.</p>\n<p>I think the issue is more fundamental: primitives are the wrong abstraction level.</p>\n<p>When you look at ARC tasks, most \"different\" operations share obvious structural \nsimilarities. Rotate, flip, transpose — these aren't three independent things. \nThey're variations of the same thing. Same with recolor, fill, erase — all \nvariations on a theme.</p>\n<p>So why do our DSLs treat them as separate atoms?</p>\n<p>What if, instead of searching over a flat list of named operations, we searched \nover a smaller space that naturally generates those operations as special cases?</p>\n<p>Where it breaks down is topology-dependent tasks — anything that requires \nunderstanding connected components, holes, boundaries. There the problem \nisn't \"which transform\" but \"which features matter.\" </p>\n<p>Curious if anyone has thoughts on what the right abstraction level looks like. \nThe current approach of \"add more primitives\" feels like it's hitting a wall.</p>"
+  }
+ ]
+}

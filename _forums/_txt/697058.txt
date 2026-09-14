@@ -1,0 +1,23 @@
+===== TOPIC 697058 | votes=4 | comments=6 | date=2026-05-05T05:24:59.299000
+TITLE: Funny observation
+
+--- [697058] OP msgid=3453190 date=2026-05-05T05:24:59.300000 votes=4
+I like how my model kinda gets the idea of this puzzle, but implementation is a bit nonchalant 😂
+
+--- [697058] reply#1 msgid=3453237 date=2026-05-05T06:48:39.757000 votes=0
+wow, interesting, can you give more detail of this puzzle? like it ID, or its full training set?
+
+--- [697058] reply#2 msgid=3453988 date=2026-05-06T11:20:53.090000 votes=0
+yeah it's a puzzle 16b78196 from arc-agi-2 eval subset.
+
+--- [697058] reply#3 msgid=3454057 date=2026-05-06T14:04:37.633000 votes=1
+yea this pullze is quite complex.
+
+--- [697058] reply#4 msgid=3454114 date=2026-05-06T16:01:35.347000 votes=0
+How strange. That's not the image for 017c7c7b.
+
+--- [697058] reply#5 msgid=3454208 date=2026-05-06T18:08:55.553000 votes=0
+o yea, let me check check again
+
+--- [697058] reply#6 msgid=3454213 date=2026-05-06T18:12:50.657000 votes=0
+sorry, my mistake

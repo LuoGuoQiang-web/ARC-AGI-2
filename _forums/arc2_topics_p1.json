@@ -1,0 +1,163 @@
+﻿[
+  {
+    "id": 689054,
+    "title": "Upgraded Accelerators",
+    "authorName": "",
+    "commentCount": 7,
+    "votes": 21,
+    "postDate": "2026-04-07T16:31:11.629000"
+  },
+  {
+    "id": 689254,
+    "title": "ARC Prize 2026 - ARC-AGI-2 - Let's go!",
+    "authorName": "",
+    "commentCount": 7,
+    "votes": 8,
+    "postDate": "2026-04-08T02:26:47.245000"
+  },
+  {
+    "id": 684441,
+    "title": "How to get started + Competition's Official Discord",
+    "authorName": "",
+    "commentCount": 1,
+    "votes": 4,
+    "postDate": "2026-03-24T21:16:14.165000"
+  },
+  {
+    "id": 740808,
+    "title": "Copywriter & Psychology Researcher looking to unlock the Paper Track ($450k pool) for an active AGI-2 Team!",
+    "authorName": "",
+    "commentCount": 6,
+    "votes": -7,
+    "postDate": "2026-09-11T12:02:16.084000"
+  },
+  {
+    "id": 740422,
+    "title": "clarification ",
+    "authorName": "",
+    "commentCount": 6,
+    "votes": 0,
+    "postDate": "2026-09-09T16:14:51.172000"
+  },
+  {
+    "id": 724647,
+    "title": "Good to see movement on LB",
+    "authorName": "",
+    "commentCount": 17,
+    "votes": 12,
+    "postDate": "2026-07-12T13:03:23.331000"
+  },
+  {
+    "id": 739494,
+    "title": "Team formation",
+    "authorName": "",
+    "commentCount": 9,
+    "votes": 2,
+    "postDate": "2026-09-04T11:11:58.896000"
+  },
+  {
+    "id": 740268,
+    "title": "Rules clarification: OSAID base-model requirement vs. the incompatible-license carve-out (Section 2.5)",
+    "authorName": "",
+    "commentCount": 0,
+    "votes": 1,
+    "postDate": "2026-09-08T21:01:43.461000"
+  },
+  {
+    "id": 738313,
+    "title": "Weird timeout",
+    "authorName": "",
+    "commentCount": 8,
+    "votes": 11,
+    "postDate": "2026-08-31T08:25:14.409000"
+  },
+  {
+    "id": 737594,
+    "title": "Use dynamic Python library in Kaggle or use Docker from GitHub repository",
+    "authorName": "",
+    "commentCount": 12,
+    "votes": 1,
+    "postDate": "2026-08-26T08:49:11.119000"
+  },
+  {
+    "id": 737679,
+    "title": "Rules clarification: hosted AI coding assistants",
+    "authorName": "",
+    "commentCount": 2,
+    "votes": 0,
+    "postDate": "2026-08-26T18:55:14.182000"
+  },
+  {
+    "id": 735058,
+    "title": "Restrictions on NVARC's Winning Model?",
+    "authorName": "",
+    "commentCount": 13,
+    "votes": 2,
+    "postDate": "2026-08-13T18:44:21.636000"
+  },
+  {
+    "id": 709522,
+    "title": "Historical leaderboard with runtime information",
+    "authorName": "",
+    "commentCount": 6,
+    "votes": 28,
+    "postDate": "2026-06-19T03:27:19.292000"
+  },
+  {
+    "id": 694676,
+    "title": "To group nvbanana",
+    "authorName": "",
+    "commentCount": 11,
+    "votes": -4,
+    "postDate": "2026-04-26T10:33:51.411000"
+  },
+  {
+    "id": 735545,
+    "title": "Solution 5545f144",
+    "authorName": "",
+    "commentCount": 1,
+    "votes": 0,
+    "postDate": "2026-08-16T17:49:18.188000"
+  },
+  {
+    "id": 735044,
+    "title": "Where is the submit button and L4?",
+    "authorName": "",
+    "commentCount": 2,
+    "votes": 0,
+    "postDate": "2026-08-13T17:33:54.863000"
+  },
+  {
+    "id": 733930,
+    "title": "Any plans to release the SFT recipe or data mixture behind qwen3_4b_grids15_sft139, or an updated checkpoint? And roughly how many synthetic puzzles went into training?",
+    "authorName": "",
+    "commentCount": 5,
+    "votes": -3,
+    "postDate": "2026-08-09T05:34:35.069000"
+  },
+  {
+    "id": 734068,
+    "title": "ARC-AGI-1's train/eval gap was mild. ARC-AGI-2's is not - measured across both corpora",
+    "authorName": "",
+    "commentCount": 0,
+    "votes": 0,
+    "postDate": "2026-08-09T17:54:29.410000"
+  },
+  {
+    "id": 734018,
+    "title": "The evaluation split is measurably harder than training \u2014 structural analysis of all 1,120 tasks",
+    "authorName": "",
+    "commentCount": 0,
+    "votes": 1,
+    "postDate": "2026-08-09T15:01:55.734000"
+  },
+  {
+    "id": 733501,
+    "title": "Program Synthesis beats no reasoning on ARC-AGI-2 ",
+    "authorName": "",
+    "commentCount": 3,
+    "votes": 2,
+    "postDate": "2026-08-07T06:14:00.668000"
+  }
+]
+Next Page Token = 2

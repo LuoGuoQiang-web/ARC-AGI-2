@@ -1,0 +1,82 @@
+{
+ "topic": {
+  "id": 739494,
+  "title": "Team formation",
+  "authorName": "",
+  "commentCount": 9,
+  "votes": 2,
+  "postDate": "2026-09-04T11:11:58.896000"
+ },
+ "messages": [
+  {
+   "id": 3521281,
+   "authorName": "",
+   "postDate": "2026-09-05T12:24:52.957000",
+   "votes": 1,
+   "content": "<p>0% also but not on public training data (hmirror, vmirror, cmirror, dmirror, etc. are found), it is better than the same approach with LLM like llama3:8b or mistral:7b.</p>"
+  },
+  {
+   "id": 3520886,
+   "authorName": "",
+   "postDate": "2026-09-04T11:11:58.897000",
+   "votes": 2,
+   "content": "<p>Hello! I have independently developed an experimental approach for the ARC AGI 2 benchmark (see my GitHub repository <code>aicpp</code>: <a href=\"https://github.com/Julien-Livet/aicpp/tree/dsl_engine)\" target=\"_blank\">https://github.com/Julien-Livet/aicpp/tree/dsl_engine)</a>.</p>\n<p>My current leaderboard score is zero, but I believe there is an interesting approach worth exploring. Despite limited training, the model is already able to generate and execute non-trivial symbolic programs that improve substantially over the identity baseline on some tasks, although it does not yet reliably find the exact solutions.</p>\n<p>I have identified a bottleneck in the model's learning/search process that I have not been able to fully understand or resolve on my own. I am therefore looking to form a small team around this approach, particularly with people interested in neural-guided program synthesis, search, ML, or ARC.</p>\n<p>The goal would be to understand and break this bottleneck, improve the system, and see how far the approach can go on ARC AGI 2.</p>\n<p>If this sounds interesting to you, feel free to reach out or take a look at the repository!</p>"
+  },
+  {
+   "id": 3523393,
+   "authorName": "",
+   "postDate": "2026-09-11T11:18:06.683000",
+   "votes": 0,
+   "content": "<p>hey Julien i have experience in copywriting and psychology, if there is space left for one more member, I'd love to join. I am doing research and find hidden spice patterns. i have studied contextual retrieval  and sematic entropy. </p>"
+  },
+  {
+   "id": 3521296,
+   "authorName": "",
+   "postDate": "2026-09-05T12:58:30.517000",
+   "votes": 0,
+   "content": "<p>I am using Hodel's DSL, which strikes me as sufficiently expressive and well-suited for the task. The model successfully uses the DSL to generate valid programs (see <a href=\"https://github.com/Julien-Livet/aicpp/blob/dsl_engine/scripts/dsl_model.md)\" target=\"_blank\">https://github.com/Julien-Livet/aicpp/blob/dsl_engine/scripts/dsl_model.md)</a>. Indeed, a single rule can have multiple solutions with this DSL.</p>"
+  },
+  {
+   "id": 3521302,
+   "authorName": "",
+   "postDate": "2026-09-05T13:11:15.510000",
+   "votes": 0,
+   "content": ""
+  },
+  {
+   "id": 3521317,
+   "authorName": "",
+   "postDate": "2026-09-05T14:30:33.487000",
+   "votes": 0,
+   "content": "<p>Yes of course.</p>"
+  },
+  {
+   "id": 3521285,
+   "authorName": "",
+   "postDate": "2026-09-05T12:30:12.323000",
+   "votes": 0,
+   "content": "<p>For more information about my approach if needed, <a href=\"https://discord.gg/ncEZUS38\" target=\"_blank\">https://discord.gg/ncEZUS38</a>.</p>"
+  },
+  {
+   "id": 3521279,
+   "authorName": "",
+   "postDate": "2026-09-05T12:22:35.393000",
+   "votes": 0,
+   "content": "<p>your submitted score is 0, but how much do you get on the public evaluation data?</p>"
+  },
+  {
+   "id": 3521249,
+   "authorName": "",
+   "postDate": "2026-09-05T09:54:25",
+   "votes": 0,
+   "content": "<p>I am looking for 1–2 people with strong experience in neural-guided search / program synthesis / representation learning to help diagnose a specific training bottleneck in my ARC-AGI-2 system. The system is already implemented and has a reproducible baseline; I am not looking for people to start an ARC solver from scratch.</p>"
+  },
+  {
+   "id": 3521292,
+   "authorName": "",
+   "postDate": "2026-09-05T12:50:01.417000",
+   "votes": 0,
+   "content": ""
+  }
+ ]
+}

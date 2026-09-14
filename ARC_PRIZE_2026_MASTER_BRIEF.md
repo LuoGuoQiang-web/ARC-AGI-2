@@ -201,9 +201,22 @@ $$\text{平均} \le \frac{a + 25}{6}$$
 ### 2.4 Kaggle 免费 GPU 事实（**2026-09-14 全面修订**）
 
 - **手机验证是开启 GPU/TPU/Internet 的前置条件**（`kaggle.com/settings` → Phone Verification）。✅ 本账号已通过。
-- 加速器：**必须显式指定 `machine_shape`**。只设 `enable_gpu=true` 会得到通用 `Gpu` 形状，实测被分到
-  **Tesla P100（sm_60）**，而 torch 2.10+cu128 只支持 sm_70+ → **每个 CUDA 算子都失败、每题异常被
-  吞掉、报告 `errors` 为空、静默产出 100% 兜底提交**。正确值：**`machine_shape = "NvidiaTeslaT4"`**。
+- 加速器：**必须显式指定 `machine_shape`，且正确值是 `NvidiaL4`**（2026-09-14 实测更正，
+  此前写 `NvidiaTeslaT4` 是**错的**）。
+  - **`NvidiaL4` = 4× NVIDIA L4，每张 22.03 GiB，共 88 GiB，compute capability 8.9。**
+    竞赛官方页面《Upgraded Accelerators》(2026-04-07) 原文：*"This competition has access to
+    Kaggle's pool of powerful new L4x4 machines! These machines offer 96GB of GPU memory."*
+    额度按 **2 倍**速率扣（不是 4 倍），所以每周 30 h 额度 ≈ 15 h 墙钟。
+  - ⚠️ **踩坑 1**：字符串是 **`NvidiaL4`**，**不是 `NvidiaL4x4`**。写 `NvidiaL4x4` 会被
+    **静默降级成 Tesla P100**（sm_60），而 P100 上 torch 2.10+cu128 每个 CUDA 算子都失败。
+  - ⚠️ **踩坑 2**：只设 `enable_gpu=true` 得到通用 `Gpu` 形状，同样落到 P100。
+  - ⚠️ **踩坑 3**：`assert_gpu_compatible()` 原来用 `torch.cuda.get_arch_list()` 做**集合判定**，
+    而该列表**不含 `sm_89`** → **它把 L4 判成不可用**，等于亲手拒绝了本竞赛能拿到的最好硬件。
+    L4 实测可用（分配、fp32 matmul、autograd、bf16 autocast、8192-token 前向全部通过）——
+    torch 自己的闸门是**区间**判定（7.0–12.0），sm_89 在区间内，走 PTX JIT。
+    **已改为跑一个真实算子来判定，而不是读清单。**
+  - **代价**：整场战役此前一直跑在 **1× Tesla T4（14.56 GiB）** 上，而 88 GiB 一直可用。
+    论文里"TTT 在 14.56 GiB 上装不下"的结论必须改写成**配置失误**，不是任务固有上限。
 - 额度（**2026-09-14T03:47Z 用 `subprocess kaggle quota` + 类型化字段二次核对**）：
   - **GPU `totalTimeAllowed = 108,000s` = 30.0 小时/周期**（`minimumTimeAllowed` 同为 108,000s，
     `isPayToScaleEnabled=false`）

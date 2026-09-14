@@ -1,0 +1,54 @@
+===== TOPIC 694745 | votes=4 | comments=8 | date=2026-04-26T19:11:07.251000
+TITLE: Request to increase daily submissions
+
+--- [694745] OP msgid=3448850 date=2026-04-26T19:11:07.250000 votes=4
+The number of daily submissions was decreased starting in 2024 after the start of the competition. Then it was further reduced to 1 per day in 2025. I think there was some concern about overfitting, which could be more of a concern in a competition without a separate private test set. With the compute increased to L4x4 GPUs, competitors without significant compute backing have little hope of testing their solutions. Kaggle's weekly limit of 30 hours would be more than used up in a single 12-hour test of a solution (12 hours x 4 = 48 hours). Increasing the daily submission limit would even the playing field slightly allowing for more solution testing against the semi-private test set. The competition integrity is preserved by the private test set, since it is impossible to overfit on it. I think last year's competition proved that. Otherwise, individuals with lower compute resources have very little hope of winning against big labs or people with more compute access. Since this is the last year of ARC-AGI-2, I would ask that this limit be relaxed allowing for a better competition.
+
+--- [694745] reply#1 msgid=3448859 date=2026-04-26T20:00:08.590000 votes=1
+Since this is the last year of ARC-AGI-2,
+
+Really? Where was this stated?
+I believe you, it is just that I missed it obviously.
+Back to your request, I think the 1 per day limit is mostly to save compute resources on Kaggle infra.
+
+--- [694745] reply#2 msgid=3448863 date=2026-04-26T20:13:44.680000 votes=2
+Really? Where was this stated?
+
+Yes, François said it here:
+https://x.com/fchollet/status/2036861751845855593?s=20 
+
+ Back to your request, I think the 1 per day limit is mostly to save compute resources on Kaggle infra.
+
+That's not why it was done before. But certainly Google has a compute crunch this year, and I could understand if that is a reason for not increasing. I suspect they just kept it from last year. When the competition started this year, they were using the p100/t4x2. Which are obviously not limited given that most competitions allow 5 submissions per day with them.
+
+--- [694745] reply#3 msgid=3449138 date=2026-04-27T15:40:04.310000 votes=3
+I also mention it here
+https://youtu.be/f_xT45Pi0UQ?t=821 
+Since it is the last year, we will also be guaranteeing the grand prize payout. You can see the pull prize breakdown on this competitions home page
+
+--- [694745] reply#4 msgid=3449141 date=2026-04-27T15:42:56.173000 votes=0
+Kaggle's weekly limit of 30 hours would be more than used up in a single 12-hour test of a solution (12 hours x 4 = 48 hours)
+
+Does this effectively mean you get 1x submission per week using full compute? and the rest are without accelerators?
+
+ Increasing the daily submission limit would even the playing field slightly allowing for more solution testing against the semi-private test set.
+
+The Semi Private set shouldn't be used to test against but rather used to validate your submission in general. We want to make sure that serious competitors get access to the tools (ex: compute) they need to do well and we have connected many people with our parters in the past to do so.
+
+--- [694745] reply#5 msgid=3449170 date=2026-04-27T16:11:36.857000 votes=0
+Does this effectively mean you get 1x submission per week using full compute? and the rest are without accelerators?
+
+no, gpu use when submitting is not subject to user quota.
+The quota is for testing code.
+
+--- [694745] reply#6 msgid=3449218 date=2026-04-27T17:58:28.313000 votes=0
+We want to make sure that serious competitors get access to the tools (ex: compute) they need to do well and we have connected many people with our parters in the past to do so.
+
+Yes, thank you for that last year. I wasn't sure if that would apply to ARC-AGI-2 this year or not with the advent of ARC-AGI-3.
+
+--- [694745] reply#7 msgid=3449240 date=2026-04-27T18:54:03.723000 votes=1
+the website says 'supporting ARC Prize 2025 participants'. 
+wondering whether compute partners will also be available for the arc’26 competition???
+
+--- [694745] reply#8 msgid=3491052 date=2026-07-06T15:23:03.913000 votes=0
+Can I buy more quota from Kaggle? Or how do we get considered for more compute?

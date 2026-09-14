@@ -1,0 +1,19 @@
+===== TOPIC 699675 | votes=1 | comments=1 | date=2026-05-14T17:52:00.101000
+TITLE:  UTILITY SCRIPTS 
+
+--- [699675] OP msgid=3457963 date=2026-05-14T17:52:00.100000 votes=1
+Can anybody provide a utility script/setup so that I can run code properly?
+I am currently using pip-install-unsloth-flash-patch.
+The issue is mainly when i am starting the session it is giving an fatal error.
+Would really appreciate any working setup script or utility notebook.
+
+--- [699675] reply#1 msgid=3458711 date=2026-05-16T13:30:45.723000 votes=0
+I think there's a problem with the latest version of the environment (Docker image).
+If you have an existing notebook from two days ago (pinned to the original environment), you can duplicate it to use the older image.
+For newly created notebooks, the problem persists. Notebooks created two days ago work without any issues.
+It seems the utility script's path is broken.
+I was getting the same error (status code 56) when attaching utility scripts to my notebook.
+The problem was resolved by accessing the settings of each utility script (Settings > Environment Preferences) and enabling the "Always use latest environment" option, then saving a new version. Next, I checked for updates by going to Input > Utility Scripts in the notebook's right sidebar for each script.
+The notebook then started without any problems.
+Alternatively, as an extreme solution: use an old, working notebook, delete all the cells, and copy and paste your "new" cells; this also works while they fix the environment problem (Docker image).
+@gregkamradt , or someone from the Kaggle staff, could you please fix the environment issue (Docker image)?

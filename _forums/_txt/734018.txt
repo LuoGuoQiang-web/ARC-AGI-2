@@ -1,0 +1,23 @@
+===== TOPIC 734018 | votes=1 | comments=0 | date=2026-08-09T15:01:55.734000
+TITLE: The evaluation split is measurably harder than training — structural analysis of all 1,120 tasks
+
+--- [734018] OP msgid=3510772 date=2026-08-09T15:01:55.733000 votes=1
+I ran a structural pass over all 1,120 tasks (1,000 training + 120 evaluation) looking only at invariants you can compute without solving anything — output-shape rules, palette behaviour, symmetry, grid size. The train/eval gap that fell out is larger than I expected, and I think it's worth knowing before you tune anything.
+What the corpus looks like structurally:
+• 68.0% of training tasks have an identity shape rule (output canvas = input canvas), 18.6% are crops. So ~86% have an output shape derivable by rule.
+• 69.6% never introduce a colour the input didn't already contain.
+• Only 0.9% are "pure recolouring" (same shape, same occupancy, one consistent colour map) — and 0.0% of evaluation. Probably not worth a special case.
+The train/eval shift:
+• Median max grid area: 144 (train) vs 400 (eval) — about 2.8x
+• Median distinct colours: 5 vs 7
+• Input has some symmetry: 21.3% vs 9.2%
+• Shape rule inconsistent across a task's own demo pairs: 4.9% vs 11.7%
+I tried to kill this result before believing it. Permutation test on the median area gap, 20,000 resamples, p < 0.0001. And it isn't a ceiling artifact from the 30x30 cap — excluding every capped grid, the medians are still 142 vs 400.
+Then the same shift shows up in an actual score. A deliberately dumb solver (10 grid primitives — rotations, flips, transpose, crop-to-content, dedup rows/cols, colour-name — composed to depth 2, plus a fitted colour map, requiring consistency across every demo pair) gets:
+• Training: 20/1000 = 2.0%
+• Evaluation: 0/120 = 0.0%
+And the programs that do work on training are exactly the ones you'd expect from the numbers above: dedup, crop_content, colour_map, plain rotations. Small, symmetric, few-colour tasks — over-represented in training, rare in evaluation.
+Practical upshot: if you calibrate search budgets, grid-size assumptions or symmetry priors on the training split, you're calibrating against a distribution whose typical task is ~2.8x smaller in area, has two fewer colours, and is more than twice as likely to hand you an exploitable symmetry. Local validation will flatter you.
+Full analysis, every number recomputed in-notebook, nothing quoted from elsewhere:
+https://www.kaggle.com/code/maximolorenzoylosada/arc-agi-2-a-structural-atlas-of-the-corpus 
+Happy to be corrected on any of this — if a definition looks wrong to you (particularly how I'm calling a shape rule "inconsistent"), say so and I'll fix it.

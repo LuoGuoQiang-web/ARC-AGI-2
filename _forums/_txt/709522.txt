@@ -1,0 +1,27 @@
+===== TOPIC 709522 | votes=28 | comments=6 | date=2026-06-19T03:27:19.292000
+TITLE: Historical leaderboard with runtime information
+
+--- [709522] OP msgid=3515377 date=2026-08-21T16:16:47.140000 votes=1
+But now its hagging off. I didn't make it to a better score yet.
+
+--- [709522] reply#1 msgid=3515160 date=2026-08-21T00:12:21.490000 votes=1
+AIMO3, Nemotron, now ARC-AGI 2 and 3. At this point, @huikang is a Critical Competition Infrastructure
+
+--- [709522] reply#2 msgid=3515164 date=2026-08-21T00:15:56.877000 votes=2
+Well, Kaggle could have made this a feature
+
+--- [709522] reply#3 msgid=3501491 date=2026-07-22T05:21:35.707000 votes=1
+Great work! Thank you for this. I just have one suggestion. The horizontal scroll bar is not accessible as it is at the bottom of the table and the table expands as we scroll vertically. Is it possible to modify this? May be move the scroll bar to the top and also freeze the header?
+
+--- [709522] reply#4 msgid=3504051 date=2026-07-27T05:29:10.787000 votes=1
+It works. Thank you!
+
+--- [709522] reply#5 msgid=3474916 date=2026-06-19T03:27:19.293000 votes=28
+I made the historical leaderboard for ARC Price 2026 - ARC-AGI-2
+https://arc3.huikang.dev/leaderboard/?comp=arc2 
+Here is a screenshot.
+
+This was done for AIMO3 and it was helpful for many people, since I am doing this for ARC-AGI-3 , so I am doing this here as well.
+
+--- [709522] reply#6 msgid=3475229 date=2026-06-19T16:46:07.110000 votes=1
+thank you!🙇

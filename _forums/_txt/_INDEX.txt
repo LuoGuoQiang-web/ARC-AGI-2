@@ -1,0 +1,69 @@
+topic_id | votes | comments | date | bytes | title
+709522 | 28 | 6 | 2026-06-19T03:27:19.292000 | 1457 | Historical leaderboard with runtime information
+685142 | 24 | 21 | 2026-03-27T00:29:52.980000 | 4717 | Last Years 1st Place Solution
+689054 | 21 | 7 | 2026-04-07T16:31:11.629000 | 2889 | Upgraded Accelerators
+694698 | 20 | 2 | 2026-04-26T12:08:12.016000 | 1639 | 95% on ARC AGI1 evaluation
+724647 | 12 | 17 | 2026-07-12T13:03:23.331000 | 5066 | Good to see movement on LB
+691081 | 11 | 18 | 2026-04-13T19:46:35.083000 | 4249 | When will a new model be top?
+729743 | 11 | 4 | 2026-07-26T13:51:26.775000 | 5822 | Open-sourcing my work and analysis until now
+738313 | 11 | 8 | 2026-08-31T08:25:14.409000 | 2095 | Weird timeout
+697859 | 10 | 23 | 2026-05-07T16:48:56.703000 | 8408 | Bitterbot's TOPAS Architecture Submission: 11.67% LB vs ~36% Local (Managing TTT Timeouts)
+687095 | 8 | 3 | 2026-04-02T07:24:05.513000 | 485 | when will we get gpu L4x4
+689254 | 8 | 7 | 2026-04-08T02:26:47.245000 | 3108 | ARC Prize 2026 - ARC-AGI-2 - Let's go!
+698462 | 8 | 7 | 2026-05-10T03:01:37.995000 | 2959 | task  17829a00
+684662 | 5 | 7 | 2026-03-25T18:43:54.428000 | 2887 | Discrepancy between stated prizes on Kaggle page & ARC-AGI-2 2026 page?
+694653 | 5 | 1 | 2026-04-26T06:41:42.147000 | 1826 | [Open Source] 400/400 ARC-1 Training Dataset Solver Released!
+731040 | 5 | 5 | 2026-07-30T17:14:17.309000 | 1315 | does task 963c33f8 contains an error ?
+732723 | 5 | 2 | 2026-08-04T11:43:51.258000 | 3600 | (PUBLIC) Nex-N2-mini vs Aquila-mini: two 35B post-trains on ARC-AGI-2, head to head
+684441 | 4 | 1 | 2026-03-24T21:16:14.165000 | 2347 | How to get started + Competition's Official Discord
+687701 | 4 | 5 | 2026-04-03T13:33:43.261000 | 4980 | What is ARC actually measuring?
+694745 | 4 | 8 | 2026-04-26T19:11:07.251000 | 4348 | Request to increase daily submissions
+694825 | 4 | 3 | 2026-04-27T10:55:31.304000 | 2206 | How many general classes does this competition exist?
+697058 | 4 | 6 | 2026-05-05T05:24:59.299000 | 1010 | Funny observation
+704079 | 4 | 3 | 2026-06-03T04:42:05.241000 | 870 |  Daily Submission Limit 
+704408 | 4 | 21 | 2026-06-04T13:16:01.629000 | 3908 | Submission finished in ~15 minutes with 0.00 score and no error
+724231 | 4 | 19 | 2026-07-10T06:48:48.106000 | 3019 | Can't load Competition data and L4s
+684857 | 3 | 10 | 2026-03-26T08:52:17.152000 | 3297 | How the current dataset compares with ARC-AGI-1?
+720019 | 3 | 0 | 2026-07-05T14:01:03.104000 | 1051 | A visual deep-dive into ARC-AGI-2 tasks, the metric, and a baseline
+685621 | 2 | 1 | 2026-03-28T16:51:31.563000 | 993 | Can models be trained elsewhere, and the submission run time be used purely for inference?
+693607 | 2 | 2 | 2026-04-21T17:28:06.255000 | 1662 | Training data augmentation
+712218 | 2 | 5 | 2026-06-22T16:01:32.181000 | 3354 | ARC agi 2 rubix solver
+729509 | 2 | 3 | 2026-07-25T19:40:33.498000 | 805 | What's Nvbanana cooking?
+733501 | 2 | 3 | 2026-08-07T06:14:00.668000 | 5293 | Program Synthesis beats no reasoning on ARC-AGI-2 
+735058 | 2 | 13 | 2026-08-13T18:44:21.636000 | 3159 | Restrictions on NVARC's Winning Model?
+739494 | 2 | 9 | 2026-09-04T11:11:58.896000 | 3094 | Team formation
+684880 | 1 | 1 | 2026-03-26T11:14:58.351000 | 687 | Have anyone try to use gpu or tpu?
+685660 | 1 | 0 | 2026-03-28T18:38:46.187000 | 1156 | Question About Open-Weight Models in Offline Evaluation
+690497 | 1 | 9 | 2026-04-12T00:40:32.406000 | 2519 | collecting solution from the competition
+693263 | 1 | 2 | 2026-04-20T12:58:46.570000 | 999 | the leaderboard is stuck?
+696718 | 1 | 2 | 2026-05-03T17:46:09.910000 | 9070 | Running ARC-AGI-2 on an Intel Arc A770 — setup + what works (no CUDA path)
+699675 | 1 | 1 | 2026-05-14T17:52:00.101000 | 1656 |  UTILITY SCRIPTS 
+702981 | 1 | 7 | 2026-05-27T19:45:20.957000 | 2674 | Why Are We Still Enumerating Primitives?
+734018 | 1 | 0 | 2026-08-09T15:01:55.734000 | 2685 | The evaluation split is measurably harder than training — structural analysis of all 1,120 tasks
+737594 | 1 | 12 | 2026-08-26T08:49:11.119000 | 2741 | Use dynamic Python library in Kaggle or use Docker from GitHub repository
+740268 | 1 | 0 | 2026-09-08T21:01:43.461000 | 2238 | Rules clarification: OSAID base-model requirement vs. the incompatible-license carve-out (Section 2.5)
+689423 | 0 | 0 | 2026-04-08T16:26:22.755000 | 445 | Submission scoring error
+691202 | 0 | 9 | 2026-04-14T07:14:58.338000 | 1642 | is this normal ?
+693074 | 0 | 2 | 2026-04-19T12:30:53.044000 | 2511 | '/kaggle/inference_outputs' does not exist.
+694618 | 0 | 0 | 2026-04-25T21:26:52.410000 | 7945 | EGO-ARC: Embryonic Growth Approach (local ARC-AGI-1 sandbox, 9/50 -> 17/50)
+696364 | 0 | 2 | 2026-05-02T00:35:55.589000 | 1072 | Double GPU Quota consomption
+697831 | 0 | 0 | 2026-05-07T15:25:30.489000 | 653 | Can't submit notebook through kaggle CLI API
+699858 | 0 | 8 | 2026-05-15T14:05:51.088000 | 3285 | What is the Public Score's denominator?
+701528 | 0 | 1 | 2026-05-18T22:07:36.838000 | 1277 | Clarification on AI coding assistants, private code sharing, and no-internet runtime
+703343 | 0 | 1 | 2026-05-30T04:21:56.246000 | 999 | Anyone else working on the ARC-AGI-3 interactive games (LS20 / Locksmith)?
+704871 | 0 | 1 | 2026-06-06T22:49:30.608000 | 610 | Corrupted datasets
+724073 | 0 | 1 | 2026-07-09T12:18:33.949000 | 1071 | Solution of the first competition task
+729885 | 0 | 0 | 2026-07-27T02:58:04.360000 | 352 | Oops something went wrong
+734068 | 0 | 0 | 2026-08-09T17:54:29.410000 | 3025 | ARC-AGI-1's train/eval gap was mild. ARC-AGI-2's is not - measured across both corpora
+735044 | 0 | 2 | 2026-08-13T17:33:54.863000 | 643 | Where is the submit button and L4?
+735545 | 0 | 1 | 2026-08-16T17:49:18.188000 | 438 | Solution 5545f144
+737679 | 0 | 2 | 2026-08-26T18:55:14.182000 | 1566 | Rules clarification: hosted AI coding assistants
+740422 | 0 | 6 | 2026-09-09T16:14:51.172000 | 1466 | clarification 
+693826 | -1 | 7 | 2026-04-22T13:38:25.049000 | 1402 | finding teamate
+695556 | -1 | 5 | 2026-04-29T19:32:10.645000 | 3883 | Beyond the NVARC Rehash: A Different Approach with TOPAS (Submitting Soon)
+733217 | -1 | 0 | 2026-08-06T06:44:49.939000 | 1553 | ARC Prize 2026: Reasoning with LLMs vs. Program Synthesis
+733930 | -3 | 5 | 2026-08-09T05:34:35.069000 | 1913 | Any plans to release the SFT recipe or data mixture behind qwen3_4b_grids15_sft139, or an updated checkpoint? And roughly how many synthetic puzzles went into training?
+694676 | -4 | 11 | 2026-04-26T10:33:51.411000 | 2673 | To group nvbanana
+694704 | -4 | 3 | 2026-04-26T13:11:41.270000 | 3544 | How to Improve Code ARC Prize Score from 0.9 to 30.22
+740808 | -7 | 6 | 2026-09-11T12:02:16.084000 | 3686 | Copywriter & Psychology Researcher looking to unlock the Paper Track ($450k pool) for an active AGI-2 Team!
+684761 | -8 | 7 | 2026-03-26T00:37:53.055000 | 2122 | 🎬Truth guard🚨🚨

@@ -1,0 +1,21 @@
+===== TOPIC 694698 | votes=20 | comments=2 | date=2026-04-26T12:08:12.016000
+TITLE: 95% on ARC AGI1 evaluation
+
+--- [694698] OP msgid=3448705 date=2026-04-26T12:08:12.017000 votes=20
+After last year competition, we ran our code on ARC AGI1 public evaluation data, and we scored above 95%.
+The code to reproduce it is in our last year solution github repo: https://github.com/1ytic/NVARC/tree/main/ARC-AGI1 
+The reason for the high score is twofold:
+
+ARC AGI1 puzzles are much easier than ARC AGI2.
+Most of ARC AGI1 evaluation is included in ARC AGI2 training data.
+
+The second reason is the most important one. It shows that ARC AGI1 scores need to be taken with a grain of salt, depending on the use of ARC AGI2 data or not. All frontier models use ARC AGI2 training data, hence their scores on ARC AGI1 are meaningless.
+I posted this because I see some of you posting ARC AGI1 evaluation scores. This maybe a good first step, but you should move to ARC AGI2 as soon as possible; it is much harder.
+
+--- [694698] reply#1 msgid=3448731 date=2026-04-26T13:51:50.910000 votes=0
+They should have included your score in the ARC1 official Leaderboard, what the reason they did not do so ?
+
+--- [694698] reply#2 msgid=3448736 date=2026-04-26T14:02:50.133000 votes=5
+We did not submit officially. I expect the semi private score to be much lower though as it would not benefit from the evaluation data leak.
+We rather fought on getting our 29.x score obtained 2 days after competition deadline to appear in the arc agi2 LB, but for some reason I still don't get it was not possible.
+Anyway, it doesn't matter anymore as we are way above it now 🤣

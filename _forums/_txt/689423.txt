@@ -1,0 +1,5 @@
+===== TOPIC 689423 | votes=0 | comments=0 | date=2026-04-08T16:26:22.755000
+TITLE: Submission scoring error
+
+--- [689423] OP msgid=3438079 date=2026-04-08T16:26:22.757000 votes=0
+I got a submission scoring error in my first and only submission in this competition so far. Can the kaggle staff please tell me what I am doing wrong? I can't figure it out. I am using T4 x 2 GPUs. I apologise if this is not an appropriate question for this forum.

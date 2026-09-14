@@ -1,0 +1,75 @@
+{
+ "topic": {
+  "id": 738313,
+  "title": "Weird timeout",
+  "authorName": "",
+  "commentCount": 8,
+  "votes": 11,
+  "postDate": "2026-08-31T08:25:14.409000"
+ },
+ "messages": [
+  {
+   "id": 3521260,
+   "authorName": "",
+   "postDate": "2026-09-05T10:31:38.750000",
+   "votes": 1,
+   "content": "<p>I received a Kaggle system error less than 9 hours into a competition submission. This notebook version already had a successful \"Save and Run All\". I had previously made 18 competition submissions, all of which succeeded. Kaggle gave me back my daily submission, so I am currently rerunning the same submission.</p>"
+  },
+  {
+   "id": 3521440,
+   "authorName": "",
+   "postDate": "2026-09-05T22:24:34.630000",
+   "votes": 1,
+   "content": "<p>Resubmission completed successfully.</p>"
+  },
+  {
+   "id": 3518548,
+   "authorName": "",
+   "postDate": "2026-08-31T08:25:14.410000",
+   "votes": 11,
+   "content": "<p>Same notebook that ran in less than 10 hours, repeatedly, timed out last night. We never timed out so far, we monitor time (as everyone else I guess).</p>"
+  },
+  {
+   "id": 3519891,
+   "authorName": "",
+   "postDate": "2026-09-02T12:29:28.967000",
+   "votes": 0,
+   "content": "<p>I resubmitted, and it ran in 9h10…</p>\n<p>This confirms that the issue was not in our code.</p>"
+  },
+  {
+   "id": 3518923,
+   "authorName": "",
+   "postDate": "2026-08-31T19:56:44.103000",
+   "votes": 3,
+   "content": "<p>It is bad practice to report what looks like an infrastructure issue? Asking because of downvote.</p>\n<p>One can check on <a href=\"https://arc3.huikang.dev/leaderboard/?comp=arc2\" target=\"_blank\">https://arc3.huikang.dev/leaderboard/?comp=arc2</a> that all our subs run in 10 hours on average, with a max of 10h30 since our best score.</p>\n<p>That all of a sudden we use 2 hours more and that our time gating after each puzzle did not work is extremely suspicious.</p>"
+  },
+  {
+   "id": 3520730,
+   "authorName": "",
+   "postDate": "2026-09-04T02:26:03.663000",
+   "votes": 0,
+   "content": "<p>I ran into a similar issue when using \"Save &amp; Run All\". It didn't exit and kept running. Ran the same notebook again but succeeded. </p>"
+  },
+  {
+   "id": 3520862,
+   "authorName": "",
+   "postDate": "2026-09-04T10:15:11.157000",
+   "votes": 0,
+   "content": "<p>save and run is not the same as submit. Sometimes save is shown as running but if you refresh the page it shows completed.</p>"
+  },
+  {
+   "id": 3521166,
+   "authorName": "",
+   "postDate": "2026-09-05T02:54:31.747000",
+   "votes": 1,
+   "content": "<p>Refreshing the page didn't help. Had to cancel it before re-running.</p>"
+  },
+  {
+   "id": 3521171,
+   "authorName": "",
+   "postDate": "2026-09-05T03:44:21.757000",
+   "votes": -2,
+   "content": "<p>Test to see if I get a downvote.</p>"
+  }
+ ]
+}

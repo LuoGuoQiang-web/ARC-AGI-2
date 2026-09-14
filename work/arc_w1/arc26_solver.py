@@ -121,22 +121,46 @@ DATA_DIR_CANDIDATES: Tuple[str, ...] = (
 DEFAULT_OUT = "/kaggle/working/submission.json"
 DEFAULT_REPORT = "/kaggle/working/report.json"
 
-# TTT hyper-parameters (spec section 2.2)
-LORA_R = 16
+# TTT hyper-parameters.
+#
+# These now follow the *verified* configuration of the strongest published instance of this
+# recipe, rather than our earlier guesses. The NVARC 2025-winning submission notebook (pulled
+# from the Kaggle API on 2026-09-14) uses:
+#
+#     r=256, lora_alpha=32, use_rslora=True, lora_dropout=0.0, bias="none"
+#     target_modules = q,k,v,o,gate,up,down  PLUS  embed_tokens and lm_head
+#     learning_rate=5e-5, lr_scheduler_type="cosine", warmup_ratio=0.1
+#     optim="adamw_torch", max_grad_norm=1.0, bf16, 1 epoch, per-device batch 1
+#     max_seq_length=8192, 16 augmentations per puzzle, adapters RESET per puzzle
+#
+# We had r=16 -- sixteen times smaller -- and no scheduler. Since the pool-recall measurement
+# says our generator is the bottleneck, and adaptation is the only mechanism that can change the
+# generator, under-parameterising it by 16x was not a defensible default.
+#
+# ⚠️ Cost: r=256 over all seven projections of a 36-layer 4B model is ~0.53B trainable
+# parameters, i.e. ~2.1 GiB of fp32 adapters plus ~4.2 GiB of AdamW state on top of the ~7.3 GiB
+# bf16 base. That does NOT fit a 14.56 GiB T4 and is the reason the accelerator had to be fixed
+# first (see assert_gpu_compatible). Use --lora-r to dial it back on smaller devices.
+LORA_R = 256
 LORA_ALPHA = 32
 LORA_DROPOUT = 0.0
 LORA_TARGET_MODULES = (
     "q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj",
 )
+# Adapters on the token embedding and the output head. With a 16-token vocabulary these are
+# tiny in parameter count but they let adaptation change *which* grid tokens are preferred at
+# all, rather than only how the transformer mixes features.
+LORA_EMBED_MODULES = ("embed_tokens", "lm_head")
 TTT_LR = 5e-5
+TTT_WARMUP_RATIO = 0.1     # cosine schedule with a linear warmup, as in the reference config
 TTT_EPOCHS = 1
 TTT_MAX_SEQ_LENGTH = 8192
 # Cap on the *context* of one TTT optimizer step. Measured failure it prevents: with the whole
 # demonstration set in one sequence, a 30x30 task builds an ~8192-token step, the backward
-# allocation (1.77 GiB) fails on a 14.56 GiB T4, and 86 of 102 tasks routed to TTT executed zero
-# optimizer steps while being reported as "no gain". 2048 tokens is ~2 average grid pairs: enough
-# in-context signal to define the rule, small enough that the step fits.
-TTT_SEQ_TOKEN_BUDGET = 2048
+# allocation (1.77 GiB) failed on a 14.56 GiB T4, and 86 of 102 tasks routed to TTT executed zero
+# optimizer steps while being reported as "no gain". On an L4 (22 GiB) the 8192-token step fits,
+# so this stays a knob rather than a hard limit; 0 disables the cap.
+TTT_SEQ_TOKEN_BUDGET = 0
 # How many tasks in a row must fail to allocate before TTT is abandoned for the whole run. One
 # task's OOM must not unadapt the remaining 200: degrade that task, keep the mechanism.
 TTT_MAX_CONSECUTIVE_OOM = 3
@@ -710,6 +734,15 @@ def assert_gpu_compatible() -> str:
 
     Request ``machine_shape = NvidiaTeslaT4`` (``tools/kpush.py`` does this by default) and
     keep this guard as the seatbelt. Returns the device description for logging.
+
+    ⚠️ The original implementation gated on set membership in ``torch.cuda.get_arch_list()``.
+    That was wrong and expensive: ``get_arch_list()`` lists the cubins compiled into the wheel
+    and this image's list omits ``sm_89``, so the guard rejected the **NVIDIA L4** -- the 4xL4
+    machine the competition offers, 4 x 22.03 GiB -- and reported the best hardware available
+    as unusable. Measured 2026-09-14 with the guard bypassed: allocation, fp32 matmul, autograd,
+    bf16 autocast and an 8192-token forward all succeed on the L4 (PyTorch's own gate is a
+    *range* check, and sm_89 is in range, so it JITs from the PTX the wheel ships). The guard
+    now runs a real op instead of reading a manifest. Request ``NvidiaL4``.
     """
     if torch is None:
         raise RuntimeError("torch is not importable in this environment")
@@ -717,23 +750,39 @@ def assert_gpu_compatible() -> str:
         raise RuntimeError("CUDA is not available: this solver needs a GPU "
                            "(a 3.63B bf16 model has no CPU fallback inside the budget)")
     described = []
-    try:
-        supported = list(torch.cuda.get_arch_list())
-    except Exception:
-        supported = []
     for i in range(torch.cuda.device_count()):
         major, minor = torch.cuda.get_device_capability(i)
         name = torch.cuda.get_device_name(i)
         sm = f"sm_{major}{minor}"
-        described.append(f"{name} ({sm})")
-        if supported and sm not in supported:
+        try:
+            arch_list = list(torch.cuda.get_arch_list())
+        except Exception:
+            arch_list = []
+        if arch_list and sm not in arch_list:
+            # Informational only. The list is the set of cubins compiled into the wheel; it is
+            # NOT the set of devices that work, because a device inside torch's supported range
+            # runs by JIT-ing the PTX that ships alongside. Testing this list as a hard gate is
+            # what made this function reject the NVIDIA L4 (sm_89 is absent from the list) --
+            # i.e. reject the 4xL4 machine with 88 GiB that this competition actually offers,
+            # while we ran on a single 14.56 GiB T4. The smoke test below decides instead.
+            print(f"[gpu] note: {sm} absent from compiled cubins {arch_list}; "
+                  f"relying on PTX JIT -- verifying with a real op", flush=True)
+        try:
+            dev = torch.device(f"cuda:{i}")
+            a = torch.ones(256, 256, device=dev)
+            _ = float((a @ a).sum())
+            x = torch.randn(64, 64, device=dev, requires_grad=True)
+            (x @ x).pow(2).mean().backward()
+            torch.cuda.synchronize(i)
+            del a, x
+        except Exception as exc:
             raise RuntimeError(
-                f"GPU {i} = {name} is {sm}, but this PyTorch build only supports "
-                f"{', '.join(supported)}. Every CUDA op would fail with "
-                f"'no kernel image is available for execution on the device' and the run "
-                f"would silently emit an all-fallback submission. "
-                f"Rerun with machine_shape=NvidiaTeslaT4 (tools/kpush.py sets it by default)."
-            )
+                f"GPU {i} = {name} ({sm}) cannot execute this PyTorch build: "
+                f"{type(exc).__name__}: {str(exc)[:200]}. Every CUDA op would fail and the "
+                f"run would silently emit an all-fallback submission. Request a supported "
+                f"machine_shape (tools/kpush.py defaults to NvidiaL4)."
+            ) from exc
+        described.append(f"{name} ({sm})")
     return "; ".join(described)
 
 
@@ -829,18 +878,62 @@ if torch is not None:
             delta = (x @ self.lora_A.t()) @ self.lora_B.t()
             return out + self.scale * delta.to(out.dtype)
 
+    class LoRAEmbedding(torch.nn.Module):
+        """A LoRA adapter wrapped around a frozen ``nn.Embedding``.
+
+        The reference configuration puts adapters on ``embed_tokens`` and ``lm_head`` as well as
+        on the attention and MLP projections. With this model's 16-token vocabulary those two
+        are small in parameter count (16 x r + r x hidden) but qualitatively different from the
+        rest: adapting a projection re-mixes features, whereas adapting the embedding/head
+        changes which *grid tokens* the model prefers at all. For a task whose answer is a grid,
+        that is the more direct lever, so it is worth the few million parameters.
+
+        ``y = E[x] + scale * B (A[x])`` -- a per-token lookup of the same low-rank delta.
+        """
+
+        def __init__(self, base: Any, r: int, alpha: float, rs_lora: bool = True):
+            super().__init__()
+            self.base = base
+            for param in self.base.parameters():
+                param.requires_grad_(False)
+            self.r = int(r)
+            self.scale = float(alpha) / (math.sqrt(self.r) if rs_lora else self.r)
+            num_embeddings, dim = base.weight.shape
+            device = base.weight.device
+            self.lora_A = torch.nn.Parameter(
+                torch.zeros(num_embeddings, self.r, dtype=torch.float32, device=device)
+            )
+            self.lora_B = torch.nn.Parameter(
+                torch.zeros(self.r, dim, dtype=torch.float32, device=device)
+            )
+            torch.nn.init.kaiming_uniform_(self.lora_A, a=math.sqrt(5))
+
+        def forward(self, x: Any) -> Any:
+            out = self.base(x)
+            delta = (self.lora_A[x] @ self.lora_B)
+            return out + self.scale * delta.to(out.dtype)
+
 
 def _wrap_lora_modules(model: Any, targets: Sequence[str]) -> List[str]:
-    """Replace target ``nn.Linear`` submodules with :class:`LoRALinear`, in place."""
-    target_set = set(targets)
+    """Replace target ``nn.Linear``/``nn.Embedding`` submodules with LoRA wrappers, in place.
+
+    ``embed_tokens`` and ``lm_head`` are listed separately in ``LORA_EMBED_MODULES`` because
+    they are Embedding/Linear rather than the attention and MLP projections, and because they
+    are optional: a model may tie or omit them.
+    """
+    target_set = set(targets) | set(LORA_EMBED_MODULES)
     to_wrap: List[str] = []
     for name, module in model.named_modules():
-        if isinstance(module, torch.nn.Linear) and name.split(".")[-1] in target_set:
+        if name.split(".")[-1] not in target_set:
+            continue
+        if isinstance(module, (torch.nn.Linear, torch.nn.Embedding)):
             to_wrap.append(name)
     for name in to_wrap:
         parent_path, _, leaf = name.rpartition(".")
         parent = model.get_submodule(parent_path) if parent_path else model
-        setattr(parent, leaf, LoRALinear(getattr(parent, leaf), LORA_R, LORA_ALPHA, True))
+        base = getattr(parent, leaf)
+        wrapper = (LoRAEmbedding if isinstance(base, torch.nn.Embedding) else LoRALinear)
+        setattr(parent, leaf, wrapper(base, LORA_R, LORA_ALPHA, True))
     return to_wrap
 
 
@@ -886,8 +979,36 @@ def attach_lora(model: Any) -> Any:
 
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     devices = sorted({str(p.device) for p in model.parameters() if p.requires_grad})
+    # Adapters are fp32 and AdamW keeps two fp32 moments per parameter, so the optimiser alone
+    # costs 12 bytes per trainable parameter on top of the bf16 base model. At rank 256 over all
+    # seven projections that is ~0.53B trainable -> ~6.4 GiB, which is why this recipe needs an
+    # L4 and not a 14.56 GiB T4. Report it before the first step so an over-large rank is a
+    # visible number rather than a silent OOM three minutes later.
+    opt_gib = ttt_optimiser_gib(trainable)
     print(f"[lora] wrapped {len(wrapped)} modules, trainable params {trainable / 1e6:.2f}M "
-          f"(scale={LORA_ALPHA / math.sqrt(LORA_R):.1f}, device={','.join(devices)})", flush=True)
+          f"(r={LORA_R}, scale={LORA_ALPHA / math.sqrt(LORA_R):.2f}, "
+          f"device={','.join(devices)})", flush=True)
+    print(f"[lora] optimiser+adapters will need ~{opt_gib:.2f} GiB on top of the base model",
+          flush=True)
+    if torch is not None and torch.cuda.is_available():
+        try:
+            free_b, total_b = torch.cuda.mem_get_info()
+            free_gib = free_b / 2 ** 30
+            print(f"[lora] device free {free_gib:.2f} GiB of {total_b / 2 ** 30:.2f} GiB",
+                  flush=True)
+            if opt_gib > free_gib:
+                raise RuntimeError(
+                    f"LoRA rank {LORA_R} needs ~{opt_gib:.2f} GiB for adapters and optimiser "
+                    f"state but only {free_gib:.2f} GiB is free on this device. This is the "
+                    f"configuration error that silently wasted earlier runs: the step would "
+                    f"OOM, the task would be recorded as 'TTT attempted, no gain', and the "
+                    f"result would be reported as a statement about model capability. Either "
+                    f"lower --lora-r or use a bigger accelerator (machine_shape=NvidiaL4)."
+                )
+        except RuntimeError:
+            raise
+        except Exception:
+            pass
     return model
 
 
@@ -897,7 +1018,7 @@ def detach_lora(model: Any) -> None:
         to_restore: List[Tuple[str, Any]] = [
             (name, module.base)
             for name, module in model.named_modules()
-            if isinstance(module, LoRALinear)
+            if isinstance(module, (LoRALinear, LoRAEmbedding))
         ]
         for name, base in to_restore:
             parent_path, _, leaf = name.rpartition(".")
@@ -976,6 +1097,40 @@ def build_ttt_sequences(train_demos: Sequence[dict], tokenizer: Any, n_aug: int,
     return seqs, keys
 
 
+def ttt_optimiser_gib(trainable_params: int) -> float:
+    """Memory the TTT adapters and their AdamW state need, in GiB.
+
+    Adapters are fp32 (4 bytes/param) and AdamW keeps two fp32 moments (8 bytes/param), so the
+    cost is 12 bytes per trainable parameter. Pure arithmetic, so the decision "does this rank
+    fit here" is testable without a GPU -- which matters because getting it wrong is invisible:
+    the step OOMs, the task is recorded as 'TTT attempted, no gain', and the run reports a
+    capability result where a configuration error occurred.
+    """
+    return max(0, int(trainable_params)) * 12 / 2 ** 30
+
+
+def ttt_lr_at(step: int, total: int, base_lr: float = TTT_LR,
+              warmup_ratio: float = TTT_WARMUP_RATIO) -> float:
+    """Learning rate for TTT step ``step`` (0-based) out of ``total``: warmup then cosine decay.
+
+    Matches the reference configuration (``lr_scheduler_type="cosine"``, ``warmup_ratio=0.1``).
+    Pulled out as a pure function so the schedule is testable without a GPU -- the shape is the
+    part that is easy to get subtly wrong (off-by-one at the warmup boundary, or a decay that
+    never actually reaches zero).
+    """
+    total = max(1, int(total))
+    warmup = max(0, int(warmup_ratio * total))
+    if warmup and step < warmup:
+        return base_lr * (step + 1) / warmup
+    # `- 1` so that the FINAL step (index total-1) lands exactly on prog = 1 and the schedule
+    # reaches zero. Dividing by `total - warmup` instead never reaches the end of the cosine and
+    # leaves the last step running at ~1% of peak -- harmless in a long run, but with only a
+    # handful of steps it is a meaningful fraction of the adaptation. Caught by T15h.
+    denom = max(1, total - 1 - warmup)
+    prog = min(1.0, max(0.0, (step - warmup) / denom))
+    return 0.5 * base_lr * (1.0 + math.cos(math.pi * prog))
+
+
 def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float,
             device: Any, log_fn: Callable[[str], None] = lambda _m: None
             ) -> Tuple[int, float, bool]:
@@ -991,6 +1146,11 @@ def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float
         raise RuntimeError("torch is not importable in this environment")
     params = [p for p in peft_model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(params, lr=TTT_LR)
+    # Cosine decay with a linear warmup, matching the reference configuration
+    # (lr_scheduler_type="cosine", warmup_ratio=0.1). Without it the last steps of a short run
+    # still move at the full 5e-5 and can undo earlier progress; with only a handful of steps
+    # the schedule is most of what keeps the update well-behaved.
+    steps_total = max(1, len(sequences))
     peft_model.train()
     t0 = time.time()
     steps = 0
@@ -998,6 +1158,9 @@ def run_ttt(peft_model: Any, sequences: Sequence[Sequence[int]], deadline: float
     for seq in sequences:
         if time.time() > deadline:
             break
+        lr = ttt_lr_at(steps, steps_total)
+        for group in optimizer.param_groups:
+            group["lr"] = lr
         ids = torch.tensor([list(seq)], dtype=torch.long, device=device)
         labels = ids.clone()
         labels[labels == PAD_ID] = -100
@@ -2237,6 +2400,12 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
                              "row fail to allocate (default "
                              f"{TTT_MAX_CONSECUTIVE_OOM}); each task is retried at a shorter "
                              "context first, so one task's OOM does not unadapt the run")
+    parser.add_argument("--lora-r", type=int, default=LORA_R,
+                        help=f"LoRA rank for TTT (default {LORA_R}, matching the strongest "
+                             "published instance of this recipe). Rank is the capacity of the "
+                             "only mechanism that can change the generator, so lowering it "
+                             "trades memory for score. ~0.53B trainable params at 256, which "
+                             "does NOT fit a 14.56 GiB T4 -- use an L4 (22 GiB).")
     parser.add_argument("--cache-budget-gb", type=float, default=DFS_DEFAULT_CACHE_BUDGET_GB,
                         help="KV-cache budget for live DFS beams, in GiB")
     # Search width. These are the only levers that can raise pool recall, which is the
@@ -2635,10 +2804,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # assigning here is what actually changes the search width for this run.
     global DFS_TOKEN_PROB_THRESHOLD, DFS_TOKEN_LOGPROB_THRESHOLD
     global DFS_MAX_BRANCHES_PER_BEAM, DFS_MAX_NODES
+    global LORA_R
     DFS_TOKEN_PROB_THRESHOLD = float(args.dfs_prob_threshold)
     DFS_TOKEN_LOGPROB_THRESHOLD = math.log(max(1e-6, min(1.0, DFS_TOKEN_PROB_THRESHOLD)))
     DFS_MAX_BRANCHES_PER_BEAM = max(1, int(args.dfs_max_branches))
     DFS_MAX_NODES = max(100, int(args.dfs_max_nodes))
+    # `_wrap_lora_modules` reads LORA_R at call time, same pattern as the DFS globals above.
+    LORA_R = max(1, int(args.lora_r))
     rng = random.Random(args.seed)
     np.random.seed(args.seed)
 
@@ -2866,6 +3038,42 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             elif len(stepped) < len(routed):
                 log(f"! WARNING: {len(routed) - len(stepped)}/{len(routed)} TTT tasks never "
                     "stepped; their 'no gain' verdicts say nothing about adaptation.")
+
+        # --- submission integrity: the placeholder is the default in the reference pipeline ---
+        # In the strongest published implementation of this recipe, a puzzle whose TTT times out
+        # writes no output at all and the submission builder then defaults it to `[[0]]`, which
+        # is worth exactly zero. That is the documented mechanism behind the largest local-to-LB
+        # gap in the competition's forum (11.67% LB against ~36% local), and it is silent: a
+        # placeholder looks identical to a wrong answer. We seed every task with a real fallback
+        # before solving begins, so this is a check that the seed survived -- not a hope.
+        sub = report.get("submission_health") or {}
+        placeholder = 0
+        missing_slots = 0
+        for tid in (task_ids or []):
+            entries = submission.get(tid) or []
+            want = len((tasks.get(tid) or {}).get("test") or [])
+            if want and len(entries) != want:
+                missing_slots += 1
+            for e in entries:
+                for key in ("attempt_1", "attempt_2"):
+                    g = e.get(key)
+                    if g is None:
+                        continue
+                    a = np.asarray(g)
+                    if a.size == 1 and int(a.ravel()[0]) == 0:
+                        placeholder += 1
+        sub.update({"placeholder_attempts": placeholder,
+                    "tasks_with_wrong_entry_count": missing_slots,
+                    "tasks_expected": len(task_ids or [])})
+        report["submission_health"] = sub
+        if placeholder:
+            log(f"! WARNING: {placeholder} attempt(s) are the [[0]] placeholder, which scores "
+                "exactly zero. Every task should carry a real fallback before solving starts.")
+        if missing_slots:
+            log(f"! WARNING: {missing_slots} task(s) have the wrong number of entries for their "
+                "test inputs; the submission may be rejected as malformed.")
+        if not placeholder and not missing_slots and task_ids:
+            log(f"[submission] healthy: {len(task_ids)} tasks, no placeholders, entry counts ok")
 
         try:
             write_json_atomic(args.report, report)

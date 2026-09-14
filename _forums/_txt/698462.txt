@@ -1,0 +1,43 @@
+===== TOPIC 698462 | votes=8 | comments=7 | date=2026-05-10T03:01:37.995000
+TITLE: task  17829a00
+
+--- [698462] OP msgid=3455669 date=2026-05-10T03:01:37.997000 votes=8
+Hello,
+I have a question regarding ARC task "17829a00".
+After analyzing the train examples carefully, I noticed what appears to be an inconsistency in the first example involving the color "8".
+The overall transformation seems to follow a boundary-attraction or gravity-like rule:
+
+objects/fragments are attracted toward the boundary row of the same color,
+while approximately preserving their topology.
+
+However, in the first training example, one vertical column of color "8" in the ground truth contains two additional cells compared to the other similar columns/components.
+As a human observer, I cannot identify a corresponding structural reason for why this specific column grows while the other "8" columns do not exhibit the same behavior.
+So I would like to ask:
+
+Is this vertical extension an intentional special-case rule?
+Or could it be an annotation artifact / mistake in the dataset?
+Should solvers interpret the task as a gravity/attractor process, or is there another intended abstraction behind that specific extension?
+
+Thank you.
+
+--- [698462] reply#1 msgid=3455687 date=2026-05-10T04:28:34.697000 votes=5
+Looks like ground truth is wrong in the first training sample.
+
+--- [698462] reply#2 msgid=3459521 date=2026-05-17T23:33:44.800000 votes=3
+An obvious error in train #1. There were corrections of the data set in the past. Occasional errors are to be expected. Since you are the discoverer, open an issue on https://github.com/arcprize/ARC-AGI-2 .
+
+--- [698462] reply#3 msgid=3458044 date=2026-05-14T22:20:52.803000 votes=1
+This is a great find. Every column except column 15 conserves its 8-count exactly. Column 15 gains two cells out of nowhere. With augmented training data this error is compounded. Have you checked the rest of the data?
+
+--- [698462] reply#4 msgid=3461217 date=2026-05-19T23:27:57.263000 votes=0
+But you, as a human, can still solve it reliably, right?)
+Jokes aside, this is still bad because it breaks the dataset contract/assumptions -- namely, that the train-pair logic is always correct.
+
+--- [698462] reply#5 msgid=3461253 date=2026-05-20T02:30:46.057000 votes=0
+I don't think Kaggle ever made this claim about the data for their competitions.
+
+--- [698462] reply#6 msgid=3461312 date=2026-05-20T06:39:07.633000 votes=0
+Surely not. This assumption is implicit in the ARC competition dataset: "The correct underlying rule (test input -> test output) is always correct for the train input-output pairs." And this is a good assumption, because it's true for an overwhelmingly large part of the dataset. Many (most?) solvers heavily rely on it to filter solution candidates.
+
+--- [698462] reply#7 msgid=3461349 date=2026-05-20T10:05:28.777000 votes=0
+This is an aspirational statement. In the real world, Kaggle datasets often contain errors.

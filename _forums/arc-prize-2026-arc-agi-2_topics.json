@@ -1,0 +1,546 @@
+[
+ {
+  "id": 689054,
+  "title": "Upgraded Accelerators",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 21,
+  "postDate": "2026-04-07T16:31:11.629000"
+ },
+ {
+  "id": 689254,
+  "title": "ARC Prize 2026 - ARC-AGI-2 - Let's go!",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 8,
+  "postDate": "2026-04-08T02:26:47.245000"
+ },
+ {
+  "id": 684441,
+  "title": "How to get started + Competition's Official Discord",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 4,
+  "postDate": "2026-03-24T21:16:14.165000"
+ },
+ {
+  "id": 740808,
+  "title": "Copywriter & Psychology Researcher looking to unlock the Paper Track ($450k pool) for an active AGI-2 Team!",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": -7,
+  "postDate": "2026-09-11T12:02:16.084000"
+ },
+ {
+  "id": 740422,
+  "title": "clarification ",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": 0,
+  "postDate": "2026-09-09T16:14:51.172000"
+ },
+ {
+  "id": 724647,
+  "title": "Good to see movement on LB",
+  "authorName": "",
+  "commentCount": 17,
+  "votes": 12,
+  "postDate": "2026-07-12T13:03:23.331000"
+ },
+ {
+  "id": 739494,
+  "title": "Team formation",
+  "authorName": "",
+  "commentCount": 9,
+  "votes": 2,
+  "postDate": "2026-09-04T11:11:58.896000"
+ },
+ {
+  "id": 740268,
+  "title": "Rules clarification: OSAID base-model requirement vs. the incompatible-license carve-out (Section 2.5)",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 1,
+  "postDate": "2026-09-08T21:01:43.461000"
+ },
+ {
+  "id": 738313,
+  "title": "Weird timeout",
+  "authorName": "",
+  "commentCount": 8,
+  "votes": 11,
+  "postDate": "2026-08-31T08:25:14.409000"
+ },
+ {
+  "id": 737594,
+  "title": "Use dynamic Python library in Kaggle or use Docker from GitHub repository",
+  "authorName": "",
+  "commentCount": 12,
+  "votes": 1,
+  "postDate": "2026-08-26T08:49:11.119000"
+ },
+ {
+  "id": 737679,
+  "title": "Rules clarification: hosted AI coding assistants",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-08-26T18:55:14.182000"
+ },
+ {
+  "id": 735058,
+  "title": "Restrictions on NVARC's Winning Model?",
+  "authorName": "",
+  "commentCount": 13,
+  "votes": 2,
+  "postDate": "2026-08-13T18:44:21.636000"
+ },
+ {
+  "id": 709522,
+  "title": "Historical leaderboard with runtime information",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": 28,
+  "postDate": "2026-06-19T03:27:19.292000"
+ },
+ {
+  "id": 694676,
+  "title": "To group nvbanana",
+  "authorName": "",
+  "commentCount": 11,
+  "votes": -4,
+  "postDate": "2026-04-26T10:33:51.411000"
+ },
+ {
+  "id": 735545,
+  "title": "Solution 5545f144",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-08-16T17:49:18.188000"
+ },
+ {
+  "id": 735044,
+  "title": "Where is the submit button and L4?",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-08-13T17:33:54.863000"
+ },
+ {
+  "id": 733930,
+  "title": "Any plans to release the SFT recipe or data mixture behind qwen3_4b_grids15_sft139, or an updated checkpoint? And roughly how many synthetic puzzles went into training?",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": -3,
+  "postDate": "2026-08-09T05:34:35.069000"
+ },
+ {
+  "id": 734068,
+  "title": "ARC-AGI-1's train/eval gap was mild. ARC-AGI-2's is not - measured across both corpora",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-08-09T17:54:29.410000"
+ },
+ {
+  "id": 734018,
+  "title": "The evaluation split is measurably harder than training — structural analysis of all 1,120 tasks",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 1,
+  "postDate": "2026-08-09T15:01:55.734000"
+ },
+ {
+  "id": 733501,
+  "title": "Program Synthesis beats no reasoning on ARC-AGI-2 ",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 2,
+  "postDate": "2026-08-07T06:14:00.668000"
+ },
+ {
+  "id": 731040,
+  "title": "does task 963c33f8 contains an error ?",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": 5,
+  "postDate": "2026-07-30T17:14:17.309000"
+ },
+ {
+  "id": 733217,
+  "title": "ARC Prize 2026: Reasoning with LLMs vs. Program Synthesis",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": -1,
+  "postDate": "2026-08-06T06:44:49.939000"
+ },
+ {
+  "id": 732723,
+  "title": "(PUBLIC) Nex-N2-mini vs Aquila-mini: two 35B post-trains on ARC-AGI-2, head to head",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 5,
+  "postDate": "2026-08-04T11:43:51.258000"
+ },
+ {
+  "id": 729743,
+  "title": "Open-sourcing my work and analysis until now",
+  "authorName": "",
+  "commentCount": 4,
+  "votes": 11,
+  "postDate": "2026-07-26T13:51:26.775000"
+ },
+ {
+  "id": 729885,
+  "title": "Oops something went wrong",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-07-27T02:58:04.360000"
+ },
+ {
+  "id": 729509,
+  "title": "What's Nvbanana cooking?",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 2,
+  "postDate": "2026-07-25T19:40:33.498000"
+ },
+ {
+  "id": 704408,
+  "title": "Submission finished in ~15 minutes with 0.00 score and no error",
+  "authorName": "",
+  "commentCount": 21,
+  "votes": 4,
+  "postDate": "2026-06-04T13:16:01.629000"
+ },
+ {
+  "id": 724231,
+  "title": "Can't load Competition data and L4s",
+  "authorName": "",
+  "commentCount": 19,
+  "votes": 4,
+  "postDate": "2026-07-10T06:48:48.106000"
+ },
+ {
+  "id": 693826,
+  "title": "finding teamate",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": -1,
+  "postDate": "2026-04-22T13:38:25.049000"
+ },
+ {
+  "id": 702981,
+  "title": "Why Are We Still Enumerating Primitives?",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 1,
+  "postDate": "2026-05-27T19:45:20.957000"
+ },
+ {
+  "id": 724073,
+  "title": "Solution of the first competition task",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-07-09T12:18:33.949000"
+ },
+ {
+  "id": 694745,
+  "title": "Request to increase daily submissions",
+  "authorName": "",
+  "commentCount": 8,
+  "votes": 4,
+  "postDate": "2026-04-26T19:11:07.251000"
+ },
+ {
+  "id": 720019,
+  "title": "A visual deep-dive into ARC-AGI-2 tasks, the metric, and a baseline",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 3,
+  "postDate": "2026-07-05T14:01:03.104000"
+ },
+ {
+  "id": 712218,
+  "title": "ARC agi 2 rubix solver",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": 2,
+  "postDate": "2026-06-22T16:01:32.181000"
+ },
+ {
+  "id": 704871,
+  "title": "Corrupted datasets",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-06-06T22:49:30.608000"
+ },
+ {
+  "id": 694825,
+  "title": "How many general classes does this competition exist?",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 4,
+  "postDate": "2026-04-27T10:55:31.304000"
+ },
+ {
+  "id": 704079,
+  "title": " Daily Submission Limit ",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 4,
+  "postDate": "2026-06-03T04:42:05.241000"
+ },
+ {
+  "id": 691081,
+  "title": "When will a new model be top?",
+  "authorName": "",
+  "commentCount": 18,
+  "votes": 11,
+  "postDate": "2026-04-13T19:46:35.083000"
+ },
+ {
+  "id": 703343,
+  "title": "Anyone else working on the ARC-AGI-3 interactive games (LS20 / Locksmith)?",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-05-30T04:21:56.246000"
+ },
+ {
+  "id": 698462,
+  "title": "task  17829a00",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 8,
+  "postDate": "2026-05-10T03:01:37.995000"
+ },
+ {
+  "id": 701528,
+  "title": "Clarification on AI coding assistants, private code sharing, and no-internet runtime",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-05-18T22:07:36.838000"
+ },
+ {
+  "id": 699858,
+  "title": "What is the Public Score's denominator?",
+  "authorName": "",
+  "commentCount": 8,
+  "votes": 0,
+  "postDate": "2026-05-15T14:05:51.088000"
+ },
+ {
+  "id": 697859,
+  "title": "Bitterbot's TOPAS Architecture Submission: 11.67% LB vs ~36% Local (Managing TTT Timeouts)",
+  "authorName": "",
+  "commentCount": 23,
+  "votes": 10,
+  "postDate": "2026-05-07T16:48:56.703000"
+ },
+ {
+  "id": 699675,
+  "title": " UTILITY SCRIPTS ",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 1,
+  "postDate": "2026-05-14T17:52:00.101000"
+ },
+ {
+  "id": 694653,
+  "title": "[Open Source] 400/400 ARC-1 Training Dataset Solver Released!",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 5,
+  "postDate": "2026-04-26T06:41:42.147000"
+ },
+ {
+  "id": 695556,
+  "title": "Beyond the NVARC Rehash: A Different Approach with TOPAS (Submitting Soon)",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": -1,
+  "postDate": "2026-04-29T19:32:10.645000"
+ },
+ {
+  "id": 697831,
+  "title": "Can't submit notebook through kaggle CLI API",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-05-07T15:25:30.489000"
+ },
+ {
+  "id": 697058,
+  "title": "Funny observation",
+  "authorName": "",
+  "commentCount": 6,
+  "votes": 4,
+  "postDate": "2026-05-05T05:24:59.299000"
+ },
+ {
+  "id": 696718,
+  "title": "Running ARC-AGI-2 on an Intel Arc A770 — setup + what works (no CUDA path)",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 1,
+  "postDate": "2026-05-03T17:46:09.910000"
+ },
+ {
+  "id": 696364,
+  "title": "Double GPU Quota consomption",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-05-02T00:35:55.589000"
+ },
+ {
+  "id": 694704,
+  "title": "How to Improve Code ARC Prize Score from 0.9 to 30.22",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": -4,
+  "postDate": "2026-04-26T13:11:41.270000"
+ },
+ {
+  "id": 694698,
+  "title": "95% on ARC AGI1 evaluation",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 20,
+  "postDate": "2026-04-26T12:08:12.016000"
+ },
+ {
+  "id": 693263,
+  "title": "the leaderboard is stuck?",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 1,
+  "postDate": "2026-04-20T12:58:46.570000"
+ },
+ {
+  "id": 694618,
+  "title": "EGO-ARC: Embryonic Growth Approach (local ARC-AGI-1 sandbox, 9/50 -> 17/50)",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-04-25T21:26:52.410000"
+ },
+ {
+  "id": 690497,
+  "title": "collecting solution from the competition",
+  "authorName": "",
+  "commentCount": 9,
+  "votes": 1,
+  "postDate": "2026-04-12T00:40:32.406000"
+ },
+ {
+  "id": 687701,
+  "title": "What is ARC actually measuring?",
+  "authorName": "",
+  "commentCount": 5,
+  "votes": 4,
+  "postDate": "2026-04-03T13:33:43.261000"
+ },
+ {
+  "id": 693607,
+  "title": "Training data augmentation",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 2,
+  "postDate": "2026-04-21T17:28:06.255000"
+ },
+ {
+  "id": 693074,
+  "title": "'/kaggle/inference_outputs' does not exist.",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-04-19T12:30:53.044000"
+ },
+ {
+  "id": 691202,
+  "title": "is this normal ?",
+  "authorName": "",
+  "commentCount": 9,
+  "votes": 0,
+  "postDate": "2026-04-14T07:14:58.338000"
+ },
+ {
+  "id": 685142,
+  "title": "Last Years 1st Place Solution",
+  "authorName": "",
+  "commentCount": 21,
+  "votes": 24,
+  "postDate": "2026-03-27T00:29:52.980000"
+ },
+ {
+  "id": 687095,
+  "title": "when will we get gpu L4x4",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": 8,
+  "postDate": "2026-04-02T07:24:05.513000"
+ },
+ {
+  "id": 684662,
+  "title": "Discrepancy between stated prizes on Kaggle page & ARC-AGI-2 2026 page?",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 5,
+  "postDate": "2026-03-25T18:43:54.428000"
+ },
+ {
+  "id": 689423,
+  "title": "Submission scoring error",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-04-08T16:26:22.755000"
+ },
+ {
+  "id": 684857,
+  "title": "How the current dataset compares with ARC-AGI-1?",
+  "authorName": "",
+  "commentCount": 10,
+  "votes": 3,
+  "postDate": "2026-03-26T08:52:17.152000"
+ },
+ {
+  "id": 684761,
+  "title": "🎬Truth guard🚨🚨",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": -8,
+  "postDate": "2026-03-26T00:37:53.055000"
+ },
+ {
+  "id": 685621,
+  "title": "Can models be trained elsewhere, and the submission run time be used purely for inference?",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 2,
+  "postDate": "2026-03-28T16:51:31.563000"
+ },
+ {
+  "id": 685660,
+  "title": "Question About Open-Weight Models in Offline Evaluation",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 1,
+  "postDate": "2026-03-28T18:38:46.187000"
+ },
+ {
+  "id": 684880,
+  "title": "Have anyone try to use gpu or tpu?",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 1,
+  "postDate": "2026-03-26T11:14:58.351000"
+ }
+]

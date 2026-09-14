@@ -1,0 +1,152 @@
+{
+ "topic": {
+  "id": 724231,
+  "title": "Can't load Competition data and L4s",
+  "authorName": "",
+  "commentCount": 19,
+  "votes": 4,
+  "postDate": "2026-07-10T06:48:48.106000"
+ },
+ "messages": [
+  {
+   "id": 3502799,
+   "authorName": "",
+   "postDate": "2026-07-24T20:47:34.450000",
+   "votes": 1,
+   "content": "<p>Hi <a href=\"https://www.kaggle.com/tanyong666\" target=\"_blank\">@tanyong666</a> and <a href=\"https://www.kaggle.com/madarshbb\" target=\"_blank\">@madarshbb</a> -- this issue has been fixed!</p>"
+  },
+  {
+   "id": 3502862,
+   "authorName": "",
+   "postDate": "2026-07-25T00:27:48.633000",
+   "votes": 0,
+   "content": "<p>Everything works fine now. thanks!</p>"
+  },
+  {
+   "id": 3502288,
+   "authorName": "",
+   "postDate": "2026-07-23T23:55:26.193000",
+   "votes": 1,
+   "content": "<p>Hey y'all we released a fix for this, are y'all still having this issue?</p>"
+  },
+  {
+   "id": 3502294,
+   "authorName": "",
+   "postDate": "2026-07-24T00:19:46.760000",
+   "votes": 0,
+   "content": "<p>All good now</p>"
+  },
+  {
+   "id": 3494522,
+   "authorName": "",
+   "postDate": "2026-07-10T06:48:48.107000",
+   "votes": 4,
+   "content": "<p>Has anyone run into this issue? It started happening today — all Competition details, stats and L4s content are missing.\n<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F7698767%2F80f7d2f3fd1dd6d41bb03d4fc4163384%2Fdata1.png?generation=1783666103170782&amp;alt=media\" alt=\"\">\n<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F7698767%2F6db2f7bf56374966eece803c97528016%2Fdata2.png?generation=1783666122094978&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3496586,
+   "authorName": "",
+   "postDate": "2026-07-14T08:36:19.883000",
+   "votes": 2,
+   "content": "<p>I got the same, weird, datasets are not carried over in a fork by default. </p>"
+  },
+  {
+   "id": 3498057,
+   "authorName": "",
+   "postDate": "2026-07-15T02:20:11.577000",
+   "votes": 0,
+   "content": "<p>It seems to be working now.</p>"
+  },
+  {
+   "id": 3498127,
+   "authorName": "",
+   "postDate": "2026-07-15T06:04:30.960000",
+   "votes": 0,
+   "content": "<p>Yes, same for me; thanks for posting it - I had no clue what was happening. </p>"
+  },
+  {
+   "id": 3494539,
+   "authorName": "",
+   "postDate": "2026-07-10T07:56:35.273000",
+   "votes": 1,
+   "content": "<p>Everything works fine after manually adding all the data.</p>"
+  },
+  {
+   "id": 3494748,
+   "authorName": "",
+   "postDate": "2026-07-10T15:58:55.307000",
+   "votes": 0,
+   "content": "<p>Maybe you didn't wait long enough for it to load when you copied it.</p>"
+  },
+  {
+   "id": 3494908,
+   "authorName": "",
+   "postDate": "2026-07-11T01:44:18.910000",
+   "votes": 0,
+   "content": "<p>Every time I edit the notebook, there's still no data.</p>"
+  },
+  {
+   "id": 3494987,
+   "authorName": "",
+   "postDate": "2026-07-11T08:04:00.853000",
+   "votes": 0,
+   "content": "<p>Same situation</p>"
+  },
+  {
+   "id": 3494989,
+   "authorName": "",
+   "postDate": "2026-07-11T08:13:24.277000",
+   "votes": 0,
+   "content": ""
+  },
+  {
+   "id": 3494992,
+   "authorName": "",
+   "postDate": "2026-07-11T08:18:20.020000",
+   "votes": 0,
+   "content": "<p>You can try adding the data <code>pip-install-unsloth-flash-patch</code></p>"
+  },
+  {
+   "id": 3500116,
+   "authorName": "",
+   "postDate": "2026-07-18T15:33:16.343000",
+   "votes": 0,
+   "content": "<p>This issue is still happening.</p>\n<p>It's becoming really frustrating to manually reattach all datasets, models, and scripts every time I copy a notebook just to edit. \nIs the Kaggle team working on improving this workflow? Also, is this an intentional design change to discourage copying and repeatedly submitting notebooks, or is it an unintended regression?</p>"
+  },
+  {
+   "id": 3500288,
+   "authorName": "",
+   "postDate": "2026-07-19T01:06:51.797000",
+   "votes": 0,
+   "content": "<p>Yes, the issue persists again.</p>"
+  },
+  {
+   "id": 3500300,
+   "authorName": "",
+   "postDate": "2026-07-19T02:50:39.483000",
+   "votes": 1,
+   "content": "<p><a href=\"https://www.kaggle.com/herbison\" target=\"_blank\">@herbison</a> Hi, sorry to tag you but can you help out here? Thank you! </p>"
+  },
+  {
+   "id": 3500656,
+   "authorName": "",
+   "postDate": "2026-07-20T07:00:00.207000",
+   "votes": 0,
+   "content": "<p>Same issue persists for me as well, <a href=\"https://www.kaggle.com/macruzbar\" target=\"_blank\">@macruzbar</a> <a href=\"https://www.kaggle.com/gregkamradt\" target=\"_blank\">@gregkamradt</a> could you help us with the above?</p>"
+  },
+  {
+   "id": 3500833,
+   "authorName": "",
+   "postDate": "2026-07-20T17:24:35.267000",
+   "votes": 1,
+   "content": "<p>Hi <a href=\"https://www.kaggle.com/madarshbb\" target=\"_blank\">@madarshbb</a> -- thank you for the flag, we are looking into this issue. Stay tuned!</p>"
+  },
+  {
+   "id": 3494770,
+   "authorName": "",
+   "postDate": "2026-07-10T16:53:05.663000",
+   "votes": 0,
+   "content": ""
+  }
+ ]
+}

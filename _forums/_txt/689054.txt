@@ -1,0 +1,33 @@
+===== TOPIC 689054 | votes=21 | comments=7 | date=2026-04-07T16:31:11.629000
+TITLE: Upgraded Accelerators
+
+--- [689054] OP msgid=3437428 date=2026-04-07T16:31:11.630000 votes=21
+Hi everyone, 
+we just upgraded the accelerators for ARC-AGI-2. This competition now has access to Kaggle's pool of powerful new L4x4 machines! These machines offer 96GB of GPU memory enabling submissions with much larger models. 
+Head over to the Overview tab to learn the essentials and see this page for more in-depth information on these machines.
+Good luck!
+María
+
+--- [689054] reply#1 msgid=3462714 date=2026-05-24T17:16:11.210000 votes=1
+Dear ARC Prize Organizers,
+I hope you are doing well. My team and I have many promising ideas and approaches we would like to explore for the ARC Prize 2026 competition, but we are currently limited by a lack of GPU resources and financial means. I noticed that some sponsors may provide additional compute resources for participants, and I previously sent an email about this opportunity but have not yet received a response. Could you please let me know how we can apply or become eligible for these additional resources? Thank you very much for your time and for organizing this inspiring competition.
+Kind regards,
+
+--- [689054] reply#2 msgid=3518958 date=2026-08-31T22:11:42.130000 votes=0
+@macruzbar , is it possible to get the full 30 hours on GPU L4xL4?
+
+--- [689054] reply#3 msgid=3520174 date=2026-09-02T22:47:37.163000 votes=0
+@macruzbar , any chance, plz
+
+--- [689054] reply#4 msgid=3450251 date=2026-04-29T14:57:28.747000 votes=0
+Thank you for the upgraded accelerators. If possible, could the H100s be made available for ARC-AGI-2 to open up more approaches? I understand resources are heavily constrained so perhaps for ARC-AGI-2, the H100s can consume GPU quota at 2.5 the rate of the 4xL4?
+
+--- [689054] reply#5 msgid=3437525 date=2026-04-07T18:48:03.380000 votes=0
+Thank you for the update! Just wanted to check on this, I thought I remembered the plan being to use H100s for this competition. I am honestly hoping that we are using the 4xL4 and not the H100 but just wanted to be sure that this was the last gpu change for the competition? Thank you all for your efforts!
+
+--- [689054] reply#6 msgid=3437555 date=2026-04-07T19:14:20.633000 votes=3
+Our plan is to implement the H100s for the ARC-AGI-3 competition.
+Note, any of our advanced accelerators are heavily supply constrained, and we do our best to maintain as much capacity as we can, but as has been seen across these competitions we can face variable supply constraints and our intent is to provide a combination of what is best available to us and what is best to advance the field
+
+--- [689054] reply#7 msgid=3437561 date=2026-04-07T19:21:02.617000 votes=0
+That makes sense, that must be where I saw it. 4xL4 for this competition 1xH100 for ARC-AGI-3. Thank you for the clarification!

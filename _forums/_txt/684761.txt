@@ -1,0 +1,30 @@
+===== TOPIC 684761 | votes=-8 | comments=7 | date=2026-03-26T00:37:53.055000
+TITLE: 🎬Truth guard🚨🚨
+
+--- [684761] OP msgid=3437047 date=2026-04-07T03:38:37.417000 votes=1
+You'd better add a link to the notebook itself, otherwise it's not clear
+
+--- [684761] reply#1 msgid=3428815 date=2026-03-26T00:41:13.550000 votes=1
+So, submit it. You will probably do better than everyone else (currently 0.0). Best of luck.
+
+--- [684761] reply#2 msgid=3428819 date=2026-03-26T00:49:41.730000 votes=0
+Thank you and good luck for all🫡🫡
+
+--- [684761] reply#3 msgid=3428858 date=2026-03-26T01:54:28.367000 votes=2
+this is the same ai sychophant guy who was boasting in discussions that he already won march madness comp and other solutions were so inferior cause his ai said so now bros at like 2000th rank, so sad to see people become so schizo by ai
+
+--- [684761] reply#4 msgid=3429038 date=2026-03-26T09:08:04.440000 votes=-1
+Your model seems really powerful… it can predict winning, just not actually do it 😄
+If I not make open heart surgery I can win
+
+--- [684761] reply#5 msgid=3429093 date=2026-03-26T11:07:38.497000 votes=-1
+I think you’re missing some context here. I wasn’t “boasting” blindly — I was actively working on my solution. I actually underwent open-heart surgery during this period, so I wasn’t fully active to iterate and update like others.
+If you had taken a moment to check the notebook itself, you could’ve judged the work on its merit rather than making assumptions based on leaderboard position alone.
+
+--- [684761] reply#6 msgid=3436740 date=2026-04-06T16:18:28.687000 votes=0
+What notebook?
+
+--- [684761] reply#7 msgid=3428813 date=2026-03-26T00:37:53.057000 votes=-8
+"I built a system that doesn't need Big Data to learn gravity. What if the key to Artificial General Intelligence (AGI) is pure symbolic logic, rather than just statistical prediction? 🛡️
+My TruthGuard solver proves its logic on the ARC-AGI challenge by verifying every hypothesis before outputting a result. Zero hallucinations. Pure reasoning.
+ARCPrize #ARCAGI #AGI #SymbolicAI #Kaggle #DeepMind #ArtificialIntelligence #MachineLearning"

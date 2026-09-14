@@ -1,0 +1,10 @@
+===== TOPIC 684880 | votes=1 | comments=1 | date=2026-03-26T11:14:58.351000
+TITLE: Have anyone try to use gpu or tpu?
+
+--- [684880] OP msgid=3429097 date=2026-03-26T11:14:58.350000 votes=1
+CAN YOU SHARE TO US?WHICH ONE IS BETER
+
+--- [684880] reply#1 msgid=3429649 date=2026-03-27T03:16:44.223000 votes=0
+For ARC Prize / ARC-AGI competitions, using GPU is generally better than TPU for most participants. GPUs are easier to use, more flexible, and work well with most libraries and custom logic.
+TPUs can be useful for deep learning, but ARC tasks are more about reasoning and logic, so GPU (or even CPU) is usually enough.
+According to me, GPU is better and easier for this competition.

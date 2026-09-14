@@ -1,0 +1,13 @@
+===== TOPIC 685621 | votes=2 | comments=1 | date=2026-03-28T16:51:31.563000
+TITLE: Can models be trained elsewhere, and the submission run time be used purely for inference?
+
+--- [685621] OP msgid=3430577 date=2026-03-28T16:51:31.563000 votes=2
+Reading through some of last years solutions, I see that many of the winning entries opted to train models on cloud platforms, upload the trained weights and use the 12 hour submission run time to perform inference on the unseen tasks.
+I suppose my reading of the submission guidelines is incorrect, since they specifically say:
+
+ External data, freely & publicly available, is allowed, including pre-trained models
+
+where I interpreted "pre-trained models" as referring to open weights models that are widely available (gemma, qwen, etc). My assumption was that training/finetuning + inference all needed to be performed in the allotted submission run time.
+
+--- [685621] reply#1 msgid=3431656 date=2026-03-30T13:07:10.590000 votes=1
+yes you can.

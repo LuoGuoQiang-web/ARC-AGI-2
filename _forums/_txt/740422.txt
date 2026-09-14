@@ -1,0 +1,26 @@
+===== TOPIC 740422 | votes=0 | comments=6 | date=2026-09-09T16:14:51.172000
+TITLE: clarification 
+
+--- [740422] OP msgid=3523218 date=2026-09-10T20:59:53.050000 votes=1
+
+
+--- [740422] reply#1 msgid=3522832 date=2026-09-09T20:33:33.190000 votes=0
+GUYS kindly reply me
+
+--- [740422] reply#2 msgid=3522994 date=2026-09-10T08:20:03.347000 votes=1
+What is your question?
+You asked none.
+
+--- [740422] reply#3 msgid=3523972 date=2026-09-13T15:22:37.360000 votes=0
+thanks manh , my que was
+so rabbithole achieve 76 score on 120 task or 240 task including private set . Btw congratulations for top leaderboards
+
+--- [740422] reply#4 msgid=3524002 date=2026-09-13T16:46:15.907000 votes=2
+their code, your code, my code is run against 240 hidden puzzles. 120 of these are used to compute the public leaderboard. The score we see during the competition.
+The other 120 puzzles are used to computed another score which stays hidden till the end of the competition. At the end of the competition you select two of your submissions. The hidden scores of these two submissions are retrieved (nothing is rerun), and the best of these is used for the final ranking in the competition.
+
+--- [740422] reply#5 msgid=3523004 date=2026-09-10T09:23:34.573000 votes=0
+….yup… That's about right.
+
+--- [740422] reply#6 msgid=3522709 date=2026-09-09T16:14:51.173000 votes=0
+so rabbithole achieve 76 score on 120 task or 240 task including private set . Btw congratulations for top leaderboards

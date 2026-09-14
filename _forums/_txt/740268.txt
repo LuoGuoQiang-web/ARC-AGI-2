@@ -1,0 +1,14 @@
+===== TOPIC 740268 | votes=1 | comments=0 | date=2026-09-08T21:01:43.461000
+TITLE: Rules clarification: OSAID base-model requirement vs. the incompatible-license carve-out (Section 2.5)
+
+--- [740268] OP msgid=3522426 date=2026-09-08T21:01:43.460000 votes=1
+Rules clarification: OSAID base-model requirement vs. the incompatible-license carve-out (Section 2.5)
+Section 2.5.a states:
+"Submissions are required to have open source system, open source model, and open source weights/parameters, as defined in the checklist from the Open Source AI definition by the Open Source Initiative."
+But immediately after, the same Section 2.5 also states:
+"In the event that input data or pretrained models with an incompatible license are used to generate your winning solution, you do not need to grant an open source license in the preceding Section for that data and/or model(s)."
+These two clauses seem to point in different directions, and I'd like to understand how they interact:
+Does the carve-out in the second clause mean a participant may build a winning submission on top of a pretrained base model that does not itself meet the OSAID checklist (e.g., a model with open weights but undisclosed training data/code, such as the Qwen3 family widely used in this competition), as long as the participant's own code/harness/fine-tuning is released under CC BY 4.0? Or does the first clause still apply as an absolute gate, making such a submission ineligible for any prize regardless of the carve-out?
+If the carve-out does apply, is there a "Reasonableness"-style test (similar to Section 2.6.b for external data/tools) for what counts as an acceptable "incompatible license" base model, or is any permissively-licensed-but-not-fully-OSAID-compliant model (open weights, closed training data/code) automatically covered by the carve-out?
+Practically: if a team builds their solution on a base model like Qwen3 (open weights under Apache 2.0, but no published training code/data), and open sources everything they built on top of it, would that submission be prize-eligible under Section 2.5 as written?
+This materially affects which base model teams should be building around, so a clear answer would help a lot of participants, not just me.

@@ -1,0 +1,103 @@
+{
+ "topic": {
+  "id": 737594,
+  "title": "Use dynamic Python library in Kaggle or use Docker from GitHub repository",
+  "authorName": "",
+  "commentCount": 12,
+  "votes": 1,
+  "postDate": "2026-08-26T08:49:11.119000"
+ },
+ "messages": [
+  {
+   "id": 3517140,
+   "authorName": "",
+   "postDate": "2026-08-26T08:49:11.120000",
+   "votes": 1,
+   "content": "<p>I created a dataset with necessary files from my GitHub repository (<a href=\"https://github.com/Julien-Livet/aicpp/tree/dsl_engine\" target=\"_blank\">aicpp</a>), the import from link does not work. I built the .so for Python 3.12 (Kaggle version) from my computer and I put necessary other .so but system file libstdc++.6. is used and not local file provided in Notebook. How to do it? Is it also possible to use a local Docker file image and run it ?</p>"
+  },
+  {
+   "id": 3520060,
+   "authorName": "",
+   "postDate": "2026-09-02T18:48:19.297000",
+   "votes": 0,
+   "content": "<p>I used a .zip file and it is good.</p>"
+  },
+  {
+   "id": 3519777,
+   "authorName": "",
+   "postDate": "2026-09-02T07:27:55.590000",
+   "votes": 0,
+   "content": "<p>The final step is to install the Python dependencies offline. My tar.xz archive is 2.8 GB, but the upload for the dataset isn't progressing. Can you help me?</p>"
+  },
+  {
+   "id": 3519113,
+   "authorName": "",
+   "postDate": "2026-09-01T04:25:38.527000",
+   "votes": 0,
+   "content": "<p>I think I'm going to need some help. Can I share my dataset, and if so, how?</p>"
+  },
+  {
+   "id": 3519441,
+   "authorName": "",
+   "postDate": "2026-09-01T17:54:27.507000",
+   "votes": 0,
+   "content": "<p>Did you look at how public notebooks install dependencies?</p>"
+  },
+  {
+   "id": 3518550,
+   "authorName": "",
+   "postDate": "2026-08-31T08:29:53.370000",
+   "votes": 0,
+   "content": "<p>I created a Docker container to test the setup, then created a dataset with the source files and uploaded it. However, starting the notebook session takes too long, and I don't know why. Any ideas?</p>"
+  },
+  {
+   "id": 3519440,
+   "authorName": "",
+   "postDate": "2026-09-01T17:54:07.617000",
+   "votes": 0,
+   "content": "<p>did you sue a kaggle docker container? That's what is run here.</p>"
+  },
+  {
+   "id": 3519716,
+   "authorName": "",
+   "postDate": "2026-09-02T04:21:01.977000",
+   "votes": 0,
+   "content": "<p>I use a Docker with Ubuntu 22.04. I finally managed to create a dataset to install gcc-16, g++-16, and cmake from .deb files, and boost, dlib, eigen, and pybind11 from source.</p>"
+  },
+  {
+   "id": 3518062,
+   "authorName": "",
+   "postDate": "2026-08-29T06:39:14.477000",
+   "votes": 0,
+   "content": "<p>I use C++23 but g++-14 is not available, like also clang-20. Do I need to install them from sources too?</p>"
+  },
+  {
+   "id": 3517960,
+   "authorName": "",
+   "postDate": "2026-08-28T19:10:09.190000",
+   "votes": 0,
+   "content": "<p>i guess kaggle one would be better</p>"
+  },
+  {
+   "id": 3517884,
+   "authorName": "",
+   "postDate": "2026-08-28T15:47:33.820000",
+   "votes": 0,
+   "content": "<p>Thank you! So I will investigate more in this way. Do you have a link that you think directly to share me?</p>"
+  },
+  {
+   "id": 3517951,
+   "authorName": "",
+   "postDate": "2026-08-28T18:55:58.193000",
+   "votes": 0,
+   "content": "<p>just click on the Code button on this page.</p>"
+  },
+  {
+   "id": 3517875,
+   "authorName": "",
+   "postDate": "2026-08-28T15:05:55.583000",
+   "votes": 0,
+   "content": "<p>AFAIK you can'[t run custom docker containers, you hve to use Kaggle's.</p>\n<p>You should build your code in a Kaggle notebook. Look at how public notebooks install dependencies.</p>"
+  }
+ ]
+}

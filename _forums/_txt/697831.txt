@@ -1,0 +1,5 @@
+===== TOPIC 697831 | votes=0 | comments=0 | date=2026-05-07T15:25:30.489000
+TITLE: Can't submit notebook through kaggle CLI API
+
+--- [697831] OP msgid=3454623 date=2026-05-07T15:25:30.490000 votes=0
+Hello! I'm trying to automate submission, but I'm running into an error using the kaggle API. I'm using version 2.1.2. I keep getting a 403 authorization error when trying to submit a notebook. I can trigger a save and run all, and that works correctly. But the submission step fails. I've done all the obvious debugging. My phone is verified. Is this a known issue? I'm able to submit through the web interface manually, just not by making an API call.

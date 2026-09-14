@@ -1,0 +1,26 @@
+{
+ "topic": {
+  "id": 704871,
+  "title": "Corrupted datasets",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 0,
+  "postDate": "2026-06-06T22:49:30.608000"
+ },
+ "messages": [
+  {
+   "id": 3467972,
+   "authorName": "",
+   "postDate": "2026-06-08T05:38:09.887000",
+   "votes": 0,
+   "content": "<p>It’s not just for this competition; it seems like an internal error affects other competitions too. I mean, if you check the dataset on the Kaggle platform, you might see other data that isn’t relevant to the competition.</p>"
+  },
+  {
+   "id": 3467634,
+   "authorName": "",
+   "postDate": "2026-06-06T22:49:30.607000",
+   "votes": 0,
+   "content": "<p>Look at all the json files in the data section. They seems to be different kinds of datasets, some bug kaggle side, or you've been hacked…</p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F838554%2F103a26f3c04d1a8b213f4e1843b8a151%2FScreenshot%20from%202026-06-07%2000-48-25.png?generation=1780786135919481&amp;alt=media\" alt=\"\"></p>\n<p><img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F838554%2F224fc7eefb845b443cdbf2f3caea2c75%2FScreenshot%20from%202026-06-07%2000-48-15.png?generation=1780786157200097&amp;alt=media\" alt=\"\"></p>"
+  }
+ ]
+}

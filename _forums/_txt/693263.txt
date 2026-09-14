@@ -1,0 +1,11 @@
+===== TOPIC 693263 | votes=1 | comments=2 | date=2026-04-20T12:58:46.570000
+TITLE: the leaderboard is stuck?
+
+--- [693263] OP msgid=3445789 date=2026-04-20T14:26:23.327000 votes=1
+I think the LB is stuck at 33.87 because everyone is still building on last year's winning solution. There hasn't been a major shift in strategy or model choice yet. Since the competition is far from over, teams will probably start experimenting with fresh open-source LLMs or more efficient fine-tuning methods soon. It's way too early to tell if there's a real performance gap
+
+--- [693263] reply#1 msgid=3448723 date=2026-04-26T13:15:14.537000 votes=0
+yes,it seems the qrevious year champoin is starting to fight
+
+--- [693263] reply#2 msgid=3445747 date=2026-04-20T12:58:46.570000 votes=1
+i see that the lb first place have been stuck for 33.87 for such a long time. Is it the diference between open-sources model and buisseces mode;?,have we reach a wall that cannot be break of intelligent for open sources model?

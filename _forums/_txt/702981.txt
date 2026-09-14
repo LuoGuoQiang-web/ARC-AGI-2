@@ -1,0 +1,47 @@
+===== TOPIC 702981 | votes=1 | comments=7 | date=2026-05-27T19:45:20.957000
+TITLE: Why Are We Still Enumerating Primitives?
+
+--- [702981] OP msgid=3463919 date=2026-05-28T10:05:03.350000 votes=1
+Which DSL are you discussing?
+
+--- [702981] reply#1 msgid=3464115 date=2026-05-28T19:38:26.880000 votes=0
+No specific one — I was thinking about DSL design in general. 
+Most public solvers I've seen use a flat primitive vocabulary 
+(MindsAI-style, BARC, etc). I was wondering whether replacing 
+discrete primitives with parametric function families would 
+change the search dynamics meaningfully. 
+Have you explored anything along those lines?
+
+--- [702981] reply#2 msgid=3464256 date=2026-05-29T10:31:16.663000 votes=1
+I never believed in DSL approach for arc agi2. We shared what we explored, see our winning solution from last year.
+
+--- [702981] reply#3 msgid=3464478 date=2026-05-29T23:23:41.740000 votes=-1
+I’d have to disagree, I believe a DSL is exactly what will solve this. I think I’ve cracked it. Once I finish cleaning up the code, I’ll share the full result with you.
+
+--- [702981] reply#4 msgid=3464490 date=2026-05-30T03:01:14.660000 votes=5
+It is fine to have a different opinion. 
+Please don't share result with me, especially privately. Submit to the competition rather. Tha's how you can show that your ideas work.
+The LB at end of competition will tell who is right.
+
+--- [702981] reply#5 msgid=3495098 date=2026-07-11T13:02:31.477000 votes=0
+What is DSL?
+
+--- [702981] reply#6 msgid=3495528 date=2026-07-12T13:07:25.070000 votes=0
+domain specific language.
+
+--- [702981] reply#7 msgid=3463748 date=2026-05-27T19:45:20.957000 votes=1
+Why Are We Still Enumerating Primitives?
+Something has been bugging me about current DSL approaches to ARC.
+I think the issue is more fundamental: primitives are the wrong abstraction level.
+When you look at ARC tasks, most "different" operations share obvious structural 
+similarities. Rotate, flip, transpose — these aren't three independent things. 
+They're variations of the same thing. Same with recolor, fill, erase — all 
+variations on a theme.
+So why do our DSLs treat them as separate atoms?
+What if, instead of searching over a flat list of named operations, we searched 
+over a smaller space that naturally generates those operations as special cases?
+Where it breaks down is topology-dependent tasks — anything that requires 
+understanding connected components, holes, boundaries. There the problem 
+isn't "which transform" but "which features matter." 
+Curious if anyone has thoughts on what the right abstraction level looks like. 
+The current approach of "add more primitives" feels like it's hitting a wall.

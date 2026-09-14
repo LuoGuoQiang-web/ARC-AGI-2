@@ -1,0 +1,40 @@
+===== TOPIC 684857 | votes=3 | comments=10 | date=2026-03-26T08:52:17.152000
+TITLE: How the current dataset compares with ARC-AGI-1?
+
+--- [684857] OP msgid=3431634 date=2026-03-30T12:24:11.370000 votes=4
+Part of arc agi1 eval and test is included in arc agi2 train. Eval and test for arc agi2 is much harder.
+Our last year winning solution achieved 31% on arc agi2 eval, and over 95% on arc agi1 eval.
+
+--- [684857] reply#1 msgid=3429032 date=2026-03-26T08:52:17.153000 votes=3
+I'm curious if anyone looked at the difficulty and variety level of the current dataset versus ARC Prize 2024 one (ARC-AGI-1). Perhaps someone had run 2024 model on ARC-AGI-2 dataset or 2025 model on ARC-AGI-1 dataset.
+
+--- [684857] reply#2 msgid=3429139 date=2026-03-26T12:31:02.690000 votes=4
+Yes, ARC-AGI-2 is substantially more difficult than ARC-AGI-1. You can see e.g. the ARC Prize Foundation's writeup here: https://arcprize.org/blog/arc-agi-2-technical-report . From that writeup: 
+
+ At the time of publishing the technical report, none of the leading AI models have surpassed a 5% success rate on ARC-AGI-2 tasks, whereas comparable models routinely achieve between 20% and 50% on ARC-AGI-1.
+
+That 5% is now greatly improved upon, last year a NVIDIA team scored 24% https://github.com/1ytic/NVARC . You could reuse their ideas (eg synthetic data generation), but their model assumed the availability of L4x4 GPUs for execution, and right now I believe the execution environment here is limited to T4x2 or P100x1.
+
+--- [684857] reply#3 msgid=3431636 date=2026-03-30T12:26:24.870000 votes=1
+You don't compare apple to apple. The 24% we got last year is on the private test data. The numbers reported on the ARC AGI leaderboard are on the public test data, same as in the public leaderboard of Kaggle. We got 27% during the competition and 29% few days after its end.
+
+--- [684857] reply#4 msgid=3432238 date=2026-03-31T09:27:36.110000 votes=0
+Can you comment on why there is no 24% scores on the leaderboard yet? Did something change since 2025?
+
+--- [684857] reply#5 msgid=3432278 date=2026-03-31T10:49:42.297000 votes=0
+As said, the arc agi leaderboard uses the same data as the public leaderboard on Kaggle. We appear on the arc agi2 leaderboard witht he same score as our public leaderboard score on Kaggle last year.
+
+--- [684857] reply#6 msgid=3432279 date=2026-03-31T10:52:19.767000 votes=0
+We're the orange dot at $0.2 per task
+
+--- [684857] reply#7 msgid=3432280 date=2026-03-31T10:53:18.560000 votes=0
+When running on a H100 we get similar score but at a much lower cost. We did not bother resubmit that. We'll see how it goes this year depending on the GPUs we will have access to here.
+
+--- [684857] reply#8 msgid=3433044 date=2026-04-01T05:51:06.997000 votes=0
+So the compute cost is an issue?
+
+--- [684857] reply#9 msgid=3433210 date=2026-04-01T11:56:57.423000 votes=3
+Compute limit is the main issue. You can see it here. With 2 T4 the score people get is around 10%, when we got almost 30% with 4 L4. We spent time optimizing inference to produce as many candidates as possible given the time and compute limits.
+
+--- [684857] reply#10 msgid=3437236 date=2026-04-07T11:35:13.027000 votes=4
+I made a close to 20% notebook public with 2xT4s - was just minor tweaks to original and using 2B model.

@@ -1,0 +1,7 @@
+===== TOPIC 685660 | votes=1 | comments=0 | date=2026-03-28T18:38:46.187000
+TITLE: Question About Open-Weight Models in Offline Evaluation
+
+--- [685660] OP msgid=3430643 date=2026-03-28T18:38:46.187000 votes=1
+Hello organizers, could you please clarify whether large open-weight models (for example, moonshotai/Kimi-K2.5 via its Kaggle model reference page: https://www.kaggle.com/refs/hf-model/moonshotai/Kimi-K2.5) are allowed in this competition only if all weights, custom code, and dependencies are fully available locally inside the offline Kaggle evaluation environment? If a model has a Kaggle model reference page, does that make it directly usable in offline evaluation, or does everything still need to be explicitly packaged as local assets?
+Also, since Kaggle hardware may not be sufficient to run models of this scale in practice, we would also like to ask whether there is any permitted external pathway or alternative setup that would make such open-weight models usable, or whether they are considered allowed only in principle but unusable unless they can run entirely within the standard offline Kaggle environment.
+Thank you very much.

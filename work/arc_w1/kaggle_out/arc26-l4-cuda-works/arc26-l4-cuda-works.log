@@ -1,0 +1,43 @@
+[{"stream_name":"stderr","time":6.20363529,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.203679171,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.016637323,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.016663718,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.016666774,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.016669011,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.596348706,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.596374311,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.596377457,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.596379689,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.36665662,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":13.670364749,"data":"torch            : 2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":13.67039497,"data":"cuda available   : True\n"}
+,{"stream_name":"stdout","time":13.670398442,"data":"arch list        : ['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']\n"}
+,{"stream_name":"stdout","time":13.670401571,"data":"device count     : 4\n"}
+,{"stream_name":"stdout","time":13.670404164,"data":"  device 0: NVIDIA L4  capability 8.9\n"}
+,{"stream_name":"stdout","time":13.670406672,"data":"  device 1: NVIDIA L4  capability 8.9\n"}
+,{"stream_name":"stdout","time":13.670409193,"data":"  device 2: NVIDIA L4  capability 8.9\n"}
+,{"stream_name":"stdout","time":13.670411551,"data":"  device 3: NVIDIA L4  capability 8.9\n"}
+,{"stream_name":"stdout","time":13.670414134,"data":"\n"}
+,{"stream_name":"stdout","time":13.670416510999999,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.670419505,"data":"escalating real work on cuda:0\n"}
+,{"stream_name":"stdout","time":13.670421897,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.978108194,"data":"1 alloc+fill     : OK  sum = 1048576.0\n"}
+,{"stream_name":"stdout","time":13.978133434,"data":"2 fp32 matmul    : OK  value = 1024.0\n"}
+,{"stream_name":"stdout","time":14.419581622,"data":"3 autograd       : OK  grad norm = 4.900996208190918\n"}
+,{"stream_name":"stdout","time":14.467659579,"data":"4 bf16 autocast  : OK  dtype = torch.bfloat16\n"}
+,{"stream_name":"stdout","time":14.467676233,"data":"5 8192-token fwd : OK  shape = (1, 8192, 2560)\n"}
+,{"stream_name":"stdout","time":14.467679186,"data":"\n"}
+,{"stream_name":"stdout","time":14.467681702,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":14.467684732,"data":"VERDICT\n"}
+,{"stream_name":"stdout","time":14.467687152,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":14.467702386,"data":"If checks 1-3 passed, the L4 executes CUDA fine and assert_gpu_compatible()'s\n"}
+,{"stream_name":"stdout","time":14.467704628,"data":"set-membership test is a FALSE POSITIVE that must be relaxed to a range check.\n"}
+,{"stream_name":"stderr","time":19.343061291,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":19.343092812,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":19.489587017,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":19.48960736,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":20.13376724,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":20.443917817,"data":"[NbConvertApp] Writing 9816 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":22.880312536,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":23.69860688,"data":"[NbConvertApp] Writing 297611 bytes to __results__.html\n"}
+]

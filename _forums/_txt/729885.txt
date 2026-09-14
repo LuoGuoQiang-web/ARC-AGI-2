@@ -1,0 +1,7 @@
+===== TOPIC 729885 | votes=0 | comments=0 | date=2026-07-27T02:58:04.360000
+TITLE: Oops something went wrong
+
+--- [729885] OP msgid=3504031 date=2026-07-27T02:58:04.360000 votes=0
+Oops something went wrong and Your session ended with an error: unknown error, status code 56
+
+Is this a common issue with the new notebook, or is it just happening to me?

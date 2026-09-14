@@ -1,0 +1,38 @@
+===== TOPIC 699858 | votes=0 | comments=8 | date=2026-05-15T14:05:51.088000
+TITLE: What is the Public Score's denominator?
+
+--- [699858] OP msgid=3458360 date=2026-05-15T17:41:11.740000 votes=2
+Public leaderboard is based on 120 semi private tasks, the private leaderboard is 120 private tasks
+
+--- [699858] reply#1 msgid=3458826 date=2026-05-16T18:12:30.413000 votes=1
+That said (from the source!) I find that a quick X*2.4 gets close to "How many correct test predictions" were made. It's a little tricky. Right now the ARC II top LB score is 42.64. Makes you wonder what that means. 42.64 * 2.4 is 102.336. Feels like 102 & 1/3… So, in my calculator I type (102 + (1/3)) / 2.4 and I get 42.6388889. Which rounds to 42.64. The magic number (based on Greg's precise details) seems to be 2.4 And It always calculates out to "N.333" or "N.5" or "N.6667" Which suggests at least one challenge had 2 or 3 tests, and only a subset of those tests were correct. 2.4 is 240%, which also relates to the total number of tests that Greg mentioned.
+
+--- [699858] reply#2 msgid=3458842 date=2026-05-16T19:01:06.867000 votes=0
+
+
+--- [699858] reply#3 msgid=3458857 date=2026-05-16T19:24:41.420000 votes=1
+If we were solving 51 puzzles then our score would be 42.5, not 42.64.
+If there are N test samples in a puzzle and you solve k out of N, then you get k/N for that puzzle.
+
+--- [699858] reply#4 msgid=3458863 date=2026-05-16T19:42:54.450000 votes=0
+
+
+--- [699858] reply#5 msgid=3459355 date=2026-05-17T17:41:53.640000 votes=0
+If there are N test samples in a puzzle and you solve k out of N, then you get k/N for that puzzle.
+
+Yes. The difficulty is, each puzzle has its own N… But we aren't privileged to that granularity. We just get some big integer (that I happened to also call N) with a fraction. So if my code solves two complete puzzles and two more half-puzzles, each of which has two test inputs, my final value (not the LB score) would be 3.0 (1 + 1 + 0.5 + 0.5) From that kind of feedback, I would never really know how many fractional scores became whole when matched with other fractional scores.
+
+--- [699858] reply#6 msgid=3459375 date=2026-05-17T18:13:54.170000 votes=1
+@russcore , it's not 42.46, it's 42.64. Technically, it's 42.63888… If you're assuming a back-end total of 120, you would take 42.64 and multiply it by 1.20 (120%) as you have done. Your result would be 51.168, which as noted, is only approximate. The correct value would be 51.1666… (51 + 1/6) … Just "by eye" you can assume the correct number of tests passed is 51 and 1/6 which would have one of the challenges be 1/2 and one would be 2/3. Once you use the correct fraction (51 + (1/6)), when you divide by 1.20 you get 42.63888… which rounds to 42.64.
+Also, it could be something like 50 + 1/2 + 1/3 + 1/3
+Ironically, this also works for 240 (2.4).
+And yeah, @cpmpml , 50 correct answers would be 42.5, but that's not what you got!
+
+--- [699858] reply#7 msgid=3459441 date=2026-05-17T20:16:23.640000 votes=0
+50 correct answers would be 42.5, but that's not what you got!
+
+50 correct answers would yield 41.67%
+I stick to what I wrote: 51 answers yield 42.5%
+
+--- [699858] reply#8 msgid=3458270 date=2026-05-15T14:05:51.090000 votes=0
+If the public score says X, is that X/50 or the percentage (X/50)*100?

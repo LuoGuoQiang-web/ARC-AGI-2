@@ -1,0 +1,21 @@
+===== TOPIC 733930 | votes=-3 | comments=5 | date=2026-08-09T05:34:35.069000
+TITLE: Any plans to release the SFT recipe or data mixture behind qwen3_4b_grids15_sft139, or an updated checkpoint? And roughly how many synthetic puzzles went into training?
+
+--- [733930] OP msgid=3510867 date=2026-08-09T18:23:57.230000 votes=1
+https://github.com/1ytic/NVARC 
+https://www.kaggle.com/competitions/arc-prize-2025/writeups/nvarc
+
+--- [733930] reply#1 msgid=3510624 date=2026-08-09T05:34:35.070000 votes=-3
+I run a pipeline with identical settings to the public 33.89 notebook (same model, LoRA r=256+rslora incl. embed/lm_head, DFS p≥0.2, 1200s/puzzle, kgmon selection) but consistently score 28–29. For those who reproduced 33+: which implementation details did you find score-critical beyond the headline hyperparameters — decode batching/view pairing, KV-cache handling, collator masking, anything else?
+
+--- [733930] reply#2 msgid=3511243 date=2026-08-10T18:06:21.423000 votes=0
+NVARC notebook is near-optimized. There are almost zero low-hanging fruits in that notebook. You need to get really lucky with seeds to get a 33 just with NVARC. Anything beyond needs enhancements more than just changing hyperparams or a completely different approach.
+
+--- [733930] reply#3 msgid=3510682 date=2026-08-09T08:52:31.487000 votes=0
+This is the model we used in our winning solution last year. We shared everything you need to train that model.
+
+--- [733930] reply#4 msgid=3510840 date=2026-08-09T17:30:45.860000 votes=2
+I trained it again & again with a synthetic puzzle but couldn't get the expected score.
+
+--- [733930] reply#5 msgid=3511414 date=2026-08-11T05:34:25.767000 votes=0
+What dataset mixture did you use to train qwen3_4b_grids15_sft139? I’ve done an additional sft starting from the NVARC checkpoint, but my dataset is too easy for that model, so the extra sft is not improving the harder arc-agi-2 tasks much

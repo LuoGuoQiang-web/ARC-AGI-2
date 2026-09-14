@@ -1,0 +1,26 @@
+{
+ "topic": {
+  "id": 694653,
+  "title": "[Open Source] 400/400 ARC-1 Training Dataset Solver Released!",
+  "authorName": "",
+  "commentCount": 1,
+  "votes": 5,
+  "postDate": "2026-04-26T06:41:42.147000"
+ },
+ "messages": [
+  {
+   "id": 3448619,
+   "authorName": "",
+   "postDate": "2026-04-26T06:41:42.147000",
+   "votes": 5,
+   "content": "<p>Hi Kagglers,</p>\n<p>For those following the Abstraction and Reasoning Corpus (ARC), we’ve just open-sourced the Haumea ARC-1 Training Solver. </p>\n<p>It successfully solves all 400 tasks in the ARC-1 training set using a modular \"Engine.\" It utilizes a library of composed \"laws\" (Geometric, Tiling, Motion, Symmetry, Logic, etc.) to deduce the transformation rules.</p>\n<p>Why this matters:\n  🔹 Programmatic Logic: The codebase provides a library of modular solvers that can be used to understand structured reasoning.\n  🔹 LLM Training: We believe this dataset of programmatic laws is a valuable resource for fine-tuning Large Language Models on\n  grid-based logic and abstract reasoning.</p>\n<p>While this release focuses on the training set, it provides a foundational framework for further work in broad generalization.</p>\n<p>Check out the code and the dataset below!\n  📂 GitHub: <a href=\"https://github.com/oncloudai/Haumea_Arc1_Training_Solver\" target=\"_blank\">https://github.com/oncloudai/Haumea_Arc1_Training_Solver</a>\n  📑 Zenodo (DOI): 10.5281/zenodo.19782111</p>\n<ul>\n<li>Reference: François Chollet - On the Measure of Intelligence (<a href=\"https://arxiv.org/abs/1911.01547\" target=\"_blank\">https://arxiv.org/abs/1911.01547</a>)</li>\n</ul>\n<p>We’d love to hear your feedback on the modular approach and how these laws might be evolved for better generalization on the hidden test sets!</p>\n<p>Happy Solving!\nTeam Haumea</p>\n<ul>\n<li>Chaitanya Gullapalli &amp; Harsha Tadimati</li>\n</ul>"
+  },
+  {
+   "id": 3458450,
+   "authorName": "",
+   "postDate": "2026-05-15T21:49:36.583000",
+   "votes": 0,
+   "content": "<p>Wow, that's 459 algorithms for 400 tasks. No composition, single algorithm has to fully solve single task. And even then at least some algorithms are not used at all. You could pretty much map algorithms to task IDs to avoid brute force attempts of every algorithm on every task. </p>"
+  }
+ ]
+}

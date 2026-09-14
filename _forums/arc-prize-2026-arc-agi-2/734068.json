@@ -1,0 +1,19 @@
+{
+ "topic": {
+  "id": 734068,
+  "title": "ARC-AGI-1's train/eval gap was mild. ARC-AGI-2's is not - measured across both corpora",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-08-09T17:54:29.410000"
+ },
+ "messages": [
+  {
+   "id": 3510853,
+   "authorName": "",
+   "postDate": "2026-08-09T17:54:29.410000",
+   "votes": 0,
+   "content": "<p>I posted earlier about ARC-AGI-2's evaluation split being structurally harder than its training split. The obvious follow-up is whether that is just how ARC has always been, so I ran the same measurements over ARC-AGI-1 (400 train + 400 eval) and compared. It is not.</p>\n<p>Same method on both corpora: per-task invariants that hold across every demonstration pair, computed without solving anything.</p>\n<p>Median max grid area\n  ARC-AGI-1: 100 train, 196 eval\n  ARC-AGI-2: 144 train, 400 eval</p>\n<p>Input has a symmetry\n  ARC-AGI-1: 26.0% train, 18.2% eval\n  ARC-AGI-2: 21.3% train, 9.2% eval</p>\n<p>Introduces new colours\n  ARC-AGI-1: 32.5% train, 29.0% eval\n  ARC-AGI-2: 28.2% train, 12.5% eval</p>\n<p>Shape rule inconsistent\n  ARC-AGI-1: 5.0% train, 4.8% eval\n  ARC-AGI-2: 4.9% train, 11.7% eval</p>\n<p>Both benchmarks have a harder evaluation split, but the character of the gap changed.</p>\n<p>The last one is what I did not expect. \"Shape rule inconsistent\" means a task whose own demonstration pairs disagree about how output dimensions derive from input dimensions, so you cannot infer the output canvas from a single rule. In ARC-AGI-1 that share is essentially identical across splits: 5.0% versus 4.8%. In ARC-AGI-2 it more than doubles: 4.9% versus 11.7%.</p>\n<p>So ARC-AGI-1's evaluation set was mostly a bigger version of its training set. ARC-AGI-2's is a structurally different one: larger grids, more colours, and roughly half as likely to hand you an exploitable symmetry (21.3% to 9.2%, against a much milder 26.0% to 18.2% in v1).</p>\n<p>What I take from it: intuitions and hyperparameters carried over from ARC-AGI-1 work were calibrated on a benchmark whose splits agreed with each other. On ARC-AGI-2 they do not, so validating on the training split flatters you more than it used to. The area gap alone is 2.8x on median.</p>\n<p>Caveat on comparability: ARC-AGI-1's splits are 400/400 while ARC-AGI-2's are 1000/120, so the v2 eval estimates rest on far fewer tasks and are noisier. The area difference in v2 survives a 20,000-resample permutation test at p &lt; 0.0001 and is not a 30x30 ceiling artifact (excluding capped grids the medians are 142 versus 400), but I have not run that test on every row above. Treat the symmetry and colour rows as descriptive.</p>\n<p>I put the full per-task table for both corpora up as a dataset so you can check any of this with a groupby rather than taking my word for it. 1,920 rows, 20 columns, both splits of both generations:\n<a href=\"https://www.kaggle.com/datasets/maximolorenzoylosada/arc-agi-structural-task-features\" target=\"_blank\">https://www.kaggle.com/datasets/maximolorenzoylosada/arc-agi-structural-task-features</a></p>\n<p>Sources are the public Apache-2.0 repos (fchollet/ARC-AGI and arcprize/ARC-AGI-2). Measurements only, no task content.</p>\n<p>If someone has a reason the inconsistent-shape-rule jump is an artifact of how v2 was constructed rather than a deliberate difficulty increase, I would like to hear it.</p>"
+  }
+ ]
+}

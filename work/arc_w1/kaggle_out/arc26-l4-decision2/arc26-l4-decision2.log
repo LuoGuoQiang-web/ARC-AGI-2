@@ -1,0 +1,165 @@
+[{"stream_name":"stderr","time":10.030826865,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.030864437,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.288063672,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.288087807,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.288090852,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.288093222,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.019679437,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.019700937,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.019703887,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.019706037,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.716186804,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":14.716235725,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":14.716241029,"data":"nvidia-smi\n"}
+,{"stream_name":"stdout","time":14.716244207999999,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":14.716247745,"data":"index, name, memory.total [MiB], memory.free [MiB], compute_cap\n"}
+,{"stream_name":"stdout","time":14.716251567,"data":"0, NVIDIA L4, 23034 MiB, 22564 MiB, 8.9\n"}
+,{"stream_name":"stdout","time":14.716254536,"data":"1, NVIDIA L4, 23034 MiB, 22564 MiB, 8.9\n"}
+,{"stream_name":"stdout","time":14.716257371,"data":"2, NVIDIA L4, 23034 MiB, 22564 MiB, 8.9\n"}
+,{"stream_name":"stdout","time":14.716260697,"data":"3, NVIDIA L4, 23034 MiB, 22564 MiB, 8.9\n"}
+,{"stream_name":"stdout","time":14.716263747,"data":"\n"}
+,{"stream_name":"stdout","time":21.282432706,"data":"torch              : 2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":21.483293412,"data":"cuda available     : True\n"}
+,{"stream_name":"stdout","time":21.483320264,"data":"device count       : 4\n"}
+,{"stream_name":"stdout","time":21.879042202,"data":"  device 0: NVIDIA L4  cap=8.9  22.03 GiB total, 21.84 GiB free\n"}
+,{"stream_name":"stdout","time":21.8790685,"data":"  device 1: NVIDIA L4  cap=8.9  22.03 GiB total, 21.84 GiB free\n"}
+,{"stream_name":"stdout","time":21.884606963,"data":"  device 2: NVIDIA L4  cap=8.9  22.03 GiB total, 21.84 GiB free\n"}
+,{"stream_name":"stdout","time":21.884625521,"data":"  device 3: NVIDIA L4  cap=8.9  22.03 GiB total, 21.84 GiB free\n"}
+,{"stream_name":"stdout","time":21.88462945,"data":"bf16 supported     : True\n"}
+,{"stream_name":"stdout","time":21.884632251,"data":"\n"}
+,{"stream_name":"stdout","time":21.884634809,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884637764,"data":"competition data\n"}
+,{"stream_name":"stdout","time":21.88465271,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.88465502,"data":"FOUND /kaggle/input/competitions/arc-prize-2026-arc-agi-2\n"}
+,{"stream_name":"stdout","time":21.88465691,"data":"   arc-agi_evaluation_challenges.json\n"}
+,{"stream_name":"stdout","time":21.884658777,"data":"   arc-agi_evaluation_solutions.json\n"}
+,{"stream_name":"stdout","time":21.884660759,"data":"   arc-agi_test_challenges.json\n"}
+,{"stream_name":"stdout","time":21.884662578,"data":"   arc-agi_training_challenges.json\n"}
+,{"stream_name":"stdout","time":21.884664401,"data":"   arc-agi_training_solutions.json\n"}
+,{"stream_name":"stdout","time":21.884666349,"data":"   sample_submission.json\n"}
+,{"stream_name":"stdout","time":21.884668269,"data":"\n"}
+,{"stream_name":"stdout","time":21.884670037,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884671982,"data":"model mount\n"}
+,{"stream_name":"stdout","time":21.884673779,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884675789,"data":"\n"}
+,{"stream_name":"stdout","time":21.884677512,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884679435,"data":"environment (KEY NAMES AND LENGTHS ONLY -- never values)\n"}
+,{"stream_name":"stdout","time":21.884681484,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884683489,"data":"  BUILD_DATE len=15\n"}
+,{"stream_name":"stdout","time":21.884685322,"data":"  CLICOLOR len=1\n"}
+,{"stream_name":"stdout","time":21.884687159,"data":"  CLOUDSDK_CONFIG len=16\n"}
+,{"stream_name":"stdout","time":21.88468899,"data":"  CLOUDSDK_PYTHON len=7\n"}
+,{"stream_name":"stdout","time":21.884690912,"data":"  COLAB_DEBUG_ADAPTER_MUX_PATH len=30\n"}
+,{"stream_name":"stdout","time":21.884692761,"data":"  COLAB_FILE_HANDLER_ADDR len=14\n"}
+,{"stream_name":"stdout","time":21.884694615,"data":"  COLAB_HUMAN_READABLE_NODE_LOGS len=1\n"}
+,{"stream_name":"stdout","time":21.884696568,"data":"  COLAB_IMAGE_TYPE len=3\n"}
+,{"stream_name":"stdout","time":21.884698405,"data":"  COLAB_JUPYTER_ALLOW_ORIGIN_PAT len=46\n"}
+,{"stream_name":"stdout","time":21.884700272,"data":"  COLAB_JUPYTER_IP len=9\n"}
+,{"stream_name":"stdout","time":21.884702079,"data":"  COLAB_KERNEL_MANAGER_PROXY_PORT len=4\n"}
+,{"stream_name":"stdout","time":21.884703867,"data":"  COLAB_LANGUAGE_SERVER_PROXY len=31\n"}
+,{"stream_name":"stdout","time":21.884705738,"data":"  COLAB_RELEASE_TAG len=50\n"}
+,{"stream_name":"stdout","time":21.884707584,"data":"  COLAB_WARMUP_DEFAULTS len=1\n"}
+,{"stream_name":"stdout","time":21.884709407,"data":"  CUDA_HOME len=15\n"}
+,{"stream_name":"stdout","time":21.884711317,"data":"  CUDA_VERSION len=6\n"}
+,{"stream_name":"stdout","time":21.884713147,"data":"  DEBIAN_FRONTEND len=14\n"}
+,{"stream_name":"stdout","time":21.884714974,"data":"  ENV len=13\n"}
+,{"stream_name":"stdout","time":21.884716761,"data":"  GIT_COMMIT len=40\n"}
+,{"stream_name":"stdout","time":21.884718555,"data":"  GIT_PAGER len=3\n"}
+,{"stream_name":"stdout","time":21.884720358,"data":"  HOME len=5\n"}
+,{"stream_name":"stdout","time":21.884722112,"data":"  HOSTNAME len=12\n"}
+,{"stream_name":"stdout","time":21.884723876,"data":"  JPY_PARENT_PID len=1\n"}
+,{"stream_name":"stdout","time":21.88472576,"data":"  KAGGLE_API_V1_TOKEN len=32\n"}
+,{"stream_name":"stdout","time":21.88473016,"data":"  KAGGLE_CONTAINER_NAME len=63\n"}
+,{"stream_name":"stdout","time":21.884732147,"data":"  KAGGLE_DATA_PROXY_PROJECT len=13\n"}
+,{"stream_name":"stdout","time":21.884734000999998,"data":"  KAGGLE_DATA_PROXY_TOKEN len=473\n"}
+,{"stream_name":"stdout","time":21.884735824,"data":"  KAGGLE_DATA_PROXY_URL len=21\n"}
+,{"stream_name":"stdout","time":21.88473768,"data":"  KAGGLE_DOCKER_IMAGE len=103\n"}
+,{"stream_name":"stdout","time":21.884739487,"data":"  KAGGLE_GCP_ZONE len=13\n"}
+,{"stream_name":"stdout","time":21.884741302,"data":"  KAGGLE_GRPC_DATA_PROXY_URL len=17\n"}
+,{"stream_name":"stdout","time":21.884743232,"data":"  KAGGLE_KERNEL_INTEGRATIONS len=0\n"}
+,{"stream_name":"stdout","time":21.884745062,"data":"  KAGGLE_KERNEL_RUN_TYPE len=5\n"}
+,{"stream_name":"stdout","time":21.884746858,"data":"  KAGGLE_URL_BASE len=22\n"}
+,{"stream_name":"stdout","time":21.884748695,"data":"  KAGGLE_USER_SECRETS_TOKEN len=245\n"}
+,{"stream_name":"stdout","time":21.88475051,"data":"  KMP_LISTEN_PORT len=4\n"}
+,{"stream_name":"stdout","time":21.884752296,"data":"  KMP_TARGET_PORT len=4\n"}
+,{"stream_name":"stdout","time":21.8847541,"data":"  LANG len=11\n"}
+,{"stream_name":"stdout","time":21.884755895,"data":"  LANGUAGE len=5\n"}
+,{"stream_name":"stdout","time":21.884758521,"data":"  LAST_FORCED_REBUILD len=8\n"}
+,{"stream_name":"stdout","time":21.884762304,"data":"  LC_ALL len=11\n"}
+,{"stream_name":"stdout","time":21.884764176,"data":"  LD_LIBRARY_PATH len=67\n"}
+,{"stream_name":"stdout","time":21.884766083,"data":"  LIBRARY_PATH len=27\n"}
+,{"stream_name":"stdout","time":21.884767879,"data":"  MKL_THREADING_LAYER len=3\n"}
+,{"stream_name":"stdout","time":21.884769692,"data":"  MPLBACKEND len=41\n"}
+,{"stream_name":"stdout","time":21.884771468,"data":"  NCCL_VERSION len=8\n"}
+,{"stream_name":"stdout","time":21.884773316,"data":"  NVARCH len=6\n"}
+,{"stream_name":"stdout","time":21.884775219,"data":"  NVIDIA_DRIVER_CAPABILITIES len=15\n"}
+,{"stream_name":"stdout","time":21.884777052,"data":"  NVIDIA_PRODUCT_NAME len=4\n"}
+,{"stream_name":"stdout","time":21.884778857,"data":"  NVIDIA_REQUIRE_CUDA len=2165\n"}
+,{"stream_name":"stdout","time":21.88478076,"data":"  NVIDIA_VISIBLE_DEVICES len=3\n"}
+,{"stream_name":"stdout","time":21.884782559,"data":"  NV_CUDA_CUDART_DEV_VERSION len=9\n"}
+,{"stream_name":"stdout","time":21.884784398,"data":"  NV_CUDA_CUDART_VERSION len=9\n"}
+,{"stream_name":"stdout","time":21.88478619,"data":"  NV_CUDA_LIB_VERSION len=8\n"}
+,{"stream_name":"stdout","time":21.884787998,"data":"  NV_CUDA_NSIGHT_COMPUTE_DEV_PACKAGE len=33\n"}
+,{"stream_name":"stdout","time":21.88478997,"data":"  NV_CUDA_NSIGHT_COMPUTE_VERSION len=8\n"}
+,{"stream_name":"stdout","time":21.884791880999998,"data":"  NV_CUDNN_PACKAGE len=28\n"}
+,{"stream_name":"stdout","time":21.884793696,"data":"  NV_CUDNN_PACKAGE_DEV len=32\n"}
+,{"stream_name":"stdout","time":21.884795557,"data":"  NV_CUDNN_PACKAGE_NAME len=17\n"}
+,{"stream_name":"stdout","time":21.88479735,"data":"  NV_CUDNN_VERSION len=10\n"}
+,{"stream_name":"stdout","time":21.884799165,"data":"  NV_LIBCUBLAS_DEV_PACKAGE len=29\n"}
+,{"stream_name":"stdout","time":21.884800979,"data":"  NV_LIBCUBLAS_DEV_PACKAGE_NAME len=18\n"}
+,{"stream_name":"stdout","time":21.884802835,"data":"  NV_LIBCUBLAS_DEV_VERSION len=10\n"}
+,{"stream_name":"stdout","time":21.884804742,"data":"  NV_LIBCUBLAS_PACKAGE len=25\n"}
+,{"stream_name":"stdout","time":21.884806586,"data":"  NV_LIBCUBLAS_PACKAGE_NAME len=14\n"}
+,{"stream_name":"stdout","time":21.884810352,"data":"  NV_LIBCUBLAS_VERSION len=10\n"}
+,{"stream_name":"stdout","time":21.884812322,"data":"  NV_LIBCUSPARSE_DEV_VERSION len=11\n"}
+,{"stream_name":"stdout","time":21.884814121,"data":"  NV_LIBCUSPARSE_VERSION len=11\n"}
+,{"stream_name":"stdout","time":21.884815996,"data":"  NV_LIBNCCL_DEV_PACKAGE len=29\n"}
+,{"stream_name":"stdout","time":21.884817827,"data":"  NV_LIBNCCL_DEV_PACKAGE_NAME len=11\n"}
+,{"stream_name":"stdout","time":21.884819693,"data":"  NV_LIBNCCL_DEV_PACKAGE_VERSION len=8\n"}
+,{"stream_name":"stdout","time":21.884821599,"data":"  NV_LIBNCCL_PACKAGE len=26\n"}
+,{"stream_name":"stdout","time":21.884823427,"data":"  NV_LIBNCCL_PACKAGE_NAME len=8\n"}
+,{"stream_name":"stdout","time":21.884825285,"data":"  NV_LIBNCCL_PACKAGE_VERSION len=8\n"}
+,{"stream_name":"stdout","time":21.884827097,"data":"  NV_LIBNPP_DEV_PACKAGE len=28\n"}
+,{"stream_name":"stdout","time":21.884828879,"data":"  NV_LIBNPP_DEV_VERSION len=12\n"}
+,{"stream_name":"stdout","time":21.884830684,"data":"  NV_LIBNPP_PACKAGE len=24\n"}
+,{"stream_name":"stdout","time":21.884832475,"data":"  NV_LIBNPP_VERSION len=12\n"}
+,{"stream_name":"stdout","time":21.88483425,"data":"  NV_NVML_DEV_VERSION len=9\n"}
+,{"stream_name":"stdout","time":21.884836144,"data":"  NV_NVPROF_DEV_PACKAGE len=26\n"}
+,{"stream_name":"stdout","time":21.884837973,"data":"  NV_NVPROF_VERSION len=9\n"}
+,{"stream_name":"stdout","time":21.884839802,"data":"  NV_NVTX_VERSION len=9\n"}
+,{"stream_name":"stdout","time":21.884841642,"data":"  OLDPWD len=15\n"}
+,{"stream_name":"stdout","time":21.884843406999998,"data":"  PAGER len=3\n"}
+,{"stream_name":"stdout","time":21.88484517,"data":"  PATH len=133\n"}
+,{"stream_name":"stdout","time":21.884846928,"data":"  PWD len=15\n"}
+,{"stream_name":"stdout","time":21.884848694,"data":"  PYDEVD_USE_FRAME_EVAL len=2\n"}
+,{"stream_name":"stdout","time":21.884850609,"data":"  PYTHONPATH len=85\n"}
+,{"stream_name":"stdout","time":21.88485242,"data":"  PYTHONUSERBASE len=12\n"}
+,{"stream_name":"stdout","time":21.88485424,"data":"  PYTHONUTF8 len=1\n"}
+,{"stream_name":"stdout","time":21.884856078,"data":"  PYTORCH_CUDA_ALLOC_CONF len=24\n"}
+,{"stream_name":"stdout","time":21.884857888,"data":"  SHELL len=9\n"}
+,{"stream_name":"stdout","time":21.884859655,"data":"  SHLVL len=1\n"}
+,{"stream_name":"stdout","time":21.884861404,"data":"  TCLLIBPATH len=27\n"}
+,{"stream_name":"stdout","time":21.884863184,"data":"  TERM len=11\n"}
+,{"stream_name":"stdout","time":21.884865057,"data":"  TESSERACT_PATH len=18\n"}
+,{"stream_name":"stdout","time":21.884866869,"data":"  TF_CPP_MIN_LOG_LEVEL len=1\n"}
+,{"stream_name":"stdout","time":21.884868711,"data":"  TF_FORCE_GPU_ALLOW_GROWTH len=4\n"}
+,{"stream_name":"stdout","time":21.884870636,"data":"  UV_BUILD_CONSTRAINT len=0\n"}
+,{"stream_name":"stdout","time":21.884872393,"data":"  UV_CONSTRAINT len=0\n"}
+,{"stream_name":"stdout","time":21.884874204,"data":"  UV_INSTALL_DIR len=14\n"}
+,{"stream_name":"stdout","time":21.884875981,"data":"  UV_SYSTEM_PYTHON len=4\n"}
+,{"stream_name":"stdout","time":21.884877791,"data":"  VM_GCE_METADATA_HOST len=15\n"}
+,{"stream_name":"stdout","time":21.884879799,"data":"\n"}
+,{"stream_name":"stdout","time":21.884881582,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884883547,"data":"verdict inputs\n"}
+,{"stream_name":"stdout","time":21.884885356,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.884889447,"data":"L4x4 PRESENT: 4 devices. Shard with CUDA_VISIBLE_DEVICES + --num-shards 4 and merge with tools/merge_shards.py.\n"}
+,{"stream_name":"stdout","time":21.884891538,"data":"python 3.12.13\n"}
+,{"stream_name":"stderr","time":27.915088746,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":27.915115131,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":28.10843484,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":28.108455136,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":28.870008722,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":29.188630343,"data":"[NbConvertApp] Writing 15516 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":31.708122213,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":32.561581277,"data":"[NbConvertApp] Writing 305468 bytes to __results__.html\n"}
+]

@@ -1,0 +1,158 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+==============================================================================
+nvidia-smi
+==============================================================================
+index, name, memory.total [MiB], memory.free [MiB], compute_cap
+0, Tesla P100-PCIE-16GB, 16384 MiB, 16270 MiB, 6.0
+
+torch              : 2.10.0+cu128
+cuda available     : True
+device count       : 1
+/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (7.0) - (12.0)
+    
+  queued_call()
+/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Please install PyTorch with a following CUDA
+    configurations:  12.6 following instructions at
+    https://pytorch.org/get-started/locally/
+    
+  queued_call()
+/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: 
+Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.
+If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  queued_call()
+  device 0: Tesla P100-PCIE-16GB  cap=6.0  15.89 GiB total, 15.64 GiB free
+bf16 supported     : True
+
+==============================================================================
+competition data
+==============================================================================
+FOUND /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+   arc-agi_evaluation_challenges.json
+   arc-agi_evaluation_solutions.json
+   arc-agi_test_challenges.json
+   arc-agi_training_challenges.json
+   arc-agi_training_solutions.json
+   sample_submission.json
+
+==============================================================================
+model mount
+==============================================================================
+
+==============================================================================
+environment (KEY NAMES AND LENGTHS ONLY -- never values)
+==============================================================================
+  BUILD_DATE len=15
+  CLICOLOR len=1
+  CLOUDSDK_CONFIG len=16
+  CLOUDSDK_PYTHON len=7
+  COLAB_DEBUG_ADAPTER_MUX_PATH len=30
+  COLAB_FILE_HANDLER_ADDR len=14
+  COLAB_HUMAN_READABLE_NODE_LOGS len=1
+  COLAB_IMAGE_TYPE len=3
+  COLAB_JUPYTER_ALLOW_ORIGIN_PAT len=46
+  COLAB_JUPYTER_IP len=9
+  COLAB_KERNEL_MANAGER_PROXY_PORT len=4
+  COLAB_LANGUAGE_SERVER_PROXY len=31
+  COLAB_RELEASE_TAG len=50
+  COLAB_WARMUP_DEFAULTS len=1
+  CUDA_HOME len=15
+  CUDA_VERSION len=6
+  DEBIAN_FRONTEND len=14
+  ENV len=13
+  GIT_COMMIT len=40
+  GIT_PAGER len=3
+  HOME len=5
+  HOSTNAME len=12
+  JPY_PARENT_PID len=1
+  KAGGLE_API_V1_TOKEN len=32
+  KAGGLE_CONTAINER_NAME len=67
+  KAGGLE_DATA_PROXY_PROJECT len=13
+  KAGGLE_DATA_PROXY_TOKEN len=473
+  KAGGLE_DATA_PROXY_URL len=21
+  KAGGLE_DOCKER_IMAGE len=103
+  KAGGLE_GCP_ZONE len=22
+  KAGGLE_GRPC_DATA_PROXY_URL len=17
+  KAGGLE_KERNEL_INTEGRATIONS len=0
+  KAGGLE_KERNEL_RUN_TYPE len=5
+  KAGGLE_URL_BASE len=22
+  KAGGLE_USER_SECRETS_TOKEN len=245
+  KMP_LISTEN_PORT len=4
+  KMP_TARGET_PORT len=4
+  LANG len=11
+  LANGUAGE len=5
+  LAST_FORCED_REBUILD len=8
+  LC_ALL len=11
+  LD_LIBRARY_PATH len=67
+  LIBRARY_PATH len=27
+  MKL_THREADING_LAYER len=3
+  MPLBACKEND len=41
+  NCCL_VERSION len=8
+  NVARCH len=6
+  NVIDIA_DRIVER_CAPABILITIES len=15
+  NVIDIA_PRODUCT_NAME len=4
+  NVIDIA_REQUIRE_CUDA len=2165
+  NVIDIA_VISIBLE_DEVICES len=3
+  NV_CUDA_CUDART_DEV_VERSION len=9
+  NV_CUDA_CUDART_VERSION len=9
+  NV_CUDA_LIB_VERSION len=8
+  NV_CUDA_NSIGHT_COMPUTE_DEV_PACKAGE len=33
+  NV_CUDA_NSIGHT_COMPUTE_VERSION len=8
+  NV_CUDNN_PACKAGE len=28
+  NV_CUDNN_PACKAGE_DEV len=32
+  NV_CUDNN_PACKAGE_NAME len=17
+  NV_CUDNN_VERSION len=10
+  NV_LIBCUBLAS_DEV_PACKAGE len=29
+  NV_LIBCUBLAS_DEV_PACKAGE_NAME len=18
+  NV_LIBCUBLAS_DEV_VERSION len=10
+  NV_LIBCUBLAS_PACKAGE len=25
+  NV_LIBCUBLAS_PACKAGE_NAME len=14
+  NV_LIBCUBLAS_VERSION len=10
+  NV_LIBCUSPARSE_DEV_VERSION len=11
+  NV_LIBCUSPARSE_VERSION len=11
+  NV_LIBNCCL_DEV_PACKAGE len=29
+  NV_LIBNCCL_DEV_PACKAGE_NAME len=11
+  NV_LIBNCCL_DEV_PACKAGE_VERSION len=8
+  NV_LIBNCCL_PACKAGE len=26
+  NV_LIBNCCL_PACKAGE_NAME len=8
+  NV_LIBNCCL_PACKAGE_VERSION len=8
+  NV_LIBNPP_DEV_PACKAGE len=28
+  NV_LIBNPP_DEV_VERSION len=12
+  NV_LIBNPP_PACKAGE len=24
+  NV_LIBNPP_VERSION len=12
+  NV_NVML_DEV_VERSION len=9
+  NV_NVPROF_DEV_PACKAGE len=26
+  NV_NVPROF_VERSION len=9
+  NV_NVTX_VERSION len=9
+  OLDPWD len=15
+  PAGER len=3
+  PATH len=133
+  PWD len=15
+  PYDEVD_USE_FRAME_EVAL len=2
+  PYTHONPATH len=85
+  PYTHONUSERBASE len=12
+  PYTHONUTF8 len=1
+  PYTORCH_CUDA_ALLOC_CONF len=24
+  SHELL len=9
+  SHLVL len=1
+  TCLLIBPATH len=27
+  TERM len=11
+  TESSERACT_PATH len=18
+  TF_CPP_MIN_LOG_LEVEL len=1
+  TF_FORCE_GPU_ALLOW_GROWTH len=4
+  UV_BUILD_CONSTRAINT len=0
+  UV_CONSTRAINT len=0
+  UV_INSTALL_DIR len=14
+  UV_SYSTEM_PYTHON len=4
+  VM_GCE_METADATA_HOST len=15
+
+==============================================================================
+verdict inputs
+==============================================================================
+SINGLE device: Tesla P100-PCIE-16GB. Total VRAM 15.89 GiB.
+python 3.12.13

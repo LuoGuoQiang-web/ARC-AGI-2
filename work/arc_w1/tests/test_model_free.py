@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
+import math
 import random
 import sys
 import traceback
@@ -377,6 +378,39 @@ def main() -> int:
               [str(rec2)])
 
     # ---- T11: GPU compatibility guard (fake torch -- no GPU needed) ------------------
+    # The guard now decides by running a real op, because deciding by set membership in
+    # `get_arch_list()` rejected the NVIDIA L4 (sm_89 is absent from that list) and so rejected
+    # the 4xL4 machine with 88 GiB that this competition actually offers. These checks pin both
+    # directions: a device whose ops fail must be refused, and a device whose ops work must be
+    # accepted *even when it is missing from the arch list*.
+    class _FakeTensor:
+        def __init__(self, fail):
+            self._fail = fail
+
+        def _maybe(self):
+            if self._fail:
+                raise RuntimeError("CUDA error: no kernel image is available for execution "
+                                   "on the device")
+            return self
+
+        def __matmul__(self, other):
+            return self._maybe()
+
+        def sum(self):
+            return self._maybe()
+
+        def pow(self, _e):
+            return self._maybe()
+
+        def mean(self):
+            return self._maybe()
+
+        def backward(self):
+            return self._maybe()
+
+        def __float__(self):
+            return 1.0 if self._maybe() else 1.0
+
     class _FakeCuda:
         def __init__(self, names, caps, archs, available=True):
             self._n, self._c, self._a, self._av = names, caps, archs, available
@@ -396,46 +430,133 @@ def main() -> int:
         def get_arch_list(self):
             return list(self._a)
 
+        def synchronize(self, *a):
+            return None
+
     class _FakeTorch:
-        def __init__(self, cuda):
+        """Enough of the torch surface for the guard's smoke test, with ops that can fail."""
+
+        def __init__(self, cuda, ops_ok=True):
             self.cuda = cuda
+            self._ops_ok = ops_ok
+
+        def device(self, spec):
+            return spec
+
+        def ones(self, *a, **k):
+            return _FakeTensor(not self._ops_ok)
+
+        def randn(self, *a, **k):
+            return _FakeTensor(not self._ops_ok)
 
     real_torch = S.torch
     try:
-        # exactly the failure that broke the 2026-09-14 smoke run: P100 (sm_60) vs torch's sm_70+
+        # exactly the failure that broke the 2026-09-14 smoke run: P100 (sm_60), ops dead
         S.torch = _FakeTorch(_FakeCuda(["Tesla P100-PCIE-16GB"], [(6, 0)],
-                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]))
+                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]),
+                             ops_ok=False)
         try:
             S.assert_gpu_compatible()
-            check("T11a rejects the P100 that broke the smoke run", False, 1,
+            check("T11a rejects a GPU whose ops fail", False, 1,
                   ["no exception raised -> run would emit an all-fallback submission"])
         except RuntimeError as exc:
-            check("T11a rejects the P100 that broke the smoke run",
-                  "NvidiaTeslaT4" in str(exc) and "sm_60" in str(exc), 1, [str(exc)[:140]])
+            check("T11a rejects a GPU whose ops fail",
+                  "sm_60" in str(exc) and "machine_shape" in str(exc), 1, [str(exc)[:160]])
 
-        S.torch = _FakeTorch(_FakeCuda(["Tesla T4", "Tesla T4"], [(7, 5), (7, 5)],
-                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]))
+        # ⭐ REGRESSION: the L4 is sm_89 and this image's get_arch_list() omits sm_89, so the
+        # old set-membership guard refused it. Real ops succeed on an L4 -- verified on Kaggle
+        # -- so it must be accepted. This check fails against the pre-fix guard.
+        S.torch = _FakeTorch(_FakeCuda(["NVIDIA L4"] * 4, [(8, 9)] * 4,
+                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90",
+                                        "sm_100", "sm_120"]),
+                             ops_ok=True)
         try:
             desc = S.assert_gpu_compatible()
-            check("T11b accepts T4", "Tesla T4" in desc, 1, [desc])
+            check("T11b accepts the L4 (sm_89 absent from the cubin list but ops work)",
+                  desc.count("NVIDIA L4") == 4, 1, [desc[:120]])
         except Exception as exc:
-            check("T11b accepts T4", False, 1, [repr(exc)[:140]])
+            check("T11b accepts the L4 (sm_89 absent from the cubin list but ops work)",
+                  False, 1, ["the old set-membership guard is back: " + repr(exc)[:120]])
+
+        S.torch = _FakeTorch(_FakeCuda(["Tesla T4", "Tesla T4"], [(7, 5), (7, 5)],
+                                       ["sm_70", "sm_75", "sm_80", "sm_86", "sm_90"]),
+                             ops_ok=True)
+        try:
+            desc = S.assert_gpu_compatible()
+            check("T11c accepts T4", "Tesla T4" in desc, 1, [desc])
+        except Exception as exc:
+            check("T11c accepts T4", False, 1, [repr(exc)[:140]])
 
         S.torch = _FakeTorch(_FakeCuda([], [], [], available=False))
         try:
             S.assert_gpu_compatible()
-            check("T11c refuses a CPU-only runtime", False, 1, ["no exception"])
+            check("T11d refuses a CPU-only runtime", False, 1, ["no exception"])
         except RuntimeError as exc:
-            check("T11c refuses a CPU-only runtime", "CUDA is not available" in str(exc), 1,
+            check("T11d refuses a CPU-only runtime", "CUDA is not available" in str(exc), 1,
                   [str(exc)[:120]])
     finally:
         S.torch = real_torch
 
-    # ---- T12: the search-width knobs are reachable from the CLI ----------------------
+    # ---- T15: the TTT profile we adopted, and the schedule that goes with it -------------
+    # These pin the *verified* configuration of the strongest published instance of this recipe
+    # (NVARC 2025: r=256, rsLoRA, embed_tokens+lm_head targets, cosine with warmup). We had r=16
+    # and no scheduler. Rank is the capacity of the only mechanism that can change the
+    # generator, and the pool-recall measurement says the generator is the bottleneck.
+    check("T15a default LoRA rank matches the verified recipe",
+          S.LORA_R == 256 and S.LORA_ALPHA == 32, 1, [f"LORA_R={S.LORA_R}"])
+    check("T15b adapters cover the token embedding and the output head",
+          "embed_tokens" in S.LORA_EMBED_MODULES and "lm_head" in S.LORA_EMBED_MODULES, 1,
+          [str(S.LORA_EMBED_MODULES)])
+    check("T15c the seven attention/MLP projections are still targeted",
+          len(S.LORA_TARGET_MODULES) == 7, 1, [str(S.LORA_TARGET_MODULES)])
+    check("T15d rsLoRA scaling is in effect (alpha/sqrt(r), not alpha/r)",
+          abs((S.LORA_ALPHA / math.sqrt(S.LORA_R)) - (S.LORA_ALPHA / S.LORA_R)) > 1e-9,
+          1, [f"{S.LORA_ALPHA / math.sqrt(S.LORA_R):.3f} vs {S.LORA_ALPHA / S.LORA_R:.3f}"])
+
+    # The schedule is a pure function precisely so it can be checked without a GPU.
+    # Note the step count: at 16 steps, warmup_ratio 0.1 means int(1.6) = 1 warmup step, so the
+    # warmup is real but only one step long. Use 100 steps to test the shape, and check the
+    # short-run case separately -- that is where an off-by-one actually costs something.
+    lrs = [S.ttt_lr_at(i, 16) for i in range(16)]
+    long_lrs = [S.ttt_lr_at(i, 100) for i in range(100)]
+    check("T15e warmup rises across its window (100-step run)",
+          long_lrs[0] < long_lrs[4] < long_lrs[9], 1, [str([round(x, 9) for x in long_lrs[:11]])])
+    check("T15f warmup ends at the base rate",
+          abs(long_lrs[9] - S.TTT_LR) < 1e-9, 1, [f"step9={long_lrs[9]:.3e}"])
+    check("T15g the schedule decays monotonically after warmup",
+          all(long_lrs[i] >= long_lrs[i + 1] - 1e-12 for i in range(9, 99)), 1, ["100-step run"])
+    check("T15h the schedule actually reaches zero at the last step",
+          abs(S.ttt_lr_at(15, 16)) < 1e-12 and abs(long_lrs[99]) < 1e-12, 1,
+          [f"16-step last={S.ttt_lr_at(15, 16):.2e}, 100-step last={long_lrs[99]:.2e}"])
+    check("T15i a one-step run is well defined and non-zero",
+          S.ttt_lr_at(0, 1) > 0, 1, [f"{S.ttt_lr_at(0, 1):.3e}"])
+    check("T15j warmup never exceeds the base rate",
+          all(S.ttt_lr_at(i, 100) <= S.TTT_LR + 1e-12 for i in range(100)), 1, ["100-step run"])
+    check("T15k zero warmup decay pure-cosine from step 0",
+          abs(S.ttt_lr_at(0, 10, warmup_ratio=0.0) - S.TTT_LR) < 1e-9, 1,
+          [f"{S.ttt_lr_at(0, 10, warmup_ratio=0.0):.3e}"])
+    check("T15l the 16-step schedule still spends its last step at (near) zero",
+          S.ttt_lr_at(15, 16) < 1e-9 * S.TTT_LR or S.ttt_lr_at(15, 16) == 0.0, 1,
+          [f"{S.ttt_lr_at(15, 16):.3e}"])
+
+    # The memory guard: rank 256 must be refused where it cannot fit, rather than OOM-ing three
+    # minutes into a run and being recorded as "TTT attempted, no gain".
+    gib = S.ttt_optimiser_gib(529_000_000)
+    check("T15m the rank-256 optimiser cost is ~5.9 GiB", 5.5 < gib < 6.5, 1, [f"{gib:.2f} GiB"])
+    # A T4 has 14.56 GiB total and the bf16 base model holds ~7.3 of it, leaving ~7.3 GiB. So
+    # r=256 consumes most of the remaining headroom *before* any activation is allocated -- the
+    # 1.77 GiB activation allocation is what then failed.
+    check("T15n that leaves almost no room for activations on a T4",
+          gib > 0.75 * 7.3, 1, [f"{gib:.2f} GiB of ~7.3 GiB headroom"])
+    check("T15o a T4-sized rank is affordable",
+          S.ttt_optimiser_gib(529_000_000 / 16) < 0.5, 1,
+          [f"r=16 -> {S.ttt_optimiser_gib(529_000_000 / 16):.2f} GiB"])
+
     # Without these the pool-recall experiment is impossible, and pool recall is the
     # binding constraint (selection_headroom was 0.0 on the first eval probe).
     d = S.parse_args(["--dfs-prob-threshold", "0.1", "--dfs-max-branches", "4",
                       "--dfs-max-nodes", "12000"])
+    # ---- T12: the search-width knobs are reachable from the CLI ----------------------
     check("T12a CLI exposes the search width",
           (d.dfs_prob_threshold, d.dfs_max_branches, d.dfs_max_nodes) == (0.1, 4, 12000),
           f"{d.dfs_prob_threshold}/{d.dfs_max_branches}/{d.dfs_max_nodes}")

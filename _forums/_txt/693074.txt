@@ -1,0 +1,49 @@
+===== TOPIC 693074 | votes=0 | comments=2 | date=2026-04-19T12:30:53.044000
+TITLE: '/kaggle/inference_outputs' does not exist.
+
+--- [693074] OP msgid=3445377 date=2026-04-19T16:43:50.960000 votes=0
+i guess u have made edits in the previous competition winner's notebook, and uploaded it as new notebook, but during that time the environment they used was different so you have to upload the edited notebook as the same notebook and go to Settings > Environment Preferences > Pin to Original Environment, that MIGHT fix it
+(just a wild guess from me)
+
+--- [693074] reply#1 msgid=3445379 date=2026-04-19T16:45:33.303000 votes=0
+or u might just have used a wrong path somewhere
+
+--- [693074] reply#2 msgid=3445269 date=2026-04-19T12:30:53.043000 votes=0
+I ran the following code on Kaggle and got an error saying that /kaggle/inference_outputs does not exist.
+Does anyone know how to fix this?
+■Code
+import os
+import json
+from arc_loader import ArcDataset
+from arc_decoder import ArcDecoder
+rerun_mode = os.getenv("KAGGLE_IS_COMPETITION_RERUN")
+if rerun_mode:
+ data = ArcDataset.from_file("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json")
+else:
+ data = ArcDataset.from_file("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json")
+ data = data.load_replies("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json")
+decoder = ArcDecoder(data.split_multi_replies(), n_guesses=2)
+decoder.load_decoded_results("/kaggle/inference_outputs")
+submission = data.get_submission(decoder.run_selection_algo())
+with open("submission.json", "w") as f:
+ json.dump(submission, f)
+if not rerun_mode:
+ decoder.benchmark_selection_algos()
+ with open("submission.json", "r") as f:
+ reload_submission = json.load(f)
+ print("*** Reload score:", data.validate_submission(reload_submission))
+■Error
+FileNotFoundError Traceback (most recent call last)
+/tmp/ipykernel_41/490131940.py in ()
+ 14 decoder = ArcDecoder(data.split_multi_replies(), n_guesses=2)
+ 15 
+---> 16 decoder.load_decoded_results("/kaggle/inference_outputs")
+ 17 
+ 18 submission = data.get_submission(decoder.run_selection_algo())
+/kaggle/working/arc_decoder.py in load_decoded_results(self, store, run_name)
+ 50 
+ 51 def load_decoded_results(self, store, run_name=""):
+---> 52 for key in os.listdir(store):
+ 53 with bz2.BZ2File(os.path.join(store, key)) as f:
+ 54 outputs = pickle.load(f)
+FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/inference_outputs'

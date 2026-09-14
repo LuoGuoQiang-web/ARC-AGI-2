@@ -1,0 +1,24 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+torch            : 2.10.0+cu128
+cuda available   : True
+arch list        : ['sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+device count     : 4
+  device 0: NVIDIA L4  capability 8.9
+  device 1: NVIDIA L4  capability 8.9
+  device 2: NVIDIA L4  capability 8.9
+  device 3: NVIDIA L4  capability 8.9
+
+==============================================================================
+escalating real work on cuda:0
+==============================================================================
+1 alloc+fill     : OK  sum = 1048576.0
+2 fp32 matmul    : OK  value = 1024.0
+3 autograd       : OK  grad norm = 4.900996208190918
+4 bf16 autocast  : OK  dtype = torch.bfloat16
+5 8192-token fwd : OK  shape = (1, 8192, 2560)
+
+==============================================================================
+VERDICT
+==============================================================================
+If checks 1-3 passed, the L4 executes CUDA fine and assert_gpu_compatible()'s
+set-membership test is a FALSE POSITIVE that must be relaxed to a range check.

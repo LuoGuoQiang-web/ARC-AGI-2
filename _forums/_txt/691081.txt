@@ -1,0 +1,74 @@
+===== TOPIC 691081 | votes=11 | comments=18 | date=2026-04-13T19:46:35.083000
+TITLE: When will a new model be top?
+
+--- [691081] OP msgid=3441311 date=2026-04-13T19:46:35.083000 votes=11
+I am both pleased and impressed to see that the model and code we used last year yields new high scores almost every day. Thanks for those who are sharing their notebooks.
+Latest shared notebook is at 32.64% https://www.kaggle.com/code/tonylica/nvarc-2025-same-with-yiheng/notebook 
+I did not check what was different from our best sub from last year, but the mdoel is the same, and the code looks pretty close.
+I have two questions, all answers are welcome:
+
+How far will people push our last year model? What is your score guess?
+When will an alternate model be better?
+
+--- [691081] reply#1 msgid=3445945 date=2026-04-20T18:10:00.677000 votes=1
+Soon. Retraining topas with a few new bells and whistles.
+
+--- [691081] reply#2 msgid=3441442 date=2026-04-14T01:59:48.900000 votes=1
+I think we will reach the limit of your model very soon (if not already!) since the model already runs for 12 h in submission. I guess the score will be ~35?
+I would guess a new model will appear in a month or so, and probably from top teams in previous iterations :p
+
+--- [691081] reply#3 msgid=3448536 date=2026-04-25T21:15:08.513000 votes=0
+We're going to post our first iteration of Topas once it hits around…the 40ish mark. Still training right now.
+
+--- [691081] reply#4 msgid=3448561 date=2026-04-26T00:31:56.963000 votes=0
+ccan I make team with you?
+
+--- [691081] reply#5 msgid=3444015 date=2026-04-17T05:38:45.077000 votes=0
+This year's environment will fit significantly larger models. So my expectation that bigger and newer models that already show some promising results will soon take over.
+
+--- [691081] reply#6 msgid=3445969 date=2026-04-20T19:15:51.417000 votes=1
+thisn year environment is exactly the same as last year environment. It is why people could easily submit our code and build on it.
+
+--- [691081] reply#7 msgid=3443520 date=2026-04-16T16:54:54.410000 votes=0
+hey @cpmpml could you let me know the hyperparameters u used while finetuning your qwen model at: https://www.kaggle.com/models/sorokin/qwen3_4b_grids15_sft139/transformers/bfloat16 , 
+again sorry if im missing the file if already made public by you
+
+--- [691081] reply#8 msgid=3443572 date=2026-04-16T18:00:02.383000 votes=1
+We shared our solution last year on github.
+
+--- [691081] reply#9 msgid=3444034 date=2026-04-17T07:19:10.867000 votes=0
+
+
+--- [691081] reply#10 msgid=3443384 date=2026-04-16T13:34:35.143000 votes=0
+How far will people push our last year model? What is your score guess?
+We are waiting for you to trained a new ones ;)
+Also the datasets for fine tuning your model are available somewhere? Might try to train a 8B models. 
+Score guess => 42%
+When will an alternate model be better?
+The competition is quite long, I think some people including me are trying different variations but real breakthrough will probably happen in a couple of months when the search of such models will mature
+
+--- [691081] reply#11 msgid=3447948 date=2026-04-24T11:26:07.023000 votes=3
+
+
+--- [691081] reply#12 msgid=3447956 date=2026-04-24T11:49:53.777000 votes=4
+Thanks for asking, but we prefer to not share more now.
+All I can say is to repeat what I wrote already: simple tweaks to our last year winning solution won't be enough to win this time.
+
+--- [691081] reply#13 msgid=3448007 date=2026-04-24T12:38:37.920000 votes=-2
+can we make team,to win?
+
+--- [691081] reply#14 msgid=3448115 date=2026-04-24T17:09:35.513000 votes=0
+Show me you can improve over what we shared last year, say with a 35+ score.
+
+--- [691081] reply#15 msgid=3448249 date=2026-04-25T01:58:24.617000 votes=0
+Okay,wait I will do it
+
+--- [691081] reply#16 msgid=3465577 date=2026-06-02T11:48:46.703000 votes=0
+Hi. I want to try this as well. Do you mean taking this: https://www.kaggle.com/code/sorokin/arc2-qwen3-unsloth-flash-lora-batch4-queue 
+and improving which score over 35+, using '25 data or the current ARC AGI 2 '26 data?
+
+--- [691081] reply#17 msgid=3465586 date=2026-06-02T12:05:56.653000 votes=0
+We will not team probably.
+
+--- [691081] reply#18 msgid=3441360 date=2026-04-13T21:08:42.197000 votes=0
+

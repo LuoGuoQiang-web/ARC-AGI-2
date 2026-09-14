@@ -1,0 +1,19 @@
+{
+ "topic": {
+  "id": 729885,
+  "title": "Oops something went wrong",
+  "authorName": "",
+  "commentCount": 0,
+  "votes": 0,
+  "postDate": "2026-07-27T02:58:04.360000"
+ },
+ "messages": [
+  {
+   "id": 3504031,
+   "authorName": "",
+   "postDate": "2026-07-27T02:58:04.360000",
+   "votes": 0,
+   "content": "<p>Oops something went wrong and Your session ended with an error: unknown error, status code 56\n<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F7698767%2Fd1633cc4a40640dbbe0bf9ee60fe1c6e%2F9158de06-8936-42b5-aeba-7ab0eb043db5.png?generation=1785121070392889&amp;alt=media\" alt=\"\">\n<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F7698767%2F8725d677e72fd3b07a71abd6c0dd41bb%2F38a4ef22-d983-40ce-81e8-ee6e2898b020.png?generation=1785121079770524&amp;alt=media\" alt=\"\"></p>\n<p>Is this a common issue with the new notebook, or is it just happening to me?</p>"
+  }
+ ]
+}

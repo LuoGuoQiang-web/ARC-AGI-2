@@ -1,0 +1,68 @@
+{
+ "topic": {
+  "id": 689054,
+  "title": "Upgraded Accelerators",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 21,
+  "postDate": "2026-04-07T16:31:11.629000"
+ },
+ "messages": [
+  {
+   "id": 3437428,
+   "authorName": "",
+   "postDate": "2026-04-07T16:31:11.630000",
+   "votes": 21,
+   "content": "<p>Hi everyone, \nwe just upgraded the accelerators for ARC-AGI-2. This competition now has access to Kaggle's pool of powerful new L4x4 machines! These machines offer 96GB of GPU memory enabling submissions with much larger models. </p>\n<p>Head over to the <a href=\"https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/overview/upgraded-accelerators\" target=\"_blank\">Overview tab</a> to learn the essentials and see <a href=\"https://cloud.google.com/compute/docs/gpus#l4-gpus\" target=\"_blank\">this page</a> for more in-depth information on these machines.</p>\n<p>Good luck!</p>\n<p>María</p>"
+  },
+  {
+   "id": 3462714,
+   "authorName": "",
+   "postDate": "2026-05-24T17:16:11.210000",
+   "votes": 1,
+   "content": "<p>Dear ARC Prize Organizers,</p>\n<p>I hope you are doing well. My team and I have many promising ideas and approaches we would like to explore for the ARC Prize 2026 competition, but we are currently limited by a lack of GPU resources and financial means. I noticed that some sponsors may provide additional compute resources for participants, and I previously sent an email about this opportunity but have not yet received a response. Could you please let me know how we can apply or become eligible for these additional resources? Thank you very much for your time and for organizing this inspiring competition.</p>\n<p>Kind regards,</p>"
+  },
+  {
+   "id": 3518958,
+   "authorName": "",
+   "postDate": "2026-08-31T22:11:42.130000",
+   "votes": 0,
+   "content": "<p><a href=\"https://www.kaggle.com/macruzbar\" target=\"_blank\">@macruzbar</a>, is it possible to get the full 30 hours on GPU L4xL4?</p>"
+  },
+  {
+   "id": 3520174,
+   "authorName": "",
+   "postDate": "2026-09-02T22:47:37.163000",
+   "votes": 0,
+   "content": "<p><a href=\"https://www.kaggle.com/macruzbar\" target=\"_blank\">@macruzbar</a>, any chance, plz</p>"
+  },
+  {
+   "id": 3450251,
+   "authorName": "",
+   "postDate": "2026-04-29T14:57:28.747000",
+   "votes": 0,
+   "content": "<p>Thank you for the upgraded accelerators.  If possible, could the H100s be made available for ARC-AGI-2 to open up more approaches?  I understand resources are heavily constrained so perhaps for ARC-AGI-2, the H100s can consume GPU quota at 2.5 the rate of the 4xL4?</p>"
+  },
+  {
+   "id": 3437525,
+   "authorName": "",
+   "postDate": "2026-04-07T18:48:03.380000",
+   "votes": 0,
+   "content": "<p>Thank you for the update! Just wanted to check on this, I thought I remembered the plan being to use H100s for this competition. I am honestly hoping that we are using the 4xL4 and not the H100 but just wanted to be sure that this was the last gpu change for the competition? Thank you all for your efforts!</p>"
+  },
+  {
+   "id": 3437555,
+   "authorName": "",
+   "postDate": "2026-04-07T19:14:20.633000",
+   "votes": 3,
+   "content": "<p>Our plan is to implement the H100s for the ARC-AGI-3 competition.</p>\n<p>Note, any of our advanced accelerators are heavily supply constrained, and we do our best to maintain as much capacity as we can, but as has been seen across these competitions we can face variable supply constraints and our intent is to provide a combination of what is best available to us and what is best to advance the field</p>"
+  },
+  {
+   "id": 3437561,
+   "authorName": "",
+   "postDate": "2026-04-07T19:21:02.617000",
+   "votes": 0,
+   "content": "<p>That makes sense, that must be where I saw it. 4xL4 for this competition 1xH100 for ARC-AGI-3. Thank you for the clarification!</p>"
+  }
+ ]
+}

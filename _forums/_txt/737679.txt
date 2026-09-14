@@ -1,0 +1,15 @@
+===== TOPIC 737679 | votes=0 | comments=2 | date=2026-08-26T18:55:14.182000
+TITLE: Rules clarification: hosted AI coding assistants
+
+--- [737679] OP msgid=3518535 date=2026-08-31T07:42:22.160000 votes=-1
+think about how AI.agents kick in mamny.score 0.0, such as inpiut AIqwen 3, offline, freevwrsion 4b, qwen.coder, yet many bugs thr AI.agent produce~gogogogooo~ chatGPt produce full.production via exactly concrete Python, while Gemini seems to short answer.just.for. one.block? all improve score 0.0, how another 50% test may going, let AI predict, active scientists~
+
+--- [737679] reply#1 msgid=3517954 date=2026-08-28T18:57:14.307000 votes=0
+Many people use coding assistants like claude code or codex or others in Kaggle competitions. I think the only real limit is to not spend unreasonable amount of money using these.
+
+--- [737679] reply#2 msgid=3517318 date=2026-08-26T18:55:14.183000 votes=0
+Hello!
+I have a few items I'd like clarified if possible:
+May a hosted AI coding assistant, which is not a registered team member, help author or review private generic or submission-relevant code if it receives no Competition Data, task grids, solutions, task identifiers, or task-derived examples? 
+Does the answer change if the code is first shared publicly with all participants through a Kaggle notebook or competition forum? 
+May we share aggregate metrics such as pass rates, timing, memory, and predefined failure-category counts with the assistant? Any required disclosure or licensing conditions on that front that could be identified would be helpful.

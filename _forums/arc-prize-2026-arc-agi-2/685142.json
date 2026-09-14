@@ -1,0 +1,166 @@
+{
+ "topic": {
+  "id": 685142,
+  "title": "Last Years 1st Place Solution",
+  "authorName": "",
+  "commentCount": 21,
+  "votes": 24,
+  "postDate": "2026-03-27T00:29:52.980000"
+ },
+ "messages": [
+  {
+   "id": 3429596,
+   "authorName": "",
+   "postDate": "2026-03-27T00:29:52.980000",
+   "votes": 24,
+   "content": "<p>Has anyone tried submitting last year's winning solution?</p>\n<p><a href=\"https://www.kaggle.com/competitions/arc-prize-2025/writeups/nvarc\" target=\"_blank\">https://www.kaggle.com/competitions/arc-prize-2025/writeups/nvarc</a></p>\n<p>I suspect it would achieve <code>Public LB 27</code> and <code>Private LB 24</code>! </p>\n<p>(edit: last year was 4xL4 and this year is 2xT2, so it cannot achieve these scores)</p>\n<p>========</p>\n<p><strong>UPDATE</strong>: The code has been reconfigured for 2xT4 and published <a href=\"https://www.kaggle.com/code/nihilisticneuralnet/9-58-nvarc-arc-2025-winning-solution-for-t4\" target=\"_blank\">here</a></p>\n<p><strong>UPDATE 2</strong>: This competition has upgraded the GPUs to 4xL4, so we can now submit last years solution</p>"
+  },
+  {
+   "id": 3429713,
+   "authorName": "",
+   "postDate": "2026-03-27T06:06:47.453000",
+   "votes": 6,
+   "content": "<p>That solution uses 4xL4 GPUs. We still don't have access to those.</p>\n<blockquote>\n  <p>NOTE: We are currently exploring options to provide better compute for this competition.</p>\n</blockquote>"
+  },
+  {
+   "id": 3431691,
+   "authorName": "",
+   "postDate": "2026-03-30T13:56:04.087000",
+   "votes": 3,
+   "content": "<p>UPDATE: The code has been reconfigured for 2xT4 and published <a href=\"https://www.kaggle.com/code/nihilisticneuralnet/9-58-nvarc-arc-2025-winning-solution-for-t4\" target=\"_blank\">here</a></p>"
+  },
+  {
+   "id": 3431632,
+   "authorName": "",
+   "postDate": "2026-03-30T12:22:22.530000",
+   "votes": 4,
+   "content": "<p>You won't get these scores with 2xT4. We used 4xL4.</p>"
+  },
+  {
+   "id": 3436730,
+   "authorName": "",
+   "postDate": "2026-04-06T16:01:08.233000",
+   "votes": 1,
+   "content": "<p>Yet, this competition is also all about synthetic training data. So here is one useful link from that writeup: <a href=\"https://www.kaggle.com/datasets/sorokin/nvarc-artifacts-puzzles\" target=\"_blank\">https://www.kaggle.com/datasets/sorokin/nvarc-artifacts-puzzles</a></p>"
+  },
+  {
+   "id": 3434774,
+   "authorName": "",
+   "postDate": "2026-04-03T08:03:06.360000",
+   "votes": 2,
+   "content": "<p>anyone trying<a href=\"https://github.com/Bitterbot-AI/topas_DSLPv1\" target=\"_blank\"> topas</a>?</p>"
+  },
+  {
+   "id": 3438778,
+   "authorName": "",
+   "postDate": "2026-04-09T17:40:37.877000",
+   "votes": -1,
+   "content": "<p>Something tells me they are…</p>"
+  },
+  {
+   "id": 3439340,
+   "authorName": "",
+   "postDate": "2026-04-10T14:57:50.920000",
+   "votes": 0,
+   "content": "<p>Bro, train your model and submit.. it's supposed to be the best, yeah? It's your chance to prove it</p>"
+  },
+  {
+   "id": 3439459,
+   "authorName": "",
+   "postDate": "2026-04-10T18:47:36.630000",
+   "votes": 0,
+   "content": ""
+  },
+  {
+   "id": 3439576,
+   "authorName": "",
+   "postDate": "2026-04-10T22:26:51.693000",
+   "votes": 0,
+   "content": "<p>We're training it right now.  Due to hardware limitations it's going to take another 7 or so days.  But we're going to put our best version out.  Our real version.</p>"
+  },
+  {
+   "id": 3439660,
+   "authorName": "",
+   "postDate": "2026-04-11T04:51:58.060000",
+   "votes": 0,
+   "content": "<p>如何在Kaggle上使用，你能更新阅读吗\n我.md\n?</p>"
+  },
+  {
+   "id": 3438315,
+   "authorName": "",
+   "postDate": "2026-04-08T23:13:19.220000",
+   "votes": 0,
+   "content": "<p>UPDATE: This competition has upgraded the GPUs to 4xL4, so we can now submit last years solution</p>"
+  },
+  {
+   "id": 3438730,
+   "authorName": "",
+   "postDate": "2026-04-09T16:34:59.700000",
+   "votes": 6,
+   "content": "<p>We did not wait 😀</p>\n<p>Our notebook from last year runs fine in this year comp, see <a href=\"https://www.kaggle.com/code/jonathanchan/arc26-2025-winning-solution-v1\" target=\"_blank\">https://www.kaggle.com/code/jonathanchan/arc26-2025-winning-solution-v1</a></p>"
+  },
+  {
+   "id": 3440071,
+   "authorName": "",
+   "postDate": "2026-04-11T20:55:19.200000",
+   "votes": 1,
+   "content": "<p>Hi, thanks for your great work and the baseline! I am curious tho whether the notebook is itself determinsitc because I forked it and ran it 3 times got the same score of 28.47. However, clearly others running the same notebook can score 30+.</p>"
+  },
+  {
+   "id": 3440407,
+   "authorName": "",
+   "postDate": "2026-04-12T10:13:12.837000",
+   "votes": 1,
+   "content": "<p>Last year we got different scores when we re submitted it.</p>\n<p>People are using variants of our code, I didn't check all the changes they do. I doubt that simple modifications of our code would lead to this year winning solution anyway.</p>"
+  },
+  {
+   "id": 3441150,
+   "authorName": "",
+   "postDate": "2026-04-13T15:21:28.383000",
+   "votes": 0,
+   "content": "<p>I suspect that the current public LB split is surely different from the one used in last year's. That is why the scores are different with little to no changes to the baseline code. </p>"
+  },
+  {
+   "id": 3441234,
+   "authorName": "",
+   "postDate": "2026-04-13T17:30:00.130000",
+   "votes": 2,
+   "content": "<p>Test data is the same as last year.  Not sure where you see it wasn't.</p>\n<p>The data used for the public leaderboard is also the same as in the ARC AGI2 leaderboard on arc prize site.</p>\n<p>The reason scores change is that people modify a bit the code. Also, our code is not deterministic.</p>\n<p>Reason we did not improve our score is that our code was submitted the last day and finished 1 hour before competition deadline. We did not have time to explore variants and use LB feedback to improve it.</p>"
+  },
+  {
+   "id": 3442399,
+   "authorName": "",
+   "postDate": "2026-04-15T12:44:49.607000",
+   "votes": 1,
+   "content": ""
+  },
+  {
+   "id": 3443042,
+   "authorName": "",
+   "postDate": "2026-04-16T03:42:36.383000",
+   "votes": 1,
+   "content": "<p>we saw that last year. Same code submitted twice after deadline yield two different scores, both better than our winning score in the competition.</p>"
+  },
+  {
+   "id": 3443069,
+   "authorName": "",
+   "postDate": "2026-04-16T04:23:16.700000",
+   "votes": 0,
+   "content": "<p>Emm…, maybe the questions are in a random sequence for each submission? (kind of like the AIMO3?)</p>"
+  },
+  {
+   "id": 3443265,
+   "authorName": "",
+   "postDate": "2026-04-16T10:04:21.353000",
+   "votes": 0,
+   "content": "<p>Maybe, but llm inference is non deterministic.</p>"
+  },
+  {
+   "id": 3429598,
+   "authorName": "",
+   "postDate": "2026-03-27T00:31:25.840000",
+   "votes": 0,
+   "content": ""
+  }
+ ]
+}

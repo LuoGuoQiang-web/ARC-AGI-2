@@ -1,0 +1,68 @@
+{
+ "topic": {
+  "id": 698462,
+  "title": "task  17829a00",
+  "authorName": "",
+  "commentCount": 7,
+  "votes": 8,
+  "postDate": "2026-05-10T03:01:37.995000"
+ },
+ "messages": [
+  {
+   "id": 3455669,
+   "authorName": "",
+   "postDate": "2026-05-10T03:01:37.997000",
+   "votes": 8,
+   "content": "<p>Hello,</p>\n<p>I have a question regarding ARC task \"17829a00\".</p>\n<p>After analyzing the train examples carefully, I noticed what appears to be an inconsistency in the first example involving the color \"8\".</p>\n<p>The overall transformation seems to follow a boundary-attraction or gravity-like rule:</p>\n<ul>\n<li>objects/fragments are attracted toward the boundary row of the same color,</li>\n<li>while approximately preserving their topology.</li>\n</ul>\n<p>However, in the first training example, one vertical column of color \"8\" in the ground truth contains two additional cells compared to the other similar columns/components.</p>\n<p>As a human observer, I cannot identify a corresponding structural reason for why this specific column grows while the other \"8\" columns do not exhibit the same behavior.</p>\n<p>So I would like to ask:</p>\n<ul>\n<li>Is this vertical extension an intentional special-case rule?</li>\n<li>Or could it be an annotation artifact / mistake in the dataset?</li>\n<li>Should solvers interpret the task as a gravity/attractor process, or is there another intended abstraction behind that specific extension?</li>\n</ul>\n<p>Thank you.<img src=\"https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F31590935%2Fbb0f79a8124df5a7ed36e846bde4367f%2FWhatsApp%20Image%202026-05-10%20at%205.58.41%20AM.jpeg?generation=1778382013132331&amp;alt=media\" alt=\"\"></p>"
+  },
+  {
+   "id": 3455687,
+   "authorName": "",
+   "postDate": "2026-05-10T04:28:34.697000",
+   "votes": 5,
+   "content": "<p>Looks like ground truth is wrong in the first training sample.</p>"
+  },
+  {
+   "id": 3459521,
+   "authorName": "",
+   "postDate": "2026-05-17T23:33:44.800000",
+   "votes": 3,
+   "content": "<p>An obvious error in train #1. There were corrections of the data set in the past. Occasional errors are to be expected. Since you are the discoverer, open an issue on <a href=\"https://github.com/arcprize/ARC-AGI-2\" target=\"_blank\">https://github.com/arcprize/ARC-AGI-2</a>.</p>"
+  },
+  {
+   "id": 3458044,
+   "authorName": "",
+   "postDate": "2026-05-14T22:20:52.803000",
+   "votes": 1,
+   "content": "<p>This is a great find.  Every column except column 15 conserves its 8-count exactly. Column 15 gains two cells out of nowhere.  With augmented training data this error is compounded.  Have you checked the rest of the data?</p>"
+  },
+  {
+   "id": 3461217,
+   "authorName": "",
+   "postDate": "2026-05-19T23:27:57.263000",
+   "votes": 0,
+   "content": "<p>But you, as a human, can still solve it reliably, right?)\nJokes aside, this is still bad because it breaks the dataset contract/assumptions -- namely, that the train-pair logic is always correct.</p>"
+  },
+  {
+   "id": 3461253,
+   "authorName": "",
+   "postDate": "2026-05-20T02:30:46.057000",
+   "votes": 0,
+   "content": "<p>I don't think Kaggle ever made this claim about the data for their competitions.</p>"
+  },
+  {
+   "id": 3461312,
+   "authorName": "",
+   "postDate": "2026-05-20T06:39:07.633000",
+   "votes": 0,
+   "content": "<p>Surely not. This assumption is implicit in the ARC competition dataset: \"The correct underlying rule (test input -&gt; test output) is always correct for the train input-output pairs.\" And this is a good assumption, because it's true for an overwhelmingly large part of the dataset. Many (most?) solvers heavily rely on it to filter solution candidates.</p>"
+  },
+  {
+   "id": 3461349,
+   "authorName": "",
+   "postDate": "2026-05-20T10:05:28.777000",
+   "votes": 0,
+   "content": "<p>This is an aspirational statement. In the real world, Kaggle datasets often contain errors.</p>"
+  }
+ ]
+}

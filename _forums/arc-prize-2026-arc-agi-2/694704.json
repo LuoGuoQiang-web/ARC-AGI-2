@@ -1,0 +1,40 @@
+{
+ "topic": {
+  "id": 694704,
+  "title": "How to Improve Code ARC Prize Score from 0.9 to 30.22",
+  "authorName": "",
+  "commentCount": 3,
+  "votes": -4,
+  "postDate": "2026-04-26T13:11:41.270000"
+ },
+ "messages": [
+  {
+   "id": 3448739,
+   "authorName": "",
+   "postDate": "2026-04-26T14:05:56.060000",
+   "votes": 1,
+   "content": "<p>Maybe if you add a question mark to your title you won't get downvotes.</p>"
+  },
+  {
+   "id": 3448764,
+   "authorName": "",
+   "postDate": "2026-04-26T14:58:42.280000",
+   "votes": -1,
+   "content": "<p>Okay sure I understand, I am questions so how to improve the code ARC PRIZE Growth Score 0.9 -&gt; 30.22 and Give me the Solution🙏🙏</p>"
+  },
+  {
+   "id": 3448845,
+   "authorName": "",
+   "postDate": "2026-04-26T18:26:38.370000",
+   "votes": 0,
+   "content": "<p>Emm…, personally, I will suggest you team try to adapt the core pipeline from last year's winner: using LLM to generate python codes to find the rules of transformation, it's quite simple and elegant idea to process.</p>\n<p>Based on my testing, to the first 8 questions from this year's test_challenges, basically accuracy is 3/8 , and sometimes 5/8, so it's for your reference, and hope to be some helping.</p>"
+  },
+  {
+   "id": 3448722,
+   "authorName": "",
+   "postDate": "2026-04-26T13:11:41.270000",
+   "votes": -4,
+   "content": "<h2>🧠 About This Work</h2>\n<p>This project explores improving performance on the <strong>ARC Prize 2026 (ARC-AGI-2 benchmark)</strong> using a <strong>Hybrid LLM-Based Solver</strong> that combines neural reasoning (LLMs) with symbolic search and program synthesis.</p>\n<p>The goal is to move beyond a baseline score of <strong>0.90 → 30.33 (or improve accuracy toward target benchmarks depending on evaluation setup)</strong> by strengthening generalization across unseen reasoning tasks.</p>\n<p>ARC-AGI-2 is extremely challenging because it is designed to resist memorization and pattern recognition. Even state-of-the-art LLMs perform poorly without structured reasoning scaffolds, as tasks require abstract rule discovery, compositional reasoning, and multi-step transformations rather than simple language inference. </p>\n<h2><a href=\"https://www.kaggle.com/code/rauffauzanrambe/arc-prize-2026-hybrid-llm-based-arc-agi-2-solver?scriptVersionId=313741352\" target=\"_blank\">ARC Prize 2026 Hybrid LLM Solver</a></h2>\n<h2>⚠️ Problem I Am Facing</h2>\n<p>Despite implementing a hybrid approach (LLM + rule-based + search augmentation), the system still struggles with:</p>\n<ul>\n<li><strong>Weak generalization on unseen transformations</strong></li>\n<li><strong>Inconsistent reasoning across similar grid patterns</strong></li>\n<li><strong>Over-reliance on LLM hallucinated rules instead of grounded symbolic logic</strong></li>\n<li><strong>Failure in multi-rule composition tasks (where multiple transformations must be applied sequentially)</strong></li>\n</ul>\n<p>These issues create a performance ceiling where improvements stagnate, especially on harder ARC tasks requiring abstraction rather than surface-level pattern matching.</p>\n<hr>\n<h2>🧩 Why This Happens</h2>\n<p>ARC-AGI-2 tasks are intentionally designed to break traditional AI approaches:</p>\n<ul>\n<li>They require <strong>abstract reasoning, not memorization</strong></li>\n<li>Many tasks involve <strong>multiple interacting rules</strong></li>\n<li>Simple LLM prompting or direct inference methods typically score near zero without additional structure ([Arcprize][2])</li>\n</ul>\n<p>This means that even hybrid systems can fail if symbolic reasoning and neural generation are not tightly integrated.</p>\n<hr>\n<h2>🚀 Direction for Improvement</h2>\n<p>To improve from the current plateau, the next iterations of the system will focus on:</p>\n<ul>\n<li>Strengthening <strong>program synthesis loops (LLM → code → verification → refinement)</strong></li>\n<li>Adding <strong>constraint-based symbolic validation</strong></li>\n<li>Improving <strong>test-time search (beam search / evolutionary refinement)</strong></li>\n<li>Introducing <strong>memory of rule hypotheses across similar tasks</strong></li>\n<li>Reducing hallucination through <strong>execution-grounded feedback loops</strong></li>\n</ul>\n<hr>\n<h2>🎯 Objective</h2>\n<p>The objective is not just higher accuracy, but a system that can:</p>\n<blockquote>\n  <p>Infer rules like a human, verify them like a machine, and adapt like an evolving agent.</p>\n</blockquote>\n<p>Help us:\nSo How to tips and tricks code ARC PRIZE Score from 0.9 to 30.22 Give me us the solution please🙏🙏</p>\n<hr>"
+  }
+ ]
+}

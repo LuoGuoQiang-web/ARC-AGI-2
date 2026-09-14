@@ -1,0 +1,83 @@
+===== TOPIC 685142 | votes=24 | comments=21 | date=2026-03-27T00:29:52.980000
+TITLE: Last Years 1st Place Solution
+
+--- [685142] OP msgid=3429596 date=2026-03-27T00:29:52.980000 votes=24
+Has anyone tried submitting last year's winning solution?
+https://www.kaggle.com/competitions/arc-prize-2025/writeups/nvarc 
+I suspect it would achieve Public LB 27 and Private LB 24! 
+(edit: last year was 4xL4 and this year is 2xT2, so it cannot achieve these scores)
+========
+UPDATE: The code has been reconfigured for 2xT4 and published here 
+UPDATE 2: This competition has upgraded the GPUs to 4xL4, so we can now submit last years solution
+
+--- [685142] reply#1 msgid=3429713 date=2026-03-27T06:06:47.453000 votes=6
+That solution uses 4xL4 GPUs. We still don't have access to those.
+
+ NOTE: We are currently exploring options to provide better compute for this competition.
+
+--- [685142] reply#2 msgid=3431691 date=2026-03-30T13:56:04.087000 votes=3
+UPDATE: The code has been reconfigured for 2xT4 and published here
+
+--- [685142] reply#3 msgid=3431632 date=2026-03-30T12:22:22.530000 votes=4
+You won't get these scores with 2xT4. We used 4xL4.
+
+--- [685142] reply#4 msgid=3436730 date=2026-04-06T16:01:08.233000 votes=1
+Yet, this competition is also all about synthetic training data. So here is one useful link from that writeup: https://www.kaggle.com/datasets/sorokin/nvarc-artifacts-puzzles
+
+--- [685142] reply#5 msgid=3434774 date=2026-04-03T08:03:06.360000 votes=2
+anyone trying topas ?
+
+--- [685142] reply#6 msgid=3438778 date=2026-04-09T17:40:37.877000 votes=-1
+Something tells me they are…
+
+--- [685142] reply#7 msgid=3439340 date=2026-04-10T14:57:50.920000 votes=0
+Bro, train your model and submit.. it's supposed to be the best, yeah? It's your chance to prove it
+
+--- [685142] reply#8 msgid=3439459 date=2026-04-10T18:47:36.630000 votes=0
+
+
+--- [685142] reply#9 msgid=3439576 date=2026-04-10T22:26:51.693000 votes=0
+We're training it right now. Due to hardware limitations it's going to take another 7 or so days. But we're going to put our best version out. Our real version.
+
+--- [685142] reply#10 msgid=3439660 date=2026-04-11T04:51:58.060000 votes=0
+如何在Kaggle上使用，你能更新阅读吗
+我.md
+?
+
+--- [685142] reply#11 msgid=3438315 date=2026-04-08T23:13:19.220000 votes=0
+UPDATE: This competition has upgraded the GPUs to 4xL4, so we can now submit last years solution
+
+--- [685142] reply#12 msgid=3438730 date=2026-04-09T16:34:59.700000 votes=6
+We did not wait 😀
+Our notebook from last year runs fine in this year comp, see https://www.kaggle.com/code/jonathanchan/arc26-2025-winning-solution-v1
+
+--- [685142] reply#13 msgid=3440071 date=2026-04-11T20:55:19.200000 votes=1
+Hi, thanks for your great work and the baseline! I am curious tho whether the notebook is itself determinsitc because I forked it and ran it 3 times got the same score of 28.47. However, clearly others running the same notebook can score 30+.
+
+--- [685142] reply#14 msgid=3440407 date=2026-04-12T10:13:12.837000 votes=1
+Last year we got different scores when we re submitted it.
+People are using variants of our code, I didn't check all the changes they do. I doubt that simple modifications of our code would lead to this year winning solution anyway.
+
+--- [685142] reply#15 msgid=3441150 date=2026-04-13T15:21:28.383000 votes=0
+I suspect that the current public LB split is surely different from the one used in last year's. That is why the scores are different with little to no changes to the baseline code.
+
+--- [685142] reply#16 msgid=3441234 date=2026-04-13T17:30:00.130000 votes=2
+Test data is the same as last year. Not sure where you see it wasn't.
+The data used for the public leaderboard is also the same as in the ARC AGI2 leaderboard on arc prize site.
+The reason scores change is that people modify a bit the code. Also, our code is not deterministic.
+Reason we did not improve our score is that our code was submitted the last day and finished 1 hour before competition deadline. We did not have time to explore variants and use LB feedback to improve it.
+
+--- [685142] reply#17 msgid=3442399 date=2026-04-15T12:44:49.607000 votes=1
+
+
+--- [685142] reply#18 msgid=3443042 date=2026-04-16T03:42:36.383000 votes=1
+we saw that last year. Same code submitted twice after deadline yield two different scores, both better than our winning score in the competition.
+
+--- [685142] reply#19 msgid=3443069 date=2026-04-16T04:23:16.700000 votes=0
+Emm…, maybe the questions are in a random sequence for each submission? (kind of like the AIMO3?)
+
+--- [685142] reply#20 msgid=3443265 date=2026-04-16T10:04:21.353000 votes=0
+Maybe, but llm inference is non deterministic.
+
+--- [685142] reply#21 msgid=3429598 date=2026-03-27T00:31:25.840000 votes=0
+

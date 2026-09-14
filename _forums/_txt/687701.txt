@@ -1,0 +1,44 @@
+===== TOPIC 687701 | votes=4 | comments=5 | date=2026-04-03T13:33:43.261000
+TITLE: What is ARC actually measuring?
+
+--- [687701] OP msgid=3434936 date=2026-04-03T13:33:43.260000 votes=4
+First of all, I’m not an expert in this area, so I may be missing something and I’d really appreciate corrections if that’s the case.
+I want to start by saying that I genuinely think the ARC Prize is a great initiative. Pushing AI systems toward better generalization and away from brute-force memorization is clearly valuable, and I really respect the intention behind the competition.
+That said, I’ve been thinking about what ARC is actually measuring, and I’m not fully convinced it captures “general intelligence” in the broader sense.
+The core idea often referenced is that intelligence is the ability to generalize to new problems with limited data. I agree that this is an important component of intelligence. But in ARC, this generalization is evaluated within a very specific type of representation - discrete, visual grid-based tasks that seem strongly aligned with how humans naturally perceive patterns (objects, symmetry, spatial grouping, etc.).
+My concern is that this makes the benchmark heavily dependent on how the system represents the input, not just how well it learns. If a system doesn’t “see” the data in a way that exposes those structures, then the pattern effectively doesn’t exist for it - regardless of its underlying capabilities.
+In that sense, ARC might be measuring something closer to:
+
+ generalization given the right inductive biases / representation
+
+rather than general intelligence itself.
+This raises a broader question:
+Is intelligence really about finding patterns in a fixed representation - or about being able to construct the right representation in which patterns become simple?
+If it’s the latter, then a truly general system should be able to:
+
+reinterpret the same data in multiple ways
+search over different representations
+and select the one where the problem becomes easiest to solve
+
+From that perspective, ARC feels like it evaluates generalization within a fairly narrow, human-aligned perceptual frame, rather than across diverse ways of “seeing” the problem.
+Again, I don’t think this makes ARC bad - far from it. It’s a clean and challenging benchmark for a specific and important capability. I just wonder if calling it a measure of general intelligence risks overstating what it captures.
+Curious to hear what others think.
+
+--- [687701] reply#1 msgid=3441435 date=2026-04-14T01:32:56.190000 votes=1
+The ability to learn from few examples.
+
+--- [687701] reply#2 msgid=3447409 date=2026-04-23T05:00:20.967000 votes=0
+In my mind, learning from few examples is definitely part of what ARC measures, but it’s not the whole picture. ARC is really testing few-shot rule induction within a specific representational frame, one that already aligns with human intuitions about objects, symmetry, and spatial structure.
+The harder and more general problem is not just learning the rule once the right representation is there, but actually finding that representation in the first place. That part is mostly fixed, or at least heavily constrained, in ARC.
+But that’s just my current take.
+
+--- [687701] reply#3 msgid=3436439 date=2026-04-06T00:03:36.237000 votes=1
+ARC feels like it evaluates generalization within a fairly narrow, human-aligned perceptual frame
+
+I think it makes sense to approximate the familiar human general intelligence first, before striving for galactic level of intelligence.
+
+--- [687701] reply#4 msgid=3435832 date=2026-04-04T19:46:50.507000 votes=1
+I've been thinking about this as well. The path forward appears nuanced - I think this competition pushes for new architectural approaches, for diversification, for broader perspective. Maybe solutions that seek that same approach move the needle in a direction toward a more realized understanding of what general intelligence is. To your point - this is in fact (generalized). There is something fascinating though about pattern recognition - in regard to its ability to demonstrate logical relationships, visual sequences, and abstract concepts - like in Gifted and Talented tests for young students. Maybe we are attempting to build those early neural pathways - a gifted student doesn't have to be great at math or geometry to solve these puzzles - their diversification of experience's create complex enough pathways neurologically that the level of sophistication is innate. This is embedded in natural systems - so are we working on the embedding in the digital?
+
+--- [687701] reply#5 msgid=3436781 date=2026-04-06T17:11:08.670000 votes=2
+Broadly speaking we don't even know if human intelligence is general or is it not. Teaching models to mimic how humans use language to perform verbal "reasoning" was one "low hanging" fruit LLMs went for. Reasoning about visual patterns seems like a next natural step in the direction of replicating what humans can do.

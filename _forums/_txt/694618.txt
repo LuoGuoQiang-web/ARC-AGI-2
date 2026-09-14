@@ -1,0 +1,146 @@
+===== TOPIC 694618 | votes=0 | comments=0 | date=2026-04-25T21:26:52.410000
+TITLE: EGO-ARC: Embryonic Growth Approach (local ARC-AGI-1 sandbox, 9/50 -> 17/50)
+
+--- [694618] OP msgid=3448538 date=2026-04-25T21:26:52.410000 votes=0
+EGO-ARC: Embryonic Growth Approach (local ARC-AGI-1 sandbox, 9/50 -> 17/50)
+Note for ARC-AGI-2 readers: this is a local ARC-AGI-1-style development sandbox report, not an official ARC-AGI-2 leaderboard score. The next step is porting the deterministic solver into a Kaggle ARC-AGI-2 notebook submission.
+Short abstract
+This post is a public research log for EGO-ARC, an experimental neuro-symbolic ARC solver built around an "embryonic growth" idea: compile each grid into objects, infer local geometric relations, generate small deterministic transformations, and score every candidate by exact-match validation on the training pairs.
+The goal is not to present a finished leaderboard system. The goal is to document a reproducible engineering path: where a simple local-edit solver failed, which representations helped, which search methods did not move the ceiling, and which new DSL primitives produced measurable gains.
+On a local first-50 ARC-AGI-1 development sandbox, the system improved from 9/50 exact solved tasks to 17/50 exact solved tasks. This is not an official hidden-test result and should not be read as a Kaggle leaderboard claim.
+Core idea
+The solver uses a deterministic pipeline:
+ARC JSON -> Scene Compiler -> Schema Memory -> Object Selector -> Rule Executor -> Fitness Evaluator
+
+The main constraint is that no rule may depend on task IDs. Candidate rules must be generated from the structure of the input/output training examples and validated on all train pairs before being used for prediction.
+The most useful shift was moving from global primitives toward a two-stage process:
+select a target -> execute a geometric verb
+
+This led to a dedicated object-selection layer that proposes:
+
+object_ids: which object or group is likely relevant.
+cell_candidates: where a missing local edit may occur.
+frame_candidates: which local region or crop should be transformed.
+
+Progress table
+
+Stage
+Local first-50 exact score
+Main change
+Interpretation
+
+Local-edit baseline
+9/50
+Basic rule executors: tiling, hole filling, color mapping, rays, simple projections
+The system could solve single-verb tasks but failed on object selection and resizing.
+
+Representation-gap baseline
+12/50
+Explicit selectors and early local-edit improvements
+Search started to find better candidates, but the DSL was still too small.
+
+Search experiments
+12/50
+Wake-Sleep, VSA-style selection, MCTS, SMT, CA, loop operators
+Stronger search alone did not break the ceiling. Representation was the bottleneck.
+
+Repeated-panel denoising
+13/50
+Majority-vote reconstruction over repeated panels
+Added a useful abstraction for noisy repeated structures.
+
+High-pixel closure
+15/50
+More precise copy/project footprint and lattice-block completion
+Closed tasks that were nearly correct but missed a specific geometric verb.
+
+Block algebra
+16/50
+Role-selected block extraction with D4 transforms and edge cuts
+Moved toward Kaggle-style block/mask reasoning.
+
+Block + grid abstraction
+17/50
+Separator-cross quadrant packing
+Added a first grid-cell abstraction for tasks with explicit separators.
+
+Three examples that moved the needle
+1. 045e512c: projected footprint completion
+Earlier versions often found the right local region but projected the wrong amount or used the wrong anchor. The fix was to make copy_project_footprint more object-aware:
+
+suppress redundant single-pixel anchors when a coherent marker group exists;
+score direction consistency between marker and template;
+execute inside a local frame rather than across the whole grid.
+
+Result: the task moved from partial train success to exact train success in the local benchmark.
+2. 06df4c85: same-color lattice block completion
+The first attempt treated aligned same-color objects as independent components. The better representation was to infer a lattice step as:
+cell step = block size + separator gap
+
+This allowed the solver to complete missing same-color blocks in a regular grid-like layout.
+Result: the task closed after adding connect_aligned_same_color_block_templates.
+3. 0607ce86: repeated-panel denoising
+This task needed a panel-level abstraction rather than a pixel-level rule. A new denoise_repeated_panels primitive detects repeated rectangular panels, reconstructs a consensus template, and removes inconsistent noise.
+Result: the system gained one solved task and confirmed that many ARC tasks become easier when the solver reasons over repeated substructures instead of raw cells.
+What did not help as much as expected
+Several stronger search mechanisms were tested:
+
+Wake-Sleep-style hypothesis refinement.
+Version-space style candidate filtering.
+MCTS over local geometric choices.
+SMT/Z3-style constrained synthesis.
+Cellular automata and loop unrolling.
+Budgeted LLM-generated JSON DSL suggestions.
+
+These methods were useful as infrastructure, but they mostly plateaued until the representation itself improved. The working hypothesis is:
+
+ ARC progress here is currently representation-limited, not search-limited.
+
+In other words, the solver needs better words before it needs deeper search.
+Three biggest current gaps
+1. General grid-cell abstraction
+The current solver handles one important case: a separator cross that divides the grid into four regions. Many unsolved tasks need a more general grid abstraction:
+
+arbitrary separator rows and columns;
+non-uniform cells;
+output matrices based on cell occupancy, majority color, rarest color, object count, or local role;
+grid-to-grid transformations rather than object-to-object transformations.
+
+2. Object-role color algebra
+The solver still needs better symbolic color roles. Instead of treating colors mostly as numeric labels or frequencies, it should infer roles such as:
+
+background;
+marker;
+separator;
+boundary;
+fill color;
+target color;
+rare color;
+object interior;
+object outline.
+
+This would make many local color-map misses less brittle.
+3. Component movement and replacement
+Several high-pixel misses appear to need "move this component", "replace this component", or "copy this component into the matching empty slot". The current DSL has partial tools for this, but not a unified movement/replacement algebra.
+A promising next step is to describe transformations as:
+source component -> role relation -> target frame -> paste/replace policy
+
+Roadmap
+The next technical direction is to keep the solver small and inspectable while expanding its representational vocabulary:
+
+Build a general grid_cell_abstraction module that detects separator lattices and emits cell-level symbolic features.
+Add object-role color algebra so rules can say "fill with boundary color" or "copy marker color" instead of hard-coding numeric colors.
+Add component movement/replacement executors for crop, translate, paste, erase, and replace operations.
+Create an error-driven primitive proposer that compares false-positive and false-negative pixels after near misses.
+Use LLMs only as bounded DSL designers, not as direct solvers; every suggestion must remain JSON-schema constrained and train-validated.
+Maintain evaluation hygiene: local development scores should stay clearly separated from Kaggle public/private leaderboard claims.
+
+Reproducibility note
+This is an ongoing prototype. The reported score is a local first-50 development score, not an official ARC Prize verified score. The useful part, in my view, is the engineering trace: every gain came from adding a specific representation, validating it across train pairs, and measuring whether exact-match improved.
+If there is interest, I can share follow-up posts with:
+
+screenshots of solved examples;
+a minimal reproducible notebook;
+the exact DSL schema;
+the object selector design;
+ablation results for CA/Loop/SMT/LLM modules.

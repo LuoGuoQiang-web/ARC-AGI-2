@@ -1,0 +1,51 @@
+[{"stream_name":"stderr","time":6.869635487,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.869672002,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.758549745,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.75857431,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.758577359,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.758579828,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.36921181,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.369236585,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.369239607,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.36924211,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.539864841,"data":"Writing /kaggle/working/arc_prize_v1.py\n"}
+,{"stream_name":"stdout","time":10.656600013,"data":"kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False\n"}
+,{"stream_name":"stdout","time":15.40183241,"data":"[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2\n"}
+,{"stream_name":"stdout","time":15.477664912,"data":"[data] split=evaluation n_tasks=4 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json\n"}
+,{"stream_name":"stdout","time":15.508192047,"data":"[engine] status=loaded \n"}
+,{"stream_name":"stdout","time":15.50879639,"data":"[model] FAILED to load: RuntimeError: GPU 0 = NVIDIA L4 is sm_89, but this PyTorch build only supports sm_70, sm_75, sm_80, sm_86, sm_90, sm_100, sm_120. Every CUDA op would fail with 'no kernel image is available for execution on the device' and the run would silently emit an all-fallback submission. Rerun with machine_shape=NvidiaTeslaT4 (tools/kpush.py sets it by default).\n"}
+,{"stream_name":"stdout","time":15.509424236,"data":"[schedule] cascade budget=900s calibrate=5 aug_train=4 aug_infer=2\n"}
+,{"stream_name":"stdout","time":15.510017257,"data":"[stage A 1/4] 0934a4d8 slice=90s remaining=899s\n"}
+,{"stream_name":"stdout","time":15.510651017,"data":"  -\u003e 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.511279594,"data":"[stage A 2/4] 135a2760 slice=90s remaining=899s\n"}
+,{"stream_name":"stdout","time":15.511857114,"data":"  -\u003e 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.51249061,"data":"[stage A 3/4] 136b0064 slice=90s remaining=899s\n"}
+,{"stream_name":"stdout","time":15.5130678,"data":"  -\u003e 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.51368334,"data":"[stage A 4/4] 13e47133 slice=90s remaining=899s\n"}
+,{"stream_name":"stdout","time":15.514757373,"data":"  -\u003e 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback', 'fallback', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":15.515360475,"data":"[stage B] skipped: no model is loaded (nothing to train)\n"}
+,{"stream_name":"stdout","time":15.515937391,"data":"[stage C] backfilling 4 task(s) below confidence 0.6\n"}
+,{"stream_name":"stdout","time":15.632268412,"data":"  [0934a4d8] engine pool sizes [2]\n"}
+,{"stream_name":"stdout","time":15.632820545,"data":"  -\u003e 0.1s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.653442514,"data":"  [135a2760] engine pool sizes [2]\n"}
+,{"stream_name":"stdout","time":15.664044207,"data":"  -\u003e 0.0s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.673298866,"data":"  [136b0064] engine pool sizes [2]\n"}
+,{"stream_name":"stdout","time":15.673892967,"data":"  -\u003e 0.0s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x\n"}
+,{"stream_name":"stdout","time":15.709740321,"data":"  [13e47133] engine pool sizes [2, 2]\n"}
+,{"stream_name":"stdout","time":15.710810575,"data":"  -\u003e 0.0s candidates=4 conf=0.67 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x\n"}
+,{"stream_name":"stdout","time":15.717125252,"data":"[score] solved 0/4 tasks with ground truth\n"}
+,{"stream_name":"stdout","time":15.726038004,"data":"[done] submission -\u003e /kaggle/working/submission.json  report -\u003e /kaggle/working/report.json  elapsed=0.88s\n"}
+,{"stream_name":"stderr","time":15.727589034,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":15.727594869,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":15.727597093,"data":"\n"}
+,{"stream_name":"stderr","time":15.727598989,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":15.727601393,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":21.113095161,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":21.113135337,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":21.262729604,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":21.262747446,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":21.910368958,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":22.234583928,"data":"[NbConvertApp] Writing 242411 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":24.664540913,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":26.163868849,"data":"[NbConvertApp] Writing 1157233 bytes to __results__.html\n"}
+]

@@ -1,0 +1,28 @@
+kpush: teeing stdout to /kaggle/working/kernel_stdout.log | isatty = False
+[data] '/kaggle/input/arc-prize-2026-arc-agi-2' did not yield arc-agi_evaluation_challenges.json; auto-resolved to /kaggle/input/competitions/arc-prize-2026-arc-agi-2
+[data] split=evaluation n_tasks=4 challenges=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json solutions=/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json
+[engine] status=loaded 
+[model] FAILED to load: RuntimeError: GPU 0 = NVIDIA L4 is sm_89, but this PyTorch build only supports sm_70, sm_75, sm_80, sm_86, sm_90, sm_100, sm_120. Every CUDA op would fail with 'no kernel image is available for execution on the device' and the run would silently emit an all-fallback submission. Rerun with machine_shape=NvidiaTeslaT4 (tools/kpush.py sets it by default).
+[schedule] cascade budget=900s calibrate=5 aug_train=4 aug_infer=2
+[stage A 1/4] 0934a4d8 slice=90s remaining=899s
+  -> 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 2/4] 135a2760 slice=90s remaining=899s
+  -> 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 3/4] 136b0064 slice=90s remaining=899s
+  -> 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback'] task_ok=False truth: a1=x(0/1) a2=x
+[stage A 4/4] 13e47133 slice=90s remaining=899s
+  -> 0.0s candidates=0 conf=0.00 sources=['fallback', 'fallback', 'fallback', 'fallback'] task_ok=False truth: a1=x(0/2) a2=x
+[stage B] skipped: no model is loaded (nothing to train)
+[stage C] backfilling 4 task(s) below confidence 0.6
+  [0934a4d8] engine pool sizes [2]
+  -> 0.1s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x
+  [135a2760] engine pool sizes [2]
+  -> 0.0s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x
+  [136b0064] engine pool sizes [2]
+  -> 0.0s candidates=2 conf=0.25 sources=['prior', 'prior'] task_ok=False truth: a1=x(0/1) a2=x
+  [13e47133] engine pool sizes [2, 2]
+  -> 0.0s candidates=4 conf=0.67 sources=['prior', 'prior', 'prior', 'prior'] task_ok=False truth: a1=x(0/2) a2=x
+[score] solved 0/4 tasks with ground truth
+[done] submission -> /kaggle/working/submission.json  report -> /kaggle/working/report.json  elapsed=0.88s
+/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+  warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)

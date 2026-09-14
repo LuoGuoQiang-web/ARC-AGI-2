@@ -1,0 +1,26 @@
+===== TOPIC 694653 | votes=5 | comments=1 | date=2026-04-26T06:41:42.147000
+TITLE: [Open Source] 400/400 ARC-1 Training Dataset Solver Released!
+
+--- [694653] OP msgid=3448619 date=2026-04-26T06:41:42.147000 votes=5
+Hi Kagglers,
+For those following the Abstraction and Reasoning Corpus (ARC), we’ve just open-sourced the Haumea ARC-1 Training Solver. 
+It successfully solves all 400 tasks in the ARC-1 training set using a modular "Engine." It utilizes a library of composed "laws" (Geometric, Tiling, Motion, Symmetry, Logic, etc.) to deduce the transformation rules.
+Why this matters:
+ 🔹 Programmatic Logic: The codebase provides a library of modular solvers that can be used to understand structured reasoning.
+ 🔹 LLM Training: We believe this dataset of programmatic laws is a valuable resource for fine-tuning Large Language Models on
+ grid-based logic and abstract reasoning.
+While this release focuses on the training set, it provides a foundational framework for further work in broad generalization.
+Check out the code and the dataset below!
+ 📂 GitHub: https://github.com/oncloudai/Haumea_Arc1_Training_Solver 
+ 📑 Zenodo (DOI): 10.5281/zenodo.19782111
+
+Reference: François Chollet - On the Measure of Intelligence (https://arxiv.org/abs/1911.01547 )
+
+We’d love to hear your feedback on the modular approach and how these laws might be evolved for better generalization on the hidden test sets!
+Happy Solving!
+Team Haumea
+
+Chaitanya Gullapalli & Harsha Tadimati
+
+--- [694653] reply#1 msgid=3458450 date=2026-05-15T21:49:36.583000 votes=0
+Wow, that's 459 algorithms for 400 tasks. No composition, single algorithm has to fully solve single task. And even then at least some algorithms are not used at all. You could pretty much map algorithms to task IDs to avoid brute force attempts of every algorithm on every task.

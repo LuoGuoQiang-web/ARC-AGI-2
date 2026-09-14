@@ -1,0 +1,50 @@
+===== TOPIC 689254 | votes=8 | comments=7 | date=2026-04-08T02:26:47.245000
+TITLE: ARC Prize 2026 - ARC-AGI-2 - Let's go!
+
+--- [689254] OP msgid=3437741 date=2026-04-08T02:26:47.247000 votes=8
+Hi ARC Prize participants!
+We're excited to have you here with us on Kaggle for ARC Prize 2026: ARC-AGI-2 edition. Our #1 goal is to make sure you have the tools, knowledge, and support you need to start solving ARC-AGI.
+Here is a guide to help you get started and ton of high signal resources and documentation to get you up to speed.
+Plug into the community & get competition updates:
+
+Subscribe to the newsletter 
+Join the Discord server 
+Follow ARC Prize Twitter 
+Subscribe on YouTube 
+
+Greg Kamradt, President, ARC Prize Foundation
+
+--- [689254] reply#1 msgid=3465936 date=2026-06-03T04:40:05.700000 votes=-1
+@gregkamradt 
+Hey Greg Kamradt!
+We respectfully request that the ARC AGI Team consider increasing the daily submission limit beyond one submission per day, similar to ARC AGI 3. A higher limit would help participants iterate faster, validate improvements, and make more meaningful progress throughout the competition.
+Thank you for your consideration.
+
+--- [689254] reply#2 msgid=3437836 date=2026-04-08T07:13:56.737000 votes=1
+I find it incredible that there is neither a reference to our winning solution code nor our article describing it in your resource page at https://arcprize.org/resources 
+How can this be possible?
+
+--- [689254] reply#3 msgid=3438055 date=2026-04-08T15:37:39.530000 votes=2
+Hey Jean-Francois!
+Your submission is listed:
+
+In our 2025 technical paper as the top entry: https://arxiv.org/pdf/2601.10904 
+On our 2025 blog post as the top entry: https://arcprize.org/blog/arc-prize-2025-results-analysis 
+On our 2025 wrap up page with links to your code, paper and interview: https://arcprize.org/competitions/2025 
+On our official leaderboard as the only 2025 entry for v2: https://arcprize.org/leaderboard 
+On the 2025 Kaggle page alongside your write up and oss solution: https://www.kaggle.com/competitions/arc-prize-2025/leaderboard 
+
+The resource page is a legacy and static list of resources that likely needs a refactor - thanks for calling it out
+
+--- [689254] reply#4 msgid=3507416 date=2026-08-02T01:49:26.337000 votes=0
+Thank you very much for including me in your team. I will learn a lot and help you a lot, God willing.
+
+--- [689254] reply#5 msgid=3500616 date=2026-07-20T03:58:15.057000 votes=0
+Hey Greg Kamradt! We respectfully request that the ARC AGI Team consider increasing the daily submission limit beyond one submission per day, similar to ARC AGI 3. A higher limit would help participants iterate faster, validate improvements, and make more meaningful progress throughout the competition.
+Thank you for your consideration.
+
+--- [689254] reply#6 msgid=3500719 date=2026-07-20T10:50:19.957000 votes=4
+Well, so far you haven't been limited by the daily limit given you did not submit at all…
+
+--- [689254] reply#7 msgid=3438157 date=2026-04-08T18:26:38.327000 votes=0
+Thank you Greg for running ARC-AGI-2 again this year, I'm excited to try my luck+skill!

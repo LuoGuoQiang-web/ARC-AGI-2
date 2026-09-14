@@ -1,0 +1,15 @@
+===== TOPIC 704079 | votes=4 | comments=3 | date=2026-06-03T04:42:05.241000
+TITLE:  Daily Submission Limit 
+
+--- [704079] OP msgid=3465939 date=2026-06-03T04:42:05.243000 votes=4
+We respectfully request that the ARC AGI Team consider increasing the daily submission limit beyond 1, as in ARC AGI 3. A higher limit would help participants iterate faster, validate improvements, and make more meaningful progress throughout the competition.
+I appreciate your consideration.
+
+--- [704079] reply#1 msgid=3465987 date=2026-06-03T07:55:46.937000 votes=1
+competition host had replied previosuly to the same request: https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2/discussion/694745#3449141
+
+--- [704079] reply#2 msgid=3466009 date=2026-06-03T08:52:16.383000 votes=0
+Thank you very much!
+
+--- [704079] reply#3 msgid=3466076 date=2026-06-03T13:15:16.043000 votes=3
+

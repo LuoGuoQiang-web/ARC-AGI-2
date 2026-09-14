@@ -1,0 +1,33 @@
+{
+ "topic": {
+  "id": 732723,
+  "title": "(PUBLIC) Nex-N2-mini vs Aquila-mini: two 35B post-trains on ARC-AGI-2, head to head",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 5,
+  "postDate": "2026-08-04T11:43:51.258000"
+ },
+ "messages": [
+  {
+   "id": 3508370,
+   "authorName": "",
+   "postDate": "2026-08-04T11:43:51.260000",
+   "votes": 5,
+   "content": "<p>I ran a controlled comparison of <code>nex-agi/Nex-N2-mini</code> (290 ❤️) and <code>XYZAILab/XYZ-Aquila-mini</code> (1k ❤️) on the evaluation split (120 tasks, the honest local proxy). Both are <code>Qwen3_5MoeForConditionalGeneration</code> (35B total, 256 experts, ~3B active, 2 KV heads, hybrid linear/full attention). The comparison is fair because:</p>\n<ul>\n<li><strong>Same engine recipe.</strong> Both checkpoints are bf16 on disk and quantised to fp8 at load by vLLM 0.26 (<code>fp8_per_tensor</code>, Triton MoE backend). No community conversion — one code path.</li>\n<li><strong>Same harness.</strong> Two exemplars from the training set (a transpose and a downward propagation), a size hint inferred from the training pairs, and a two-stage generation that forces the model to write an answer after reasoning — because without it, 100% of replies hit the token cap inside <code>&lt;think&gt;</code> and score nothing.</li>\n<li><strong>Same hardware.</strong> 4×Nvidia L4, offline, <code>arc-vllm026</code> wheel bundle.</li>\n</ul>\n<h2>Results (64 grids each, all on evaluation split)</h2>\n<table>\n<thead>\n<tr>\n<th></th>\n<th>Nex-N2-mini</th>\n<th>Aquila-mini</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Solved</strong></td>\n<td><strong>0 / 64</strong></td>\n<td>0 / 64</td>\n</tr>\n<tr>\n<td>Wrote an answer</td>\n<td>96.9%</td>\n<td>93.8%</td>\n</tr>\n<tr>\n<td>Grid correct size</td>\n<td><strong>65.6%</strong></td>\n<td>18.8%</td>\n</tr>\n<tr>\n<td>Truncated</td>\n<td>3</td>\n<td>4</td>\n</tr>\n<tr>\n<td>Tokens / sec</td>\n<td>438</td>\n<td>452</td>\n</tr>\n<tr>\n<td>Nex is stronger — it listens to the size hint, it writes answer blocks more often, and its reasoning uses fewer tokens per grid. But <strong>zero solved on evaluation</strong> is zero solved.</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td>On the <strong>training split</strong> (767 tasks recycled from ARC-AGI-1, median output 100 cells vs 364): Nex W4A16 (compressed-tensors int4, experts only, 22.8 GiB) scores <strong>8 / 64 (12.5%)</strong> with the same harness. That proves the harness works and the model can reason — the evaluation split really is that much harder.</td>\n<td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n<h2>What I learned about this model class</h2>\n<ul>\n<li><strong>Reasoning effort does nothing.</strong> Nex-N2-mini produces the same output at \"low,\" \"medium,\" and \"high\" effort. The concept doesn't exist for this architecture — unlike Inkling Small (0 → 40% across effort levels).</li>\n<li><strong>W4A16 is the right quantisation.</strong> 22.8 GiB vs 65.4 GiB bf16, same score, 20% higher throughput. The compressed-tensors int4 from <code>cyankiwi/Nex-N2-mini-AWQ-INT4</code> only touches the experts (122k of 124k tensors) and leaves attention untouched.</li>\n<li><strong>FlashInfer sampling won't compile on Kaggle.</strong> <code>VLLM_USE_FLASHINFER_SAMPLER=0</code> is necessary — the image has no linkable <code>libcuda.so</code>.</li>\n<li><strong>Don't install wheels under <code>/kaggle/working</code>.</strong> Kaggle will try to commit 7 GiB of unpacked wheels as notebook output, and a run that finished all its work will be marked ERROR during teardown.</li>\n</ul>\n<h2>What I haven't tried yet</h2>\n<p>The obvious next step is <strong>test-time LoRA training</strong> (NVARC-style, r=16 per puzzle). The harness is ready and the peft addon is uploaded — I just ran out of Kaggle's 30-hour weekly GPU quota.</p>\n<h2>Reproduce</h2>\n<ul>\n<li>The harness kernel is at <a href=\"https://www.kaggle.com/code/dominic789654/arc-probe-nex-n2-mini-w4a16\" target=\"_blank\">dominic789654/arc-probe-nex-n2-mini-w4a16</a></li>\n<li>The W4A16 checkpoint is at <a href=\"https://www.kaggle.com/datasets/dominic789654/nex-n2-mini-w4a16/data\" target=\"_blank\">dominic789654/nex-n2-mini-w4a16</a> (compressed-tensors int4, 22.8 GiB)</li>\n<li>The vLLM 0.26 wheel bundle is at <code>dominic789654/arc-vllm026</code> (195 wheels, verifies with <code>kg env verify</code>)</li>\n<li>Models on HuggingFace: <a href=\"https://huggingface.co/nex-agi/Nex-N2-mini\" target=\"_blank\">Nex-N2-mini</a> and <a href=\"https://huggingface.co/XYZAILab/XYZ-Aquila-mini\" target=\"_blank\">Aquila-mini</a>\nWould love to hear from anyone who got a 35B-class model to score on the ARC-AGI-2 evaluation split — or who has advice on lightweight TTT parameters that don't blow the 12-hour Kaggle wall.</li>\n</ul>"
+  },
+  {
+   "id": 3508689,
+   "authorName": "",
+   "postDate": "2026-08-05T04:46:48.420000",
+   "votes": 1,
+   "content": "<p>It would be helpful if you can make the model dataset public, cuz it's hard for me to upload such large weights😃</p>"
+  },
+  {
+   "id": 3509204,
+   "authorName": "",
+   "postDate": "2026-08-06T03:44:42.573000",
+   "votes": 0,
+   "content": "<p>It's all public !!</p>"
+  }
+ ]
+}

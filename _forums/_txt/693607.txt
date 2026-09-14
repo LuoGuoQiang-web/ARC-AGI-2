@@ -1,0 +1,25 @@
+===== TOPIC 693607 | votes=2 | comments=2 | date=2026-04-21T17:28:06.255000
+TITLE: Training data augmentation
+
+--- [693607] OP msgid=3446928 date=2026-04-22T12:25:43.743000 votes=1
+Grid rotations, flips, and color permutations have been used for years already, both at training times and at inference time.
+Not sure about the other ones you mention. Make sure the gird stays smaller than 30x30 though.
+
+--- [693607] reply#1 msgid=3446489 date=2026-04-21T17:28:06.257000 votes=2
+It just came up to me that we can easily generate more complex tasks from provided training data without worrying that task can become invalid.
+Approach is as follows: keep the output the same and augment the input by addiing additional transformations to it.
+Examples of transformations:
+
+Increase grid size by adding random values around edges
+If input does not use all colors, split any color into 2 (Randomly keep same color or set 2nd previously unused color)
+Randomly shuffle input colors
+If input has edges of background color - trim edges
+grid rotations, flips
+swap parts of the grid adding separator lines between swapped parts
+if all inputs are small enough, upscale (with or without separator lines)
+
+Many of these transformations don't require much validation and produce new puzzles that are genuinely harder (for AI) to solve.
+
+--- [693607] reply#2 msgid=3446925 date=2026-04-22T12:16:18.713000 votes=0
+Yes you can do that and the winner of the last competition already trained with a huge dataset of synthetic data. 
+However, arc-gi-2 has more complexe puzzles and these hard puzzles should be augmented in a different manner that just rotation/colour permutation etc.

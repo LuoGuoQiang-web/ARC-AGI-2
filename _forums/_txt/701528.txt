@@ -1,0 +1,18 @@
+===== TOPIC 701528 | votes=0 | comments=1 | date=2026-05-18T22:07:36.838000
+TITLE: Clarification on AI coding assistants, private code sharing, and no-internet runtime
+
+--- [701528] OP msgid=3460576 date=2026-05-18T22:14:30.347000 votes=0
+Yes, you can use coding assistants in the develpment of your solution as long as it can run in the secure, no-internet, env of the competition.
+
+--- [701528] reply#1 msgid=3460569 date=2026-05-18T22:07:36.837000 votes=0
+Hello,
+I would like to clarify the rules regarding the use of AI coding assistants and external tools during development.
+My understanding is that the final Kaggle submission notebook must run with internet disabled and must not call external services, GitHub, APIs, or online LLMs during scoring.
+Could you please clarify whether participants may use AI coding assistants such as Codex, ChatGPT, Claude, or similar tools during the private development and code review phase, provided that:
+
+the final submission notebook is fully offline and self-contained;
+no competition code or data is privately shared with other teams or outside human participants;
+the final solution can be open-sourced and reproduced if prize-eligible;
+any external code, data, or models used are properly licensed and documented?
+
+Thank you.

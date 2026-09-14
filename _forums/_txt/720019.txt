@@ -1,0 +1,8 @@
+===== TOPIC 720019 | votes=3 | comments=0 | date=2026-07-05T14:01:03.104000
+TITLE: A visual deep-dive into ARC-AGI-2 tasks, the metric, and a baseline
+
+--- [720019] OP msgid=3489181 date=2026-07-05T14:01:03.103000 votes=3
+Before writing any solver I wanted to actually see the tasks, so I built a visual walkthrough of ARC-AGI-2: the train/eval structure, what the grids and their transformations look like side by side, how the scoring metric works in practice, and a simple baseline to anchor expectations.
+The point is to make the task space legible. Seeing many tasks laid out together makes the recurring transformation families obvious in a way that reading the spec does not, and it is a fast way for someone new to the competition to build intuition before committing to an approach
+Notebook: https://www.kaggle.com/code/busyaprime/arc-agi-2-a-visual-deep-dive 
+If you have been categorizing the transformation types yourself, I would like to compare taxonomies. Which task families are you finding hardest to even represent, let alone solve?

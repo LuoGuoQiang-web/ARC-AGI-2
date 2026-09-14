@@ -1,0 +1,33 @@
+{
+ "topic": {
+  "id": 693074,
+  "title": "'/kaggle/inference_outputs' does not exist.",
+  "authorName": "",
+  "commentCount": 2,
+  "votes": 0,
+  "postDate": "2026-04-19T12:30:53.044000"
+ },
+ "messages": [
+  {
+   "id": 3445377,
+   "authorName": "",
+   "postDate": "2026-04-19T16:43:50.960000",
+   "votes": 0,
+   "content": "<p>i guess u have made edits in the previous competition winner's notebook, and uploaded it as new notebook, but during that time the environment they used was different so you have to upload the edited notebook as the same notebook and go to Settings &gt; Environment Preferences &gt; Pin to Original Environment, that <strong>MIGHT</strong> fix it\n(just a wild guess from me)</p>"
+  },
+  {
+   "id": 3445379,
+   "authorName": "",
+   "postDate": "2026-04-19T16:45:33.303000",
+   "votes": 0,
+   "content": "<p>or u might just have used a wrong path somewhere</p>"
+  },
+  {
+   "id": 3445269,
+   "authorName": "",
+   "postDate": "2026-04-19T12:30:53.043000",
+   "votes": 0,
+   "content": "<p>I ran the following code on Kaggle and got an error saying that /kaggle/inference_outputs does not exist.\nDoes anyone know how to fix this?</p>\n<p>■Code\nimport os\nimport json\nfrom arc_loader import ArcDataset\nfrom arc_decoder import ArcDecoder</p>\n<p>rerun_mode = os.getenv(\"KAGGLE_IS_COMPETITION_RERUN\")</p>\n<p>if rerun_mode:\n    data = ArcDataset.from_file(\"/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json\")\nelse:\n    data = ArcDataset.from_file(\"/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json\")\n    data = data.load_replies(\"/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json\")</p>\n<p>decoder = ArcDecoder(data.split_multi_replies(), n_guesses=2)</p>\n<p>decoder.load_decoded_results(\"/kaggle/inference_outputs\")</p>\n<p>submission = data.get_submission(decoder.run_selection_algo())</p>\n<p>with open(\"submission.json\", \"w\") as f:\n    json.dump(submission, f)</p>\n<p>if not rerun_mode:\n    decoder.benchmark_selection_algos()\n    with open(\"submission.json\", \"r\") as f:\n        reload_submission = json.load(f)\n    print(\"*** Reload score:\", data.validate_submission(reload_submission))</p>\n<h2>■Error</h2>\n<p>FileNotFoundError                         Traceback (most recent call last)\n/tmp/ipykernel_41/490131940.py in ()\n     14 decoder = ArcDecoder(data.split_multi_replies(), n_guesses=2)\n     15 \n---&gt; 16 decoder.load_decoded_results(\"/kaggle/inference_outputs\")\n     17 \n     18 submission = data.get_submission(decoder.run_selection_algo())</p>\n<p>/kaggle/working/arc_decoder.py in load_decoded_results(self, store, run_name)\n     50 \n     51     def load_decoded_results(self, store, run_name=\"\"):\n---&gt; 52         for key in os.listdir(store):\n     53             with bz2.BZ2File(os.path.join(store, key)) as f:\n     54                 outputs = pickle.load(f)</p>\n<p>FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/inference_outputs'</p>"
+  }
+ ]
+}

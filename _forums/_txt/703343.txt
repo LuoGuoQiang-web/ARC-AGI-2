@@ -1,0 +1,15 @@
+===== TOPIC 703343 | votes=0 | comments=1 | date=2026-05-30T04:21:56.246000
+TITLE: Anyone else working on the ARC-AGI-3 interactive games (LS20 / Locksmith)?
+
+--- [703343] OP msgid=3464619 date=2026-05-30T14:41:42.047000 votes=0
+I think you mixed up the AGI Arc 3 and AGI Arc 2 chat
+
+--- [703343] reply#1 msgid=3464497 date=2026-05-30T04:21:56.247000 votes=0
+I've been building an agent for LS20 (Locksmith), one of the ARC-AGI-3 interactive games, and just got Level 1 solving consistently and efficiently. I wrote up the build so far here: https://www.kaggle.com/code/laelazorana/arc-agi-3-locksmith-ls20-my-progress-log 
+Curious who else is experimenting with the ARC-AGI-3 game track. A few things I'd love to hear about:
+
+How are you approaching the jump from the static ARC-AGI-2 tasks to the interactive games?
+For those who've reached the later levels, how steep is the difficulty curve?
+Any tooling or setups you've found helpful for iterating quickly?
+
+Happy to compare notes on progress.

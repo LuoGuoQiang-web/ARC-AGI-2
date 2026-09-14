@@ -1,0 +1,180 @@
+{
+ "topic": {
+  "id": 697859,
+  "title": "Bitterbot's TOPAS Architecture Submission: 11.67% LB vs ~36% Local (Managing TTT Timeouts)",
+  "authorName": "",
+  "commentCount": 23,
+  "votes": 10,
+  "postDate": "2026-05-07T16:48:56.703000"
+ },
+ "messages": [
+  {
+   "id": 3454666,
+   "authorName": "",
+   "postDate": "2026-05-07T16:48:56.703000",
+   "votes": 10,
+   "content": "<p>We used this submission primarily as a pipeline test for our Kaggle setup using an early, not fully-trained checkpoint. We're currently running the TOPAS architecture. It’s a highly efficient, lightweight setup at only ~100M parameters, and it relies heavily on deep recursion.</p>\n<p>Our current compute footprint - we are training on a single consumer-grade RTX 4090. This checkpoint is 14 days into training. We estimate another ~10 days for the model to properly converge.</p>\n<p>Locally, using the same 14-day checkpoint, we are hitting ~36%. The massive drop on the leaderboard comes down in part to time management constraints within the Kaggle environment.</p>\n<p>Because TOPAS utilizes deep recursion, our TTT becomes computationally heavy. During our initial sandbox tests, we were struggling to stay within the strict time limits and kept timing out. While tinkering to ensure the submission would actually complete, we overcompensated on our time-limit thresholds. This resulted in the model bailing out early to save time, ultimately failing to output a prediction on a large chunk of the puzzles.</p>\n<p>Moving forward as we wait for the model to fully converge over the next week and a half, we need to fine-tune our time-management so we convert [[0]] placeholders into real beam outputs.</p>"
+  },
+  {
+   "id": 3458738,
+   "authorName": "",
+   "postDate": "2026-05-16T14:38:24.043000",
+   "votes": 3,
+   "content": "<p>Notebook submission process is kinda flakey.   During our last submission attempt last night the notebook crash within 250s and I assumed we burnt the attempt for the day.  In the morning we had a new leaderboard score of 19.03%, but from a previous version of the notebook.  Makes no sense.  Now I don't know which variables to adjust for the next run.</p>"
+  },
+  {
+   "id": 3454708,
+   "authorName": "",
+   "postDate": "2026-05-07T18:55:43.517000",
+   "votes": 4,
+   "content": "<p>Squeezing your code to fit Kaggle compute limit is what makes this competition challenging. </p>\n<p>It is good that your first submission went through, even if the score may disappoint you.</p>"
+  },
+  {
+   "id": 3455909,
+   "authorName": "",
+   "postDate": "2026-05-10T16:22:31.763000",
+   "votes": 0,
+   "content": "<p>I am feeling pretty stupid for using static partitioning, I thought I had enough headroom to get away with it.  Instead I watched 12 hours of compute evaporate because one GPU drew the short straw and got a bunch of hard puzzles while the other three finished in under 11 hours and sat there twiddling their silicon thumbs.  One day I will have a second clean submission, just not today.</p>"
+  },
+  {
+   "id": 3454839,
+   "authorName": "",
+   "postDate": "2026-05-08T01:33:46.407000",
+   "votes": 1,
+   "content": "<p>Tweaked the config, patiently waited for the daily submission to become available… forgot to turn on the accelerator… promptly crashed… burnt the daily submission…   Ugh</p>"
+  },
+  {
+   "id": 3454844,
+   "authorName": "",
+   "postDate": "2026-05-08T02:17:18.970000",
+   "votes": 3,
+   "content": "<p>I always save first, I don't submit directkly. It catches this mistake (and other mistakes). A mistake I keep doing, because accelerator are turned off automatically in this comp.</p>"
+  },
+  {
+   "id": 3456096,
+   "authorName": "",
+   "postDate": "2026-05-11T07:54:22.353000",
+   "votes": 0,
+   "content": "<p>Really interesting architecture choice. Hitting ~36% locally with only ~100M params and a single RTX 4090 is honestly impressive, especially with deep recursive inference. The LB gap due to TTT constraints makes sense — recursive systems are brutal under hard inference budgets. Converting those [[0]] placeholders into actual beam outputs alone should recover a huge chunk of score. Curious to see where TOPAS lands once convergence + time scheduling are fully optimized over the next couple weeks.</p>"
+  },
+  {
+   "id": 3456171,
+   "authorName": "",
+   "postDate": "2026-05-11T11:50:21.353000",
+   "votes": 0,
+   "content": "<p>It maybe that their model overfits. With TRM I got about 22% on the public evaluation, and only 10.83% when submitting. I did not dig too much into why the drop, but there is a drop.</p>\n<p>Every top team last year reported a significant drop from public evaluation to public leaderboard. A 50% drop is not uncommon.</p>"
+  },
+  {
+   "id": 3458546,
+   "authorName": "",
+   "postDate": "2026-05-16T06:06:21.827000",
+   "votes": 0,
+   "content": "<p>That's a really valid concern — overfitting is definitely something we're watching closely. A 50% drop is sobering, and if top teams last year saw similar gaps, it's clearly a systemic challenge with this benchmark rather than just a model issue.\nCurious though — with TRM, was the drop mostly from aggressive test-time adaptation leaking signal, or more a distribution mismatch between the public eval set and the actual leaderboard? That would help narrow down whether it's a generalization problem or more of a domain shift.\nEither way, appreciate the heads up. Calibrating expectations accordingly before over-optimizing on public eval numbers.</p>"
+  },
+  {
+   "id": 3458771,
+   "authorName": "",
+   "postDate": "2026-05-16T16:02:44.050000",
+   "votes": 0,
+   "content": "<p>I don't see how to answer your question as we have no signal form semi private data other than the score.</p>\n<p>We got a much smaller drop with our qwen based submission, moving from 30% eval to 27% public LB.</p>"
+  },
+  {
+   "id": 3456249,
+   "authorName": "",
+   "postDate": "2026-05-11T14:35:48.807000",
+   "votes": 1,
+   "content": "<p>Finally got a second submission to go through.  Squeezed out a ~16.5% but I feel we still left a lot on the table.  I need to dig through the logs and regroup.</p>"
+  },
+  {
+   "id": 3456256,
+   "authorName": "",
+   "postDate": "2026-05-11T14:58:50.617000",
+   "votes": 2,
+   "content": "<p>This may look low this year, but you'd get 3rd public score with your 16.5% last year. Curious to see how far you can go.</p>"
+  },
+  {
+   "id": 3456260,
+   "authorName": "",
+   "postDate": "2026-05-11T15:10:57.293000",
+   "votes": 0,
+   "content": "<p>You've set the bar very high!</p>"
+  },
+  {
+   "id": 3456174,
+   "authorName": "",
+   "postDate": "2026-05-11T11:58:30.760000",
+   "votes": -2,
+   "content": "<p>why dont train another model to choose the bettest solution?</p>"
+  },
+  {
+   "id": 3458394,
+   "authorName": "",
+   "postDate": "2026-05-15T19:03:21.467000",
+   "votes": 0,
+   "content": "<p>I wonder how much model downscaling affects runtime in this case. E.g. would 50M model complete twice as fast?</p>"
+  },
+  {
+   "id": 3456280,
+   "authorName": "",
+   "postDate": "2026-05-11T16:21:37.410000",
+   "votes": 0,
+   "content": "<p>Unbelievably frustrating.  It's clear from the logs that the algo bailed on 56% of the second attempts…  no idea why… ffs</p>"
+  },
+  {
+   "id": 3456774,
+   "authorName": "",
+   "postDate": "2026-05-12T15:16:14.657000",
+   "votes": 0,
+   "content": "<p>you get that the logs are not the logs of the submission, right? They are the logs of the notebook running on the evaluation data.</p>"
+  },
+  {
+   "id": 3455681,
+   "authorName": "",
+   "postDate": "2026-05-10T04:23:07.403000",
+   "votes": 0,
+   "content": "<p>I tried setting up TOPAS training on kaggle GPU for L4x4, but the training time for convergence is very brutal ;-;</p>\n<p>I would need to exclusively burn my GPU every week for this competition for weeks, probably even months.</p>"
+  },
+  {
+   "id": 3455894,
+   "authorName": "",
+   "postDate": "2026-05-10T15:50:02.747000",
+   "votes": 0,
+   "content": "<p>It is brutally slow with the deep recursion.  Last year I had to train the 24M param model for almost 4 weeks on the single A100 in Google Colab.  This year I scaled the model to 100M and turned on the memory rails, and despite some efficiencies it is still painfully slow. I am taking donations in the form of slurm cluster access ;)</p>"
+  },
+  {
+   "id": 3455165,
+   "authorName": "",
+   "postDate": "2026-05-08T19:00:23.420000",
+   "votes": 0,
+   "content": "<p>ARC is not for the faint of heart.  Watching the model you nurtured for days output the correct answer multiple times in the beam pool only to have the scorer algo confidently pick the wrong one! </p>"
+  },
+  {
+   "id": 3455218,
+   "authorName": "",
+   "postDate": "2026-05-08T20:54:07.630000",
+   "votes": 1,
+   "content": "<p>This happens for us too.</p>\n<p>Last year our winning solution had 30.5% pass@2, but 40% pass@10 if I remember correctly. On the public evaluation data. This led to 27% public LB (semi private data, i.e. same as arc agi leaderboard), and 24% private LB.</p>\n<p>Our scorer algorithm missed 10%.</p>"
+  },
+  {
+   "id": 3455787,
+   "authorName": "",
+   "postDate": "2026-05-10T10:33:08.203000",
+   "votes": 0,
+   "content": "<p>A curious questiom that you donthave to answer of course, your leaderboard score is because you updated the scorer to cover those 10% or a newly Finetuned model? 😁  i tried many different strategies foe the scorer and i coudnt beat that 30. Your answer could help me to not waste more time and gpus on the scorer 😅</p>"
+  },
+  {
+   "id": 3455853,
+   "authorName": "",
+   "postDate": "2026-05-10T13:34:07.060000",
+   "votes": 1,
+   "content": "<p>You'll know the answer at the end of competition :D</p>"
+  },
+  {
+   "id": 3456952,
+   "authorName": "",
+   "postDate": "2026-05-12T20:05:58.893000",
+   "votes": 1,
+   "content": "<p>nah too long waiting dude :) will figure it before that i hope😅</p>"
+  }
+ ]
+}
