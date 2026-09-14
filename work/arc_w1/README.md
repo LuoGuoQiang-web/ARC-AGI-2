@@ -7,17 +7,41 @@
 
 | 路径 | 说明 |
 |---|---|
-| `arc26_solver.py` | **当前 canonical 求解器**（2,536 行 / 111,223 字符），取自 `arc26-submit-full`（09-13 11:22，最新） |
-| `versions/v_full_1122.py` | 同上（留档副本） |
+| `arc26_solver.py` | **当前 canonical 求解器**（`SOLVER_VERSION = "0.5.0"`，3,127 行 / 150,251 字符） |
+| `versions/v_v050_l4_1621.py` | **v0.5.0 留档**（2026-09-14 16:21）：L4 加速器修复 + NVARC 实测 TTT 配方 + 提交完整性检查 |
+| `versions/v_full_1122.py` | v0.1.0：09-13 11:22 版本，取自 `arc26-submit-full`（本轮之前最后一次真实提交用的就是它） |
 | `versions/v_shard_1029.py` | 09-13 10:29 版本（`submit-shard0` / `eval-validate` 用的是它） |
 | `versions/v_smoke_0941.py` | 09-13 09:41 版本（`solver-smoke`） |
-| `tools/kpush.py` | **重建的推送工具**：本地 .py → Kaggle 单格 notebook（含 argv 固化 + stdout tee） |
-| `tools/kpush_prelude` | 见 `kpush.py` 内嵌常量；prelude 已与原始推送版本逐行比对一致 |
-| `kaggle_probes/` | 9 个探测 notebook 源码（环境/字母表/加速器/挂载） |
+| `tools/kpush.py` | **重建的推送工具**：本地 .py → Kaggle 单格 notebook（含 argv 固化 + stdout tee + **自描述版本头**） |
+| `kaggle_probes/` | 探测 notebook 源码（环境/字母表/加速器/挂载）；`l4x4_decision_probe.py` 与 `l4_cuda_works.py` 是 L4 定案的两个实验 |
 | `ARC26_SOLVER_SPEC.md` | **重建**的规格文档（原文件不在任何 notebook 里） |
 | `.kpush_build/` | 构建产物（已被 `.gitignore` 排除） |
 
 原始 notebook 与运行日志另存于 `C:\Users\LRDC07\kaggle_refs\`（**未入库**，体积大且含 token 泄露）。
+
+### 版本号规范（续写时遵守）
+
+1. 任何**改变求解器行为**的修改都要把 `SOLVER_VERSION` 进位，并在 `SOLVER_CHANGELOG`
+   （源码内，紧挨 `DEFAULT_REPORT`）**顶部**加一条。
+2. 同时把该版本快照存为 `versions/v_<标签>_<HHMM>.py`，并更新上表。
+3. `SOLVER_VERSION` 会写进 `report.json` 的 `solver_version`，`SOLVER_CHANGELOG` 写进
+   `solver_changelog`；**kpush 生成的每个 notebook 第 0 格是自描述 markdown 头**，自动列出
+   版本号、固定 argv、以及决定行为的常量表与 changelog。
+4. **为什么必须这么做**：本竞赛有参与者报告过「notebook 崩了，第二天却出现了来自*上一个
+   版本*的分数」，即**无法判断哪个分数是哪份代码产生的**。每天只有 1 次提交，这种歧义
+   代价是一整天。
+
+### v0.5.0 相对 v0.1.0 的差异（**续写时别改回去**）
+
+| 变化 | 位置 | 内容与理由 |
+|---|---|---|
+| **加速器定案** | `assert_gpu_compatible` / `kpush.py` | `machine_shape` 必须是 **`NvidiaL4`**（4×L4 / 88 GiB）。**不是 `NvidiaTeslaT4`**（1×T4 / 14.56 GiB，此前一直在用），**也不是 `NvidiaL4x4`**（会静默降级成 P100）。旧守卫用 `get_arch_list()` 做集合判定，该表不含 `sm_89` → **把 L4 判为不可用**；现改为跑真实算子判定 |
+| **TTT 配方** | `LORA_R` 等常量 | `r=256`（原 16）、rsLoRA、targets 增加 `embed_tokens`/`lm_head`、cosine + `warmup_ratio 0.1`。取自 NVARC 2025 夺冠 notebook 源码（**不在其 repo、不在论坛**） |
+| **调度表** | `ttt_lr_at` | 纯函数。写测试时抓到 off-by-one：除以 `(total - warmup)` 永远走不到 cosine 终点，最后一步仍停在峰值 ~1%。改为 `(total - 1 - warmup)` |
+| **显存守卫** | `ttt_optimiser_gib` + `attach_lora` | r=256 需 ~5.9 GiB（12 字节/可训练参数），T4 在 base model 之上只剩 ~7.3 GiB → **加载时大声拒绝**，而不是三分钟后 OOM 后被记成「试过 TTT、没有收益」 |
+| **占位符不变量** | report `submission_health` | 统计 `[[0]]` 提交与条目数错误。参考实现里超时题会静默退化成 `[[0]]`（恰好 0 分），是该竞赛最大本地→榜单落差的机制。实测 40 题 / 124 次尝试：**0 占位符、0 重复** |
+| **TTT 遥测** | report `ttt` | `tasks_routed` / `tasks_executed` / `tasks_routed_but_never_stepped` / `total_optimizer_steps`，并在「派了活却零步」时告警 |
+| **pool recall 分母** | `record_task` | 原来按 **stage** 累加，同一题被 B/C 重访会重复计数（发布过 16，真实 11）→ 改为从唯一 per-task 行重算 |
 
 ## 2. 三个版本的差异（**续写时别改回去**）
 

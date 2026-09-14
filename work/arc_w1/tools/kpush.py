@@ -44,6 +44,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -110,15 +111,91 @@ except Exception as _e:
 '''
 
 
-def build_notebook(solver_text: str, argv: str, extras: Sequence[tuple[str, str]] = ()) -> dict:
-    """Cells: one `%%writefile` per extra file, then the prelude + the solver verbatim.
+def solver_version(solver_text: str) -> str:
+    """Pull ``SOLVER_VERSION`` out of the solver source.
+
+    The notebook must be able to say which code it contains. That matters here more than usual:
+    a participant in this competition reported a leaderboard score appearing "from a previous
+    version of the notebook" after a crash and could not tell which code had produced which
+    number, and with one submission per day that ambiguity costs a day.
+    """
+    m = re.search(r'^SOLVER_VERSION\s*=\s*"([^"]+)"', solver_text, re.M)
+    return m.group(1) if m else "unknown"
+
+
+def build_header(solver_text: str, argv: str, machine_shape: str, slug: str) -> dict:
+    """A markdown cell that makes the notebook self-describing.
+
+    Records the version, the exact pinned argv, the accelerator, and the constants that actually
+    determine behaviour, so a saved Kaggle version is traceable without reading the code cell.
+    """
+    def const(name, default="?"):
+        m = re.search(rf"^{name}\s*=\s*([^\n#]+)", solver_text, re.M)
+        return m.group(1).strip() if m else default
+
+    version = solver_version(solver_text)
+    lines = [
+        f"# arc26 solver — version `{version}`",
+        "",
+        f"`{slug}` · accelerator **`{machine_shape}`** · internet **off** · competition data attached",
+        "",
+        "This notebook is generated from `work/arc_w1/arc26_solver.py` by `tools/kpush.py`.",
+        f"The version string is also written into `report.json` as `solver_version`, so a",
+        "leaderboard result can be traced back to the exact code that produced it.",
+        "",
+        "## Pinned arguments",
+        "",
+        "```",
+        f"{argv.strip() or '(none)'}",
+        "```",
+        "",
+        "## Behaviour-determining constants at this version",
+        "",
+        "| constant | value |",
+        "|---|---|",
+        f"| `SOLVER_VERSION` | `{version}` |",
+        f"| `LORA_R` | `{const('LORA_R')}` |",
+        f"| `LORA_ALPHA` | `{const('LORA_ALPHA')}` |",
+        f"| `TTT_LR` | `{const('TTT_LR')}` |",
+        f"| `TTT_WARMUP_RATIO` | `{const('TTT_WARMUP_RATIO')}` |",
+        f"| `TTT_SEQ_TOKEN_BUDGET` | `{const('TTT_SEQ_TOKEN_BUDGET')}` |",
+        f"| `TTT_MAX_SEQ_LENGTH` | `{const('TTT_MAX_SEQ_LENGTH')}` |",
+        f"| `DFS_TOKEN_PROB_THRESHOLD` | `{const('DFS_TOKEN_PROB_THRESHOLD')}` |",
+        f"| `DFS_MAX_BRANCHES_PER_BEAM` | `{const('DFS_MAX_BRANCHES_PER_BEAM')}` |",
+        f"| `DFS_MAX_NODES` | `{const('DFS_MAX_NODES')}` |",
+        "",
+        "## Changelog",
+        "",
+    ]
+    block = re.search(r"SOLVER_CHANGELOG[^=]*=\s*\[(.*?)\n\]", solver_text, re.S)
+    body = block.group(1) if block else ""
+    # Each entry is a tuple whose note is several implicitly-concatenated string literals spread
+    # over multiple lines, so match the whole tuple and then join the literals inside it.
+    for entry in re.finditer(r'\(\s*"([^"]+)"\s*,(.*?)\)\s*,?\s*(?=\n\s*\(|\Z)', body, re.S):
+        ver = entry.group(1)
+        note = " ".join(re.findall(r'"((?:[^"\\]|\\.)*)"', entry.group(2)))
+        flat = " ".join(note.replace('\\"', '"').split())
+        marker = " ← **this version**" if ver == version else ""
+        lines.append(f"- **`{ver}`**{marker} — {flat}")
+    if not body:
+        lines.append("- (changelog not found in the shipped source)")
+    return {
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": ("\n".join(lines) + "\n").splitlines(keepends=True),
+    }
+
+
+def build_notebook(solver_text: str, argv: str, extras: Sequence[tuple[str, str]] = (),
+                   machine_shape: str = "NvidiaL4", slug: str = "arc26-solver") -> dict:
+    """Cells: a self-describing header, one `%%writefile` per extra file, then prelude + solver.
 
     Extras are shipped as `%%writefile` cells rather than as a Kaggle Dataset so the whole
     deliverable stays ONE notebook file with no manual upload step (fixed by R4 in
     REVIEW_2026-09-14.md: `--engine` was unusable because there was no way to get the
     engine file onto the Kaggle side).
     """
-    cells = []
+    cells = [build_header(solver_text, argv, machine_shape, slug)]
     for remote, text in extras:
         body = f"%%writefile {remote}\n{text}"
         cells.append({
@@ -299,7 +376,8 @@ def main() -> int:
             argv = (argv + f" --engine {remote}").strip()
         print(f"  engine: {ep} -> {remote} ({ep.stat().st_size} bytes)")
 
-    nb = build_notebook(solver_text, argv, extras)
+    nb = build_notebook(solver_text, argv, extras,
+                        machine_shape=args.machine_shape, slug=args.slug)
     meta = build_metadata(args.slug, args.title or args.slug, not args.no_gpu, not args.public,
                           args.internet, None if args.no_competition else COMPETITION,
                           None if args.no_model else MODEL_SOURCE, args.machine_shape)
@@ -325,10 +403,17 @@ def main() -> int:
         ok_solver = cell_source.endswith(solver_text.rstrip()) or \
             cell_source.rstrip().endswith(solver_text.rstrip())
         print(f"  solver cell ends with the solver's last line : {ok_solver}")
+        # Cell 0 is the self-describing markdown header; extras follow it, the solver is last.
+        header = "".join(nb["cells"][0]["source"])
+        print(f"  header cell names the version               : "
+              f"{solver_version(solver_text) in header}")
+        print(f"  header cell lists the changelog             : "
+              f"{header.count(chr(10) + '- **`') >= 2}")
         for i, (remote, text) in enumerate(extras):
-            body = "".join(nb["cells"][i]["source"])
+            body = "".join(nb["cells"][i + 1]["source"])
             head, _, written = body.partition("\n")
             print(f"  extra cell {i}: {head!r} -> content byte-identical: {written == text}")
+        print(f"  cell order: [header] + {len(extras)} extra + [solver]")
         return 0
 
     api = get_api()

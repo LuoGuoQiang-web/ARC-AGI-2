@@ -66,7 +66,7 @@ def build_and_push(name: str, argv: str, dry_run: bool,
     slug = f"arc26-exp-{name}"
     solver_text = (ARC_W1 / "arc26_solver.py").read_text(encoding="utf-8")
     extras = extras or []
-    nb = K.build_notebook(solver_text, argv, extras)
+    nb = K.build_notebook(solver_text, argv, extras, machine_shape="NvidiaL4", slug=slug)
     meta = K.build_metadata(slug, slug.replace("-", " "), True, True, False,
                             K.COMPETITION, K.MODEL_SOURCE, "NvidiaTeslaT4")
     build = BUILD_ROOT / slug
