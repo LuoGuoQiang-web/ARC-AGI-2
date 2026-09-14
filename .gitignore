@@ -52,3 +52,6 @@ sample_submission.json
 # 体积实测仅 1.3 MB，没有理由排除。
 # 只排除可再生的构建中间产物。
 .kpush_build/
+
+# 调研子代理的临时抓取目录（probe.txt、调试用 API 响应），不入库
+_research_tmp/
