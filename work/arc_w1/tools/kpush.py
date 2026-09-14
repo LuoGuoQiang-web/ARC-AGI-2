@@ -110,20 +110,37 @@ except Exception as _e:
 '''
 
 
-def build_notebook(solver_text: str, argv: str) -> dict:
-    """One code cell: prelude + the solver verbatim."""
-    argv_tokens = ""
-    if argv.strip():
-        argv_tokens = ", " + ", ".join(json.dumps(t) for t in argv.split())
-    source = PRELUDE.format(argv=argv_tokens) + solver_text
-    return {
-        "cells": [{
+def build_notebook(solver_text: str, argv: str, extras: Sequence[tuple[str, str]] = ()) -> dict:
+    """Cells: one `%%writefile` per extra file, then the prelude + the solver verbatim.
+
+    Extras are shipped as `%%writefile` cells rather than as a Kaggle Dataset so the whole
+    deliverable stays ONE notebook file with no manual upload step (fixed by R4 in
+    REVIEW_2026-09-14.md: `--engine` was unusable because there was no way to get the
+    engine file onto the Kaggle side).
+    """
+    cells = []
+    for remote, text in extras:
+        body = f"%%writefile {remote}\n{text}"
+        cells.append({
             "cell_type": "code",
             "execution_count": None,
             "metadata": {},
             "outputs": [],
-            "source": source.splitlines(keepends=True),
-        }],
+            "source": body.splitlines(keepends=True),
+        })
+    argv_tokens = ""
+    if argv.strip():
+        argv_tokens = ", " + ", ".join(json.dumps(t) for t in argv.split())
+    source = PRELUDE.format(argv=argv_tokens) + solver_text
+    cells.append({
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": source.splitlines(keepends=True),
+    })
+    return {
+        "cells": cells,
         "metadata": {
             "kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
             "language_info": {"name": "python", "version": "3.12"},
@@ -203,6 +220,13 @@ def main() -> int:
     ap.add_argument("--no-competition", action="store_true", help="do not attach the competition data")
     ap.add_argument("--no-model", action="store_true", help="do not attach the SFT model")
     ap.add_argument("--dry-run", action="store_true", help="build the notebook locally, do not push")
+    ap.add_argument("--extra", action="append", default=[],
+                    metavar="PATH[:REMOTE]",
+                    help="ship another local file too, as a %%writefile cell "
+                         "(default remote: /kaggle/working/<basename>)")
+    ap.add_argument("--engine", default="",
+                    help="shortcut: ship this symbolic engine and add "
+                         "--engine /kaggle/working/<basename> to the argv")
     ap.add_argument("--status", action="store_true", help="print the kernel's last-run status and exit")
     ap.add_argument("--log", action="store_true", help="download the run log (kernel_stdout.log) and exit")
     ap.add_argument("--output", action="store_true", help="download the run output files and exit")
@@ -249,7 +273,30 @@ def main() -> int:
         print("refusing to ship a file that already contains the prelude")
         return 2
 
-    nb = build_notebook(solver_text, args.argv)
+    # ---- extras (e.g. the symbolic engine for --engine) --------------------------------
+    extras: list[tuple[str, str]] = []
+    argv = args.argv
+    for spec in list(args.extra):
+        local, _, remote = spec.partition(":")
+        lp = Path(local)
+        if not lp.exists():
+            print(f"--extra file not found: {lp}")
+            return 2
+        remote = remote or f"/kaggle/working/{lp.name}"
+        extras.append((remote, lp.read_text(encoding="utf-8")))
+        print(f"  extra: {lp} -> {remote} ({lp.stat().st_size} bytes)")
+    if args.engine:
+        ep = Path(args.engine)
+        if not ep.exists():
+            print(f"--engine file not found: {ep}")
+            return 2
+        remote = f"/kaggle/working/{ep.name}"
+        extras.append((remote, ep.read_text(encoding="utf-8")))
+        if "--engine" not in argv:
+            argv = (argv + f" --engine {remote}").strip()
+        print(f"  engine: {ep} -> {remote} ({ep.stat().st_size} bytes)")
+
+    nb = build_notebook(solver_text, argv, extras)
     meta = build_metadata(args.slug, args.title or args.slug, not args.no_gpu, not args.public,
                           args.internet, None if args.no_competition else COMPETITION,
                           None if args.no_model else MODEL_SOURCE, args.machine_shape)
@@ -261,17 +308,24 @@ def main() -> int:
     (build / f"{args.slug}.ipynb").write_text(json.dumps(nb, ensure_ascii=False), encoding="utf-8")
     (build / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
-    cell_source = "".join(nb["cells"][0]["source"])
+    cell_source = "".join(nb["cells"][-1]["source"])   # the solver cell is last
     print(f"built  : {build}")
+    print(f"  cells  : {len(nb['cells'])} ({len(extras)} extra + 1 solver)")
     print(f"  solver : {solver_path} ({len(solver_text)} chars, {solver_text.count(chr(10))+1} lines)")
     print(f"  cell   : {len(cell_source)} chars (prelude {len(cell_source)-len(solver_text)} + solver)")
-    print(f"  argv   : {args.argv or '(none)'}")
+    print(f"  argv   : {argv or '(none)'}")
     print(f"  gpu={meta['enable_gpu']} private={meta['is_private']} internet={meta['enable_internet']} "
-          f"competition={meta['competition_sources']} model={meta['model_sources']}")
+          f"shape={meta['machine_shape']} competition={meta['competition_sources']} "
+          f"model={meta['model_sources']}")
     if args.dry_run:
-        print("\n--dry-run: not pushing. Verify the cell matches the solver:")
-        print(f"  cell ends with solver's last line: "
-              f"{cell_source.endswith(solver_text.rstrip()) or cell_source.rstrip().endswith(solver_text.rstrip())}")
+        print("\n--dry-run: not pushing. Verify the cells:")
+        ok_solver = cell_source.endswith(solver_text.rstrip()) or \
+            cell_source.rstrip().endswith(solver_text.rstrip())
+        print(f"  solver cell ends with the solver's last line : {ok_solver}")
+        for i, (remote, text) in enumerate(extras):
+            body = "".join(nb["cells"][i]["source"])
+            head, _, written = body.partition("\n")
+            print(f"  extra cell {i}: {head!r} -> content byte-identical: {written == text}")
         return 0
 
     api = get_api()
