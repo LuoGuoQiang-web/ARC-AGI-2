@@ -313,7 +313,7 @@ def main() -> int:
     # ---- T14: TTT context budget actually shrinks the step, and keeps the target ---------
     # The measured failure this guards: with the whole demonstration set in one sequence a
     # 30x30 task builds an ~8192-token optimizer step, the backward allocation fails on a
-    # 14.56 GiB T4, and adaptation silently never runs (86 of 102 tasks in the 240-task run).
+    # 14.56 GiB T4, and adaptation is starved of memory, so the step count collapses.
     # Capping the context must (a) really shorten the step and (b) never cut the target pair,
     # which is the only part of the sequence that carries loss.
     ev_all = splits.get("evaluation") or {}

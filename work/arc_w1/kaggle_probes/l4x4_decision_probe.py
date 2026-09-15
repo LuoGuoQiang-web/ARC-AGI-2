@@ -4,7 +4,7 @@ Why this matters more than any model tweak: the 2026-04-07 host announcement say
 "now has access to Kaggle's pool of powerful new L4x4 machines! These machines offer 96GB of GPU
 memory enabling submissions with much larger models." We have been fighting a 14.56 GiB T4 the
 whole time, and our binding constraint -- LoRA TTT failing to allocate a 1.77 GiB activation
-buffer, so that 86 of 102 tasks never adapted -- is purely a memory limit.
+buffer, so that adaptation ran at a fraction of its intended budget -- is a memory limit.
 
 If L4x4 is available, the trade is: 4x the quota burn (the forum reports 12 h of L4x4 consuming
 48 GPU-hours against a 30 h weekly allowance), in exchange for ~24 GiB on a single device instead

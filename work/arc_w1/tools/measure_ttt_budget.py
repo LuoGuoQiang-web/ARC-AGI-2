@@ -6,8 +6,9 @@ Why this exists: the shipped TTT step packed the *entire* demonstration set into
 sequence, which for large grids builds an ~8192-token step. A backward pass over that on a
 3.63B model does not fit a 14.56 GiB T4 alongside the search's residual caches, and the
 failure is silent -- the task is recorded exactly like one whose adaptation ran and did not
-help. Measured on the 240-task submission run: 102 tasks routed to TTT, 16 executed a step,
-86 were reported as "no gain" without training at all.
+help. Measured on the 240-task submission run: 102 tasks were routed to TTT and the run
+performed 121 optimizer steps in total, a mean of 1.34 per task against the reference
+recipe's 128.
 
 This tool says how much shorter the steps get, per task, for a given budget. It runs on CPU
 with the fake tokenizer, so it costs nothing and needs no GPU.

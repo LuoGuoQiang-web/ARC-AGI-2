@@ -12,11 +12,13 @@ timeout, an empty batch) is caught, the run continues, and the final metric look
 like a stage that ran correctly and did not help.
 
 Measured, in the ARC-AGI-2 solver this module was extracted from: 102 tasks were routed to
-the test-time-training stage. 16 executed a single optimizer step. The stage consumed 7,266
-seconds to perform 21 optimizer steps in total, and the other 86 tasks were reported as
-"attempted, no gain" -- the pipeline citing its own no-op as evidence about its own method.
-The accuracy number was read as a statement about model capability rather than about a
-1.77 GiB allocation that failed.
+the test-time-training stage, which consumed 7,266 seconds to perform 121 optimizer steps --
+a mean of 1.34 per task against the reference recipe's 128. And the run's own counter
+reported 21 steps across 16 tasks, under-counting by 6x and disagreeing with the kernel log
+on 77 of 102 tasks, because a later pipeline stage re-recorded each task and overwrote the
+count. The result was read as a statement about model capability rather than about an
+adaptation stage running at one percent of its budget -- measured by an instrument that
+could not see straight. That is the failure this module exists to make impossible.
 
 The fix is one counter, and it generalises well beyond ARC: record how many steps ran, per
 task, and refuse to draw conclusions from a stage that mostly did not execute.

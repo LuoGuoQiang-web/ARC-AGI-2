@@ -7,8 +7,9 @@
 
 | 路径 | 说明 |
 |---|---|
-| `arc26_solver.py` | **当前 canonical 求解器**（`SOLVER_VERSION = "0.5.0"`，3,127 行 / 150,251 字符） |
-| `versions/v_v050_l4_1621.py` | **v0.5.0 留档**（2026-09-14 16:21）：L4 加速器修复 + NVARC 实测 TTT 配方 + 提交完整性检查 |
+| `arc26_solver.py` | **当前 canonical 求解器**（`SOLVER_VERSION = "0.5.1"`） |
+| `versions/v_v051_tttcount_1149.py` | **v0.5.1 留档**（2026-09-15）：`ttt_steps` 改为跨 stage 累加；全部文档与工具同步更正 |
+| `versions/v_v050_l4_1621.py` | v0.5.0 留档（2026-09-14 16:21）：L4 加速器修复 + NVARC 实测 TTT 配方 + 提交完整性检查。⚠️ **其注释里仍写着更正前的 `86 of 102`**——留档按原样保存，**不要修改**，否则档案就不再是那一版的真实内容 |
 | `versions/v_full_1122.py` | v0.1.0：09-13 11:22 版本，取自 `arc26-submit-full`（本轮之前最后一次真实提交用的就是它） |
 | `versions/v_shard_1029.py` | 09-13 10:29 版本（`submit-shard0` / `eval-validate` 用的是它） |
 | `versions/v_smoke_0941.py` | 09-13 09:41 版本（`solver-smoke`） |
@@ -30,6 +31,18 @@
 4. **为什么必须这么做**：本竞赛有参与者报告过「notebook 崩了，第二天却出现了来自*上一个
    版本*的分数」，即**无法判断哪个分数是哪份代码产生的**。每天只有 1 次提交，这种歧义
    代价是一整天。
+
+### v0.5.1 相对 v0.5.0 的差异（**同一类 bug 的第三次出现**）
+
+| 变化 | 位置 | 内容与理由 |
+|---|---|---|
+| **`ttt_steps` 改为累加** | `record_task` | `record_task` 每个 **stage** 跑一次，而 Stage C 会用 `ttt_steps=0` 的新 `TaskResult` 重新记录同一题 → **覆盖掉 Stage B 的实测值**。报告因此声称 102 题中 16 题执行、共 21 步；**kernel log 实为 93 题、121 步，两者在 77 题上不一致**。回归检查 `T16a/T16b` |
+| **删掉 `tools/measure_ttt_execution.py`** | tools/ | 它读 `report.json`，因此**产出已知错误的数字**。正确的仪器是 `tools/measure_ttt_from_logs.py`（从 kernel log 数）。**留着一个会撒谎的工具比没有工具更糟** |
+| **全部文档/注释同步** | 9 处 | 求解器 4 处注释、`adaptation_audit.py`、`measure_ttt_budget.py`、`l4x4_decision_probe.py`、测试注释、brief §2.3.1.3，全部改为更正后的数字 |
+
+> **教训（写进论文的就是这一条）**：同一种 bug 在本仓库出现了**三次**——pool recall 分母按 stage
+> 累加、缺失字段被读成 0、`ttt_steps` 被后置 stage 覆盖。**三次都是 per-stage 写入摧毁 per-task
+> 事实，且三次都偏向支持当时的假设。** 任何新指标都必须检查"聚合值是否等于它所汇总的那些行"。
 
 ### v0.5.0 相对 v0.1.0 的差异（**续写时别改回去**）
 
