@@ -2520,7 +2520,15 @@ class RunContext:
             entry["n_candidates"] = int(res.n_candidates)
             entry["attempts"] = list(res.sources)
             entry["source"] = (res.sources[0] if res.sources else "fallback")
-            entry["ttt_steps"] = int(res.ttt_steps)
+            # ACCUMULATE, do not overwrite. record_task runs once per stage, and Stage C
+            # re-records the same task with a fresh TaskResult whose ttt_steps is 0 -- so a plain
+            # assignment there erased what Stage B had actually measured. Measured cost on
+            # arc26-submit-full: the report claimed 16 of 102 tasks stepped and 21 steps in
+            # total, while the kernel log recorded 93 of 102 and 121 steps. The two disagreed on
+            # 77 of 102 tasks, and every downstream claim inherited the report's number -- the
+            # paper's headline figure among them. This is the third instance of the same class of
+            # bug in this codebase: a per-stage write destroying a per-task fact.
+            entry["ttt_steps"] = int(entry.get("ttt_steps") or 0) + int(res.ttt_steps)
             entry["timed_out"] = bool(res.timed_out)
             entry["confidence"] = round(res.confidence, 3)
             entry["agree_max"] = int(res.agree_max)

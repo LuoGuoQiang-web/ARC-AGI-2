@@ -556,6 +556,32 @@ def main() -> int:
     # binding constraint (selection_headroom was 0.0 on the first eval probe).
     d = S.parse_args(["--dfs-prob-threshold", "0.1", "--dfs-max-branches", "4",
                       "--dfs-max-nodes", "12000"])
+    # ---- T16: ttt_steps must ACCUMULATE across stages, not be clobbered ------------------
+    # Regression for the bug that corrupted the paper's headline number. record_task runs once per
+    # stage, and Stage C re-records the same task with a fresh TaskResult whose ttt_steps is 0, so
+    # a plain assignment erased what Stage B had measured. On arc26-submit-full the report claimed
+    # 16 of 102 tasks stepped and 21 steps total, while the kernel log recorded 93 of 102 and 121
+    # steps; the two disagreed on 77 of 102 tasks.
+    c2 = _ctx()
+    _p = [{"attempt_1": np.array([[1, 1]]), "attempt_2": np.array([[2, 2]])}]
+    r_b = S.TaskResult(attempts=list(_p), sources=["neural"], n_candidates=3, seconds=5.0,
+                       ttt_steps=2, pools=[[cand(truth, 0.1)]])
+    r_c = S.TaskResult(attempts=list(_p), sources=["neural"], n_candidates=3, seconds=1.0,
+                       ttt_steps=0, pools=[[cand(truth, 0.1)]])
+    c2.record_task("t", r_b, "B_ttt", replace=True)
+    after_b = c2.report["per_task"][0]["ttt_steps"]
+    c2.record_task("t", r_c, "C_backfill")
+    after_c = c2.report["per_task"][0]["ttt_steps"]
+    check("T16a a later zero-step stage does not erase earlier TTT steps",
+          after_b == 2 and after_c == 2, 1,
+          [f"after B={after_b}, after C={after_c} (expected 2, 2)"])
+    c3 = _ctx()
+    c3.record_task("t", r_b, "B_ttt", replace=True)
+    c3.record_task("t", r_b, "B_ttt")
+    check("T16b repeated stepping stages accumulate",
+          c3.report["per_task"][0]["ttt_steps"] == 4, 1,
+          [f"got {c3.report['per_task'][0]['ttt_steps']} (expected 4)"])
+
     # ---- T12: the search-width knobs are reachable from the CLI ----------------------
     check("T12a CLI exposes the search width",
           (d.dfs_prob_threshold, d.dfs_max_branches, d.dfs_max_nodes) == (0.1, 4, 12000),
