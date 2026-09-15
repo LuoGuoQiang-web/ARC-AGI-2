@@ -18,7 +18,7 @@
 | 运行约束 | Kaggle **最多 2 个并发 GPU 会话**；**周配额 30 h**（§2.4 已更正）、单次 `--time-budget-seconds 39000`（实测跑满 37,963 s）；T4 ×2（各 14.6 GiB），3.634B 必须 bf16 + 梯度检查点；**成功运行不发布日志**，靠 tee 到 `/kaggle/working/kernel_stdout.log`。**每日提交次数有限**，比 GPU 额度更稀缺 |
 | 下一个动作 | ① 等 `arc26-submit-full` 的线上分数（决定提交管线是否真的通了）；② 等 `arc26-exp-prob10` / `arc26-exp-branch4` 两个搜索宽度实验（各 8 题，与 base 配对）；③ **写论文**（真正的奖金来源，0 GPU 成本） |
 | 阻塞项 | ❌ **无硬件/账号阻塞**。真正的瓶颈已实测锁定为**生成**而非选择：`pool_recall = 0.0`、`selection_headroom = 0.0`（两次独立测量：24 题与 8 题评估子集）→ **任何重排序/选择改进都不可能提分** |
-| 已解决 | ✅ 「公开仓库」（github.com/LuoGuoQiang-web/ARC-AGI-2 私有，`kaggle.json` 不在远端）；✅ **手机验证**；✅ MattSkills 初始化；✅ 本机 git / gh / kaggle 包；✅ 官方数据克隆；✅ **从 Kaggle 抢救出另一台电脑的求解器 + 重建推送工具**；✅ **符号引擎接入 Stage C**（`--engine`，11/11 本地测试通过）；✅ **分片合并 + 实验脚手架**；✅ **首次跑通竞赛提交动作**（§2.6.1） |
+| 已解决 | ✅ **仓库已转为公开**（2026-09-15，`github.com/LuoGuoQiang-web/ARC-AGI-2`，翻转前已扫描全历史确认无凭据；`kaggle.json` 从未入库）——这是**硬性资格门槛**：官方要求*收到私有评测分数之前*必须开源；✅ **手机验证**；✅ MattSkills 初始化；✅ 本机 git / gh / kaggle 包；✅ 官方数据克隆；✅ **从 Kaggle 抢救出另一台电脑的求解器 + 重建推送工具**；✅ **符号引擎接入 Stage C**（`--engine`，11/11 本地测试通过）；✅ **分片合并 + 实验脚手架**；✅ **首次跑通竞赛提交动作**（§2.6.1）；✅ **首次拿到真实分数**（`56221023`，0.42%，格式通过） |
 | 待用户确认 | 额度事实已更正（30 h/周期，非 6 h）——**是否需要重排全局计划**？当前仅剩 5.2 h，09-19 刷新后有 30 h |
 | 已花预算 | 0 / 300 RMB |
 | 工作目录 | `C:\Users\LRDC07\Desktop\Kaggle` |
@@ -529,7 +529,7 @@ kaggle competitions submit -c arc-prize-2026-arc-agi-2 \
 | `kaggle.json` | Kaggle 凭据（**不得外泄、不得提交到仓库**；本机存在但被 git 忽略） |
 | `ARC-AGI-2-main/` | 官方数据克隆（第三方，被 git 忽略；换机器用 `git clone --depth 1` 重建） |
 
-**远端**：`https://github.com/LuoGuoQiang-web/ARC-AGI-2`（私有）｜仓库 28 个文件｜换机器流程见 §16
+**远端**：`https://github.com/LuoGuoQiang-web/ARC-AGI-2`（**公开**，2026-09-15 起）｜推送用普通 `git push`（见 §16.1）｜换机器流程见 §16
 
 ---
 
@@ -581,25 +581,46 @@ python arc_prize_v1/tests/eval_local.py --dataset training   #    应复现 3.16
 （全量重跑评估集 6 秒、训练集 31 秒）、本次对话上下文（§0 就是为此写的）。
 DSH 历史会话存在 `C:\Users\LRDC07\.dsh`，理论上可整目录拷贝到新机同路径，**跨机恢复未实测**，不要依赖。
 
-### 16.1 ⚠️ 本机网络：`github.com:443` 会被阻断 —— 用 API 推送
+### 16.1 本机网络与推送方式（**2026-09-15 更新：已恢复正常，用普通 git push**）
 
-2026-09-14 实测：**只有 `github.com` 这一台主机不通**（connection reset / timeout），
-而 `api.github.com`、`codeload.github.com`、`raw.githubusercontent.com`、`registry.npmjs.org`
-全部 200。因此：
+**现状（2026-09-15 实测）：`github.com` 与 `api.github.com` 均返回 200，`git push origin main` 直接成功。**
+**默认用普通 git。** 不要一上来就绕行 API——那是故障期的临时手段。
 
-- `git push` / `git fetch` / `git clone https://github.com/...` **会失败**（时通时断，同一天内两种都出现过）；
-- **替代方案**：用仓库自带的 `tools/gh_api_push.py` 通过 GitHub REST API 推送：
+```bash
+git push origin main        # 正常情况就用这个
+```
+
+#### 故障期记录（2026-09-14，保留供参考）
+
+当天实测**只有 `github.com` 这一台主机不通**（connection reset / timeout），而
+`api.github.com`、`codeload.github.com`、`raw.githubusercontent.com`、`registry.npmjs.org`
+全部 200。当时的应对：
+
+- `git push` / `git fetch` / `git clone https://github.com/...` 会失败（**时通时断**，
+  同一天内两种都出现过——所以遇到失败先重试一次再判断）；
+- **替代方案**：`tools/gh_api_push.py` 通过 GitHub REST API 推送：
   ```powershell
   $env:GH_TOKEN = (gh auth token)
   python tools/gh_api_push.py --repo LuoGuoQiang-web/ARC-AGI-2 --branch main
   ```
-  它会上传本地 HEAD 的**全部文件**构建 tree（不依赖远端 tree），并**强制校验
-  `GitHub tree == 本地 tree`**，不一致就拒绝写入 —— 所以内容零损失。
-- **副作用**：API 产生的提交 SHA 与本地不同（内容相同、元数据不同）。
-  网络恢复后用一条命令调和：
-  ```bash
-  git fetch origin && git reset --hard origin/main
-  ```
+  它上传本地 HEAD 的**全部文件**构建 tree（不依赖远端 tree），并**强制校验
+  `GitHub tree == 本地 tree`**，不一致就拒绝写入 —— 内容零损失。
+- **副作用**：API 产生的提交 **SHA 与本地不同**（内容相同、元数据不同）。这会造成
+  `git push` 报 "remote contains work that you do not have locally"。
+
+#### ⚠️ 调和分叉的正确做法（2026-09-15 实测踩过）
+
+**不要**直接 `git reset --hard origin/main`——那会丢掉本地尚未推送的提交。正确顺序是先验证内容等价：
+
+```bash
+git fetch origin
+git diff --stat origin/main HEAD~1    # 空 = 远端内容 == 本地倒数第二个提交
+git reset --soft origin/main          # HEAD 移到远端，索引/工作区不动
+git commit -m "..."                   # 把本地那一个提交重放在远端之上
+git push origin main
+```
+
+`--soft` 是关键：它保住索引，所以重放的提交内容与原来那个完全一致。
 
 ### 16.2 安全规则（2026-09-14 事件后确立）
 
