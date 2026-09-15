@@ -1,3 +1,22 @@
+> # ⚠️ SUPERSEDED — do not attach this file
+>
+> **The submission artefact is `ARC_PRIZE_2026_WRITEUP.md`** (1,445 words, within Kaggle's
+> 1,500-word cap). This file is the longer working draft it was condensed from, kept only as a
+> record of the reasoning.
+>
+> **It contains two claims now known to be wrong**, and attaching it would contradict §4.4 of the
+> Writeup:
+>
+> 1. The title's "Memory-Constrained" framing and the body's claim that LoRA TTT is
+>    memory-infeasible "on the competition's 14.56 GiB T4". **False as stated.** It was infeasible
+>    on the accelerator *we* had selected by default; the competition offers
+>    `machine_shape=NvidiaL4` — four L4s, 88 GiB.
+> 2. `assert_gpu_compatible` is described as a working safeguard. It was in fact the thing that
+>    *rejected* the L4, because it tested set membership in `torch.cuda.get_arch_list()`, which
+>    omits `sm_89`. Fixed in solver v0.5.0.
+>
+> The masked-adaptation finding — the one novel claim — is unaffected and carried forward intact.
+
 # The Adaptation That Wasn't: Silent Test-Time-Training Failure in a Memory-Constrained ARC-AGI-2 Solver
 
 **ARC Prize 2026 — Paper Track submission**
