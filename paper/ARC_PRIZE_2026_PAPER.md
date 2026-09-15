@@ -1,21 +1,32 @@
 > # ⚠️ SUPERSEDED — do not attach this file
 >
-> **The submission artefact is `ARC_PRIZE_2026_WRITEUP.md`** (1,445 words, within Kaggle's
+> **The submission artefact is `ARC_PRIZE_2026_WRITEUP.md`** (1,477 words, within Kaggle's
 > 1,500-word cap). This file is the longer working draft it was condensed from, kept only as a
 > record of the reasoning.
 >
-> **It contains two claims now known to be wrong**, and attaching it would contradict §4.4 of the
-> Writeup:
+> **It contains three claims now known to be wrong.** Attaching it would contradict the Writeup:
 >
-> 1. The title's "Memory-Constrained" framing and the body's claim that LoRA TTT is
+> 1. The title's "Memory-Constrained" framing, and the body's claim that LoRA TTT is
 >    memory-infeasible "on the competition's 14.56 GiB T4". **False as stated.** It was infeasible
 >    on the accelerator *we* had selected by default; the competition offers
->    `machine_shape=NvidiaL4` — four L4s, 88 GiB.
+>    `machine_shape=NvidiaL4` — four L4s, 88 GiB. See Writeup §4.4.
 > 2. `assert_gpu_compatible` is described as a working safeguard. It was in fact the thing that
 >    *rejected* the L4, because it tested set membership in `torch.cuda.get_arch_list()`, which
 >    omits `sm_89`. Fixed in solver v0.5.0.
+> 3. **The headline number in §4.3 is false.** It reports "16 of 102 tasks executed a single
+>    optimizer step", "21 optimizer steps" and "84 recorded `B_ttt_no_gain` with zero steps",
+>    taken from `report.json`. Counting from the kernel log instead: **93 of 102 tasks stepped and
+>    the run performed 121 optimizer steps**, disagreeing with the report on **77 of 102 tasks**.
+>    The report was wrong because `record_task` runs once per *stage* and a later stage re-records
+>    the task with a fresh result whose step count is zero, erasing what adaptation had measured.
+>    Fixed in solver v0.5.0 (accumulate instead of overwrite) with regression checks T16a/T16b.
 >
-> The masked-adaptation finding — the one novel claim — is unaffected and carried forward intact.
+> **Point 3 matters most, because it changes the finding itself.** The claim is no longer "the
+> adaptation never ran" but "the adaptation ran, on 93 of 102 tasks, at **1.34 optimizer steps**
+> against the reference recipe's **128** — and the run's own counter misreported even that, by a
+> factor of six". The novelty claim therefore moves from *a masked no-op* to *an adaptation stage
+> whose execution was misreported by its own instrumentation*. The Writeup carries the corrected
+> version; §4.3 below does not.
 
 # The Adaptation That Wasn't: Silent Test-Time-Training Failure in a Memory-Constrained ARC-AGI-2 Solver
 
@@ -30,6 +41,13 @@ test-time training (TTT) on each task's demonstration pairs, and a thresholded s
 model's outputs. NVARC's 2025-winning system uses a Qwen3-4B backbone with LoRA — the same
 configuration we study here. That recipe assumes adaptation happens. We report a case where it
 did not, and where nothing in the reported metrics said so.
+
+> ⚠️ **CORRECTED (see the banner at the top).** The paragraph below is wrong. The true numbers,
+> counted from the kernel log rather than from `report.json`: **93 of 102 tasks stepped, and the
+> run performed 121 optimizer steps** (the report claimed 16 and 21; the two disagree on 77 of 102
+> tasks). So the adaptation *did* run — at **1.34 optimizer steps per task** against the reference
+> recipe's **128** — and the finding is that its execution was misreported by the run's own
+> instrumentation, not that it never executed. The corrected text is in the Writeup, §4.3.
 
 In a 240-task ARC-AGI-2 submission run, **102 tasks were routed to the test-time-training stage.
 Only 16 of them executed a single optimizer step.** Across the entire run the stage consumed
@@ -318,6 +336,16 @@ hypothesis test before being run; the hypothesis failed.
 
 ### 4.3 The result: the adaptation stage barely executed
 
+> ⚠️ **CORRECTED — the table and the two paragraphs below are wrong.** They were taken from
+> `report.json`. Counted from the kernel log, the same run shows **93 of 102 tasks executing at
+> least one optimizer step and 121 optimizer steps in total**; the report and the log disagree on
+> **77 of 102 tasks**. The report was wrong because `record_task` runs once per *stage* and a later
+> stage re-records the task with a fresh result whose step count is zero, erasing what adaptation
+> had measured. The corrected finding — adaptation ran, at **1.34 steps per task** against the
+> reference recipe's **128**, and its execution was misreported by the run's own instrumentation —
+> is in the Writeup, §4.3. The prose further down that describes the TTT failure as *silent and
+> total* should be read with that correction applied.
+
 Pool recall says the generator is bad. It does not say why. The answer is in the resource telemetry,
 and it is the central finding of this paper.
 
@@ -474,6 +502,10 @@ than as a result, and we would rather say so than present an untested remedy as 
 ---
 
 ## 6. Conclusion
+
+> ⚠️ **CORRECTED.** As above: the true figures are **93 of 102 tasks stepping** and **121 optimizer
+> steps**, not 16 and 21. The conclusion is therefore not that adaptation never ran, but that it
+> ran at about one percent of its intended budget and that the run's own counter concealed it.
 
 We set out to improve an ARC-AGI-2 solver and found that the part of it we believed in most was not
 running. The system follows an established and successful recipe — a 4B open model, LoRA test-time
