@@ -126,7 +126,8 @@ one claim we make.**
 channel the pipeline does not control** — the kernel log is what caught ours. Make degradation
 per-task rather than global, and never report a stage's null result without confirming the stage
 executed and that your measurement of it agrees with an independent source. We learned both by
-violating them. The counter and its self-test ship as a dependency-free module.
+violating them. The counter, its self-test, and a demonstration of the same failure in an unrelated
+pipeline ship as a dependency-free module.
 
 ## 6. Conclusion
 We found that the part of our solver we believed in most was running at one percent of its budget,
